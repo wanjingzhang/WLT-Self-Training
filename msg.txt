@@ -1,3 +1,4 @@
 good,very good
 buy error ticket,go home
 回家了,收拾东西准备下班。
+肚子饿了,吃点花生
