@@ -1,0 +1,138 @@
+#block-success-stories {
+  .view-success-stories, .view-content {
+    @include clearfix();
+  }
+}
+
+.success-story {
+  margin:0 1%;
+  text-align:center;
+  border:1px solid $greyMedium;
+  margin-bottom:2%;
+  padding:0 0 5px 0;
+  position:relative;
+  &:hover {
+    & > :first-child {
+      img, .thumbnail-title-inner {
+        transform: scale(1.1);
+      }
+    }
+  }
+  & > :first-child {
+    overflow:hidden;
+    img, .thumbnail-title-inner {
+      -webkit-transition: all .4s ease; 
+      transition: all .4s ease; 
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    }
+  }
+  h3 {
+    margin-bottom:0;
+  }
+  &.success-story-256396 {
+    .image {
+      background-color:$blue;
+    }
+  }
+  &.success-story-cb1e47 {
+    .image {
+      background-color:$red;
+    }
+  }
+  &.success-story-3b8489 {
+    .image {
+      background-color:$turquoise;
+    }
+  }
+  &.success-story-734991 {
+    .image {
+      background-color:$purple;
+    }
+  }
+  &.success-story-ffffff {
+    .image {
+      background-color:$white;
+    }
+    .thumbnail-title {
+      color:$grey;
+    }
+  }
+  &.success-story-000000 {
+    .image {
+      background-color:$black;
+    }
+  }
+  &.success-story-fb6400 {
+    .image {
+      background-color:$orange;
+    }
+  }
+  &.success-story-f1bc03 {
+    .image {
+      background-color:$yellow;
+    }
+  }
+  .thumbnail-title-wrapper {
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:54px;
+    left:0;
+    overflow:hidden;
+    .thumbnail-title-inner {
+      display:table;
+      height:100%;
+      padding: 0 20%;
+    }
+  }
+
+  .thumbnail-title {
+    @include fontSetup(40px, 1.2, $white, 700, 0);
+    display:table-cell;
+    vertical-align:middle;
+    text-align:left;
+    letter-spacing: -2px;
+  }
+  .success-story-copy {
+    border-top:1px solid $greyMedium;
+    .view-more {
+      a {
+      letter-spacing: -0.05em;
+        padding-right: 16px;
+        @include link-arrow(14px, 0);
+        &:after {
+          color:$greyMedium;
+          font-size:14px;
+        }
+
+      }
+    }
+    .title {
+      a {
+      letter-spacing: -0.05em;
+        &:hover {
+          text-decoration:none; 
+        }
+      }
+    }
+    h3 a {
+      @include fontSetup(18px, 1, $greyMedium, normal, null);
+    }
+    .view-more {
+      a {
+        @include fontSetup(14px, 1, $greyMedium, normal, null);
+      }
+      
+    }
+  }
+
+}
+
+
+@media (min-width: 768px) {
+  .success-story {
+    width:48%;
+    float:left;
+  }
+}

@@ -1,0 +1,32 @@
+.page-node-type-sector, .page-node-type-service  {
+	.content {
+		p {
+			line-height:1.6;
+			margin-bottom:17px;
+		}
+	}
+  .data-wrapper, .download-wrapper {
+    background-color:$greyLight;
+    padding-bottom:100px;
+  }
+  .page-header {
+    border-bottom:none;
+    padding-top:85px;
+    text-align:center;
+  }
+  .container {
+  	.more-stories {
+  		float:left;
+      margin: 20px 5% 50px;
+      h3 {
+        @include fontSetup(20px, 1, null, 700, 0);
+      }
+  	}
+  	.view-content {
+  		clear:both;
+  	}
+  	#block-case-studies {
+  		clear:both;
+  	}
+  }
+}

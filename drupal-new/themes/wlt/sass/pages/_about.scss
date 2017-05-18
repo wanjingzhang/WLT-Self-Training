@@ -1,0 +1,385 @@
+#block-about-us {
+	.view-content {
+		background-color:$purple;
+	}
+	//menu
+	.sub-nav {
+		.about {
+			h3 {
+			  &.active {
+			  	a {
+	          color:$purple;
+			  	}
+			  }
+			}
+		}
+	}
+}
+.page-node-type-about-us {
+
+	.brand-evolution {
+		background-color:$greyLight;
+		&.last {
+			padding:0 0 72px;
+		}
+	}
+	.family-images {
+		padding:0 5%;
+		text-align:center;
+		.family-image {
+			display: inline-table;
+    	vertical-align: top;
+    	width:20%;
+			margin:0 4%;
+		}
+		.logo {
+			border:5px solid $greyLight;
+			border-radius:50%;
+			width:auto;
+			margin:0 auto;
+			width:206px;
+			height:206px;
+			img {
+				border-radius:50%;
+				@include vertical-align; 
+			}
+			a {
+				display:block;
+				height:100%;
+			}
+		}
+		.title {
+			margin:15px 0 74px;
+		}
+	}
+	#block-letstalk {
+		margin-top:26px;
+	}
+	.brand-evolution-content {
+		position:relative;
+		.col {
+			position:relative;
+			text-align:center;
+			p {
+				@include fontSetup(15px, 1.4);
+				letter-spacing: -0.05em;
+				&.hr {
+					&:after {
+						content:"";
+						width:104px;
+						height:2px;
+						background:$grey;
+						display:block;
+						position:absolute;
+						left:0;
+						right:0;
+						margin:6px auto 0;
+					}
+
+				}
+			}
+			&:before {
+        @include after-font-icon(56px, null, null);
+        line-height:86px;
+        font-weight:normal;
+        position:absolute;
+        left: 0;
+        right: 0;
+        text-align:center;
+        border-radius:50%;
+        width:86px;
+        height:86px;
+        margin:0 auto;
+      }
+      .date {
+      	display:block;
+      	@include fontSetup(36px, 1, $white, 700, null);
+      	padding: 6px 0 8px;
+      	width:137px;
+      	position:relative;
+      	margin:0 auto;
+				&:before {
+					@include after-font-icon(58px, 0, "\e900", $white);
+					position:absolute;
+			    left: -9px;
+    			top: -4px;
+				}
+				&:after {
+					@include after-font-icon(50px, 0, "\e900", null);
+					position:absolute;
+			    left: -11px;
+    			top: 0;
+				}
+
+      }
+      &:nth-child(1) {
+      	.date {
+					&:after {
+						content:"";
+					}
+					&:before {
+						font-size: 68px;
+				    left: -11px;
+				    top: -9px;
+				    color:$greyLight;
+					}
+				}
+			}
+
+    	.last-date {
+    		.date {
+    			padding-left:10px;
+    			width:145px;
+    		}
+    		position:relative;
+				&:after {
+					@include after-font-icon(76px, 0, "\e900", $greyLight);
+					position:absolute;
+			    right: 24px;
+			    top: -12px;
+				}
+			}
+		}
+		.copy-replace {
+			display:none;
+		}		
+		.col-4, .col-5, .col-6{
+			&:hover {
+				.copy-replace {
+					display:block;
+				}
+				.default-copy {
+					display:none;
+				}
+			}
+		}
+		.col-1, .col-3, .col-5, .col-7 {
+			padding-top: 100px;
+			&:before {
+				top:0;
+			}
+			.date {
+				margin-top:43px;
+			}
+			.brand-evolution-copy {
+      	&:after {
+					content:"";
+					width:2px;
+					height:22px;
+					background:#eee;
+					display:block;
+					position:absolute;
+					left:0;
+					right:0;
+					margin:0 auto;
+				}
+      }
+		}
+		.col-2, .col-4, .col-6 {
+			padding-bottom:100px;
+			&:before {
+				bottom:0;
+			}
+			.date {
+				margin-bottom:10px;
+			}
+			.brand-evolution-copy {
+				> p {
+					padding-top:30px;
+				}
+      	&:before {
+					content:"";
+					width:2px;
+					height:22px;
+					background:#eee;
+					display:block;
+					position:absolute;
+					left:0;
+					right:0;
+					margin:0 auto;
+				}
+      }
+		}
+		.col-1 {
+			.date {
+				background:#663796;
+				&:after {
+					color:#663796;
+				}
+			}
+			&:before {
+			  content: "\e90a";
+			  background-color:#663796;
+			}
+
+		}
+		.col-2 {
+			.date {
+				background:#594096;
+				&:after {
+					color:#594096;
+				}
+			}
+			&:before {
+			  content: "\e908";
+			  background-color:#594096;
+			  font-size: 74px;
+			}
+		}
+		.col-3 {
+			.date {
+				background:#4c4896;
+				&:after {
+					color:#4c4896;
+				}
+			}
+			&:before {
+			  content: "\e907";
+			  background-color:#4c4896;
+			  font-size:52px;
+			  padding-left: 13px;
+			}
+		}
+		.col-4 {
+			.date {
+				background:#454d96;
+				&:after {
+					color:#454d96;
+				}
+			}
+			&:before {
+				content:"\e91f";
+				background-color:#454d96;
+				font-size:54px;
+				line-height: 81px;
+			}
+			
+		}
+		.col-5 {
+			.date {
+				background:#3f5196;
+				&:after {
+					color:#3f5196;
+				}
+			}
+			&:before {
+			  content: "\e909";
+			  background-color:#3f5196;
+			  font-size: 66px;
+			}
+		}
+		.col-6 {
+			.date {
+				background:#325a96;
+				&:after {
+					color:#325a96;
+				}
+			}
+  		&:before {
+  		content: "\e923";
+  		background-color:#325a96;
+  		}
+		}
+		.col-7 {
+			padding-top:82px;
+			.date {
+				background:$blue;
+				&:after {
+					color:$blue;
+				}
+			}
+			&:before {
+				content: url(../img/logo-icon.png);
+			}
+		}
+	}
+}
+
+//desktop styling with absolute as mobile is in columns not rows
+@media (min-width: 1000px) {
+	.page-node-type-about-us {
+		.brand-evolution-content {
+			height:540px;
+			.col {
+				float:left;
+				position:absolute;
+			}
+			.col-1, .col-3, .col-5, .col-7 {
+				bottom:190px;
+				&:before {
+					top:0;
+				}
+			}
+			.col-2, .col-4, .col-6 {
+				padding-bottom:100px;
+				top: 290px;
+				&:before {
+					bottom:0;
+				}
+			}
+			.col-1 {
+				left:0;
+				width:21%;
+			}
+			.col-2 {
+				left: 155px;
+				width:16%;
+			}
+			.col-3 {
+				width:22%;
+				left:254px;
+			}
+			.col-4 {
+				width:24%;
+				left: 372px;
+			}
+			.col-5 {
+				width:21%;
+				left: 517px; 
+			}
+			.col-6 {
+				width: 24%;
+    		left: 630px;
+			}
+			.col-7 {
+				width:22%;
+				left: 769px;
+			}
+		}
+	}
+}
+@media (max-width: 999px) {
+	.page-node-type-about-us {
+		.brand-evolution {
+			display:none;
+		}
+
+	}
+}
+
+//mobile
+@media (min-width: 768px) {
+	.sub-nav {
+		.about {
+			h3 {
+				a {
+					&:hover {
+						color:$purple;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//menu
+@media (max-width: 767px) {
+  .sub-nav {
+    ul {
+      .about {
+      	width:33.33%;
+      }
+    }
+  }
+}

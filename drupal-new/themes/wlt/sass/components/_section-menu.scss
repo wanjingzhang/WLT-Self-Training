@@ -1,0 +1,118 @@
+.sub-nav{
+  ul {
+    @include clearfix();
+    list-style:none;
+    text-align:center;
+    display: table;
+    margin:0 auto;
+    width:100%;
+    li {
+      border-right:2px solid $white;
+      display: inline-table;
+      vertical-align: top;
+      &:last-child {
+        border-right:none;
+      }  
+      h3 {
+        display: table;
+        width:100%;
+        margin-bottom:0;
+        &.active {
+          a {
+            background-color:$white;
+          }
+        }
+        a {
+          @include fontSetup(15px, 1.3, $white, 700, 0);
+          letter-spacing: -0.025em;
+          height:85px;
+          display: table-cell;
+          vertical-align: middle;
+          text-decoration:none;
+          padding:0 10px;
+        }
+      }
+    }
+  }
+}
+
+//sub section nav anchor to push down under the fixed nav
+
+.user-logged-in {
+  #nav {
+    top:-152px;
+  }
+}
+#nav {
+  position: relative;
+  top: -75px;
+}
+
+
+//menu
+@media (max-width: 767px) {
+  .sub-nav {
+    ul {
+      li {
+        width: 32%;
+        &:nth-child(-n+3) {
+          border-bottom:2px solid $white;
+        }
+        &:nth-child(3) {
+          border-right:none;
+        }
+      }
+    }
+
+  }
+}
+
+.page-node-type-news {
+  .sub-nav { 
+    li {
+      &:nth-child(3) {
+        h3 a {
+          color:$purple;
+          background-color:$white;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .sub-nav {
+    ul {
+      li {
+        width: 12.5%;
+        h3 {
+          &.active {
+            a {
+              -webkit-transform:scale(1.1);
+              transform:scale(1.1);
+            }
+          }
+        }
+        a {
+          &:hover {
+            background-color:$white;
+            -webkit-transform:scale(1.1);
+            transform:scale(1.1);
+          }
+        }
+      }
+    }
+  }
+  .page-node-type-news {
+    .sub-nav { 
+      li {
+        &:nth-child(3) {
+          h3 a {
+          -webkit-transform:scale(1.1);
+            transform:scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}

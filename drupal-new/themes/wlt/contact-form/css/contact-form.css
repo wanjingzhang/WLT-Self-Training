@@ -1,0 +1,102 @@
+/* ==================Popup CSS==================== */
+.reveal-modal-bg { position: fixed; height: 100%;width: 100%;background:rgba(0,175,233,0.95); opacity:1 !important;z-index: 999;display: none;top: 0;left: 0;pointer-events: none !important;cursor: default !important; }
+.reveal-modal {display: none;top:45px; left: 50%;margin-left: -300px;width: 520px;background-color: transparent;position: absolute;z-index: 9999;padding:20px;}
+.reveal-modal.small{ width: 200px; margin-left: -140px;}
+.reveal-modal.medium{ width: 400px; margin-left: -240px;}
+.reveal-modal.large{ width: 600px; margin-left: -340px;}
+.reveal-modal.xlarge{ width:1000px; margin-left: -500px;}
+.reveal-modal .close-reveal-modal {font-size: 22px;line-height: .5;position: absolute;top:-15px;right: 11px;color: #fff;text-shadow: 0 -1px 1px rbga(0,0,0,.6);font-weight: bold;cursor: pointer;} 
+/* ================================== */
+
+
+/* ==================Contact Forms CSS==================== */
+#contactPopup .hs-input::-webkit-input-placeholder { opacity:1 !important; color:#fff !important}
+#contactPopup .hs-input:-moz-placeholder { opacity:1 !important; color:#fff !important}
+#contactPopup .hs-input:-ms-input-placeholder { opacity:1 !important; color:#fff !important}
+/* #contactPopup .hs-input:-moz-placeholder { opacity:1 !important; color:#fff !important} */
+
+#contactPopup .popup-head{width:480px; margin:0 auto 0; text-align:center; overflow:hidden; border-bottom:1px solid #fff}
+#contactPopup .popup-head h2{font-size:60px; color:#fff; font-weight:bold;letter-spacing: -3.2px; padding:0; margin:0;line-height: 78px;}
+.contact-pop-top{ width:480px; margin:0 auto 50px; text-align:center; overflow:hidden}
+.contact-pop-top p,.business-enquiry p{ font-size:18px; color:#fff}
+.contact-pop-top p{margin:5px 0 20px}
+.business-enquiry p{ margin-top:0; padding:0}
+.contact-pop-top i{ font-size:40px; color:#fff}
+.business-enquiry{ width:100%; margin:0 auto; padding-top:0; text-align:center; overflow:hidden}
+.business-enquiry p a{ text-decoration: underline;color:#fff; font-weight:bold;}
+.business-enquiry h3{ font-size:24px; color:#fff; font-weight:bold; margin-bottom:10px; margin-top:20px}
+#contactPopup .hbspt-form{ float:left; width:100%;}
+#contactPopup .hbspt-form .left{ width:50%; float:left; padding-right:4%;position:relative; padding-bottom:18px}
+#contactPopup .hbspt-form .right{ width:50%; float:right;padding-left:4%;position:relative}
+
+#contactPopup .hbspt-form .form-columns-1,#contactPopup .hbspt-form .form-columns-2{width:100%; float:left; max-width: 100%;position:relative}
+#contactPopup .hbspt-form .form-columns-1 > div:first-child,#contactPopup .hbspt-form .form-columns-2 > div:first-child{ width:46%; float:left; position:relative;overflow:hidden}
+#contactPopup .hbspt-form .form-columns-1 > div:nth-child(2),#contactPopup .hbspt-form .form-columns-2 > div:nth-child(2){ width:46%; float:right;position:relative;overflow:hidden}
+#contactPopup .hbspt-form fieldset:nth-child(6){ padding-left:54%}
+#contactPopup .hbspt-form fieldset:nth-child(6) > div{width:100% !important}
+#contactPopup .hbspt-form .form-columns-2 .input{margin-right:0 !important}
+
+
+#contactPopup .field{width:100%; overflow:hidden;position:relative}
+#contactPopup .field > label{display:none}
+#contactPopup .field .input{ border-left:3px solid #256396; padding-left:10px; margin-bottom:20px;  }
+#contactPopup .hs_message .input,#contactPopup .hs_recaptcha .input{ border:none; padding:0}
+#contactPopup .hs-input{height:30px; padding:0; border:none; border-bottom:2px solid #fff; background:none;font-size:18px; color:#fff}
+#contactPopup .hs-input.error{ border-color:red}
+#contactPopup .hs-input option{ font-size:13px; color:#3f3f3f; padding:5px;}
+#contactPopup .hs_region__c .input, #contactPopup .hs_country__c .input,#contactPopup .hs_industry .input{ padding-left:90px;}
+/* #contactPopup .hs_region__c .hs-input, #contactPopup .hs_country__c .hs-input,#contactPopup .hs_industry .hs-input{ width:110%} */
+/* #contactPopup .field .input textarea{ height:80px; padding:10px; background-color:#fff; color:#3f3f3f} */
+#contactPopup .hs_region__c > label, #contactPopup .hs_country__c > label,#contactPopup .hs_industry > label{ position:absolute; left:10px; top:8px; width:90px; display:block;font-size:18px; color:#fff; font-weight:bold}
+#contactPopup ul.hs-error-msgs { font-size: 13px;margin:0;padding: 0;position:relative; color:red;}
+#contactPopup ul.hs-error-msgs li{ position:absolute;margin:-20px 0 0 13px; padding:0; list-style:none;display:none;}
+#contactPopup ul.hs-error-msgs li:nth-last-child(1){display:block;}
+#contactPopup .hs_region__c ul.hs-error-msgs li, #contactPopup .hs_country__c ul.hs-error-msgs li, #contactPopup .hs_industry ul.hs-error-msgs li{margin:-20px 0 0 92px}
+#contactPopup .hs_message ul.hs-error-msgs li,#contactPopup .hs_recaptcha ul.hs-error-msgs li{ margin:-20px 0 0}
+/* #contactPopup .hs_recaptcha{ width:50%; float:left; padding-right:4%;position:relative} */
+#contactPopup .hs_recaptcha > div,#contactPopup .hs_recaptcha > div > div{ width:100% !important}
+#contactPopup .hs_submit{ width:50%; float:right;padding-left:4%;position:relative}
+#contactPopup .hs_submit .hs-button{ width:100%; height:70px; line-height:70px; margin-top:2px; border:none; background-color:#256396; font-size:24px; color:#fff; font-weight:bold; text-align:center; cursor:pointer; letter-spacing:-1px}
+
+#contactPopup .hs_checkbox_terms{ margin-top:-5px; }
+#contactPopup .hs_checkbox_terms .input{ border:none; padding-left:0; overflow:hidden;margin-bottom:10px}
+#contactPopup .hs_checkbox_terms .input .inputs-list { margin: 0;padding: 0;}
+#contactPopup .hs_checkbox_terms .input .inputs-list li{ list-style:none; position:relative;}
+#contactPopup .hs_checkbox_terms .input .inputs-list li label{ position:relative; padding-left:20px; float:left; width:100%}
+#contactPopup .hs_checkbox_terms .input .inputs-list li label .hs-input{ position:absolute; left:0; top:0; border:none !important; background-color:#fff !important; margin:0 ; height:13px !important; width:auto !important}
+#contactPopup .hs_checkbox_terms .input .inputs-list li label span{ color:#fff; font-size:12px; line-height:14px; float:left; width:100%; text-align:left}
+#contactPopup .hs_checkbox_terms .input .inputs-list li label span div{ padding-top:5px}
+#contactPopup .hs_checkbox_terms .input .inputs-list li label span a{color:#fff; text-decoration:underline}
+
+.thankyou-msg{ text-align:center; margin-top:100px}
+.thankyou-msg h2{font-size:60px; color:#fff; font-weight:bold;letter-spacing: -3.2px; padding:0; margin:32px 0 0}
+.thankyou-msg h3{ font-size:24px; color:#fff; font-weight:bold; margin:15px 0}
+.thankyou-msg p{ font-size:18px; color:#fff; width:330px; margin:0 auto;}
+
+/* ================================== */
+/* ==================Responsive CSS==================== */
+@media only screen and (max-width: 991px) {
+.reveal-modal{ width:100% !important; left:0 !important; margin:0 !important;}
+#contactPopup .hbspt-form .form-columns-1 > div:first-child,#contactPopup .hbspt-form .form-columns-2 > div:first-child{ width:48%;}
+#contactPopup .hbspt-form .form-columns-1 > div:nth-child(2),#contactPopup .hbspt-form .form-columns-2 > div:nth-child(2){ width:48%;}
+#contactPopup .hs_recaptcha{ margin-top:-181px}
+}
+@media only screen and (max-width: 767px) {
+#contactPopup .popup-head h2,.thankyou-msg h2{font-size:40px;letter-spacing: -2.2px;}
+/* #contactPopup .hbspt-form .left,#contactPopup .hs_recaptcha,#contactPopup .hbspt-form .right,#contactPopup .hs_submit{ width:100%; float:left; padding:0;} */
+#contactPopup .hbspt-form fieldset:nth-child(6){ padding-left:0}
+#contactPopup .hs_recaptcha{ margin-top:0}
+.contact-pop-top p,.business-enquiry p{ margin-top:10px }
+}
+@media only screen and (max-width: 567px) {
+#contactPopup .popup-head,.contact-pop-top,.business-enquiry{ width:100%}
+}
+@media only screen and (max-width: 479px) {
+#contactPopup .hs_region__c > label, #contactPopup .hs_country__c > label, #contactPopup .hs_industry > label{left: 0;position: relative;top: 0;width: 100%;}
+#contactPopup .hs_region__c .input, #contactPopup .hs_country__c .input, #contactPopup .hs_industry .input{ padding-left:10px}
+#contactPopup .hs_region__c ul.hs-error-msgs li, #contactPopup .hs_country__c ul.hs-error-msgs li, #contactPopup .hs_industry ul.hs-error-msgs li{ margin:-20px 0 0 13px}
+}
+@media only screen and (max-width: 400px) {
+.thankyou-msg p{ width:100%}
+}
+/* ================================== */

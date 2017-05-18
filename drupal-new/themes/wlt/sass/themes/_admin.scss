@@ -1,0 +1,19 @@
+nav.tabs {
+  max-width: 800px;
+  margin: 100px auto 10px;
+  .user-logged-in & {
+    position: absolute;
+    top: 100px;
+    z-index: 1030;
+    margin: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    left: 5%;
+  }
+}
+form.user-login-form,
+form.user-pass {
+  max-width: 800px;
+  margin: 0 auto 100px;
+}

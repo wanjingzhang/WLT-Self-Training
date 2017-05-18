@@ -1,0 +1,256 @@
+.case-study {
+  overflow:hidden;
+  position:relative;
+  border:1px solid $greyLighter;
+  p, a {
+    letter-spacing: -0.05em;
+  }
+  .sector {
+    @include fontSetup(22px, 1.3, $grey, null, null);
+    top:48px;
+    span {
+      display:block;
+      color:$blue;
+    }
+  }
+}
+
+.case-study-copy {
+  background: rgba(255,255,255, 0.6);
+  position:absolute;
+  bottom:5px;
+  padding:5px 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  .title {
+    font-size:16px;
+    margin-bottom:0;
+    a {
+      @include fontSetup(16px, 1, $grey, 700, null);
+    }
+  }
+  .view-more {
+    a {
+      @include fontSetup(15px, 1, $blue, null, null);
+      text-decoration:underline;
+    }
+  }
+}
+.title-bottom-right {
+  .case-study-copy {
+    right:0;
+  }
+}
+
+.title-bottom-left {
+  .case-study-copy {
+    left:0;
+  }
+}
+
+//about us careers page
+.careers-imagery {
+  @include clearfix;
+  list-style:none;
+  .careers {
+    overflow:hidden;
+    position:relative; 
+    &:not(.careers-image) {
+      background:$greyLighter;
+    }
+    .copy {
+      @include vertical-align(absolute);
+      left:0;
+      @include fontSetup(22px, 1.3, $white, 700, null);
+      letter-spacing: -0.05em;
+      padding:0 36px;
+    }
+    &:nth-child(n+2) {
+      &:before, &:after {
+        @include fontSetup(60px, 1, $white, 700, 0);
+        position: absolute;
+      }
+      &:before {
+        content:"“";
+        left: 10px;
+        top: 6px;
+      }
+      &:after {
+        content:"”";
+        right: 10px;
+        bottom: -16px;
+      }   
+      &.careers-image {
+        &:after, &:before {
+          content:"";
+        }
+        .copy {
+          display:none;
+        }
+        &:hover {
+          &:after {
+            content: "”";
+          }
+          .copy {
+            display:block;
+          }
+          &:before {
+            position: absolute;
+            content:"“";
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background-color:rgba(115,73,145,0.9);
+            padding-left:10px;
+            padding-top:6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1019px) and (min-width: 768px) {
+  .view-header {
+    .case-study {
+      height:auto;
+      padding:5px;
+      margin-bottom:0;
+      p, a {
+        font-size:18px;
+      }
+    }
+  }
+  .view-content {
+    .careers-imagery {
+      .careers {
+        .copy {
+          font-size:18px;
+        }
+        &:before, &:after {
+          font-size:40px;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+//small mobile
+@media (max-width: 640px) {
+  .case-study, .view-header .case-study {
+    width:100%;
+  }
+}
+
+@media (max-width: 500px) {
+.view-content {
+    .careers-imagery {
+      .careers {
+        &:first-child {
+          .copy {
+            font-size:18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//middle
+@media (max-width: 767px) and (min-width:641px) {
+  .case-study, .careers-imagery li {
+    float:left;
+  }
+  .case-study-small, .view-header .case-study, .careers-square {
+    width:50%;
+  }
+  .case-study-big, .case-study-rect, .careers-rect {
+    width:100%;
+  }
+}
+
+//up to mobile
+@media (min-width: 768px) {
+  .case-study, .careers-imagery li {
+    margin:0 1% 2%;
+    height:auto;
+  }
+  .case-study, .careers-imagery li {
+    float:left;
+  }
+  .case-study-small, .careers-square, .view-header .case-study {
+    width:23%;
+  }
+  .case-study-big {
+    width:48%;
+  }
+  .case-study-rect, .careers-rect {
+    width:48%;
+  }
+  .case-study {
+    &:hover {
+      .case-study-copy {
+        display:none;
+      }
+    }
+  }
+  #block-case-studies {
+    .view-content {
+      @include clearfix();
+      .case-study {
+        .sector, .view-more-overlay {
+          position:absolute;
+          opacity:0;
+          padding-left:24px;
+        }
+        .view-more-overlay {
+          bottom:25px;
+          a {
+            @include fontSetup(18px, 1.1, $grey, 700, null);
+            text-decoration:underline;
+            padding-right:33px;
+            @include link-arrow(20px, 0);
+          }
+        }
+
+        &:hover {
+          cursor:pointer;
+          .sector, .view-more-overlay {
+            opacity:1;
+            z-index:2;
+            pointer-events: none;
+          }
+          .image a {
+            &:after {
+              position: absolute;
+              content:"";
+              top:5px;
+              left:5px;
+              right:5px;
+              bottom:5px;
+              background-color:rgba(255,255,255,0.9);
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+  #block-case-studies {
+    .case-study {
+      .sector, .view-more-overlay {
+        display:none;
+      }
+    }
+  }
+}

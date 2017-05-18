@@ -1,0 +1,116 @@
+.path-sitemap {
+  .sitemap {
+    @include clearfix;
+    padding:0;
+    margin:0 auto 100px;
+    .content {
+      margin: 0 5%;
+      .col {
+         > li {
+          margin-bottom:26px;
+         }
+      }
+      ul {
+        padding:0;
+        margin:0;
+        li {
+          padding:0;
+          &:before {
+            content:"";
+          }
+          a {
+            text-decoration:none;
+          }
+          > a {
+            @include fontSetup(24px, null, $blue, 700, null);
+            .letter-spacing { letter-spacing: -0.05em; }
+          }
+        }
+        ul {
+          margin-top:16px;
+          li {
+            a {
+              @include fontSetup(16px, null, #999, normal, null);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .path-sitemap {
+    .navbar-default {
+      background:$blue;
+    }
+    .sitemap {
+      margin-top:250px;
+      .content {
+        margin:0 10%;
+        .col {
+          float:left;
+          &:nth-child(odd) {
+            width:30%;
+          }
+          &:nth-child(2) {
+            width:40%;
+          }
+          li {
+            padding-right:20px;
+          }
+        }
+        > ul {
+          li {
+            li {
+              &:last-child {
+                margin-bottom:0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {  
+  .path-sitemap {
+    .content {
+      > ul {
+          > li {
+            &:nth-child(2){
+              margin-bottom:0;
+            }
+          }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  .path-sitemap {
+    .sitemap {
+      margin-top:100px;
+    }
+    .contact-us {
+      a {
+        background-color:$blue;
+      }
+    }
+  }
+}
+
+@media (min-width: 1020px) {
+  .path-sitemap {
+    .sitemap {
+      width: 1000px;
+    }
+  }
+}
+
+@media (max-width: 1019px) {
+  .path-sitemap {
+    .sitemap  {
+        width: auto;
+    }
+  }
+}

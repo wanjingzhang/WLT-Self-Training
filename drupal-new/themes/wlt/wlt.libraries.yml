@@ -1,0 +1,27 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+
+global-scripts:
+  js:
+    js/script.js: {}
+
+  dependencies:
+    - core/jquery
+
+success-stories:
+  js:
+    js/success-stories-filter.js: {}
+
+hubspot-form:
+  js:
+    contact-form/js/jquery.reveal.js: {}
+    contact-form/js/contact-form.js: {}
+  css:
+    theme:
+      contact-form/css/contact-form.css: {}
+
+hubspot-analytics:
+  js:
+    js/hubspot-analytics.js: {}

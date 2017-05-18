@@ -1,0 +1,7 @@
+type: module
+name: Williams Lea Tag
+description: 'Williams Lea Tag custom module that extends site functionality.'
+version: '8.x-1.0'
+core: '8.x'
+dependencies:
+  - video

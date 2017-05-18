@@ -1,0 +1,30 @@
+.featured-image h1, .featured h2, .page-header {
+	letter-spacing: -3.2px;
+	margin-bottom:16px;
+}
+.page-header {
+	padding-bottom:0;
+}
+
+@media (min-width: 600px) {
+	.featured-image h1, .featured h2, .page-header, #block-letstalk h3, #block-bepart h3{
+		@include fontSetup(60px, 1, null, 700, null);
+	}
+	.featured, .featured-image {
+		p {
+			@include fontSetup(null, 1.6, null, null, 12px);
+		}
+	}
+}
+
+
+@media (max-width: 599px) {
+  .featured-image h1, .featured h2, .page-header, #block-letstalk h3, #block-bepart h3 {
+		@include fontSetup(42px, 1, null, 700, null);
+	}
+	.featured, .featured-image {
+		p {
+			@include fontSetup(17px, 1.6, null, null, 12px);
+		}
+	}
+}

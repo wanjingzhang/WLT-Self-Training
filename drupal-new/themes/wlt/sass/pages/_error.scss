@@ -1,0 +1,16 @@
+.error-page {
+	.featured-image {
+		height:900px;
+		background:#00afe9;
+		&:after {
+			content:"";
+		}
+		.copy {
+			padding-top:230px;
+			background:url(../img/error-bg.png) no-repeat center 0;
+		}
+		p {
+      font-size:30px;
+    }
+	}
+}

@@ -1,0 +1,52 @@
+.page-node-type-sector {
+  .page-header {
+    color:$red;
+  }
+  .featured-red {
+    padding-top:0;
+  }
+  .container {
+  	.more-stories {
+  		color:$redDark;
+  	}
+    .case-study {
+      .sector {
+        span {
+          color:$redDark;
+        }
+      }
+    }
+    .case-study-copy {
+      .view-more{
+        a {
+          color:$redDark;
+        }
+      }
+    }
+
+  }
+  .case-study {
+  	.sector {
+  		a {
+  			color:$redDark;
+  		}
+  	}
+  }
+  .case-study-copy {
+  	.view-more{
+  		a {
+  			color:$redDark;
+  		}
+  	}
+  }
+}
+
+@media (min-width: 960px) {
+  .page-node-type-sector {
+    .data-stat {
+      width:29%;
+      float:left;
+      margin:0 2%;
+    }
+  }
+}

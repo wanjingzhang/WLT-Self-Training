@@ -1,0 +1,113 @@
+//social icons
+
+#block-socialicons, .social-media {
+	p {
+		a {
+			display:block;
+			text-decoration:none;
+			position:relative;
+			&:after {
+				content: "";
+		    border-radius: 50%;
+		    position: absolute;
+		    top: 1px;
+		    left: 1px;
+		    width: 33px;
+		    height: 33px;
+		    z-index: -1;
+		    background:transparent;
+			}
+			&:after {
+				@include transition;
+			}
+			&:hover {
+				text-decoration:none;
+				&:before {
+					color:$white;
+					@include transition;
+				}
+				&:after {
+					@include transition;
+				}
+			}
+		}
+	}
+}
+
+.social-media {
+	p {
+		display:inline-block;
+		a {
+		  margin-left:20px;
+			&:hover {
+				&:after {
+					background:$purple;
+				}
+			}
+			&:before {
+				@include after-font-icon(35px, null, null, $purple);
+			}
+		}
+	}
+}
+
+.social-icon {
+	a {
+		display:block;
+		position:relative;
+		&:before {
+			@include after-font-icon(35px, null, null, $blue);
+		}
+		&:hover, &:focus {
+			text-decoration:none;
+		}
+		&:hover {
+			&:after {
+				background:$blue;
+				@include transition;
+			}
+			&:before {
+				color:$white;
+				@include transition;
+			}
+		}
+		&:after {
+			content: "";
+	    border-radius: 50%;
+	    position: absolute;
+	    top: 1px;
+	    left: 50%;
+	    width: 33px;
+	    height: 33px;
+	    z-index: -1;
+	    background:transparent;
+	    margin-left:-16px;
+		}
+	}
+}
+
+.linkedin {
+	&:before {
+		content: "\e903";
+	}
+}
+.facebook {
+	&:before {
+		content: "\e905";
+	}
+}
+.twitter {
+	&:before {
+		content:"\e902";
+	}
+}
+.google {
+	&:before {
+		content:"\e904";
+	}
+}
+.youtube {
+	&:before {
+		content:"\e90b";
+	}
+}

@@ -1,0 +1,114 @@
+.yamlform-submission-our-supplier-network-form {
+	.form-type-textfield, .form-type-email, .form-type-select, .form-type-url, .form-type-tel {
+		&:before {
+	    background: $purple;
+		}
+	}
+	input {
+		color: $grey;
+	}
+	select, textarea {
+		color:$grey;
+	}
+	input, select {
+		border-bottom:2px solid $grey;
+	}
+	textarea {
+		background:$greyLighter;
+		width:102%;
+	}
+	textarea::-webkit-input-placeholder, input::-webkit-input-placeholder {
+		color: $grey !important;
+	}
+	textarea:-moz-placeholder, input:-moz-placeholder { /* Firefox 18- */
+		color: $grey !important;  
+	}
+	textarea::-moz-placeholder, input::-moz-placeholder {  /* Firefox 19+ */
+		color: $grey !important;  
+	}
+	textarea:-ms-input-placeholder, input:-ms-input-placeholder {  
+		color: $grey !important;  
+	}
+
+	.description {
+		p {
+			color:$grey;
+			a {
+				color:$grey;
+				text-decoration:underline;
+			}
+		}
+	}
+	.form-actions {
+		margin-bottom:0;
+		.btn-primary {
+			background-color:$purple;
+			border-color:$purple;
+			line-height:67px;
+			&:hover {
+				background-color:$white;
+				color:$purple;
+			}
+		}
+	}
+
+}
+
+@media (min-width: 768px) {
+	.supplier-form {
+		.form-item {
+			width:100%;
+			display:inline-block;
+			&:nth-child(-n+4), &:nth-child(9), &:nth-child(10) {
+				width:47%;
+				float:left;
+			}
+			&:nth-child(2), &:nth-child(4), &:nth-child(10) {
+				float:right
+			}
+		}
+	}
+}
+@media (max-width: 767px) {
+	.yamlform-submission-our-supplier-network-form {
+		.supplier-form {
+			.form-item {
+				.form-control {
+					width: 98%;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.yamlform-submission-our-supplier-network-form {
+		.btn-primary {
+			width:102%;
+		}
+		.select-wrapper:after {
+			right:-12px;
+		}
+	}
+}
+@media (max-width: 991px) {
+	.yamlform-submission-our-supplier-network-form {
+		.form-item {
+			.form-control {
+				width:99%;
+			}
+			.form-textarea-wrapper {
+				.form-control {
+					width:100%;
+				}
+			}
+			&:nth-child(-n+4), &:nth-child(9), &:nth-child(10) {
+				.form-control {
+					width:98%;
+				}
+			}
+		}
+		.btn-primary {
+			width:100%;
+		}
+	}
+}

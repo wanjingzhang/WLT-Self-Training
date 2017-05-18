@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\file\Entity\File;
+use Drupal\field\FieldStorageConfigInterface;
+use Drupal\field\FieldConfigInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function williams_lea_tag_theme() {
+  return array(
+    'video_poster_formatter' => array(
+      'variables' => array(
+        'items' => NULL,
+        'poster' => NULL,
+        'player_attributes' => NULL
+      )
+    )
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+/* function williams_lea_tag_form_yamlform_handler_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $build_info = $form_state->getBuildInfo();
+  $elements = $build_info['args'][0]->getElementsDecoded();
+
+  foreach ($elements as $name => $element) {
+    if ($element['#type'] == 'select') {
+      $form['settings']['to']['to_mail']['#options']['Mapping']["mapping|{$name}"] = $element['#title'];
+      #kint($element['#options']);
+    }
+  }
+} */

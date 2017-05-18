@@ -1,0 +1,81 @@
+#block-letstalk, #block-bepart {
+  margin-top:100px;
+  .field {
+    background: url('../img/lets-talk.jpg') no-repeat center center / cover;
+    text-align:center;
+    color:$white;
+    margin-bottom:30px;
+    h3 {
+      letter-spacing: -0.075em;
+    }
+    a:link, a:visited, a:hover, a:focus {
+      color:$white;
+    }
+    a {
+    @include transition; 
+      &:hover {
+        color:$blue;
+        background-color:$white;
+        border-color:$blue;
+        @include transition;
+      }
+    }
+    .button-round {
+      @include fontSetup(17px, null, null, 700, 0);
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing: -0.05em;
+      display:inline-block;
+      padding-top:0;
+      padding-bottom:0;
+      line-height:45px;
+    }
+  }
+}
+
+#block-bepart {
+  .field {
+    p {
+      &.lets-talk-copy {
+        padding-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  #block-letstalk, #block-bepart {
+    .field {
+      h3 {
+        padding-top:32px;
+        margin-bottom:30px;
+      }
+      p {
+        &.lets-talk-copy { 
+          @include fontSetup(24px, 1.3, null, 700, 38px);
+        }
+        &.lets-talk-button {
+          padding-bottom: 54px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  #block-letstalk, #block-bepart { 
+    .field {
+      h3 {
+        padding-top:20px;
+      }
+      p {
+        &.lets-talk-copy {
+          @include fontSetup(16px, 1.3, null, 700, 28px);
+        }
+        &.lets-talk-button {
+          padding-bottom:32px;
+        }
+      }
+    }
+  }
+}
