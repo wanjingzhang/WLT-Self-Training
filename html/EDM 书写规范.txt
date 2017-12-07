@@ -1,0 +1,68 @@
+EDM 书写规范
+一 使用psd导出html文件
+1.export html&jpge
+
+二 头部规范
+1.!DOCTYPE,htmltype!
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+2.viewport,contenttype,charset
+<meta name="viewport" content="width=device-width; initial-scale=1.0;">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equic="X-UA-Compatible" content="IE-edge">
+<meta charset="ISO-8859-1">
+
+三 table 规范
+整体大table，分列需单独嵌入小table。
+<table>
+  <tr><td></td></tr>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td></td>
+          <td></td>
+        <tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+四 样式规范
+1.不使用link或style，使用行内样式style=“”
+2.不使用padding或margin
+3.图片出现缝需要加style="vertical-align:top;"
+4.不使用background
+5.文字部分做自动延展
+6.添加样式
+<td style=“font-size: 12px; font-family: Arial, sans-serif; color: #666666;”> Text </td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+7.img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+  a img {border:none;}
+  .image_fix {display:block;}
+8.#backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+<table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
+    <tr>
+        <td valign="top">
+9.修复雅虎段落边界
+<p style="margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0;">Pellentesque habitant morbi tristique senectus ...</p>
+
+五 转义字符 规范
+&nbsp;              //space
+&lsquo; &rsquo;     //‘ ’
+&laquo; &raquo;     //« »
+&lt; &gt;           //< >
+&reg;               //®
+&copy;              //©
+&trade;             //™ <sup>TM</sup>
+&pound;             //£
+&mdash;             //—
+&amp;               //&
+
+六 测试
+1.Litmus https://litmus.com/blog/
+2.Acid https://www.emailonacid.com/
+3.http://premailer.dialect.ca/
+4.w3c validator http://validator.w3.org/
+5.多浏览器测试
