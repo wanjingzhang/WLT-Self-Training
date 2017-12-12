@@ -1,0 +1,24 @@
+1.CV类型
+CV_[The number of bits per item][Signed or Unsigned][Type Prefix]C[The channel number]
+
+2.获取执行时间
+double duration;
+duration = static_cast<double>(getTickCount());
+colorReduce13(image);
+duration = static_cast<double>(getTickCount()) - duration;
+duration /= getTickFrequency();
+cout << "duration = " <<duration <<endl;
+
+3.单件模式Singleton
+
+4.使用均值漂移算法查找物体，直方图
+
+5.角点检测
+
+6.第八章 检测并匹配兴趣点
+8.2 检测Harris角点
+8.3 检测FAST特征
+8.4 检测尺度不变的SURF特征
+8.5 描述SURF特征
+
+
