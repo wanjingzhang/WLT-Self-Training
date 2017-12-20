@@ -45,6 +45,7 @@ EDM 书写规范
 10.<img>包含alt
 
 五 转义字符 规范
+https://dev.w3.org/html5/html-author/charref
 &nbsp;              //space
 &lsquo; &rsquo;     //‘ ’
 &laquo; &raquo;     //« »
