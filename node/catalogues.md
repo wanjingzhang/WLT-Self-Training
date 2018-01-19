@@ -1,3 +1,5 @@
-# callback hell
-# Iterators
-# Generators 
+# callback hell [√]
+# Iterators     [√]
+# Generators    [√] 
+# Promise       [√] 
+# async wait    [x]
