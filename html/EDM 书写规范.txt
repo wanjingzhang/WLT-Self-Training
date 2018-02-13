@@ -11,7 +11,7 @@ EDM 书写规范
 <meta name="viewport" content="width=device-width; initial-scale=1.0;">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equic="X-UA-Compatible" content="IE-edge">
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 
 三 table 规范
 1.整体大table，分列需单独嵌入小table。
@@ -28,6 +28,7 @@ EDM 书写规范
   </tr>
 </table>
 2.td嵌入图片 *需要设定 align="center" valign="top" height="400"
+3.* table需要嵌入100%大table。否则在Windows系统布局不居中
 
 四 样式规范
 1.不使用link或style，不使用行内样式style=“”
