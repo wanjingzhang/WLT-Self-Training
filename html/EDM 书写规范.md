@@ -2,7 +2,7 @@
 #### 使用psd导出html文件
 * export html&jpge
 
-#### 头部规范
+#### 一、头部规范
 * !DOCTYPE,htmltype!
 `<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`
 `<html xmlns="http://www.w3.org/1999/xhtml">`
@@ -13,9 +13,9 @@
 `<meta http-equic="X-UA-Compatible" content="IE-edge">`
 `<meta charset="utf-8">`
 
-#### table 规范
+#### 二、Table 规范
 * 整体大table，分列需单独嵌入小table。
-<table>
+`<table>
   <tr>
     <td>
       <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
@@ -26,12 +26,12 @@
       </table>
     </td>
   </tr>
-</table>
+</table>`
 
 * td嵌入图片 *需要设定 align="center" valign="top" height="400"
 * table需要嵌入100%大table。否则在Windows系统布局不居中.
 
-#### 样式规范
+#### 三、样式规范
 * 不使用link或style，不使用行内样式style=“”
 * 不使用padding或margin
 * 图片出现缝需要加 vertical="top" align="center"
@@ -44,10 +44,9 @@
 <table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
 * 修复雅虎段落边界
 <p style="margin-top: 1em; margin-bottom: 1em; margin-left: 0; margin-right: 0;">Pellentesque habitant morbi tristique senectus ...</p>
-
 * <img>包含alt
 
-#### 转义字符 规范
+#### 四、转义字符 规范
 * https://dev.w3.org/html5/html-author/charref
 * &nbsp;              //space
 * &lsquo; &rsquo;     //‘ ’
@@ -60,7 +59,7 @@
 * &mdash;             //—
 * &amp;               //&
 
-#### 测试
+#### 五、测试
 * Litmus https://litmus.com/blog/
 * Acid https://www.emailonacid.com/
 * http://premailer.dialect.ca/
