@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+html { 
+  background: url(../images/mountain.svg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+ 
+
+#canvasSnow{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}

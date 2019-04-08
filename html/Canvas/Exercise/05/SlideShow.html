@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Canvas Image Rotator Example</title>
+	<link rel="stylesheet" href="../../style.css" />
+	<script type="text/javascript">
+		var imagePaths = [
+			"images/j0149014.jpg", "images/j0149024.jpg", "images/j0149029.jpg", "images/j0178677.jpg"
+		];
+		var showCanvas = null;
+		var showCanvasCtx = null;
+		var img = document.createElement("img");
+		var currentImage = 0;
+		var IMAGE_DELAY = 3000; // ms to show each image for
+
+		function init() {
+			// get a reference to the canvas and drawing context
+			showCanvas = document.getElementById('showCanvas');
+			showCanvasCtx = showCanvas.getContext('2d');
+
+			// set the width and height of the img element to match image dimensions
+			img.setAttribute('width', '600');
+			img.setAttribute('height', '400');
+
+			// show the initial image
+			switchImage();
+
+			// start the animation
+			setInterval(switchImage, IMAGE_DELAY);
+		}
+
+		function switchImage() {
+			// TODO: get the next image in the array
+			img.setAttribute('src', imagePaths[currentImage++]);
+			if (currentImage >= imagePaths.length)
+				currentImage = 0;
+			showCanvasCtx.drawImage(img, 0, 0, 600, 400);
+		}
+	</script>
+</head>
+
+<body onload='init()'>
+	<h1>Using canvas for an image slideshow</h1>
+	<div id='content'>
+		<canvas id='showCanvas' width='600' height='400'>
+			Canvas Not Supported
+		</canvas>
+	</div>
+</body>
+
+</html>

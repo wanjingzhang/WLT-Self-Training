@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Drawing Gradients</title>
+	<style type="text/css">
+		#Canvas1 {
+			border: dotted 1px black;
+		}
+	</style>
+	<link rel="stylesheet" href="../style.css" />
+	<script>
+		window.addEventListener("load", function () {
+			var theCanvas = document.getElementById('Canvas1');
+			if (theCanvas && theCanvas.getContext) {
+				var ctx = theCanvas.getContext("2d");
+				if (ctx) {
+					// // TODO: create a linear gradient
+					// var linGrd = ctx.createLinearGradient(20, 20, 20, 280);
+
+					// // TODO: add some color stops: red to blue, blue to green
+					// linGrd.addColorStop(0, "#f00");
+					// linGrd.addColorStop(0.5, "#00f");
+					// linGrd.addColorStop(1, "#0f0");
+
+					// // create a rectangle and fill it with the gradient
+					// ctx.fillStyle = linGrd;
+					// ctx.fillRect(20, 20, 200, 260);
+					// ctx.lineWidth = 3;
+					// ctx.strokeRect(20, 20, 200, 260);
+
+					// // TODO: create a radial gradient
+					// var radGrd = ctx.createRadialGradient(525, 150, 20, 525, 150, 100);
+					// radGrd.addColorStop(0, "#f00");
+					// radGrd.addColorStop(0.5, "#00f");
+					// radGrd.addColorStop(1, "#0f0");
+					// ctx.fillStyle = radGrd;
+
+					// // Fill a circle with the gradient
+					// ctx.beginPath();
+					// ctx.arc(525, 150, 100, 0, 2 * Math.PI);
+					// ctx.stroke();
+					// ctx.fill();
+
+					// Fill green lineGird
+					var linGrd2 = ctx.createLinearGradient(254, 250, -120, -120);
+					// TODO: add some color stops: red to blue, blue to green
+					linGrd2.addColorStop(0, "#3DCD58");
+					linGrd2.addColorStop(0.4, "#3DCD58");
+					linGrd2.addColorStop(0.5, "#fff");
+					linGrd2.addColorStop(0.6, "#3DCD58");
+					linGrd2.addColorStop(1, "#3DCD58");
+
+					let p1 = new Path2D("M82.2,52.5c-6.8,0-13.4-2.8-18.1-7.6c-8.1-8.1-10-20.4-4.7-30.6c4.5-8.6,13.4-14,23.1-14c4.2,0,8.4,1,12.1,3c3.6,1.8,6.7,4.4,9.1,7.6L97,15.7c-1.6-2.1-3.7-3.8-6.1-5c-2.5-1.3-5.4-2.1-8.2-2.1c-4.8,0-9.2,1.9-12.6,5.2c-3.4,3.4-5.3,7.9-5.3,12.7c0,4.8,1.8,9.3,5.2,12.7c3.4,3.4,7.9,5.2,12.7,5.2c5,0,9.7-1.9,13.3-5.4c1-1,1.8-2.1,2.6-3.2L99,35l-16.9-0.2l0-8.1h27c-0.1,7.3-2.5,13.4-7.2,18c-5.1,5-11.8,7.8-19,7.8L82.2,52.5z M44.6,51.6V1.9h8.2v49.7H44.6z M0.5,51.3V2.1h8.2l0.5,0.1h5.9c6.7,0,12.9,2.5,17.6,7.2c4.6,4.6,7.3,10.9,7.2,17.4c0,6.5-2.6,12.8-7.3,17.4c-4.7,4.6-10.9,7.2-17.5,7.2C15.1,51.3,0.5,51.3,0.5,51.3z M8.7,43.2h6.4c4,0,7.8-1.5,10.9-4.1v0l0.8-0.8c0.1-0.1,0.3-0.3,0.4-0.4c3-3.1,4.6-7.2,4.5-11.5c-0.1-4.3-1.8-8.3-4.9-11.3c-3-3.1-7.3-4.9-11.7-4.9H8.7V43.2z M196.3,51.3V2.1h8.2v40.9h17v8.2h-17v0.1H196.3z M184.3,51.3l-5.7-11.4h-18.5l-5.4,11.4h-9l19.6-41l3.7-7.7l3.8,7.6l20.5,41.1H184.3z M163.7,32.4h11L169.1,21L163.7,32.4z M134.3,51.3V10.2h-9.6V2.1h27.7v8.1h-9.9v41.1H134.3z M113,51.3V2.1h8.2v49.2H113z");
+
+					var m = document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGMatrix();
+					m.a = 0.81; m.b = 0;
+					m.c = 0; m.d = 0.81;
+					m.e = 0; m.f = 0;
+					let p = new Path2D();
+					p.addPath(p1, m);
+					ctx.clip(p);
+
+					ctx.fillStyle = linGrd2;
+					ctx.fillRect(0, 0, 600, 53);
+
+					ctx.globalCompositeOperation = 'source-in';
+					animate();
+
+					var xcoordinate = 10;
+
+					function animate() {
+
+						linGrd2 = ctx.createLinearGradient(354, 250, -20, -120);
+						// TODO: add some color stops: red to blue, blue to green
+						linGrd2.addColorStop(0, "#3DCD58");
+						linGrd2.addColorStop(0.4, "#3DCD58");
+						linGrd2.addColorStop(0.5, "#fff");
+						linGrd2.addColorStop(0.6, "#3DCD58");
+						linGrd2.addColorStop(1, "#3DCD58");
+
+						ctx.fillStyle = linGrd2;
+						ctx.fillRect(0, 0, 600, 53);
+
+						requestAnimationFrame(animate);
+						console.log("animation");
+					}
+
+				}
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Drawing Gradients</h1>
+	<div id="content">
+		<p>The HTML5 Canvas supports two kinds of gradients - linear and radial.</p>
+		<canvas id="Canvas1" width="700" height="900">Your browser does not support canvas.</canvas>
+	</div>
+</body>
+
+</html>

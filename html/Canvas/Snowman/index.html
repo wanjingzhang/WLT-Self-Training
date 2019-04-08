@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Skiing</title>
+</head>
+
+<body>
+    <canvas id="canvas"  ></canvas>
+    <script>
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 1000 / 30);
+                };
+        })();
+
+        var FB = {
+            WIDTH: 320,
+            HEIGHT: 480,
+
+            canvas: null,
+            ctx: null,
+            offset: {
+                top: 0,
+                left: 0
+            },
+            entities:[],
+            distance:0,
+            sled: null,
+            score: {
+                taps: 0,
+                coins: 0
+            },
+            RATIO: null,
+            bg_grad: "day",
+            gradients: {},
+            game: null,
+            currentWidth: null,
+            currentHeight: null,
+            android: null,
+            ios: null,
+            snow: [],
+            snowMax :20,
+            init: function () {
+                var grad ;
+                FB.RATIO = FB.WIDTH / FB.HEIGHT;
+                // these will change when the screen is resize
+                FB.currentWidth = FB.WIDTH;
+                FB.currentHeight = FB.HEIGHT;
+                // this is our canvas element
+                FB.canvas = document.getElementById('canvas');
+                FB.canvas.width = FB.WIDTH;
+                FB.canvas.height = FB.HEIGHT;
+
+                FB.ctx = FB.canvas.getContext('2d');
+
+                FB.ua = navigator.userAgent.toLowerCase();
+                FB.android = FB.ua.indexOf('android') > -1 ? true : false;
+                FB.ios = (FB.ua.indexOf('iphone') > -1 || FB.ua.indexOf('ipad') > -1) ? true : false;
+
+                 // setup some gradients
+                grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+                grad.addColorStop(0, '#036');
+                grad.addColorStop(0.5, '#69a');
+                grad.addColorStop(1, 'yellow');
+                FB.gradients.dawn = grad;
+
+                grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+                grad.addColorStop(0, '#69a');
+                grad.addColorStop(0.5, '#9cd');
+                grad.addColorStop(1, '#fff');
+                FB.gradients.day = grad;
+
+                grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+                grad.addColorStop(0, '#036');
+                grad.addColorStop(0.3, '#69a');
+                grad.addColorStop(1, 'pink');
+                FB.gradients.dusk = grad;
+
+                grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+                grad.addColorStop(0, '#036');
+                grad.addColorStop(1, 'black');
+                FB.gradients.night = grad; 
+
+                // add events
+                window.addEventListener('click',function(e){
+                    e.preventDefault();
+                    FB.Input.set(e); 
+                },false);
+
+                window.addEventListener('touchstart', function(e){
+                    e.preventDefault(); 
+                    FB.Input.set(e.touches[0]);
+                },false);
+
+                window.addEventListener('touchmove',function(e){
+                    e.preventDefault();
+                },false);
+
+                window.addEventListener('touchend',function(e){
+                    e.preventDefault();
+                },false);
+
+                FB.resize();
+                FB.changeState("Splash");
+                FB.loop();
+            },
+            resize: function () {
+                FB.currentHeight = window.innerHeight;
+                FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) +1;
+
+                // if (FB.android || FB.ios) {
+                //     document.body.style.height = (window.innerHeight + 50) + "px";
+                // }
+
+                FB.canvas.style.width = FB.currentWidth + "px";
+                FB.canvas.style.height = FB.currentHeight + "px";
+
+                FB.scale = FB.currentWidth / FB.WIDTH;
+
+                FB.offset.top = FB.canvas.offsetTop;
+                FB.offset.left = FB.canvas.offsetLeft;
+
+                window.setTimeout(function(){
+                    window.scrollTo(0,1);
+                }); 
+            },
+            changeState: function(state) {
+                FB.game = new window[state]();
+                FB.game.init();
+            },
+            loop: function(){
+                requestAnimationFrame(FB.loop);
+                FB.update();
+                FB.render();
+            },
+            update: function(){
+                FB.game.update();
+                FB.Input.tapped = false; 
+            }, 
+            render: function(){
+                FB.Draw.rect(0,0,FB.WIDTH,FB.HEIGHT,FB.gradients[FB.bg_grad]);
+
+                for( i=0;i<FB.entities.length;i+= 1){
+                    FB.entities[i].render();
+                }
+
+                FB.game.render();
+            }
+        }
+
+        FB.Input = {
+            x: 0,
+            y: 0,
+            tapped: false,
+
+            set: function( data) { 
+                this.x = (data.pageX - FB.offset.left) / FB.scale;
+                this.y = (data.pageY - FB.offset.top) / FB.scale;
+                this.tapped = true;
+                console.log('trapped = true');  
+            }
+        } 
+
+        FB.Collides = function(object_1,object_2) { 
+            // if(stone.coin && sled.vx > sled.centerX + sled.w/2 -5){
+            //     stone.coin = false;
+            //     FB.score.coins += 1;
+            //     console.log('get coin:' + sled.vy);
+            // }
+             
+            if ((object_1.vx + object_1.width/2 > object_2.vx && object_1.vx < object_2.vx + object_1.width/2)  
+                &&  object_1.vy + object_1.height/2 > object_2.vy 
+             ) { 
+                // console.log('obj1: vy=' + object_1.vy +  ' height=' + object_1.height );
+                // console.log('obj2: vy=' + object_2.vy + ' height=' + object_2.height ); 
+                // console.log("collide (object_1.vy + object_1.height/2)=" + object_1.vy + object_1.height/2 );
+                // console.log("object_2.y=" + object_2.vy);
+                console.log("collide");
+                return true;  
+            } 
+
+        }
+
+        // scene opening
+        window.Splash = function() {
+            this.banner = new Image();
+            this.banner.src = "images/splash.png";
+
+            this.init = function(){
+                FB.entities = [];
+                FB.score.taps = FB.score.coins = 0;   
+
+                for(var i = 0; i< FB.entities.length;i  += 1){
+                    FB.entities[i].init();
+                }
+            } 
+
+            this.update = function(){  
+                for (i = 0; i < FB.entities.length; i += 1) {
+                    FB.entities[i].update();
+                } 
+                if(FB.Input.tapped){
+                    FB.changeState('Play');
+                    FB.Input.trapped = false;
+                }
+            }
+
+            this.render = function(){ 
+                FB.Draw.Image(this.banner,66,100);
+            }
+        }
+
+        // scene play
+        window.Play = function (){
+            this.init = function(){  
+                FB.sled = new FB.Sled(); 
+
+                // Add entities
+                FB.entities.push(new FB.Cloud(30, ~~(Math.random() * FB.HEIGHT /2))); 
+                FB.entities.push(new FB.Cloud(~~(Math.random()* (FB.WIDTH * 2)), ~~(Math.random() * FB.HEIGHT /2)));
+                FB.entities.push(new FB.Cloud(~~(Math.random()* (FB.WIDTH * 3)), ~~(Math.random() * FB.HEIGHT /2))); 
+                FB.entities.push(new FB.Snow());  
+                for(i = 0; i<2;i+= 1){ 
+                    FB.entities.push(new FB.Route(FB.WIDTH * i ,FB.HEIGHT-60,FB.WIDTH+3));
+                }
+
+                FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH), FB.HEIGHT - 120));
+                FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH + 50), FB.HEIGHT - 120));
+                FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH +100), FB.HEIGHT - 120));
+                
+                FB.entities.push(FB.sled);  
+
+                FB.entities.push(new FB.Stone(FB.WIDTH,20));
+
+                FB.entities.push(new FB.Diamond(FB.WIDTH /2 ,FB.HEIGHT - 120));
+ 
+                for(var i = 0; i< FB.entities.length;i  += 1){
+                    FB.entities[i].init();
+                } 
+            }
+            
+
+            this.update = function(){
+                FB.distance += 1;
+                var level = Math.floor(FB.distance / 2048);
+                var levelUp = ((FB.distance % 2048) === 0 ? true : false); 
+
+                if(levelUp){   
+                    var bg = "day";
+                    var gradients = ["day","dust","neight","dawn"]; 
+                    if( level < gradients.length ){
+                        bg = gradients[level];
+                    } else if( level === gradients.length ){
+                        bg = "day"; 
+                    } 
+                    FB.bg_grad = bg;
+                    // console.log("levelUp. FB.bg_grad=" + bg);
+                }
+
+                //check for a collision if the user tapped on this game tick;
+                var checkCollision = false;
+                if(FB.Input.tapped){
+                    FB.score.taps += 1;
+                    checkCollision = true;
+                }
+
+                for(var i = 0; i < FB.entities.length;i += 1){
+                    FB.entities[i].update();
+
+                    if(FB.entities[i].type === 'stone'){
+                        var hit = FB.Collides(FB.sled, FB.entities[i]);
+                        if (hit) {
+                            FB.changeState('GameOver');
+                            break;
+                        }
+                    }
+                }
+            }             
+
+            this.render = function(){  
+
+            }
+        }
+
+        window.GameOver = function () {
+            this.getMedal = function() {
+                var score = FB.score.coins;
+                console.log(score); 
+            }
+
+            this.init = function(){
+
+            }
+
+            this.update = function(){
+
+            }
+
+            this.render = function(){
+
+            }
+        }
+
+
+        FB.Snow = function(){ 
+            this.init = function(){
+                FB.snow = [];
+                for(var i=0;i<FB.snowMax;i++){
+                    FB.snow.push(new FB.Flake(Math.round((i * 50) * Math.random()))); 
+                } 
+                console.log("FB.snow =" +FB.snow);
+ 
+            }
+
+            this.update = function(){
+                for(var i=0;i<FB.snowMax;i++){ 
+                    FB.snow[i].y += FB.snow[i].speed;
+                    if(FB.snow[i].y > FB.HEIGHT)
+                        FB.snow[i].y = -5;
+                    FB.snow[i].x += FB.snow[i].drift;
+                    if(FB.snow[i].x > FB.WIDTH)
+                        FB.snow[i].x = 0; 
+                } 
+            }
+
+            this.render = function() {
+                for(var i=0;i<FB.snowMax; i++){ 
+                    FB.Draw.circle(FB.snow[i].x, FB.snow[i].y, FB.snow[i].width, "rgb(255,255,255)");
+                } 
+            }
+        }
+
+        FB.Sled = function(){ 
+
+            this.init = function(){
+                this.img = new Image();  
+                this.img.src = "images/sled3.png"; 
+                this.width = 100;
+                this.height = 92; 
+                
+                this.gravity = 0.25, 
+                this.ix = 0;
+                this.iy = 0;
+                this.fr = 0;
+                this.vy = FB.HEIGHT -80; //y position
+                this.vx = 70;
+                this.jump = -7.6; //jump height
+                this.velocity = 0;
+                this.rotation = 0;
+                this.play = false;
+                this.type = 'sled';  
+                
+            }
+            this.update = function(){
+                // if (this.fr++ > 5) {
+                //     this.fr = 0;
+                //     if (this.iy == this.height * 3) {
+                //         this.iy = 0;
+                //     }
+                //     this.iy += this.height;
+                // }
+
+                if(this.play) {
+                    this.velocity += this.gravity;
+                    this.vy += this.velocity;
+                    // if(this.vy <= 20){
+                    //     this.vy = 20;
+                    // }
+
+                    if(this.vy >= FB.HEIGHT -80){
+                        this.vy = FB.HEIGHT -80;
+
+                        this.play = false;
+                    } 
+
+                    // console.log('velocity=' + this.velocity + ' vy=' + this.vy + ' stop at='+ (FB.HEIGHT -80)); 
+                }
+
+                if(FB.Input.tapped && !this.play){
+                    this.play = true;
+                    this.velocity = this.jump; 
+                    // console.log("velocity=jump");
+                }
+
+            }
+            this.render = function(){
+                FB.Draw.Sprite(this.img,this.ix,this.iy,this.width,this.height,this.vx,this.vy,this.width,this.height,this.rotation);
+                // FB.Draw.Image(this.img,88,200); 
+                // FB.Draw.rect(this.ix,this.iy,this.width,this.height,'#ff0');
+            }
+        }
+
+        FB.Flake = function(y){
+            this.x = Math.round(Math.random() * FB.WIDTH);
+            this.y = -10+y;
+            this.drift = Math.random();
+            this.speed = Math.round(Math.random()*2 )+1;
+            this.width = Math.random() * 3; 
+        }
+
+        FB.Cloud = function(x,y){
+            this.init = function(){
+                this.x = x;
+                this.y = y;
+                this.r = 30; 
+                this.col = 'rgba(255,255,255,1)';
+
+                this.type = 'cloud';
+                this.vx = -0.10;
+                this.remove = false;
+            }
+            
+
+            this.update = function(){
+                // update coordinates
+                this.x += this.vx;
+                if(this.y < (0 - 115)){
+                    this.respawn();
+                }
+            };
+
+            this.render = function(){
+                FB.Draw.circle(this.x + this.r,(this.y + this.r), this.r, this.col);
+                FB.Draw.circle(this.x + 55, (this.y + this.r / 2), this.r / 0.88, this.col);
+                FB.Draw.circle(this.x + 55, (this.y + this.r + 15), this.r, this.col);
+                FB.Draw.circle(this.x + 85, (this.y + this.r), this.r, this.col);
+            }
+
+            this.respawn = function() {
+                this.x = ~~(Math.random() * this.r*2) + FB.WIDTH;
+                this.y = ~~(Math.random() * FB.HEIGHT /2);
+            }
+        }
+
+        FB.Route = function( x, y, r) {
+            this.init = function() {
+                this.x = x;
+                this.y = y;
+                this.r = r;
+                this.vx = -3;
+                this.name = "BottomRoute";
+            }
+            
+            this.update = function(){
+                this.x += this.vx;
+                if(this.x < (0 - this.r)){
+                    this.respawn();
+                }
+            }
+
+            this.render = function() {
+                FB.Draw.rect(this.x, this.y, this.r, 100, "#22cc22");
+                for( var i = 0; i < 10; i++){
+                    FB.Draw.semiCircle(Math.round(this.x + i * (this.r/9)) , this.y , 30, '#fff');
+                }
+            }
+
+            this.respawn = function() {
+                this.x = FB.WIDTH - 3; 
+            }
+        } 
+
+        FB.Tree = function(x,y) {
+            this.init = function(){
+                this.x = x;
+                this.y = y;
+                this.r = 30;
+                this.h = 50;
+                this.w = this.r * 2;
+                this.vx = -2;
+                this.type = "Tree";
+            }
+
+            this.update = function(){
+                this.x += this.vx;
+                if(this.x < (0 - this.r * 2 )){
+                    this.respawn();
+                }
+            }
+
+            this.render = function() {
+                FB.Draw.circle(this.x + this.r, (this.y + this.r)-10, this.r, 'green' );
+                FB.Draw.circle(this.x + (this.r/2), (this.y + this.r) -10,this.r/3, 'rgba(0,0,0,0.08)');
+                FB.Draw.rect(this.x + this.r -5 , this.y+this.r,10,this.r,'brown');
+
+            }
+
+            this.respawn = function(){
+                this.x = FB.WIDTH + this.r;
+            } 
+        }
+
+
+        FB.Stone = function(x,w) {
+            this.init = function(){
+                this.vx = x; 
+                this.vy = FB.HEIGHT - 50;
+                this.width = w;
+                this.height = 20;
+                this.speed = -2.5;
+                this.type = 'stone';  
+            }
+             
+            this.update = function(){
+                this.vx += this.speed;
+                if(this.vx == (0-this.width)){
+                    this.respawn();
+                }
+            }
+
+            this.render = function(){  
+                FB.Draw.rect(this.vx,this.vy,this.width,this.height,'#000'); 
+            }
+
+            this.respawn = function(){ 
+                this.vx = 320 - this.width + 160; 
+            }
+        }
+
+        FB.Diamond = function(x,y){
+            this.init = function(){
+                this.vx = x;
+                this.vy = y;
+                this.speed = -2.5;
+                this.img = new Image();
+                this.img.src = 'images/diamond1.png';
+                this.width = 50;
+                this.height = 66; 
+            }
+
+            this.update = function(){
+                this.vx += this.speed;
+                if(this.vx == (0-this.width)){
+                    this.respawn();
+                }
+            }
+
+            this.render = function(){
+                FB.Draw.Sprite(this.img,0,0,this.width,this.height,this.vx,this.vy,this.width/2,this.height/2,0);
+            }
+
+            this.respawn = function(){
+                this.vx = FB.WIDTH/2 + this.width + 160  ;
+            }
+        }
+
+        FB.Draw = {
+            clear: function(){
+                FB.ctx.clearRect(0,0,FB.WIDTH,FB.HEIGHT);
+            },
+            rect: function(x,y,w,h,col){
+                FB.ctx.fillStyle = col;
+                FB.ctx.fillRect(x,y,w,h);
+            },
+            circle: function(x,y,r,col){
+                FB.ctx.fillStyle = col;
+                FB.ctx.beginPath();
+                FB.ctx.moveTo(x,y);
+                FB.ctx.arc(x,y,r,0 ,Math.PI * 2,true);
+                FB.ctx.closePath();
+                FB.ctx.fill();
+            },
+            Image: function (img,x,y){
+                FB.ctx.drawImage(img,x,y);
+            },
+            Sprite: function(img,srcX,srcY,srcW,srcH,destX,destY,destW,destH,r){
+                FB.ctx.save();
+                FB.ctx.translate(destX, destY);
+                FB.ctx.rotate(r * (Math.PI / 180));
+                FB.ctx.translate(-(destX + destW / 2), -(destY + destH / 2));
+                FB.ctx.drawImage(img, srcX, srcY, srcW, srcH, destX, destY, destW, destH);
+                FB.ctx.restore();
+
+                // console.log(arguments);
+                // console.log("translateX=" + (-(destX + destW/2)) + " Y="+ (-(destY + destH/2)));
+            },
+            // Arguments [246, 420, 20, "#050000"] (4)
+            semiCircle: function(x,y,r,col){ 
+                FB.ctx.fillStyle = col;
+                FB.ctx.beginPath();
+                FB.ctx.arc(x,y,r,0,Math.PI,true);
+                FB.ctx.closePath();
+                FB.ctx.fill();
+            },
+            Text: function(){
+
+            }
+        }
+
+        // 3.25 add the diamond
+
+        window.addEventListener('load', FB.init, false);
+        window.addEventListener('resize', FB.resize, false);
+    </script>
+
+</body>
+
+</html>
