@@ -1,53 +1,31 @@
-//mixins
-let mixin = {
-    madeIn() {
-        console.log('This car was made in yeary 2019~');
+class Person{
+    constructor(name, age, gender, smoke, marital) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.smoke = smoke;
+        this.marital = marital;
+    }
+
+    describeYourself() {
+        console.log(`Hello, My name's ${this.name}, I'm ${this.age} years old, and I'm a ${this.gender}.`);
     }
 }
 
-let carMixin = {
-    __proto__: mixin,
+class Regional extends Person{
+    constructor(name, age, gender, smoke, marital, comefrom) {
+        super(name, age, gender, smoke, marital);
+        this.comefrom = comefrom;
+    }
 
-    madeIn() {
-        super.madeIn();
+    descriptYourComefrom() {
+        console.log(`I'm come from ${this.comefrom}.`);
     }
 }
 
+var XiaoQiang = new Person("XiaoQiang",18, "male", "smoking", "single");
+XiaoQiang.describeYourself();
 
 
-class Car{
-    constructor(doors, engine, color) {
-        this.doors = doors;
-        this.engine = engine;
-        this.color = color;
-    }
-
-    carStats() {
-        return `This car has ${this.doors} doors, a ${this.engine} engine and a beautiful ${this.color} color`;
-    }
-}
-
-class SUV extends Car{
-    constructor(doors, engine, color, brand, carStats) {
-        super(doors, engine, color);
-        this.brand = brand;
-        this.carStats = carStats;
-        this.wheels = 4;
-        this.ac = true;
-
-        // assign mixin
-        Object.assign(this, carMixin);
-    }
-
-    myBrand() {
-        return console.log(`This SUV is a ${this.brand}`);
-    }
-}
-
-const cx5 = new SUV(4, 'V6', 'grey', 'mazda');
-console.log(cx5);
-
-cx5.myBrand();
-
-console.log(cx5.madeIn());
-
+var ZhangSan = new Regional("ZhangSan", 22, "female", "non-smoking", "single", "ShangHai");
+ZhangSan.descriptYourComefrom();

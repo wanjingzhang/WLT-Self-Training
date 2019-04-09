@@ -35,24 +35,23 @@
 
 	delay2(1).then(msg => msg.toUpperCase())
 			 .then(msg => `${msg}~~~!!!!`)
-			 .then(msg => console.log(msg))
+			 .then(msg => console.log(msg)) 
 			 .finally(console.log('finally~ delay 1 second!'));
 
-	// delay2("10 Minuts").catch(msg => console.log('catch:' + msg))
-	// 		 .finally(msg => console.log('finally~!'));
-
-
+	delay2("10 Minuts").catch(msg => console.log('catch:' + msg))
+			 .finally(msg => console.log('finally~!'));
+ 
 	// Promise.reject("Testing static reject").then(function(reason) {
 	//   // 未被调用 
 	// }, function(reason) {
 	// 	console.log( reason); // "Testing static reject"
 	// });
 
-	// Promise.reject(new Error("fail")).then(function(result) {
-	// // 未被调用
-	// }, function(error) {
-	// 	console.log(error); // stacktrace
-	// });
+	Promise.reject(new Error("fail")).then(function(result) {
+	// 未被调用
+	}, function(error) {
+		console.log("Error:"+ error); // stacktrace
+	});
 
 	</script>
 	<title>Promises</title>
