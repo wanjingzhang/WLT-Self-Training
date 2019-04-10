@@ -52,3 +52,6 @@ Second is Visual Studio Code for Web Developers:
 6.) Multiple selection. Select the code as same as the selected code, select the same code, select the previous line.
 	cmd + D , cmd + shift + L , cmd + option + UP
 
+
+* Cmd + K , M 新建文件类型
+
