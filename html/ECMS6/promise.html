@@ -5,51 +5,127 @@
 	<script type="text/babel">
 	// Demo 1 
 	const Http = new XMLHttpRequest();
-	const url = "https://jsonplaceholder.typicode.com/posts";
+	const url = "https://jsonplaceholder.typicode.com/posts"; 
+/** ******************************************************* **/
+//  console.time("promise");
+//  const getHttp = url =>{
+//     return new Promise((resolve,reject) => {
+//         Http.open("GET",url); 
+//         Http.send();
 
-	// console.time("trandition");
-	// Http.open("GET",url); 
-	// Http.send();
-	// Http.onreadystatechange = (e) =>{ 
-	// 	if(e.target.readyState == 4 && e.target.status == 200){ 
-	// 		console.log('success!');
-	// 		console.timeEnd("trandition");
-	// 	} else if(e.target.status == 404){
-	// 		console.log('default!');
-	// 		console.timeEnd("trandition");
-	// 	} 
-	// }
- 
-	// console.time(); 
-	// const getHttp = url =>{
-	// 	return new Promise((resolve,reject) => {
-	// 		Http.open("GET",url); 
-	// 		Http.send();
+//         Http.onreadystatechange = (e) =>{ 
+//             console.log(e);
+//             if(e.target.readyState == 4 && e.target.status == 200){
+//                 resolve(e.target.responseText); 
+//                 // console.log(e.target.responseText);
+//             } else if(e.target.status == 404){
+//                 reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`);
+//             } 
+//             console.timeEnd("promise");
+//         }
 
-	// 		Http.onreadystatechange = (e) =>{ 
-	// 			console.log(e);
-	// 			if(e.target.readyState == 4 && e.target.status == 200){
-	// 				resolve(e.target.responseText);
-	// 				// console.log(e.target.responseText);
-	// 			} else if(e.target.status == 404){
-	// 				reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`);
-	// 			} 
-	// 			console.timeEnd();  // default: 993.726ms
-	// 		}
+//         Http.ontimeout = (e) =>{ 
+//             reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`); 
+//             console.timeEnd("promise");
+//         }	
 
-	// 		Http.ontimeout = (e) =>{ 
-	// 			reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`); 
-	// 			console.timeEnd();
-	// 		}	
+//     })
+// }  
+// getHttp(url).then(res => {
+//     console.log("resolve: " + res);
+// } , err=> {
+//     console.log("reject: " + err);
+// });  
+/** ******************************************************* **/ 
+// console.time("trandition");
+// Http.open("GET",url); 
+// Http.send();
+// Http.onreadystatechange = (e) =>{ 
+//     if(e.target.readyState == 4 && e.target.status == 200){ 
+//         console.log('success!');
+//         console.timeEnd("trandition");
+//     } else if(e.target.status == 404){
+//         console.log('default!');
+//         console.timeEnd("trandition");
+//     } 
+// } 
+/** ******************************************************* **/
 
-	// 	})
-	// } 
+// console.log('start');
+// console.time('trandition');
+// var calculator = count => {
+// 	var temp = 0;
+// 	for(var i = 0; i< count; i+= 0.0001){
+// 		temp += i * i + (0.00213332) / -0.23242342 + i * 0.2222 * i * i + (0.00213332) / -0.23242342 + i * 0.2222 ;
+// 	}
+// 	return temp;
+// } 
+// var t = calculator(204202);
+// console.log(t);
+// console.timeEnd('trandition');
+// console.log('end');
 
-	// getHttp(url).then(res => {
-	// 	console.log("resolve: " + res);
-	// } , err=> {
-	// 	console.log("reject: " + err);
-	// }); 
+/** ******************************************************* **/
+// console.log('start'); 
+// var calculator = count => {
+// 	var temp = 0;
+// 	for(var i = 0; i< count; i+= 0.0001){
+// 		temp += i * i + (0.00213332) / -0.23242342 + i * 0.2222 * i * i + (0.00213332) / -0.23242342 + i * 0.2222 ;
+// 	}
+// 	return temp;
+// }   
+
+// var calculatorPromise = count =>{
+// 	return new Promise((resolve,reject) => {
+// 		var result = calculator(count) 
+// 		if(typeof(result) === 'number'){
+// 			resolve("successful calculator get result = " + result);
+// 		}else{
+// 			reject("badly calculator!");
+// 		}
+
+// 		console.timeEnd('calculatorPromise');
+// 	})
+// }
+// console.time('calculatorPromise');
+// calculatorPromise(20420).then(
+// 	result => {
+// 		console.log( `then resolve:  ${result}`);
+// 	}
+// 	,
+// 	fail => {
+// 		console.log(` then reject: ${fail}`);
+// 	}
+// ); 
+// console.log('end  ~~~~~~~~'); 
+/** ******************************************************* **/ 
+// console.log('start');
+// const delay = seconds => {
+// 	return new Promise((resolve,reject) => {
+// 		if(typeof seconds !== 'number'){
+// 			// reject(new Error("Argument seconds should be a number~!"))
+// 			reject("Argument seconds should be a number~!");
+// 		}
+// 		setTimeout(
+// 			() => resolve(`${seconds} second delay is up`),
+// 			seconds * 1000
+// 		); 
+// })
+// }
+// delay(1).then(msg => console.log(msg));
+// console.log("end");
+
+/** ******************************************************* **/ 
+console.log('start');
+var delay = (seconds,callback) =>{
+	setTimeout(callback, seconds);
+}
+
+delay(1,function(){
+	console.log('callback');
+})
+console.log('end');
+/** ******************************************************* **/ 
 	
 	// demo 1
 	// const delay = seconds => {
