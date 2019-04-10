@@ -1,7 +1,5 @@
 
-# ECMS6
-
-## Promise 
+#Promise 
 > Promise 对象用于表示一个异步操作的最终状态（完成或失败），以及其返回的值。
 > 它的构造函数接收一个参数，是函数，并且传入两个参数：resolve，reject，分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数。
  
@@ -17,8 +15,8 @@ new Promise((resolve,reject) => {
 ```
 
 ### 优点
-异步调用不阻断当前程序的运行。
-### 可以用在API调用、计算大量数据，需要暂用较长时间。
+> 异步调用不阻断当前程序的运行。
+> 可以用在API调用、计算大量数据，需要暂用较长时间。
 ### Promise 示例
 ```javascript 
 const Http = new XMLHttpRequest();
