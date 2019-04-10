@@ -2,9 +2,7 @@
 # Promise 
 > Promise 对象用于表示一个异步操作的最终状态（完成或失败），以及其返回的值。
 > 它的构造函数接收一个参数，是函数，并且传入两个参数：resolve，reject，分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数。
-
-![Image of Promise](https://raw.githubusercontent.com/wanjingzhang/Self-Training/master/html/ECMS6/promises.png)
-
+ 
 ```javascript 
 new Promise((resolve,reject) => {
     if(typeof seconds !== 'number'){
