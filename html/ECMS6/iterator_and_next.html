@@ -3,43 +3,48 @@
 <head>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 	<script type="text/babel">
+ 
+let obj = {
+  key1: "value1",
+  key2: "value2",
+  key3: "value3"
+}
 
-		var title = 'ES6';
-		console.log(typeof title[Symbol.iterator]);
+Object.getOwnPropertyNames(obj).forEach(key => {
+  let value = obj[key];
+  //use key and value here
 
-		var iterateIt = title[Symbol.iterator]();
-		console.log(iterateIt.next());
-		console.log(iterateIt.next());
-		console.log(iterateIt.next());
-		console.log(iterateIt.next());
+  console.log(value)
+});
+		// var title = 'ES6';
+		// console.log(typeof title[Symbol.iterator]); 
+		// var iterateIt = title[Symbol.iterator]();
+		// console.log(iterateIt.next());
+		// console.log(iterateIt.next());
+		// console.log(iterateIt.next());
+		// console.log(iterateIt.next());
+ 
+		// function tableReady(arr) {
+		// 	var nextIndex = 0;
+		// 	return {
+		// 		next() {
+		// 			if(nextIndex < arr.length) {
+		// 				return {value: arr.shift(), done: false}
+		// 			} else {
+		// 				return {done: true}
+		// 			}
+		// 		}
+		// 	}
+		// }
 
-
-		//Iterator遍历过程： 
-   		//- 创建一个指针对象，指向当前数据结构的起始位置； 
-   		//- 调用next方法，可以将指针指向数据结构的第一个成员，返回一个包含value和done属性的对象； 
-   		//- 继续调用next方法，......以此类推，直到指向结束位置。
-
-		function tableReady(arr) {
-			var nextIndex = 0;
-			return {
-				next() {
-					if(nextIndex < arr.length) {
-						return {value: arr.shift(), done: false}
-					} else {
-						return {done: true}
-					}
-				}
-			}
-		}
-
-		var waitingList = ['Sarah', 'Heather', 'Anna', 'Meagan'];
-		var iterateList = tableReady(waitingList);
-
-		console.log(`${iterateList.next().value}, your table is ready`);
-		console.log(`${iterateList.next().value}, your table is ready`);
-		console.log(`${iterateList.next().value}, your table is ready`);
-		console.log(`${iterateList.next().value}, your table is ready`);
-		console.log(`Is this finished? ${iterateList.next().done}`);
+		// var waitingList = ['Sarah', 'Heather', 'Anna', 'Meagan'];
+		// var iterateList = tableReady(waitingList); 
+		// for(var i = 0 ;waitingList.length>0;i++){
+		// 	console.time(i);
+		// 	console.log(`${iterateList.next().value}, your table is ready`);
+		// 	console.timeEnd(i);
+		// } 
+		// console.log(`Is this finished? ${iterateList.next().done}`);
 
 	</script>
 	<title>Iterators</title>
