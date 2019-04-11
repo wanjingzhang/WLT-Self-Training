@@ -12,21 +12,7 @@ alert("start");
 f(); 
 alert("another thing");
 ```
-
-```javascript
-const f = () => { 
-  return promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("async await done!"), 1000)
-  });  
-} 
-alert("start");
-f().then(str=>{
-    alert("then" + str);
-}); 
-alert("another thing");
-```
-
-
+ 
 ```javascript
 alert('start'); 
 async function calculator(count){
@@ -42,4 +28,17 @@ await calculator(20420).then(str => {alert("then." + str)} );
 alert('other things' ); 
 // start => then. => other things
 // await 等待当前函数执行完毕后再执行下一步。
+```
+
+```javascript 
+class Waiter {
+  async wait() {
+    return await Promise.resolve(1);
+  }
+} 
+alert("start");
+new Waiter()
+  .wait()
+  .then(()=>{alert("wait back")}); // 1
+alert("end");
 ```
