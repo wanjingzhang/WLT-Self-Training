@@ -74,4 +74,7 @@ var myDoubles = myNumbers.map(doubleIt);
 ```
 
 # JS 高级功能
-### 1. 一步
+### 1. 异步调用包括 Promises, async, await
+> 可以不阻隔用户操作，是页面响应变得流畅。
+
+

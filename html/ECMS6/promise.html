@@ -6,6 +6,39 @@
 	// Demo 1 
 	const Http = new XMLHttpRequest();
 	const url = "https://jsonplaceholder.typicode.com/posts"; 
+
+	console.log('start'); 
+async function calculator(count) {
+	var temp = 0;
+	for(var i = 0; i< count; i+= 0.0001){
+		temp += i * i + (0.00213332) / -0.23242342 + i * 0.2222 * i * i + (0.00213332) / -0.23242342 + i * 0.2222 ;
+	}
+	return temp;
+}   
+
+async function calculatorPromise (count) {
+	let promise = Promise((resolve,reject) => {
+		var result = await calculator(count) 
+		if(typeof(result) === 'number'){
+			resolve("successful calculator get result = " + result);
+		}else{
+			reject("badly calculator!");
+		} 
+		console.timeEnd('calculatorPromise');
+	}) 
+}
+console.time('calculatorPromise');
+calculatorPromise(20420).then(
+	result => {
+		console.log( `then resolve:  ${result}`);
+	}
+	,
+	fail => {
+		console.log(` then reject: ${fail}`);
+	}
+); 
+console.log('end  ~~~~~~~~'); 
+
 /** ******************************************************* **/
 //  console.time("promise");
 //  const getHttp = url =>{
@@ -116,15 +149,15 @@
 // console.log("end");
 
 /** ******************************************************* **/ 
-console.log('start');
-var delay = (seconds,callback) =>{
-	setTimeout(callback, seconds);
-}
+// console.log('start');
+// var delay = (seconds,callback) =>{
+// 	setTimeout(callback, seconds);
+// }
 
-delay(1,function(){
-	console.log('callback');
-})
-console.log('end');
+// delay(1,function(){
+// 	console.log('callback');
+// })
+// console.log('end');
 /** ******************************************************* **/ 
 	
 	// demo 1

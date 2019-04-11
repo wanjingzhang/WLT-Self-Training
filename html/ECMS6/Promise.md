@@ -22,24 +22,28 @@ new Promise((resolve,reject) => {
 
 ### Tradition 示例
 ```javascript 
+alert("start");
+const Http = new XMLHttpRequest();
+const url = "https://jsonplaceholder.typicode.com/posts"; 
 console.time("trandition");
-Http.open("GET",url); 
+Http.open("GET",url,false); 
 Http.send();
 Http.onreadystatechange = (e) =>{ 
     if(e.target.readyState == 4 && e.target.status == 200){ 
-        console.log('success!');
+        alert('success!');
         console.timeEnd("trandition");
     } else if(e.target.status == 404){
-        console.log('default!');
+        alert('default!');
         console.timeEnd("trandition");
     } 
 }
+alert("other things");
 ```
 ### Promise HTTP 访问示例
 ```javascript 
 const Http = new XMLHttpRequest();
 const url = "https://jsonplaceholder.typicode.com/posts"; 
-
+alert("start");
 console.time("promise");
 const getHttp = url =>{
     return new Promise((resolve,reject) => {
@@ -49,19 +53,21 @@ const getHttp = url =>{
         Http.onreadystatechange = (e) =>{ 
             console.log(e);
             if(e.target.readyState == 4 && e.target.status == 200){
-                resolve(e.target.responseText); 
+				resolve(e.target.responseText); 
+				alert("success~");
                 // console.log(e.target.responseText);
             } else if(e.target.status == 404){
-                reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`);
+				reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`);
+				alert("failed");
             } 
-            console.timeEnd("promise");
+			console.timeEnd("promise");
+			
         }
 
         Http.ontimeout = (e) =>{ 
             reject(`The data not accessed successfully! e.target.readyState: ${e.target.readyState} , e.target.status ${e.target.status}`); 
             console.timeEnd("promise");
-        }	
-
+        }	 
     })
 }  
 getHttp(url).then(res => {
@@ -69,6 +75,7 @@ getHttp(url).then(res => {
 } , err=> {
     console.log("reject: " + err);
 });  
+alert("other things");
 ```
   
 ### Tradition 示例

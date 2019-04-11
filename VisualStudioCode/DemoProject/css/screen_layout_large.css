@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* Layout (global rules for all sizes) */
+
+body { margin: 0px; padding: 0px; }
+header a.logo { display: block; position: absolute; background-position: 0px 0px; background-repeat: no-repeat; }
+nav {
+	width: 100%;
+	display: block;
+	position: absolute;
+	background-color: #a6430a;
+}
+
+/* Layout Large Screens (default for older browsers) */
+
+header { height: 275px; background: url(../images/banner_large.jpg) no-repeat right 0px; }
+header a.logo { width: 150px; height: 85px; top: 28px; right: 30px; background-image: url(../images/logo_large.png); }
+
+article { padding: 60px 20px 10px 20px; }
+
+.promo_container { padding: 0px 0px 15px 20px; }
+.promo_container .promo { width: 33%; float: left; background-position: 0px 3px; }
+.promo_container .promo .content { padding: 0px 30px 0px 70px; }
+
+
+nav { top: 275px; }
+nav a { margin: 12px 0px 10px 20px; }
+
+
+@media screen and (max-width: 990px) {
+	footer { padding-left: 20px; }
+}
