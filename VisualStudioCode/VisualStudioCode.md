@@ -1,57 +1,68 @@
-[Guide book](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial#_debugging-your-express-application)
+# VisualStudioCode 快捷键
 
-## React
-> React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
-> React has a few diferent kinds of components, but we'll start with React.Component subclasses.
-> A component takes in parameters, called props, and returns a hierarchy of views to display via the render method.
-`class ShopingList extends React.Component {
-`   render() {
-`       return (
-`            <div className="shopping-list">
-`                <h1>Shopping List for {this.props.name}</h1>
-`                <ul>
-`                    <li>Instagram</li>
-`                    <li>WhatsApp</li>
-`                    <li>Oculus</li>
-`            </div>
-`        )
-`    }
-`}
-
-#### JSX
-> Most React developer use a special syntax called JSX whicth makes it easier to wirte these structures.
-`return React.createElement('div', {className: 'shopping-list'},
-`            React.createElement('h1', /* ... h1 children ... */),
-`            React.createElement('ul', /* ... ul children ... */)
-`        );
-
-[React Top-Level API](https://reactjs.org/docs/react-api.html#createelement)
-
-> You can put any JavaScript expression within braces inside JSX. Each React element is a real JavaScript object that you can store in a variable or pass around you program.
-
-#### Passing Data Through Props
-
-
-Second is Visual Studio Code for Web Developers: 
-1.) Basic editing. Find the parentheses and brace's opening and closing symbol. 
-	cmd + shift + \
-
-2.) Terminal. Run current selected line. 
-	cmd + shift + p
-	> run seleceted test
-
-3.) Working with snippets. Custom the keywords when input the keywords the system type the custom function automatically in different language. 
-	Code->Preferences->User Snippets->JavaScript.json
-
-4.) Navigating code. Go to define, line. 
-	cmd + shift + O , control + G 
-
-5.) The emmet tool. docs.emmet.io
-	nav#myNav.ic>ul>(li.myLi)*5
-
-6.) Multiple selection. Select the code as same as the selected code, select the same code, select the previous line.
-	cmd + D , cmd + shift + L , cmd + option + UP
-
-
+### 1. 基础编辑
+* cmd + I 			//选中一行
+* cmd + K , Z		//全屏
+* opt + UP			//行排序
+* cmd + shift + \ 	//括号配对
 * Cmd + K , M 新建文件类型
 
+### 2. 终端
+* control + ～		//打开终端
+* cmd + shift + P	//运行选中行
+	> run selected text
+* cmd + UP 			//向上翻页
+* cmd + K			//清屏
+
+### 3. 文件
+* cmd + shift + S 	//另存为
+* cmd + alt + S		//保存
+
+### 4. 扩展
+* git --version		//代码控制
+* Express			//服务
+  ctrol + shift + P  [start server, stop server], Express: Host current 
+* REST Client		//发送HTTP请求，查看响应
+  Get http:// 
+  保存为**.http文件
+* Jquery
+* SASS
+* Emmet 蚂蚁代码生成器 docs.emmet.io
+  nav#myNav.ic>ul>(li.myLi)*5
+
+### 5. 用户代码片段
+```javascript
+//定义
+"document.querySelector": {
+	"prefix": "dqs",
+	"body": [
+		"var ${1:elem} = document.querySelector('${2:expr}');"
+	],
+	"description": "Query for an element using CSS syntax"
+}
+//调用
+var elem = document.querySelector('expr');
+```
+
+### 6. 编辑器
+* cmd + B					\\显示左侧文件列表
+* cmd + shift + T			\\打开刚刚打开的文件	
+* cmd + opt + R				\\在Fiddle中打开
+* cmd + |					\\在不同窗口打开相同的文件
+* cmd + W					\\关闭
+* 右键open to the side		\\在右边打开
+* cmd + control + Right		\\向右分窗口
+* cmd + control + 1			\\合并窗口
+* cmd + 1, cmd + 2			\\选择当前窗口
+* control + space			\\只能感知
+
+### 7. 代码导航
+* cmd + shift + O			\\@跳转定义的变量
+* control + G				\\条转行
+* cmd + P					\\文件列表
+
+### 8. 多选
+* cmd + D					\\选择当前鼠标所在的代码
+* cmd + shift + L			\\重复选择相同的代码
+* cmd + opt + UP			\\向上选择
+ 
