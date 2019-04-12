@@ -3,28 +3,16 @@
 <head>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 	<script type="text/babel">
- 
- let a = new Promise(
-  function(resolve, reject) {
-    console.log(1)
-    setTimeout(() => console.log(2), 0)
-    console.log(3)
-    console.log(4)
-    resolve(true)
-  }
-)
-a.then(v => {
-  console.log(8)
-})
-
-let b = new Promise(
-  function() {
-    console.log(5)
-    setTimeout(() => console.log(6), 0)
-  }
-) 
-console.log(7);
-
+const f = () => { 
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve("async await done!"), 1000)
+  });  
+} 
+alert("start");
+f().then(str=>{
+    alert("then" + str);
+}); 
+alert("another thing");
 /** ******************************************************* **/
 //  console.time("promise");
 //  const getHttp = url =>{
