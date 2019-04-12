@@ -19,6 +19,7 @@ console.log(iterateIt.next());
 console.log(iterateIt.next());
 console.log(iterateIt.next());
 ```
+> 自定义迭代器方法
 ```javascript
 function tableReady(arr) {
 	var nextIndex = 0;

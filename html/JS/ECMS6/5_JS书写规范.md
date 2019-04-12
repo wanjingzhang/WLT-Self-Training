@@ -1,8 +1,17 @@
 source from https://github.com/airbnb/javascript#types
 
 ## 1. References
-#### 1.1 This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
-use const for all of your references;avoid using var.
+#### 1.1 确保无法重新分配引用，这可以导致错误或者难以理解代码。
+> 给你所以的引用使用const关键字，避免使用var。
+```javascript
+// bad
+var a = 1;
+var b = 2;
+
+// good
+const a = 1;
+const b = 2;
+```
 #### 1.2let is block-scoped rather than function-scoped var.
 reassign references, use let instead of var.
 ####Note that both let and const are block-scoped.

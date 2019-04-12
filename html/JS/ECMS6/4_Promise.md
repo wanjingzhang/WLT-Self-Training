@@ -2,11 +2,12 @@
 # Promise 
 > Promise 对象用于表示一个异步操作的最终状态（完成或失败），以及其返回的值。
 > 它的构造函数接收一个参数，是函数，并且传入两个参数：resolve，reject，分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数。 
-### 优点
-> 异步调用不阻断当前程序的运行。
+
+### 优缺点 
+> 优点: 异步调用不阻断当前程序的运行。
 > 可以用在API调用等待获取大量数据、计算较复杂的程序，非常费时的操作。
-### 缺点
-> 结构复杂，不易掌握，嵌套结构复杂 
+> 缺点: 结构复杂，不易掌握，嵌套结构复杂 
+![Drag Promise](https://raw.githubusercontent.com/wanjingzhang/Self-Training/html/ECMS6/promise.png)
  
 ### Promise 示例
 ```javascript
@@ -20,7 +21,15 @@ f().then(str=>{
     alert("then" + str);
 }); 
 alert("another thing");
+
+//异常处理
+Promise.reject(new Error("fail")).then(function(result) {
+	// 未被调用
+	}, function(error) {
+		console.log("Error:"+ error); // stacktrace
+});
 ```
+
 ### Tradition 示例
 ```javascript 
 console.log('start');
@@ -38,7 +47,7 @@ console.timeEnd('trandition');
 console.log('end');
 ```
 
-### 嵌套
+### Promise的嵌套
 > 需要一步步执行
 ```javascript
 const makeRequest = () => {
@@ -53,7 +62,7 @@ const makeRequest = () => {
     })
 } 
 ```
-> 嵌套不需要返回值
+> Promise不需要返回值的嵌套
 ```javascript
 const makeRequest = () => {
   return promise1()
@@ -68,7 +77,8 @@ const makeRequest = () => {
 }
 ```
 
-### 错误捕获麻烦，无法知道准确的错误位置
+### Promise错误捕获
+> 麻烦，无法知道准确的错误位置
 ```javascript
 const makeRequest = () => {
   return callAPromise()

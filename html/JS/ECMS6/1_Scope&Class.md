@@ -2,7 +2,27 @@
 > 分为全局作用域和本地作用域，全局作用域被认为是有害的
 > 定义变量可以使用var, let, const
 > 方法定义了变量的作用域
-
+```javascript
+var person = {
+  first: "Doug",
+  actions: ['bike', 'hike', 'ski', 'surf'],
+  printActions: function() {
+  var _this = this;
+    _this.actions.forEach(action => {
+      var str = _this.first + " likes to " + action;
+      console.log(str);
+    });
+  }
+};
+person.printActions(); 
+var x = 2;
+function test() {
+  this.x = 1;
+  console.log(x);
+  console.log(this.x);
+} 
+var obj = new test(); 
+```
 
 # 闭包
 > 当内部函数以某一种方式被任何一个外部函数作用域访问时，一个闭包就产生了。 
@@ -60,3 +80,37 @@ console.log(7);
 > 5. 同步的代码执行完了，JavaScript就跑去消息队列呼叫异步的代码：异步，出来执行了。这里只有一个异步then，所以输出8。
 > 6. 异步执行结束，最后轮到回调。输出2，6
 > 口诀：同步=> 异步=> 回调 
+
+
+
+# 类 
+> 可以继承父类的构造方法以及属性其他方法。
+```javascript
+class Person{
+    constructor(name, age, gender, smoke, marital) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.smoke = smoke;
+        this.marital = marital;
+    }
+
+    describeYourself() {
+        console.log(`Hello, My name's ${this.name}, I'm ${this.age} years old, and I'm a ${this.gender}.`);
+    }
+} 
+class Regional extends Person{
+    constructor(name, age, gender, smoke, marital, comefrom) {
+        super(name, age, gender, smoke, marital);
+        this.comefrom = comefrom;
+    }
+
+    descriptYourComefrom() {
+        console.log(`I'm come from ${this.comefrom}.`);
+    }
+} 
+var XiaoQiang = new Person("XiaoQiang",18, "male", "smoking", "single");
+XiaoQiang.describeYourself(); 
+var ZhangSan = new Regional("ZhangSan", 22, "female", "non-smoking", "single", "ShangHai");
+ZhangSan.descriptYourComefrom();
+```
