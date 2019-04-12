@@ -73,6 +73,46 @@ var myNumbers = [1,2,3,4,5];
 var myDoubles = myNumbers.map(doubleIt);
 ```
 
+### 7。 Reponsive Layout
+```javascript
+var ad = document.querySelector('#primary-content');
+resizeHandler();
+window.addEventListener('resize', resizeHandler);
+function resizeHandler() {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var size = getSize(width, height);
+    ad.style.width = size.w + 'px';
+    ad.style.height = size.h + 'px';
+}
+
+function getSize(width, height) {
+    var layoutWidth = 200;
+    var layoutHeight = 400;
+
+    var w = layoutWidth;
+    var h = layoutHeight;
+    if ((width / height) > (layoutWidth / layoutHeight)) {
+        w = layoutWidth * height / layoutHeight;
+        h = height;
+    }
+    else {
+        w = width;
+        h = layoutHeight * width / layoutWidth;
+    }
+    
+    // if (w > layoutWidth) {
+    // 	w = layoutWidth;
+    // 	h = layoutHeight;
+    // }
+
+    return {
+        w: w,
+        h: h
+    }
+}
+```
+
 # JS 高级功能
 ### 1. 异步调用包括 Promises, async, await
 > 可以不阻隔用户操作，是页面响应变得流畅。

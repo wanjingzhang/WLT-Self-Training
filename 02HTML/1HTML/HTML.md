@@ -1,43 +1,10 @@
-# Reponsive Layout
+1. meta 信息
+> `<meta>`元素描述了页面介绍以及viewport声明
 ```javascript
-var ad = document.querySelector('#primary-content');
-resizeHandler();
-window.addEventListener('resize', resizeHandler);
-function resizeHandler() {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    var size = getSize(width, height);
-    ad.style.width = size.w + 'px';
-    ad.style.height = size.h + 'px';
-}
-
-function getSize(width, height) {
-    var layoutWidth = 200;
-    var layoutHeight = 400;
-
-    var w = layoutWidth;
-    var h = layoutHeight;
-    if ((width / height) > (layoutWidth / layoutHeight)) {
-        w = layoutWidth * height / layoutHeight;
-        h = height;
-    }
-    else {
-        w = width;
-        h = layoutHeight * width / layoutWidth;
-    }
-    
-    // if (w > layoutWidth) {
-    // 	w = layoutWidth;
-    // 	h = layoutHeight;
-    // }
-
-    return {
-        w: w,
-        h: h
-    }
-}
+<meta property="og:description" content=" ">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 ```
-
+ 
 
 
 
