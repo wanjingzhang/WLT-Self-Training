@@ -6,7 +6,7 @@
 > 异步调用不阻断当前程序的运行。
 > 可以用在API调用等待获取大量数据、计算较复杂的程序，非常费时的操作。
 ### 缺点
-> 结构复杂，不易掌握  
+> 结构复杂，不易掌握，嵌套结构复杂 
  
 ### Promise 示例
 ```javascript
@@ -38,6 +38,53 @@ console.timeEnd('trandition');
 console.log('end');
 ```
 
+### 嵌套
+> 需要一步步执行
+```javascript
+const makeRequest = () => {
+  return promise1()
+    .then(value1 => {
+      // do something
+      return promise2(value1)
+        .then(value2 => {
+          // do something          
+          return promise3(value1, value2)
+        })
+    })
+} 
+```
+> 嵌套不需要返回值
+```javascript
+const makeRequest = () => {
+  return promise1()
+    .then(value1 => {
+      // do something
+      return Promise.all([value1, promise2(value1)])
+    })
+    .then(([value1, value2]) => {
+      // do something          
+      return promise3(value1, value2)
+    })
+}
+```
 
+### 错误捕获麻烦，无法知道准确的错误位置
+```javascript
+const makeRequest = () => {
+  return callAPromise()
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => callAPromise())
+    .then(() => {
+      throw new Error("oops");
+    })
+}
 
-
+makeRequest()
+  .catch(err => {
+    console.log(err);
+    // output
+    // Error: oops at callAPromise.then.then.then.then.then (index.js:8:13)
+  })
+```
