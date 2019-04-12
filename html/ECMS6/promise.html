@@ -4,6 +4,27 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
 	<script type="text/babel">
  
+ let a = new Promise(
+  function(resolve, reject) {
+    console.log(1)
+    setTimeout(() => console.log(2), 0)
+    console.log(3)
+    console.log(4)
+    resolve(true)
+  }
+)
+a.then(v => {
+  console.log(8)
+})
+
+let b = new Promise(
+  function() {
+    console.log(5)
+    setTimeout(() => console.log(6), 0)
+  }
+) 
+console.log(7);
+
 /** ******************************************************* **/
 //  console.time("promise");
 //  const getHttp = url =>{

@@ -19,28 +19,9 @@ alert("another thing");
 > 异步调用不阻断当前程序的运行。
 > 可以用在API调用、计算大量数据，需要暂用较长时间。
 ### 缺点
-> 结构复杂，不易掌握 
+> 结构复杂，不易掌握  
 
-### Tradition HTTP 示例 1 
-```javascript 
-alert("start");
-const Http = new XMLHttpRequest();
-const url = "https://jsonplaceholder.typicode.com/posts"; 
-console.time("trandition");
-Http.open("GET",url,false); 
-Http.send();
-Http.onreadystatechange = (e) =>{ 
-    if(e.target.readyState == 4 && e.target.status == 200){ 
-        alert('success!');
-        console.timeEnd("trandition");
-    } else if(e.target.status == 404){
-        alert('default!');
-        console.timeEnd("trandition");
-    } 
-}
-alert("other things");
-```
-### Promise HTTP 访问示例 2
+### Promise HTTP 访问示例
 ```javascript 
 const Http = new XMLHttpRequest();
 const url = "https://jsonplaceholder.typicode.com/posts"; 

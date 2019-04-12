@@ -77,4 +77,23 @@ var myDoubles = myNumbers.map(doubleIt);
 ### 1. 异步调用包括 Promises, async, await
 > 可以不阻隔用户操作，是页面响应变得流畅。
 
+### HTTP 异步调用示例
+```javascript 
+alert("start");
+const Http = new XMLHttpRequest();
+const url = "https://jsonplaceholder.typicode.com/posts"; 
+console.time("trandition");
+Http.open("GET",url); 
+Http.send();
+Http.onreadystatechange = (e) =>{ 
+    if(e.target.readyState == 4 && e.target.status == 200){ 
+        alert('success!');
+        console.timeEnd("trandition");
+    } else if(e.target.status == 404){
+        alert('default!');
+        console.timeEnd("trandition");
+    } 
+}
+alert("other things");
+```
 
