@@ -61,3 +61,6 @@ function fancyAlert(arg) {
 | --------------------------- | ---------------------------- |
 | Content from cell 1         | Content from cell 2          |
 | Content in the first column | Content in the second column |
+
+十、图片
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)

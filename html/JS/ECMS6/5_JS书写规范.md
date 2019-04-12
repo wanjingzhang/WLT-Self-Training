@@ -1,7 +1,7 @@
 source from https://github.com/airbnb/javascript#types
 
 ## 1. References
-#### 1.1 确保无法重新分配引用，这可以导致错误或者难以理解代码。
+### 1.1 确保无法重新分配引用，这可以导致错误或者难以理解代码。
 > 给你所以的引用使用const关键字，避免使用var。
 ```javascript
 // bad
@@ -12,28 +12,78 @@ var b = 2;
 const a = 1;
 const b = 2;
 ```
-#### 1.2let is block-scoped rather than function-scoped var.
-reassign references, use let instead of var.
-####Note that both let and const are block-scoped.
+### 1.2 let 是块作用域而不是函数作用域重新分配引用使用let而不是var.
+> 注意let和const都是块范围
+```javascript
+// bad
+var count = 1;
+if (true) {
+  count += 1;
+}
+
+// good, use the let.
+let count = 1;
+if (true) {
+  count += 1;
+}
+
+// const and let only exist in the blocks they are defined in.
+{
+  let a = 1;
+  const b = 1;
+}
+console.log(a); // ReferenceError
+console.log(b); // ReferenceError
+
+```
 
 ## 2. Object
-#### 2.1 Use the literal syntax for object creation
+#### 2.1 使用文字语法创建对象
+``` javascript
+// bad
+const item = new Object();
+
+// good
 const item = {};
-#### 2.2 Use object method shorthand
+```
+const item = {};
+#### 2.2 使用对象速记法
+```javascript
+// bad
+const atom = {
+  value: 1,
+
+  addValue: function (value) {
+    return atom.value + value;
+  },
+};
+
 // good
 const atom = {
   value: 1,
+
   addValue(value) {
     return atom.value + value;
   },
 };
-#### 2.3 Use property value shorthand
-// good
+```
+#### 2.3 使用属性速记
+```javascript
 const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+  lukeSkywalker: lukeSkywalker,
+};
+
+// good
 const obj = {
   lukeSkywalker,
 };
-#### 2.4 Group your shorthand properties at the beginning of your object declaration.
+
+```
+#### 2.4 在对象申明的开始放置速写属性
+```javascirpt
 // good
 const obj = {
   lukeSkywalker,
@@ -43,39 +93,74 @@ const obj = {
   episodeThree: 3,
   mayTheFourth: 4,
 };
-#### 2.5 Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf
+```
+#### 2.5 不要直接使用 Object.prototype 方法, 例如 hasOwnProperty, propertyIsEnumerable, 和 isPrototypeOf
+```javascript
 // bad
 console.log(object.hasOwnProperty(key));
+
 // good
 console.log(Object.prototype.hasOwnProperty.call(object, key));
+
 // best
 const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+/* or */
+import has from 'has'; // https://www.npmjs.com/package/has
+// ...
+console.log(has.call(object, key));
+```
+
 
 ## 3. Array
-#### 3.1 Use the literal syntax for array creation.
+#### 3.1 使用数组语法创建数组
+```javascript
 // bad
 const items = new Array();
 // good
 const items = [];
-#### 3.2 Use push instead of direct assignment to add items to an array
-//good
-someStack.push('ab');
-#### 3.3 Use array spreads ... to copy arrays.
+```
+
+#### 3.2 使用push方法比直接指定数值要好
+```javascript
+const someStack = [];
+
+// bad
+someStack[someStack.length] = 'abracadabra';
+
+// good
+someStack.push('abracadabra');
+```
+#### 3.3 使用 ... 复制数组.
+```javascript
+// bad
+const len = items.length;
+const itemsCopy = [];
+let i;
+
+for (i = 0; i < len; i += 1) {
+  itemsCopy[i] = items[i];
+}
+
 // good
 const itemsCopy = [...items];
-#### 3.4 To convert an array-like object to an array, use spreads ... instead of array.from
+```
+#### 3.4 把对象迭代成数组使用...方法而不是使用Array.froms 
+```javascript
 const foo = document.querySelectorAll('.foo');
 // good
 const nodes = Array.from(foo);
 // best
 const nodes = [...foo];
-#### 3.5 Use Array.from instead of spread ... for mapping over iterables, because it avoid creating an intermediate array
+```
+#### 3.5 使用 Array.from 代替 ... for 便利迭代器, 因为可以避免使用中间数组
+```javascript
 // bad
 const baz = [...foo].map(bar);
 // good
 const baz = Array.from(foo, bar);
-
-#### 3.6 Use return statements in array method callbacks.
+``` 
+#### 3.6 在数组方法中使用return返回
+```javascript
 // good
 [1, 2, 3].map((x) => {
   const y = x + 1;
@@ -84,8 +169,10 @@ const baz = Array.from(foo, bar);
 
 // good
 [1, 2, 3].map(x => x + 1);
+```
 
-#### 3.7 Use line breaks after open and before close array brackets if an array has multiple lines
+#### 3.7 如果数组有多行的情况，在开始和结束内换行
+```javascript
 // good
 const arr = [[0, 1], [2, 3], [4, 5]];
 
@@ -102,15 +189,17 @@ const numberInArray = [
   1,
   2,
 ];
-
+```
 ## 4. Destructuring
-#### 4.1 Use object destructuring when accessing and using multiple properties of an object.
+#### 4.1 当使用多个对象的属性时，使用对象结构方法
+```javascript
 // best
 function getFullName({ firstName, lastName }) {
   return `${firstName} ${lastName}`;
 }
-
-#### 4.2 Use array destructuring.
+```
+#### 4.2 使用数组结构
+```javascript
 const arr = [1, 2, 3, 4];
 // bad
 const first = arr[0];
@@ -118,25 +207,54 @@ const second = arr[1];
 
 // good
 const [first, second] = arr;
-
+```
 ## 5. Strings
-#### 5.1 Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
-// good
-const errorMessage = 'This is a super long error.....'
+#### 5.1 字符串超过100个字符的需要不要使用断行符
+```javascript
+// bad
+const errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
 
-#### 5.2 When programmatically building up strings, use template strings instead of concatenation.
+// bad
+const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
+
+// good
+const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+```
+#### 5.2 使用模版字串代替拼写字串
+```javascript
+// bad
+function sayHi(name) {
+  return 'How are you, ' + name + '?';
+}
+
+// bad
+function sayHi(name) {
+  return ['How are you, ', name, '?'].join();
+} 
+
 // good
 function sayHi(name) {
   return `How are you, ${name}?`;
 }
+```
+#### 5.3 不要不必要的过多使用分号
+```javascript
+// bad
+const foo = '\'this\' \i\s \"quoted\"';
 
-#### 5.3 Do not unnecessarily escape characters in strings, thus they should only be present when necessary.
 // good
 const foo = '\'this\' is "quoted"';
 const foo = `my name is '${name}'`;
-
+```
 ## 6. Functions
-#### 6.1 ECMA-262 defines a block as a list of statements. A function declaration is not a statement.
+#### 6.1 ECMA-262 定义了一组申明. 一个方法申明不是一个表达式.
+```javascript
 // bad
 if (currentUser) {
   function test() {
@@ -151,8 +269,9 @@ if (currentUser) {
     console.log('Yup.');
   };
 }
-
-#### 6.2 Never name a parameter arguments. This will take precedence over the arguments object that is given to every function scope.
+```
+#### 6.2 不要使用arguments做参数 它将会优先使用方法的arguments参数.
+```javascript
 // bad
 function foo(name, options, arguments) {
   // ...
@@ -162,8 +281,9 @@ function foo(name, options, arguments) {
 function foo(name, options, args) {
   // ...
 }
-
-#### 6.3 Never use arguments, opt to use rest syntax ... instead.
+```
+#### 6.3 不要arguments,而是选择使用 ...
+```javascript
 // bad
 function concatenateAll() {
   const args = Array.prototype.slice.call(arguments);
@@ -174,8 +294,9 @@ function concatenateAll() {
 function concatenateAll(...args) {
   return args.join('');
 }
-
-#### 6.4 Always put default parameters last
+```
+#### 6.4 默认参数总是放在参数的最后面
+```javascript
 // bad
 function handleThings(opts = {}, name) {
   // ...
@@ -185,15 +306,17 @@ function handleThings(opts = {}, name) {
 function handleThings(name, opts = {}) {
   // ...
 }
-
-#### 6.5 Never use the Function constructor to create a new function
+```
+#### 6.5 不要使用Function关键之新建方法 
+```javascript
 // bad
 var add = new Function('a', 'b', 'return a + b');
 
 // still bad
 var subtract = Function('a', 'b', 'return a - b');
-
-#### 6.6 Never mutate parameters.
+```
+#### 6.6 永远不要改变参数
+```javascript
 // bad
 function f1(obj) {
   obj.key = 1;
@@ -203,8 +326,9 @@ function f1(obj) {
 function f2(obj) {
   const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
 }
-
-#### 6.7 Never reassign parameters.
+```
+#### 6.7 不要在指定方法的参数.
+```javascript
 // bad
 function f1(a) {
   a = 1;
@@ -225,8 +349,9 @@ function f3(a) {
 function f4(a = 1) {
   // ...
 }
-
-#### 6.8 Prefer the use of spread operator ... to call cariadic function.
+```
+#### 6.8 使用...方法
+```javascript
 // bad
 const x = [1, 2, 3, 4, 5];
 console.log.apply(console, x);
@@ -240,9 +365,10 @@ new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
 
 // good
 new Date(...[2016, 8, 5]);
-
+```
 ## 7. Arrow function
-#### 7.1 When you must use an anonymous function (as when passing an inline callback), use arrow function notation.
+#### 7.1 在使用匿名函数时使用箭头函数
+```javascript
 // bad
 [1, 2, 3].map(function (x) {
   const y = x + 1;
@@ -254,7 +380,7 @@ new Date(...[2016, 8, 5]);
   const y = x + 1;
   return x * y;
 });
-
+```
 #### 7.2  If the function body consists of a single statement returning an expression without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a return statement.
 // bad
 [1, 2, 3].map(number => {
