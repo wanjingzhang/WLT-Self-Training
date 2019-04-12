@@ -1,11 +1,11 @@
 # OSX的文件系统
 ### 一. 文件操作
 ```javascript
-ls /Volumes/Wanjing'sMacintosh/  //Wanjing'sMacintosh 显示桌面上的移动硬盘
+ls /Volumes/WanjingsMacintosh/    //Wanjing'sMacintosh 显示桌面上的移动硬盘
 man ls                            //使用指南页面
 ls -la                            //显示隐藏文件
 q                                 //退出当前命令页面
-control+c                         //终止错误命令
+Control + C                       //终止错误命令
 ```
 
 ### 二.切换到其他路径
@@ -81,5 +81,5 @@ su user           \\切换用户
 sudo              \\Super user do
 sudo -s           \\临时取得root级别访问权限
 history           \\查看历史纪录
-Control＋L         \\清屏
+Control ＋ L         \\清屏
 ```
