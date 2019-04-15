@@ -39,8 +39,11 @@ Person.prototype = {
     decribleYourself(){},
     toString(){},
     toValue(){},
-}
+} 
+```
 
+# 继承
+```javascript
 class Regional extends Person{
     constructor(name, age, gender, smoke, marital, comefrom) {
         super(name, age, gender, smoke, marital);
