@@ -48,7 +48,7 @@ console.log('end');
 ```
 
 ### Promise的嵌套
-> 需要一步步执行
+> Promise会按照需要，一步步执行
 ```javascript
 const makeRequest = () => {
   return promise1()
@@ -62,7 +62,7 @@ const makeRequest = () => {
     })
 } 
 ```
-> Promise不需要返回值的嵌套
+> Promise如果不需要返回值，可以不用嵌套，用队列，按照顺序执行。
 ```javascript
 const makeRequest = () => {
   return promise1()
@@ -77,8 +77,8 @@ const makeRequest = () => {
 }
 ```
 
-### Promise错误捕获
-> 麻烦，无法知道准确的错误位置
+### 错误捕获
+> 在Promise中，无法知道准确的错误位置，所以如果嵌套很深找错比较麻烦
 ```javascript
 const makeRequest = () => {
   return callAPromise()
