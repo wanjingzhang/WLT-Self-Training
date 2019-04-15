@@ -81,3 +81,5 @@ makeRequest()
     // Error: oops at makeRequest (index.js:7:9)
   })
 ```
+
+[GoBack](https://github.com/wanjingzhang/Self-Training/tree/master/02HTML/2JS/ES6)

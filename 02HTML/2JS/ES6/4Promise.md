@@ -98,3 +98,5 @@ makeRequest()
     // Error: oops at callAPromise.then.then.then.then.then (index.js:8:13)
   })
 ```
+
+[GoBack](https://github.com/wanjingzhang/Self-Training/tree/master/02HTML/2JS/ES6)

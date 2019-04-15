@@ -1345,7 +1345,7 @@ person2.greeting()
 
 
 
-
+[GoBack](https://github.com/wanjingzhang/Self-Training/tree/master/02HTML/2JS/ES6)
 
 
 

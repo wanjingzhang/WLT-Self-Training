@@ -59,3 +59,5 @@ XiaoQiang.describeYourself();
 var ZhangSan = new Regional("ZhangSan", 22, "female", "non-smoking", "single", "ShangHai");
 ZhangSan.descriptYourComefrom();
 ```
+
+[GoBack](https://github.com/wanjingzhang/Self-Training/tree/master/02HTML/2JS/ES6)

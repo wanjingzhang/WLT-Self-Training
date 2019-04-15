@@ -41,3 +41,5 @@ console.log(`${iterateList.next().value}, your table is ready`);
 console.log(`${iterateList.next().value}, your table is ready`);
 console.log(`Is this finished? ${iterateList.next().done}`);
 ```
+
+[GoBack](https://github.com/wanjingzhang/Self-Training/tree/master/02HTML/2JS/ES6)

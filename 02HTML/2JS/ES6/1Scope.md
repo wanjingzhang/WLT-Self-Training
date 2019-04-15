@@ -82,4 +82,5 @@ console.log(7);
 > 口诀：同步=> 异步=> 回调 
 
 
+[GoBack](https://github.com/wanjingzhang/Self-Training/tree/master/02HTML/2JS/ES6)
 
