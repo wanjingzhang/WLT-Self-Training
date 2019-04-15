@@ -1,8 +1,11 @@
 # ESMS6常用功能总结
-* 1. 作用域及类
-* 2. Iterator
-* 3. Async和wait
-* 4. Promise 
+1. [作用域](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/1Scope.md)
+1. [类](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/2Class.md)
+1. [迭代器](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/3Iterator.md)
+1. [Promise ](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/4Promise.md)
+1. [异步和等待](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/5AsyncAwait.md)
+1. [原型链](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/6Prototype.md)
+1. [JS规范](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/7JS书写规范.md)
 
 ### 开发工具
 https://atom.io/ 
