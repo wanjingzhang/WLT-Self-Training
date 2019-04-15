@@ -26,7 +26,7 @@ var obj = new test();
 
 # 闭包
 > 当内部函数以某一种方式被任何一个外部函数作用域访问时，一个闭包就产生了。 
-### 金典示例
+### 经典示例
 ```javascript
 for(var i = 0;i<5;i++){
     setTimeout(function(){
@@ -37,14 +37,14 @@ console.log(i);
 //输出 5
 //i:  5 (5) 
 ``` 
-> 使用必包
+> 使用毕包
 ```javascript  
-var loop = function(){
+var loop = function(_i){
     setTimeout(function(){
         console.log("2: ",_i); 
     },1000)
 }
-for(var_i=0;_i<5;_i++){
+for(var _i=0 ; _i<5 ; _i++ ){
     loop(_i);
 }
 console.log(_i);
@@ -84,7 +84,18 @@ console.log(7);
 
 
 # 类 
-> 可以继承父类的构造方法以及属性其他方法。
+> ECMAScript6实现了class语法糖，新的写法让对象的原型更加清晰、更接近面向对象。
+> ECMAScript5是原型链继承。 prototype
+```javascript
+class Point{
+    // ...
+}
+typeof Point // "function"
+Point === Point.prototype.constructor // true
+```
+> 类的数据类型就是函数，类本身就是指向构造函数。
+>
+
 ```javascript
 class Person{
     constructor(name, age, gender, smoke, marital) {
@@ -98,7 +109,23 @@ class Person{
     describeYourself() {
         console.log(`Hello, My name's ${this.name}, I'm ${this.age} years old, and I'm a ${this.gender}.`);
     }
+
+    toString(){
+        // ...
+    }
+
+    toValue(){
+        // ...
+    }
 } 
+// 等同于
+Person.prototype = {
+    constructor(){},
+    decribleYourself(){},
+    toString(){},
+    toValue(){},
+}
+
 class Regional extends Person{
     constructor(name, age, gender, smoke, marital, comefrom) {
         super(name, age, gender, smoke, marital);
