@@ -23,9 +23,35 @@ ClassA.prototype.sayAge = function(){
 // 在ClassA构造函数中定义了name和age属性，并且在其原型上定义了sayName和sayAge方法。
 function ClassB(name,age,job){
     ClassA.apply(this,[name,age]);
+    this.job = job;  
+}
+ClassB.prototype = ClassA.prototype;
+ClassB.prototype.sayJob = function(){
+    console.log(this.job);
+}
+
+var b = new ClassB("sunqun",18,"developer");
+
+```
+
+> 在函数中执行apply相当于在Java中执行super()方法，调用父类的构造函数，初始化相关属性。
+> var b = new ClassB("sunqun",18,"developer");
+> 实例化 b 对象，可以访问3个属性以及2个方法。
+> 但是此时 b 还不能访问 ClassA 中定义的 sayName和sayAge方法， 
+> 新增代码 ClassB.prototype = ClassA.prototype;
+> 其实这里修改了 ClassA.prototype 方法，导致ClassA的所有实力都有 sayJob 方法。
+> 为了解决这个问题我们修改了 ClassB 的代码。
+```javascript
+function ClassB(name,age,job){
+    Class.apply(this,[name,age]);
     this.job = job;
 }
-// 在函数中执行apply相当于在Java中执行super()方法，调用父类的构造函数，初始化相关属性。
-var b = new ClassB("sunqun",18,"developer");
-// 实例化 b 对象，可以访问3个属性以及2个方法。
+ClassB.prototype = new ClassA();
+ClassB.prototype.constructor = ClassB;
+ClassB.prototype.sayJob = function(){
+    console.log(this.job);
+}
 ```
+> 以上代码中 ClassB.prototype = new ClassA() 时，给ClassA传递的是空的参数，但是 ClassA 的构造函数默认是有值的。
+> 所以在构造函数中对传入的参数进行各种处理时，传递空参数可能回导致报错
+> 在以下代码中我们添加了一个 ClassMiddle 作为 ClassB 和 ClassA 之间的桥梁。
