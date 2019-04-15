@@ -43,7 +43,7 @@ var b = new ClassB("sunqun",18,"developer");
 > 为了解决这个问题我们修改了 ClassB 的代码。
 ```javascript
 function ClassB(name,age,job){
-    Class.apply(this,[name,age]);
+    ClassA.apply(this,[name,age]);
     this.job = job;
 }
 ClassB.prototype = new ClassA();
@@ -55,3 +55,19 @@ ClassB.prototype.sayJob = function(){
 > 以上代码中 ClassB.prototype = new ClassA() 时，给ClassA传递的是空的参数，但是 ClassA 的构造函数默认是有值的。
 > 所以在构造函数中对传入的参数进行各种处理时，传递空参数可能回导致报错
 > 在以下代码中我们添加了一个 ClassMiddle 作为 ClassB 和 ClassA 之间的桥梁。
+```javascript
+function ClassB(name,age,job){
+    ClassA.apply(this,[name,age]);
+    this.job = job;
+}
+function ClassMiddle(){
+
+}
+ClassMiddle.prototype = ClassA.prototype;
+ClassB.prototype = new ClassMiddle();
+ClassB.prototype.constructor = ClassB;
+ClassB.prototype.sayJob = function(){
+    console.log(this.job);
+}
+
+```
