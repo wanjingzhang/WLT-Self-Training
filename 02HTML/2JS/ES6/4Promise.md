@@ -7,7 +7,7 @@
 > 优点: 异步调用不阻断当前程序的运行。
 > 可以用在API调用等待获取大量数据、计算较复杂的程序，非常费时的操作。
 > 缺点: 结构复杂，不易掌握，嵌套结构复杂 
-![Drag Promise](https://raw.githubusercontent.com/wanjingzhang/Self-Training/master/html/JS/ECMS6/PROMISE.png)
+![Drag Promise](https://raw.githubusercontent.com/wanjingzhang/Self-Training/master/02HTML/2JS/ES6/PROMISE.png)
  
 ### Promise 示例
 ```javascript

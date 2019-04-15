@@ -73,7 +73,7 @@ var myNumbers = [1,2,3,4,5];
 var myDoubles = myNumbers.map(doubleIt);
 ```
 
-### 7。 Reponsive Layout
+### 7. 响应式布局
 ```javascript
 var ad = document.querySelector('#primary-content');
 resizeHandler();
