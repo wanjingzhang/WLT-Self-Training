@@ -8,10 +8,10 @@
 1. [JS规范](https://github.com/wanjingzhang/Self-Training/blob/master/02HTML/2JS/ES6/7JS书写规范.md)
 
 ### 开发工具
-https://atom.io/ 
-https://www.sublimetext.com/
-https://www.jetbrains.com/webstorm/
-https://code.visualstudio.com/
+* https://atom.io/ 
+* https://www.sublimetext.com/
+* https://www.jetbrains.com/webstorm/
+* https://code.visualstudio.com/
  
 ### JS参考书
 * http://eloquentjavascript.net/
