@@ -8,7 +8,9 @@ window.requestAnimFrame = (function () {
             window.setTimeout(callback, 1000 / 30);
         };
 })();
-
+/**
+ * 输入状态捕捉
+ */
 FB.Input = {
     x: 0,
     y: 0,
@@ -22,27 +24,22 @@ FB.Input = {
     }
 }
 
-FB.Collides = function (object_1, object_2) {
-    // if(stone.coin && sled.vx > sled.centerX + sled.w/2 -5){
-    //     stone.coin = false;
-    //     FB.score.coins += 1;
-    //     console.log('get coin:' + sled.vy);
-    // }
-
+/** 
+ *  碰撞检测
+ */
+FB.Collides = function (object_1, object_2) {  
     if ((object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < object_2.vx + object_1.width / 2)
         && object_1.vy + object_1.height / 2 > object_2.vy
-    ) {
-        // console.log('obj1: vy=' + object_1.vy +  ' height=' + object_1.height );
-        // console.log('obj2: vy=' + object_2.vy + ' height=' + object_2.height ); 
-        // console.log("collide (object_1.vy + object_1.height/2)=" + object_1.vy + object_1.height/2 );
-        // console.log("object_2.y=" + object_2.vy);
+    ) { 
         console.log("collide");
         return true;
     }
 
 }
  
-
+/**
+ * 绘制方法，正方形、圆形、图片、矢量图形、半圆
+ */
 FB.Draw = {
     clear: function () {
         FB.ctx.clearRect(0, 0, FB.WIDTH, FB.HEIGHT);
