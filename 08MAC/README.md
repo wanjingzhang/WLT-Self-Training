@@ -1,19 +1,15 @@
 # OSX的文件系统
-### 一. 文件操作
-```javascript
-ls /Volumes/WanjingsMacintosh/    //Wanjing'sMacintosh 显示桌面上的移动硬盘
-man ls                            //使用指南页面
-ls -la                            //显示隐藏文件
-q                                 //退出当前命令页面
-Control + C                       //终止错误命令
-```
+### 一. 文件操作 
+`ls /Volumes/WanjingsMacintosh/`    //Wanjing'sMacintosh 显示桌面上的移动硬盘
+`man ls`                            //使用指南页面
+`ls -la`                            //显示隐藏文件
+`q`                                 //退出当前命令页面
+`Control + C`                       //终止错误命令 
 
-### 二.切换到其他路径
-```javascript
-pwd ＃print working directory 显示当前绝对路径 “/Users/zhangwanjing”
-ls #list directory contents 列出当前目录的内容
-cd #change directory 改变当前目录到指定
-```
+### 二.切换到其他路径 
+`pwd ＃print working directory`     //显示当前绝对路径 “/Users/zhangwanjing”
+`ls #list directory contents`       //列出当前目录的内容
+`cd #change directory`              //改变当前目录到指定 
 
 ### 三.处理特殊字符
 ```javascript
