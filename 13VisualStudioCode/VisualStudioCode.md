@@ -50,11 +50,11 @@ var elem = document.querySelector('expr');
 * cmd + opt + R				\\在Fiddle中打开
 * cmd + |					\\在不同窗口打开相同的文件
 * cmd + W					\\关闭
-* 右键open to the side		\\在右边打开
+* 右键open to the side		 \\在右边打开
 * cmd + control + Right		\\向右分窗口
 * cmd + control + 1			\\合并窗口
 * cmd + 1, cmd + 2			\\选择当前窗口
-* control + space			\\只能感知
+* control + space			\\智能感知
 
 ### 7. 代码导航
 * cmd + shift + O			\\@跳转定义的变量
