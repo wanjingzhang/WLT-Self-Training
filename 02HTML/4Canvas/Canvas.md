@@ -12,15 +12,14 @@
 ### 改善 HTML5 Canvas 性能
 
 ### Canvas 介绍
-1. Canvas 元素
-    Features
-    * Provides a place for program-controlled drawing: shapes,images,text,curves,video,etc.
-    * Supported in all major modern browsers: fallback content displyed in browsers that don't support canvas.
-    * Pages can have multiple canvases, even overlapping ones
-    * Canvas content is not part of the page DOM.
-    * SVG is more suitable for mixing graphics with the DOM.
-    Basic
-    * The canvas coordinates start at top left, with values increasing toward the right along the x axis and down along the y axis
+1. Canvas 元素特点 
+    * 提供了一个代码控制的绘制区域: `shapes,images,text,curves,video,etc`.
+    * 支持所有的现代浏览器: fallback content displyed in browsers that don't support canvas.
+    * 一个页面可以包括多Canvas, 甚至是重叠的Canvas
+    * Canvas内容不属于Dom结构的一部分.
+    * SVG更适合在DOM上绘制图形.
+    基础绘制
+    * Canvas坐标从左上角开始，X轴向右扩展，Y轴向下扩展.
     * Declare it using the tag canvas and you typically declare it with an ID attribute.
         ```javascript
         <canvas id="cv1" with="300" height="150">
@@ -40,15 +39,14 @@
     * Media types: `Images, Video, DOM elements, Raw pixel access`.
 
 1. 基础 Canvas 绘制技术
-    - Colors and Styles
+    > 颜色和样式
     * `fillStyles`: filling objects; property values: CSS color, gradient, or pattern; default to black
     * `strokeStyle`: object strokes; property values: CSS color, gradient, or pattern; default to black
-    - Rectangles are the only primitive shape supported by Canvas.
-    Three function for operating on rectangles.
+    > 矩形是Canvas唯一的原始方法，三个方法操作绘制矩形。 
     * `clearRect(x,y,w,h)` Erases the given rectangle on the canvas.
     * `strokeRect(x,y,w,h)` Strokes the specified rectangle with the current stroke style.
     * `fillRect(x,y,w,h)` Fills the specified rectangle with the current fill style.
-    - Lines
+    > 线条
     * `moveTo(x,y)` Moves the drawing pen to (x,y); does not perform any drawing
     * `lineTo(x,y)` Draws a line from the current pen position to (x,y)
     * `lineWidth` Gets or sets the width of the pen
@@ -60,16 +58,17 @@
     * `setLinDash()` Specifies a custom set of spaces to create a dashed line
     * `getLineDash()` Retrieves the current line dash settings
     * lineDashOffset Specifies the initial offset to use when creating dashed lines
-   - The canvas state
+   > Canvas 状态
     * Each canvas context maintains a drawing state
     * The context state keeps track of various global settings: lineWidth, strokeStyle, fillStyle, transformation matrix, clipping region
     * Your code can save and restore individual states
     * Drawing states are maintained as a stack: Saved states are pushed onto the stack, restore pops off the top one
     * `save()` Saves the current drawing context, save the current setting
     * `restore()` Restores the most recent saved drawing context and makes it current
-   - The Arcs and Paths
+   > 弧线
     * `arc(x, y, startAngle, radius, startAngle, endAngle [, anticlockwise]);`
-   - Paths
+    ''/
+   > 路径
     * A path is a set of connected points, and is open or closed
     * The drawing context always has one current path
     * Closed paths have the same starting and ending point
@@ -77,51 +76,51 @@
     * Segments are added using drawing routines
     * The `stroke()` and `fill()` methods stroke and fill the path
     * The `closePath()` method closes the current path 
-   - Curves
+   > 曲线
     * Bezier Curve: have four points, start\end\two control point; `bezierCurveTo(cx1,cy1,cx2,cy2,end1,end2)`;
     * Quadratic Curve: have three points, start\end\only one control point; `quadraticCurveTo(cx,cy,x,y)`;
 
 1. 复杂 Canvas 绘图
-   - Drawing shadows
+   > Drawing shadows
     `shadowColor, shadowOffsetX, shadowOffsetY, shadowBlur`.
-   - Using patterns
+   > 模式
     * Patterns and gradients can be used for `fillStyle` and `strokeStyle`
     * Patterns can be created from `images, video, other canvases`
     * For video, the current frame is used as the pattern
     * Patterns can be set to repeat `vertically, horizontally`, or both
     * `creatPattern(elem,repeat)`
     * Pattern source: images, video and even another canvas as our pattern source
-   - Using gradients
+   > 渐变
     * Two gradient types: `linear and radial`
     * Creating a gradient: Creat the specific gradient type, then add color stops
     * Gradients can be used for fill and stroke styles, juse like patterns
     * `creatLinearGradient(x0,y0,x1,y1), createdRadialGradient(x0,y0,r0,x1,y1,r1), addColorStop(position(0,1),color)`
-   - Images and video
+   > 图片和视频
     * Images data can come from video elements, image elements, or other canvas elements
     * Images can be resized or cropped
     * `drawImage(src,x,y)` 
-   - Clipping paths
+   > 剪贴路径
     * A clipping path is a type of "mask"
     * Defines a region outside of which drawing is "clipped"
     * Initially, the entire canvas is the default clipping path
     * Any path can be a clipping path
      
 1. 高级绘制 APIs
-   - Transformations
+   > 变形
     * `transform(a,b,c,d,e,f)` Adds the transform to the current canvas transform
     * `setTransform(a,b,c,d,e,f)` Sets the canvas transform to the specified transform
-   - Scaling
-   - Rotation
-   - Custom transformations
-   - Composition and globalAlpha
-   - Manipulating raw pixels
+   > 缩放
+   > 旋转
+   > 自定义变形
+   > Composition and globalAlpha
+   > 像素操作
 
 1. 实用示例
-   - Building an image slideshow
+   > 构建幻灯片
     `showCanvasCtx.drawImage(img, 0, 0, 600, 400);`
-   - Using smooth transitions
+   > 平滑转场
    
-   - Basic animation
-   - Double-buffered animation
+   > 基础动画
+   > 双倍缓冲动画
 
 1. 结论
