@@ -1,4 +1,5 @@
-# 在ES3中不能直接读取对象的原型
+# ES3
+> 在ES3中不能直接读取对象的原型
 ```javascript
 var obj = new Object();
 obj.prototype; //这个指针是 obj 对象的原型，可以把它看作是 java 中的 super 关键字
