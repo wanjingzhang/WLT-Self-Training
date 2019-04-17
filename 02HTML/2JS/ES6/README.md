@@ -14,6 +14,7 @@
 * https://code.visualstudio.com/
  
 ### JS参考书
+* http://es6.ruanyifeng.com/#docs/promise
 * http://eloquentjavascript.net/
 * http://exploringjs.com/
 * https://github.com/getify/You-Dont-Know-JS
