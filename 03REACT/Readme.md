@@ -1,4 +1,7 @@
 [Guide book](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial#_debugging-your-express-application)
+### How to start
+> yarn install
+> yarn start
 
 ## React
 > React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
