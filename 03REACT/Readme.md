@@ -1,8 +1,8 @@
 [Guide book](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial#_debugging-your-express-application)
 ### How to start
-> yarn install
-> yarn start
-> yarn add highlight.js
+1. yarn install
+1. yarn start
+1. yarn add highlight.js
 
 ## React
 > React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
