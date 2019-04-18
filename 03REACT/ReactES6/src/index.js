@@ -9,9 +9,11 @@ import {
   // objAssemblyComputedProps,
   // spreadOperator,
   // templateLiterals,
-  functionArgs
+  // functionArgs 
+  // promises,
   
-} from './examples'
-functionArgs();
+  
+} from './examples' 
+
 ReactDOM.render(<App />, document.getElementById('root'))
 registerServiceWorker()

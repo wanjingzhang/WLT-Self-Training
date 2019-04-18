@@ -29,7 +29,7 @@ export function promises() {
                               console.log(errorMessage)
                             })
 
-  waitUpToThreeSeconds(4).then(successMessage => {
+  waitUpToThreeSeconds(3.5).then(successMessage => {
                               console.log(successMessage)
                             })
                             .catch(errorMessage => {
