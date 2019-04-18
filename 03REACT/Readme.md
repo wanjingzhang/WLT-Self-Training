@@ -2,6 +2,7 @@
 ### How to start
 > yarn install
 > yarn start
+> yarn add highlight.js
 
 ## React
 > React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
