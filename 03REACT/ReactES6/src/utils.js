@@ -1,3 +1,39 @@
+class ColorGenerator extends Random{
+  constructor(max, allowNegatives, type = "rgb") {
+    super(max, allowNegatives);
+    if (this.typeList.includes(type)) {
+      this.type = type;
+    } else {
+      this.type = "rgb";
+    }
+  }
+
+  typeList = ["hex", "rgb"];
+  get types() {
+    return this.typeList;
+  }
+
+  set types(types = ['hex', 'rgb']) {
+    if (Array.isArray(types)) {
+      
+    }
+  }
+
+  color() {
+    let r = super.randomInt(0, 255);
+    let g = super.randomInt(0, 255);
+    let b = super.randomInt(0, 255);
+    if (this.type === 'hex') {
+      return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}}`
+    }else{
+      return `rgb(${r},${g},${b})`
+    }
+  }
+}
+
+export const rando = new ColorGenerator();
+console.log(rando.types);
+
 class Random {
   constructor(max = 1000, allowNegatives = true) {
     this.max = max;
