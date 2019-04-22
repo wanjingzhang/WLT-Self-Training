@@ -382,6 +382,8 @@ new Date(...[2016, 8, 5]);
 });
 ```
 #### 7.2  If the function body consists of a single statement returning an expression without side effects, omit the braces and use the implicit return. Otherwise, keep the braces and use a return statement.
+> 如果函数体由单个语句组成，返回一个没有副作用的表达式，则省略大括号并使用隐士返回。否则保留大括号，并且使用return返回。
+```javascript
 // bad
 [1, 2, 3].map(number => {
   const nextNumber = number + 1;
@@ -419,8 +421,10 @@ foo(() => bool = true);
 foo(() => {
   bool = true;
 });
-
+```
 #### 7.3  If your function takes a single argument and doesn’t use braces, omit the parentheses.
+> 如果您的函数只有一个参数而不使用大括号，则省略括号。
+```javascript
 // bad
 [1, 2, 3].map((x) => x * x);
 
@@ -443,8 +447,10 @@ foo(() => {
   const y = x + 1;
   return x * y;
 });
-
+```
 #### 7.4 Avoid confusing arrow function syntax (=>) with comparison operators (<=, >=)
+> 避免混淆剪头函数语法与比较预算符
+```javascript
 // bad
 const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
 
@@ -459,9 +465,10 @@ const itemHeight = (item) => {
   const { height, largeSize, smallSize } = item;
   return height > 256 ? largeSize : smallSize;
 };
-
-## 8. Classes & Constructors
-#### 8.1 Always use class
+```
+## 8. Classes & Constructors 类与结构
+#### 8.1 Always use class 总是选择使用类
+```javascript
 // good
 class Queue {
   constructor(contents = []) {
@@ -473,14 +480,19 @@ class Queue {
     return value;
   }
 }
-#### 8.2 Use extends for inheritance
+```
+#### 8.2 Use extends for inheritance 使用extends进行继承
+```javascript
 // good
 class PeekableQueue extends Queue {
   peek() {
     return this.queue[0];
   }
 }
+```
 #### 8.3 Methods can return this to help with method chaining.
+> 方法可以返回this帮助方法链接
+```javascript
 // good
 class Jedi {
   jump() {
@@ -498,8 +510,10 @@ const luke = new Jedi();
 
 luke.jump()
   .setHeight(20);
-
+```
 #### 8.4 It's okay to writer a custom toString() method, just make sure it works successfully and causes no side efforts.
+> 编写自定义函数toString()是可以的，但是请确保其成功运行并且不会引起任何干扰。
+```javascript
 class Jedi {
   constructor(options = {}) {
     this.name = options.name || 'no name';
@@ -513,8 +527,10 @@ class Jedi {
     return `Jedi - ${this.getName()}`;
   }
 }
-
+```
 #### 8.5 Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint:
+> 如果未指定则类具有默认的构造函数，不需要给父类一个空的构造函数或者仅委托。
+```javascript
 // bad
 class Jedi {
   constructor() {}
@@ -538,11 +554,11 @@ class Rey extends Jedi {
     this.name = 'Rey';
   }
 }
-
+```
 ## 9. Module
-#### 9.1 Always use modules (import/export) over a non-standard module system. You can always transpile to your preferred module system.
-Modules are the future, let's start using the future now.
-
+#### 9.1 Always use modules (import/export) over a non-standard module system. You can always transpile to your preferred module system. Modules are the future, let's start using the future now.
+> 始终在非标准模块系统使用模块。你可以始终转换到首选模块系统。模块是未来，现在就开始使用。
+```javascript
 // bad
 const AirbnbStyleGuide = require('./AirbnbStyleGuide');
 module.exports = AirbnbStyleGuide.es6;
@@ -554,16 +570,18 @@ export default AirbnbStyleGuide.es6;
 // best
 import { es6 } from './AirbnbStyleGuide';
 export default es6;
-
-#### 9.2 Do not use wildcard imports.
+```
+#### 9.2 Do not use wildcard imports. 不使用通配符导入
+```javascript
 // bad
 import * as AirbnbStyleGuide from './AirbnbStyleGuide';
 
 // good
 import AirbnbStyleGuide from './AirbnbStyleGuide';
-
+```
 #### 9.3 Do not export mutable bindings. Mutation should be avoided in general, but in particular when exporting mutable bindings.
-
+> 不要导出可变绑定，通常需要避免可变绑定，特别是你导出一个可变绑定。
+```javascript
 // bad
 let foo = 3;
 export { foo };
@@ -571,15 +589,19 @@ export { foo };
 // good
 const foo = 3;
 export { foo };
-
+```
 #### 9.4 In modules with a single export, prefer default export over named export
+> 在具有单个导出的模块中，首选的默认导出而不是命名导出。
+```javascript
 // bad
 export function foo() {}
 
 // good
 export default function foo() {}
-
+```
 #### 9.5 Put all imports above non-import statements.
+> 将所有导入放在非导入语句之上
+```javascript
 // bad
 import foo from 'foo';
 foo.init();
@@ -591,8 +613,10 @@ import foo from 'foo';
 import bar from 'bar';
 
 foo.init();
-
-#### 9.6 Multiline imports should be indented just like multiline array and object literals
+```
+#### 9.6 Multiline imports should be indented just like a multiline array and object literals
+> 多行导入应该像多行数组和对象文字一样缩进
+```javascript
 // bad
 import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
 
@@ -604,8 +628,10 @@ import {
   longNameD,
   longNameE,
 } from 'path';
-
+```
 #### 9.7 Disallow Webpack loader syntax in module import statements.
+> 在模块导入语句中禁止使用Webpack加载器语法
+```javascript
 // bad
 import fooSass from 'css!sass!foo.scss';
 import barCss from 'style!css!bar.css';
@@ -613,9 +639,10 @@ import barCss from 'style!css!bar.css';
 // good
 import fooSass from 'foo.scss';
 import barCss from 'bar.css';
-
-## 10. Iterators and Generators
-#### 10.1 Don't use iterators. Pefer Javascript's higer-order functions instead of loops for-in for for-of.
+```
+## 10. Iterators and Generators 迭代器和生成器
+#### 10.1 Don't use iterators. Prefer Javascript's higer-order functions instead of loops for-in for for-of. 不要使用迭代器，首选JS高阶函数而不是for-in, for-of
+```javascript
 const numbers = [1, 2, 3, 4, 5];
 
 // bad
@@ -651,9 +678,9 @@ numbers.forEach((num) => {
 // best (keeping it functional)
 const increasedByOne = numbers.map(num => num + 1);
 
-
-#### 10.3 If you must use generators, or if your disregard our advice, make sure their function
-signature is spaced properly.
+```
+#### 10.3 If you must use generators, or if your disregard our advice, make sure their function signature is spaced properly.
+```javascript
 // good
 function* foo() {
   // ...
@@ -663,9 +690,10 @@ function* foo() {
 const foo = function* () {
   // ...
 };
-
+```
 ## 11. Properties
 #### 11.1 Use dot notation when accessing properties.
+```javascript
 const luke = {
   jedi: true,
   age: 28,
@@ -676,8 +704,9 @@ const isJedi = luke['jedi'];
 
 // good
 const isJedi = luke.jedi;
-
+```
 #### 11.2 Use bracket notation [] when accessing properties with a variable.
+```javascript
 const luke = {
   jedi: true,
   age: 28,
@@ -688,24 +717,26 @@ function getProp(prop) {
 }
 
 const isJedi = getProp('jedi');
-
+```
 #### 11.3 Use exponentiation operator ** when calculating exponetiations.
+```javascript
 // bad
 const binary = Math.pow(2, 10);
 
 // good
 const binary = 2 ** 10;
-
+```
 ## 12. Variables
 #### 12.1 Always use const or let to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
-
+```javascript
 // bad
 superPower = new SuperPower();
 
 // good
 const superPower = new SuperPower();
-
+```
 #### 12.2 Use one const or let declaration per variable.
+```javascript
 // bad
 const items = getItems(),
     goSportsTeam = true,
@@ -721,8 +752,9 @@ const items = getItems(),
 const items = getItems();
 const goSportsTeam = true;
 const dragonball = 'z';
-
+```
 #### 12.3 Group all your consts, and group all your let's.
+```javascript
 // bad
 let i, len, dragonball,
     items = getItems(),
@@ -741,8 +773,9 @@ const items = getItems();
 let dragonball;
 let i;
 let length;
-
+```
 #### 12.4 Don't chain variable assigments.
+```javascript
 // bad
 (function example() {
   // JavaScript interprets this as
@@ -768,8 +801,9 @@ console.log(b); // throws ReferenceError
 console.log(c); // throws ReferenceError
 
 // the same applies for `const`
-
+```
 #### 12.5 Avoid using unary increments and decrements(++,--).
+```javascript
 // bad
 
 const array = [1, 2, 3];
@@ -796,8 +830,9 @@ num -= 1;
 
 const sum = array.reduce((a, b) => a + b, 0);
 const truthyCount = array.filter(Boolean).length;
-
+```
 #### 12.6 Avoid linebreaks before or after = in an assignment. If your assignment violates max-len, surround the value in parens.
+```javascript
 // bad
 const foo =
   superLongLongLongLongLongLongLongLongFunctionName();
@@ -813,10 +848,10 @@ const foo = (
 
 // good
 const foo = 'superLongLongLongLongLongLongLongLongString';
-
+```
 ## 13. Hoisting
 #### 13.1 Use shortcuts for booleans, but explicit comparisons for strings and numbers.
-
+```javascript
 // bad
 if (isValid === true) {
   // ...
@@ -846,8 +881,9 @@ if (collection.length) {
 if (collection.length > 0) {
   // ...
 }
-
+```
 #### 14.4 Use braces to create blocks in case and default clauses that contain lexical declarations (e.g. let, const, function, and class).
+```javascript
 // bad
 switch (foo) {
   case 1:
@@ -888,8 +924,9 @@ switch (foo) {
     class C {}
   }
 }
-
+```
 #### 14.6 Tarnaries should not be nested and generally be single line expression.
+```javascript
 // bad
 const foo = maybe1 > maybe2
   ? "bar"
@@ -905,8 +942,9 @@ const foo = maybe1 > maybe2
 
 // best
 const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
-
+```
 14.7 Avoid unneeded ternary statements.
+```javascript
 // bad
 const foo = a ? a : b;
 const bar = c ? true : false;
@@ -916,8 +954,9 @@ const baz = c ? false : true;
 const foo = a || b;
 const bar = !!c;
 const baz = !c;
-
+```
 #### 14.8 When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators since their precedence is broadly understood.
+```javascript
 // bad
 const foo = a && b < 0 || c > 0 || d + 1 === 0;
 
@@ -943,10 +982,10 @@ if (a || (b && c)) {
 
 // good
 const bar = a + b / c * d;
-
+```
 ## 15. Semicolons
 #### 15.1
-
+```javascript
 // bad - raises exception
 const luke = {}
 const leia = {}
@@ -983,9 +1022,10 @@ const reaction = "No! That's impossible!";
 function foo() {
   return 'search your feelings, you know it to be foo';
 }
-
+```
 ## 16. Type Casting & Coercion
 #### 16.1 Strings
+```javascript
 // => this.reviewScore = 9;
 
 // bad
@@ -999,8 +1039,9 @@ const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return 
 
 // good
 const totalScore = String(this.reviewScore);
-
+```
 #### 16.2 Number
+```javascript
 const inputValue = '4';
 
 // bad
@@ -1020,9 +1061,9 @@ const val = Number(inputValue);
 
 // good
 const val = parseInt(inputValue, 10);
-
+```
 #### 16.3 if for whatever reason you are doing something wild and parseInt is your bottleneck and need to use Bitshift for performance reasons.
-
+```javascript
 // good
 /**
  * parseInt was the reason my code was slow.
@@ -1030,9 +1071,9 @@ const val = parseInt(inputValue, 10);
  * Number made it a lot faster.
  */
 const val = inputValue >> 0;
-
+```
 #### 16.4 Booleans
-
+```javascript
 const age = 0;
 
 // bad
@@ -1043,9 +1084,10 @@ const hasAge = Boolean(age);
 
 // best
 const hasAge = !!age;
-
+```
 ## 17. Naming Conventions
 #### 17.1 Use camelCase when naming objects, functions, and instances.
+```javascript
 // bad
 const OBJEcttsssss = {};
 const this_is_my_object = {};
@@ -1054,8 +1096,9 @@ function c() {}
 // good
 const thisIsMyObject = {};
 function thisIsMyFunction() {}
-
+```
 #### 17.2 Use PascalCase only when naming constructors or classes.
+```javascript
 // bad
 function user(options) {
   this.name = options.name;
@@ -1075,8 +1118,9 @@ class User {
 const good = new User({
   name: 'yup',
 });
-
+```
 #### 17.3 Do not use trailing or leading underscores.
+```javascript
 // bad
 this.__firstName__ = 'Panda';
 this.firstName_ = 'Panda';
@@ -1087,8 +1131,9 @@ this.firstName = 'Panda';
 // see https://kangax.github.io/compat-table/es6/#test-WeakMap
 const firstNames = new WeakMap();
 firstNames.set(this, 'Panda');
-
+```
 #### 17.4 Don’t save references to this
+```javascript
 // bad
 function foo() {
   const self = this;
@@ -1111,8 +1156,9 @@ function foo() {
     console.log(this);
   };
 }
-
+```
 #### 17.5 A base filename should exactly match the name of its default export.
+```javascript
 // file 1 contents
 class CheckBox {
   // ...
@@ -1143,23 +1189,26 @@ import CheckBox from './CheckBox'; // PascalCase export/import/filename
 import fortyTwo from './fortyTwo'; // camelCase export/import/filename
 import insideDirectory from './insideDirectory'; // camelCase export/import/directory name/implicit "index"
 // ^ supports both insideDirectory.js and insideDirectory/index.js
-
+```
 #### 17.6 Use camelCase when you export-default a function. Your filename should be identical to your function’s name.
+```javascript
 function makeStyleGuide() {
   // ...
 }
 
 export default makeStyleGuide;
-
+```
 #### 17.7 Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+```javascript
 const AirbnbStyleGuide = {
   es6: {
   },
 };
 
 export default AirbnbStyleGuide;
-
+```
 #### 17.8  Acronyms and initialisms should always be all capitalized, or all lowercased.
+```javascript
 // bad
 import SmsContainer from './containers/SmsContainer';
 
@@ -1188,8 +1237,9 @@ import TextMessageContainer from './containers/TextMessageContainer';
 const requests = [
   // ...
 ];
-
+```
 #### 17.9 You may optionally uppercase a constant only if it (1) is exported, (2) is a const (it can not be reassigned), and (3) the programmer can trust it (and its nested properties) to never change.
+```javascript
 // bad
 const PRIVATE_VARIABLE = 'should not be unnecessarily uppercased within a file';
 
@@ -1218,9 +1268,10 @@ export const MAPPING = {
 export const MAPPING = {
   key: 'value'
 };
-
+```
 ## 18. Accessors
 #### 18.1  Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use getVal() and setVal('hello').
+```javascript
 // bad
 class Dragon {
   get age() {
@@ -1242,8 +1293,9 @@ class Dragon {
     // ...
   }
 }
-
+```
 #### 18.2 If the property/method is a boolean, use isVal() or hasVal()
+```javascript
 // bad
 if (!dragon.age()) {
   return false;
@@ -1253,8 +1305,9 @@ if (!dragon.age()) {
 if (!dragon.hasAge()) {
   return false;
 }
-
+```
 #### 18.3 It's okay to creat get() and set() functions, but be consistent.
+```javascript
 class Jedi {
   constructor(options = {}) {
     const lightsaber = options.lightsaber || 'blue';
@@ -1269,9 +1322,10 @@ class Jedi {
     return this[key];
   }
 }
-
+```
 ## 19. Events
 #### 19.1 When attaching data payloads to events instead of a raw value.
+```javascript
 // bad
 $(this).trigger('listingUpdated', listing.id);
 
@@ -1280,8 +1334,9 @@ $(this).trigger('listingUpdated', listing.id);
 $(this).on('listingUpdated', (e, listingID) => {
   // do something with listingID
 });
-
+```
 #### 19.2 Cache jQuery lookups.
+```javascript
 // bad
 function setSidebar() {
   $('.sidebar').hide();
@@ -1304,8 +1359,9 @@ function setSidebar() {
     'background-color': 'pink',
   });
 }
-
+```
 #### 19.3 Use find with scoped jQuery object queries.
+```javascript
 // bad
 $('ul', '.sidebar').hide();
 
@@ -1321,10 +1377,11 @@ $('.sidebar > ul').hide();
 // good
 $sidebar.find('ul').hide();
 
-
+```
 ## 20.Constructors and object instances
 
 #### 20.1 constructor function is JavaScript's version of a class.
+```javascript
 function Person(name) {
   this.name = name;
   this.greeting = function() {
@@ -1339,7 +1396,7 @@ person1.name
 person1.greeting()
 person2.name
 person2.greeting()
-
+```
 #### 20.2 Understanding prototype objects
 
 
