@@ -1,6 +1,9 @@
 import React from 'react';
+import cx from 'classnames';
 import GridItem from './GridItem';
 import styles from './Grid.css';
+import mediaStyle from './Media.css';
+
 
 export default class Gird extends React.Component {
   updateClicked(id) {
@@ -17,7 +20,8 @@ export default class Gird extends React.Component {
   }
   render() {
     return (
-      <div className={styles.grid}>
+      <div className={cx(styles.grid,
+      mediaStyle.grid)}>
         {this.renderFacts()}
       </div>
     );

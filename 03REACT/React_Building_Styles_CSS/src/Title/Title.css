@@ -12,3 +12,10 @@
     padding-top:0.67em;
     padding-bottom: 0.67em;
 }
+
+@media (max-width:768px){
+    .title{
+        font-size: 3em;
+        
+    }
+}
