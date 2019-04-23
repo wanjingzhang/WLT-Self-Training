@@ -1,0 +1,26 @@
+.card{
+    display: inline-block;
+    width:90%;
+    font-family: 'Space Mono', monospace;
+    border-radius: 3px;
+    border:1px solid rgba(168, 168, 163, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px 20px 25px 20px;
+    margin-bottom: 10px;
+}
+
+.card:hover{
+    animation-name: flash;
+    animation-duration: 1s;
+    border: 1px solid rgba(168, 168, 168, 0.2);
+    background-color: rgba(0, 0, 0,0.3); 
+}
+
+.title{
+    margin-top:5px;
+    margin-bottom: 10px;
+}
+
+.fact{
+    text-align: justify;
+}
