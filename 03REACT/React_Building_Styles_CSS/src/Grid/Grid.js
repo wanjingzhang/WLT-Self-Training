@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default class App extends React.Component {
+export default class Gird extends React.Component {
   render() {
     return (
       <div>
-        <h1>Stateful component</h1>
+        <h1>Gird</h1>
       </div>
     );
   }

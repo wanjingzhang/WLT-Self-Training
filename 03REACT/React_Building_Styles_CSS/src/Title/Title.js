@@ -1,9 +1,11 @@
 import React from 'react';
 
-const SingleCourse = (props) => {
+const Title = () => {
   return (
     <div>
-      <h1>Stateless component</h1>
+      <h1>Title</h1>
     </div>
   );
 }
+
+export default Title;
