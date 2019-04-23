@@ -1,15 +1,13 @@
 {
-  "name": "es2016",
+  "name": "css-modules",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "custom-react-scripts": "0.0.23",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "styled-components": "^2.1.0"
+    "react-dom": "^15.6.1"
   },
-  "devDependencies": {
-    "react-scripts": "1.0.7"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
