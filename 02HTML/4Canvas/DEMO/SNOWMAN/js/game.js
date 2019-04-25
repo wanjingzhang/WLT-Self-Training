@@ -3,7 +3,12 @@
 // scene opening
 window.Splash = function () {
     this.banner = new Image();
-    this.banner.src = "images/splash.png";
+    if (FB.mobileLandscape === true ) {
+        this.banner.src = "images/splash.png";
+    } else {
+        this.banner.src = "images/app_rotate_to_play.svg";
+    }
+    
 
     this.init = function () {
         FB.entities = [];
@@ -25,7 +30,7 @@ window.Splash = function () {
     }
 
     this.render = function () {
-        FB.Draw.Image(this.banner, 145, 80);
+        FB.Draw.Image(this.banner, (this.banner.width - FB.WIDTH )/2 , (FB.HEIGHT - this.banner.height)/2); 
     }
 }
 
