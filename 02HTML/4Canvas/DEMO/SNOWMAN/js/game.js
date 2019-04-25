@@ -25,7 +25,7 @@ window.Splash = function () {
     }
 
     this.render = function () {
-        FB.Draw.Image(this.banner, 66, 100);
+        FB.Draw.Image(this.banner, 145, 80);
     }
 }
 
@@ -78,22 +78,22 @@ window.Play = function () {
         }
 
         //check for a collision if the user tapped on this game tick;
-        var checkCollision = false;
-        if (FB.Input.tapped) {
-            FB.score.taps += 1;
-            checkCollision = true;
-        }
+        // var checkCollision = false;
+        // if (FB.Input.tapped) {
+        //     FB.score.taps += 1;
+        //     checkCollision = true;
+        // }
 
         for (var i = 0; i < FB.entities.length; i += 1) {
             FB.entities[i].update();
 
-            if (FB.entities[i].type === 'stone') {
-                var hit = FB.Collides(FB.sled, FB.entities[i]);
-                if (hit) {
-                    FB.changeState('GameOver');
-                    break;
-                }
-            }
+            // if (FB.entities[i].type === 'stone') {
+            //     var hit = FB.Collides(FB.sled, FB.entities[i]);
+            //     if (hit) {
+            //         FB.changeState('GameOver');
+            //         break;
+            //     }
+            // }
         }
     }
 

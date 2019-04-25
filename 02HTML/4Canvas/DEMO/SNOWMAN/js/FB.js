@@ -2,9 +2,9 @@
  *  游戏属性状态管理
  */
 var FB = {
-    WIDTH: 320,
-    HEIGHT: 480,
-
+    WIDTH: 480,
+    HEIGHT: 320,
+    Body:null,
     canvas: null,
     ctx: null,
     offset: {
@@ -35,6 +35,7 @@ var FB = {
         FB.currentWidth = FB.WIDTH;
         FB.currentHeight = FB.HEIGHT;
         // this is our canvas element
+        FB.Body = document.getElementById('body');
         FB.canvas = document.getElementById('canvas');
         FB.canvas.width = FB.WIDTH;
         FB.canvas.height = FB.HEIGHT;
@@ -102,6 +103,7 @@ var FB = {
 
         FB.canvas.style.width = FB.currentWidth + "px";
         FB.canvas.style.height = FB.currentHeight + "px";
+        FB.Body.style.width = FB.currentWidth + "px";
 
         FB.scale = FB.currentWidth / FB.WIDTH;
 
