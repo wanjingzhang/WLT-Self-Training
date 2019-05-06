@@ -27,9 +27,7 @@ var FB = {
     android: null,
     ios: null,
     snow: [],
-    snowMax: 20,
-    orientation: "",
-    mobileLandscape: false,
+    snowMax: 20, 
     init: function () {
         var grad;
         FB.RATIO = FB.WIDTH / FB.HEIGHT;
@@ -39,23 +37,13 @@ var FB = {
         // this is our canvas element
         FB.Body = document.getElementById('body');
         FB.canvas = document.getElementById('canvas');
-        
-
+         
         FB.ctx = FB.canvas.getContext('2d');
         FB.ua = navigator.userAgent.toLowerCase();
         FB.android = FB.ua.indexOf('android') > -1 ? true : false;
         FB.ios = (FB.ua.indexOf('iphone') > -1 || FB.ua.indexOf('ipad') > -1) ? true : false; 
-        FB.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
-
-        if ( FB.android || FB.ios ) { 
-            if (FB.orientation === "landscape-primary") {
-                // console.log("That looks good. ");
-                FB.mobileLandscape = true; 
-            } else {
-                console.log(" 请把窗口最大化横屏"); 
-            } 
-        }
-        
+        // FB.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
+ 
         FB.canvas.width = FB.WIDTH;
         FB.canvas.height = FB.HEIGHT;
        
@@ -82,11 +70,10 @@ var FB = {
         grad.addColorStop(0, '#036');
         grad.addColorStop(1, 'black');
         FB.gradients.night = grad;
-        FB.changeState("Splash");
-        FB.loop();
-        
-        // add events
-        if (FB.mobileLandscape === true && (FB.android || FB.ios)) {
+  
+        if (!(FB.isLandscape() && FB.isMobile.any())) {
+            console.log('isLandscape');
+            // add events
             window.addEventListener('click', function (e) {
                 e.preventDefault();
                 FB.Input.set(e);
@@ -104,32 +91,12 @@ var FB = {
             window.addEventListener('touchend', function (e) {
                 e.preventDefault();
             }, false);
-            FB.resize();
+            FB.resize();  
         }
-        
-        
-    },
-    resize: function () {
-        FB.currentHeight = window.innerHeight;
-        FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) + 1;
 
-        // if (FB.android || FB.ios) {
-        //     document.body.style.height = (window.innerHeight + 50) + "px";
-        // }
-
-        FB.canvas.style.width = FB.currentWidth + "px";
-        FB.canvas.style.height = FB.currentHeight + "px";
-        FB.Body.style.width = FB.currentWidth + "px";
-
-        //FB.scale = FB.currentWidth / FB.WIDTH;
-
-        FB.offset.top = FB.canvas.offsetTop;
-        FB.offset.left = FB.canvas.offsetLeft;
-
-        window.setTimeout(function () {
-            window.scrollTo(0, 1);
-        });
-    },
+        FB.changeState("Splash"); 
+        FB.loop(); 
+    }, 
     changeState: function (state) {
         FB.game = new window[state]();
         FB.game.init();

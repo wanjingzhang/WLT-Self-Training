@@ -3,10 +3,11 @@
 // scene opening
 window.Splash = function () {
     this.banner = new Image();
-    if (FB.mobileLandscape === true ) {
+    if (FB.isLandscape() && FB.isMobile.any()) {
+        this.banner.src = "images/app_rotate_to_play.png"; 
+    }
+    else {
         this.banner.src = "images/splash.png";
-    } else {
-        this.banner.src = "images/app_rotate_to_play.svg";
     }
     
 
@@ -29,8 +30,8 @@ window.Splash = function () {
         }
     }
 
-    this.render = function () {
-        FB.Draw.Image(this.banner, (this.banner.width - FB.WIDTH )/2 , (FB.HEIGHT - this.banner.height)/2); 
+    this.render = function () { 
+        FB.Draw.Image(this.banner, (FB.WIDTH - this.banner.width) / 2, (FB.HEIGHT - this.banner.height) / 2); 
     }
 }
 
