@@ -44,7 +44,15 @@ FB.resize = function () {
 
     window.setTimeout(function () {
         window.scrollTo(0, 1);
-    });
-},
+    }); 
+}
+
+FB.changeOrientation = function () {
+    console.log('changeOrientation');
+    console.log('before height:' + window.innerHeight);
+    console.log('before width:' + window.innerWidth);
+ 
+}
 
 window.addEventListener('resize', FB.resize, false);
+window.addEventListener('orientationchange', FB.resize, false);

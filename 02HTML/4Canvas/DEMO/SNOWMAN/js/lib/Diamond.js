@@ -7,6 +7,8 @@ FB.Diamond = function (x, y) {
         this.img.src = 'images/diamond1.png';
         this.width = 50;
         this.height = 66;
+        this.type = 'diamond';
+        this.show = true;
     }
 
     this.update = function () {
@@ -17,7 +19,10 @@ FB.Diamond = function (x, y) {
     }
 
     this.render = function () {
-        FB.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.vx, this.vy, this.width / 2, this.height / 2, 0);
+        if (this.show) {
+            FB.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.vx, this.vy, this.width / 2, this.height / 2, 0);
+        }
+        
     }
 
     this.respawn = function () {

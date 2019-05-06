@@ -16,7 +16,8 @@ var FB = {
     sled: null,
     score: {
         taps: 0,
-        coins: 0
+        coins: 0,
+        blood: 100,
     },
     RATIO: null,
     bg_grad: "day",
