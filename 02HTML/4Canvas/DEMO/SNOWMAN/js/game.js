@@ -93,12 +93,13 @@ window.Play = function () {
         for (var i = 0; i < FB.entities.length; i += 1) {
             FB.entities[i].update();
 
-            if (FB.entities[i].type === 'stone') { 
+            if (FB.entities[i].type === 'stone' && FB.entities[i].show === true) { 
                 var hit = FB.Collides(FB.sled, FB.entities[i]);
                 if (hit) {
                     // 失血
                     // FB.changeState('GameOver');
-                    FB.score.blood -= 20;
+                    FB.entities[i].show = false;
+                    FB.score.blood -= 20; 
                     console.log('失血');
                     break;
                 }
@@ -108,6 +109,7 @@ window.Play = function () {
                     // 得分
                     FB.entities[i].show = false;
                     FB.score.coins++;
+                    
                     console.log('得分 共计：' + FB.score.coins);
                     break;
                 }
@@ -116,7 +118,8 @@ window.Play = function () {
     }
 
     this.render = function () {
-
+        FB.Draw.text('得分：' + FB.score.coins, 10, 20, 15, 'black');
+        FB.Draw.text('生命值：' + FB.score.blood, FB.WIDTH - 100 , 20, 15, 'black');
     }
 }
 

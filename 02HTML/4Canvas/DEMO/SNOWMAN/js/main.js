@@ -78,10 +78,11 @@ FB.Draw = {
         FB.ctx.closePath();
         FB.ctx.fill();
     },
-    Text: function () {
-
+    text: function (string,x,y,size,col) {
+        FB.ctx.font = size + "px Arial";;
+        FB.ctx.fillStyle = col;
+        FB.ctx.fillText(string, x, y);
     }
 }
-
-
+ 
 window.addEventListener('load', FB.init, false);

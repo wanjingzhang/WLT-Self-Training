@@ -5,6 +5,7 @@ FB.Stone = function (x, w) {
         this.width = w;
         this.height = 20;
         this.speed = -2.5;
+        this.show = true
         this.type = 'stone';
     }
 
@@ -16,7 +17,9 @@ FB.Stone = function (x, w) {
     }
 
     this.render = function () {
-        FB.Draw.rect(this.vx, this.vy, this.width, this.height, '#000');
+        if (this.show) {
+            FB.Draw.rect(this.vx, this.vy, this.width, this.height, '#000');
+        }
     }
 
     this.respawn = function () {
