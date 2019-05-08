@@ -37,11 +37,15 @@ React, Opencv, Packaging
 [构建opencv在React中的应用](https://brainhub.eu/blog/opencv-react-native-image-processing/)
 [opencv4nodejs](https://github.com/justadudewhohacks/opencv4nodejs)
 ```javascript
+
+// 安装 cmake
+brew install cmake
 //  新建react项目
 npx create-react-app e-bidet
 cd e-bidet
 npm init react-app e-bidet
 npm start
+
 // 安装opencv4nodejs
 npm install --save opencv4nodejs
 // 运行electron-rebuild

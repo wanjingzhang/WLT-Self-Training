@@ -7,7 +7,8 @@
     "electron-rebuild": "^1.8.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "opencv4nodejs": "^2.38.0"
   },
   "scripts": {
     "start": "react-scripts start",
