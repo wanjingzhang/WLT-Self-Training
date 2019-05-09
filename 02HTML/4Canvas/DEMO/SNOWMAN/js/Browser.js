@@ -1,33 +1,38 @@
-FB.isMobile = {
-    Android: function () {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function () {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iPhone: function () {
-        return navigator.userAgent.match(/iPhone/i); //|iPad|iPod
-    },
-    Opera: function () {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function () {
-        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
-    },
-    any: function () {
-        return (FB.isMobile.Android() || FB.isMobile.BlackBerry() || FB.isMobile.iPhone() || FB.isMobile.Opera() || FB.isMobile.Windows());
-    }
-}
+FB.isMobile = function(){
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-FB.isLandscape = function() {
-    if(window.innerHeight > window.innerWidth) {
+    // Windows Phone must come first because its UA also contains "Android"
+    if(/windows phone/i.test(userAgent)) {
+        //alert("Windows Phone");
         return true;
     }
+
+    if (/android/i.test(userAgent)) {
+        //alert("Android");
+        return true;
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710  iPad|
+    if (/iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        //alert("iOS");
+        return true;
+    }
+
+    return false;
+}
+
+FB.isOK = function() {
+    var isLandscape = window.matchMedia('(orientation: landscape)');
+    console.log("isLandscape.matches = " + isLandscape.matches); 
+    // 横屏手机 或 不是手机 
+    var isok = (isLandscape.matches && FB.isMobile()) || !FB.isMobile(); 
+
+    return isok;
 }
 
 FB.resize = function () {
-    FB.currentHeight = window.innerHeight;
-    FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) + 1;
+    // FB.currentHeight = window.innerHeight;
+    // FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) + 1;
 
     // if (FB.android || FB.ios) {
     //     document.body.style.height = (window.innerHeight + 50) + "px";
@@ -47,12 +52,20 @@ FB.resize = function () {
     }); 
 }
 
-FB.changeOrientation = function () {
-    console.log('changeOrientation');
-    console.log('before height:' + window.innerHeight);
-    console.log('before width:' + window.innerWidth);
- 
+FB.changeOrientation = function () { 
+    // if (FB.isOK()) {
+    //     console.log("changeOrientation isLandscape");  
+    // } else {
+    //     console.log("changeOrientation is not Landscape"); 
+    // }
+    
+    // var temp = FB.HEIGHT;
+    // FB.HEIGHT = FB.WIDTH;
+    // FB.WIDTH = temp;
+    // alert(screen.orientation);
+    // console.log('height', FB.HEIGHT, 'width', FB.WIDTH);// 
+    // FB.init();
 }
 
-window.addEventListener('resize', FB.resize, false);
-window.addEventListener('orientationchange', FB.resize, false);
+// window.addEventListener('resize', FB.resize, false);
+window.addEventListener('orientationchange', FB.changeOrientation, false);

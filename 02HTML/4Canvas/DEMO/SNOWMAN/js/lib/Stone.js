@@ -23,6 +23,7 @@ FB.Stone = function (x, w) {
     }
 
     this.respawn = function () {
-        this.vx = 320 - this.width + 160;
+        this.show = true;
+        this.vx = FB.WIDTH - this.width + 160;
     }
 }

@@ -26,6 +26,7 @@ FB.Diamond = function (x, y) {
     }
 
     this.respawn = function () {
-        this.vx = FB.WIDTH / 2 + this.width + 160;
+        this.show = true;
+        this.vx = FB.WIDTH - this.width + 180;
     }
 }

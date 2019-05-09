@@ -3,11 +3,11 @@
 // scene opening
 window.Splash = function () {
     this.banner = new Image();
-    if (FB.isLandscape() && FB.isMobile.any()) {
-        this.banner.src = "images/app_rotate_to_play.png"; 
+    if (FB.isOK()) {
+        this.banner.src = "images/splash.png"; 
     }
     else {
-        this.banner.src = "images/splash.png";
+        this.banner.src = "images/app_rotate_to_play.png"; 
     }
     
 
@@ -95,12 +95,15 @@ window.Play = function () {
 
             if (FB.entities[i].type === 'stone' && FB.entities[i].show === true) { 
                 var hit = FB.Collides(FB.sled, FB.entities[i]);
-                if (hit) {
-                    // 失血
-                    // FB.changeState('GameOver');
+                if (hit) { 
                     FB.entities[i].show = false;
-                    FB.score.blood -= 20; 
-                    console.log('失血');
+                    FB.score.blood -= FB.score.bloodStep; 
+                    console.log('失血' + FB.score.bloodStep);
+
+                    if (FB.score.blood <= 0) {
+                        FB.changeState('GameOver');
+                        console.log('游戏结束');
+                    }
                     break;
                 }
             } else if (FB.entities[i].type === 'diamond' && FB.entities[i].show === true) { 
@@ -108,9 +111,9 @@ window.Play = function () {
                 if (hitd) { 
                     // 得分
                     FB.entities[i].show = false;
-                    FB.score.coins++;
+                    FB.score.coins += FB.score.coinStep;
                     
-                    console.log('得分 共计：' + FB.score.coins);
+                    console.log('得分：' + FB.score.coinStep);
                     break;
                 }
             }
@@ -126,8 +129,7 @@ window.Play = function () {
 
 window.GameOver = function () {
     this.getMedal = function () {
-        var score = FB.score.coins;
-        console.log(score);
+        
     }
 
     this.init = function () {

@@ -17,14 +17,16 @@ var FB = {
     score: {
         taps: 0,
         coins: 0,
+        coinStep: 1,
         blood: 100,
+        bloodStep:20
     },
     RATIO: null,
     bg_grad: "day",
     gradients: {},
     game: null,
-    currentWidth: null,
-    currentHeight: null,
+    // currentWidth: null,
+    // currentHeight: null,
     android: null,
     ios: null,
     snow: [],
@@ -33,8 +35,8 @@ var FB = {
         var grad;
         FB.RATIO = FB.WIDTH / FB.HEIGHT;
         // these will change when the screen is resize
-        FB.currentWidth = FB.WIDTH;
-        FB.currentHeight = FB.HEIGHT;
+        // FB.currentWidth = FB.WIDTH;
+        // FB.currentHeight = FB.HEIGHT;
         // this is our canvas element
         FB.Body = document.getElementById('body');
         FB.canvas = document.getElementById('canvas');
@@ -71,29 +73,36 @@ var FB = {
         grad.addColorStop(0, '#036');
         grad.addColorStop(1, 'black');
         FB.gradients.night = grad;
-  
-        if (!(FB.isLandscape() && FB.isMobile.any())) {
-            console.log('isLandscape');
-            // add events
-            window.addEventListener('click', function (e) {
+   
+        console.log('isOK');
+        // add events
+        window.addEventListener('click', function (e) {
+            if (FB.isOK()) {
                 e.preventDefault();
                 FB.Input.set(e);
-            }, false);
+            } 
+        }, false);
 
-            window.addEventListener('touchstart', function (e) {
+        window.addEventListener('touchstart', function (e) {
+            if (FB.isOK()) {
                 e.preventDefault();
                 FB.Input.set(e.touches[0]);
-            }, false);
+            }
+        }, false);
 
-            window.addEventListener('touchmove', function (e) {
+        window.addEventListener('touchmove', function (e) {
+            if (FB.isOK()) {
                 e.preventDefault();
-            }, false);
+            }
+        }, false);
 
-            window.addEventListener('touchend', function (e) {
+        window.addEventListener('touchend', function (e) {
+            if (FB.isOK()) {
                 e.preventDefault();
-            }, false);
-            FB.resize();  
-        }
+            }
+        }, false);
+
+        // FB.resize();   
 
         FB.changeState("Splash"); 
         FB.loop(); 
