@@ -129,18 +129,70 @@ window.Play = function () {
 
 window.GameOver = function () {
     this.getMedal = function () {
-        
+        var score = FB.score.coins;
+        console.log(score)
+        if (score <= 10)
+            medal = "bronze";
+        if (score >= 20)
+            medal = "silver";
+        if (score >= 30)
+            medal = "gold";
+        if (score >= 40)
+            medal = "platinum";
+
+        return medal;
+    }
+
+    this.getHighScore = function () {
+        var savedscore = getCookie("highscore");
+        if (savedscore != "") {
+            var hs = parseInt(savedscore) || 0;
+            if (hs < FB.score.coins) {
+                hs = FB.score.coins
+                setCookie("highscore", hs, 999);
+            }
+            return hs;
+        }
+        else {
+            setCookie("highscore", FB.score.coins, 999);
+            return FB.score.coins;
+        }
     }
 
     this.init = function () {
-
+        var that = this;
+        setTimeout(function () { 
+            that.banner = new Image();
+            that.banner.src = "images/scoreboard.png";
+            var m = that.getMedal();
+            that.medal = new Image();
+            that.medal.src = 'images/medal_' + m + '.png';
+            that.replay = new Image();
+            that.replay.src = "images/replay.png";
+            that.highscore = that.getHighScore();
+        }, 500);
     }
 
     this.update = function () {
+        if (FB.Input.tapped) {
+            var x = FB.Input.x;
+            var y = FB.Input.y;
 
+            if ((x >= 102.5 && x <= 102.5 + 115) && (y >= 260 && y <= 260 + 70)) {
+                FB.changeState('Splash');
+            }
+            FB.Input.tapped = false;
+        }
+        // FB.bird.update();
     }
 
     this.render = function () {
-
+        if (this.banner) {
+            FB.Draw.Image(this.banner, FB.WIDTH/2 -118, 70);
+            FB.Draw.Image(this.medal, FB.WIDTH / 2 - 86, 183);
+            FB.Draw.Image(this.replay, FB.WIDTH / 2 - 57, 260);
+            FB.Draw.text(FB.score.coins, FB.WIDTH / 2 + 70, 185, 15, 'black');
+            FB.Draw.text(this.highscore, FB.WIDTH / 2 + 70, 225, 15, 'black');
+        }
     }
 }

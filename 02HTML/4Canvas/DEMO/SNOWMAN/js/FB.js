@@ -19,7 +19,7 @@ var FB = {
         coins: 0,
         coinStep: 1,
         blood: 100,
-        bloodStep:20
+        bloodStep:100
     },
     RATIO: null,
     bg_grad: "day",

@@ -63,9 +63,27 @@ FB.changeOrientation = function () {
     // FB.HEIGHT = FB.WIDTH;
     // FB.WIDTH = temp;
     // alert(screen.orientation);
-    // console.log('height', FB.HEIGHT, 'width', FB.WIDTH);// 
+    console.log('height', FB.HEIGHT, 'width', FB.WIDTH);// 
     // FB.init();
 }
 
 // window.addEventListener('resize', FB.resize, false);
 window.addEventListener('orientationchange', FB.changeOrientation, false);
+
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
