@@ -31,8 +31,8 @@ FB.isOK = function() {
 }
 
 FB.resize = function () {
-    // FB.currentHeight = window.innerHeight;
-    // FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) + 1;
+    FB.currentHeight = window.innerHeight;
+    FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) + 1;
 
     // if (FB.android || FB.ios) {
     //     document.body.style.height = (window.innerHeight + 50) + "px";
@@ -42,7 +42,7 @@ FB.resize = function () {
     FB.canvas.style.height = FB.currentHeight + "px";
     FB.Body.style.width = FB.currentWidth + "px";
 
-    //FB.scale = FB.currentWidth / FB.WIDTH;
+    FB.scale = FB.currentWidth / FB.WIDTH;
 
     FB.offset.top = FB.canvas.offsetTop;
     FB.offset.left = FB.canvas.offsetLeft;
@@ -65,12 +65,7 @@ FB.changeOrientation = function () {
     // alert(screen.orientation);
     console.log('height', FB.HEIGHT, 'width', FB.WIDTH);// 
     // FB.init();
-}
-
-// window.addEventListener('resize', FB.resize, false);
-window.addEventListener('orientationchange', FB.changeOrientation, false);
-
-
+} 
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

@@ -4,6 +4,8 @@
 var FB = {
     WIDTH: window.innerWidth,
     HEIGHT: window.innerHeight,
+    isNotMobile: false,
+    isLandscape: false,
     Body:null,
     canvas: null,
     ctx: null,

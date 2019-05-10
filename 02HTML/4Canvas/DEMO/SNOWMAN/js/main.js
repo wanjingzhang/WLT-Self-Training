@@ -84,5 +84,15 @@ FB.Draw = {
         FB.ctx.fillText(string, x, y);
     }
 }
- 
+
+FB.isNotMobile = !FB.isMobile();
+
+if (FB.isNotMobile) {
+    window.addEventListener('resize', FB.resize, false);
+} else {
+    window.addEventListener('orientationchange', FB.changeOrientation, false);
+}
+
 window.addEventListener('load', FB.init, false);
+ 
+
