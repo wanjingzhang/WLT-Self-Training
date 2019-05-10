@@ -1,4 +1,4 @@
-SNOW.iSNOWobile = function(){
+SNOW.isMobile = function(){
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     // Windows Phone must come first because its UA also contains "Android"
@@ -25,7 +25,7 @@ SNOW.isOK = function() {
     var isLandscape = window.matchMedia('(orientation: landscape)');
     console.log("isLandscape.matches = " + isLandscape.matches); 
     // 横屏手机 或 不是手机 
-    var isok = (isLandscape.matches && SNOW.iSNOWobile()) || !SNOW.iSNOWobile(); 
+    var isok = (isLandscape.matches && SNOW.isMobile()) || !SNOW.isMobile(); 
 
     return isok;
 }

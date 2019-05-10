@@ -85,7 +85,7 @@ SNOW.Draw = {
     }
 }
 
-SNOW.isNotMobile = !SNOW.iSNOWobile();
+SNOW.isNotMobile = !SNOW.isMobile();
 
 if (SNOW.isNotMobile) {
     window.addEventListener('resize', SNOW.resize, false);
