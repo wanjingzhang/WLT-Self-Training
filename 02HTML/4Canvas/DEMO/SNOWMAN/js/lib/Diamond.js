@@ -13,9 +13,10 @@ FB.Diamond = function (x, y) {
 
     this.update = function () {
         this.vx += this.speed;
-        if (this.vx == (0 - this.width)) {
+
+        if (this.vx <= ( - this.width)) { //移出屏幕时 重新绘制
             this.respawn();
-        }
+        } 
     }
 
     this.render = function () {
@@ -27,6 +28,8 @@ FB.Diamond = function (x, y) {
 
     this.respawn = function () {
         this.show = true;
-        this.vx = FB.WIDTH - this.width + 180;
+        this.vx = FB.WIDTH; //初始化为屏幕宽度
+        console.log('respawn diamond.x = ' + this.vx);
+        
     }
 }

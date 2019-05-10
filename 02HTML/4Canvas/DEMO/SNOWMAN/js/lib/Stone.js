@@ -11,7 +11,7 @@ FB.Stone = function (x, w) {
 
     this.update = function () {
         this.vx += this.speed;
-        if (this.vx == (0 - this.width)) {
+        if (this.vx <= - this.width) {
             this.respawn();
         }
     }
@@ -24,6 +24,6 @@ FB.Stone = function (x, w) {
 
     this.respawn = function () {
         this.show = true;
-        this.vx = FB.WIDTH - this.width + 160;
+        this.vx = FB.WIDTH;
     }
 }
