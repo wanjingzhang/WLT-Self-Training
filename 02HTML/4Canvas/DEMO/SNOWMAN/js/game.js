@@ -177,9 +177,11 @@ window.GameOver = function () {
         if (SNOW.Input.tapped) {
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
-
-            if ((x >= 102.5 && x <= 102.5 + 115) && (y >= 260 && y <= 260 + 70)) {
+ 
+            if ((x >= (SNOW.WIDTH / 2 - 57) && x <= (SNOW.WIDTH / 2 - 57) + 115) &&
+                (y >= (SNOW.HEIGHT / 2 - 140 + 210) && y <= (SNOW.HEIGHT / 2 - 140 + 210) + 70)) {
                 SNOW.changeState('Splash');
+                
             }
             SNOW.Input.tapped = false;
         }
@@ -188,11 +190,11 @@ window.GameOver = function () {
 
     this.render = function () {
         if (this.banner) {
-            SNOW.Draw.Image(this.banner, SNOW.WIDTH/2 -118, 70);
-            SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, 183);
-            SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, 260);
-            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, 185, 15, 'black');
-            SNOW.Draw.text(this.highscore, SNOW.WIDTH / 2 + 70, 225, 15, 'black');
+            SNOW.Draw.Image(this.banner, SNOW.WIDTH/2 -118, SNOW.HEIGHT/2 - 140  + 10);
+            SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, SNOW.HEIGHT / 2 - 140 + 113);
+            SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, SNOW.HEIGHT / 2 - 140 + 210);
+            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
+            SNOW.Draw.text(this.highscore, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 165, 15, 'black');
         }
     }
 }

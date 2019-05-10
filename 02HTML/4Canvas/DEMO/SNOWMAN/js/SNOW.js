@@ -9,6 +9,7 @@ var SNOW = {
     Body:null,
     canvas: null,
     ctx: null,
+    scale: 1,
     offset: {
         top: 0,
         left: 0
@@ -21,7 +22,7 @@ var SNOW = {
         coins: 0,
         coinStep: 1,
         blood: 100,
-        bloodStep:25
+        bloodStep:100
     },
     RATIO: null,
     bg_grad: "day",

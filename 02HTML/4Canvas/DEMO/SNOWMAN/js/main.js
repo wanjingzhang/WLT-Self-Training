@@ -88,7 +88,7 @@ SNOW.Draw = {
 SNOW.isNotMobile = !SNOW.isMobile();
 
 if (SNOW.isNotMobile) {
-    window.addEventListener('resize', SNOW.resize, false);
+    window.addEventListener('resize', SNOW.resize, false); 
 } else {
     window.addEventListener('orientationchange', SNOW.changeOrientation, false);
 }

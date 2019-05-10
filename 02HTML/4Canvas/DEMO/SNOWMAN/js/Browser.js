@@ -64,6 +64,7 @@ SNOW.changeOrientation = function () {
     // SNOW.WIDTH = temp;
     // alert(screen.orientation);
     console.log('height', SNOW.HEIGHT, 'width', SNOW.WIDTH);// 
+    window.location.reload(true);
     // SNOW.init();
 } 
 
