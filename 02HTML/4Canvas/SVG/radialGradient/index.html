@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Something Worth Seeing - an SVG Demo</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+</head>
+
+<body class="site">
+    <figure class="theimage">
+		<svg id="custom-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+
+			<defs>
+				<radialGradient id="sky" cx=".7" cy=".4" r=".5">
+					<stop stop-color="#00dffe" offset="0%" />
+					<stop stop-color="#38a3d1" offset="100%" />
+				</radialGradient>
+				<radialGradient id="sun">
+					<stop stop-color="yellow" offset="80%" />
+					<stop stop-color="hsla(60, 100%, 50%, 0)" offset="100%" />
+				</radialGradient>
+			</defs>
+
+			<rect fill="url(#sky)" x="0" y="0" width="500" height="500" />
+			<circle fill="url(#sun)" cx="350" cy="200" r="100" />
+		</svg>
+    </figure>
+</body>
+</html>

@@ -52,20 +52,9 @@ SNOW.resize = function () {
     }); 
 }
 
-SNOW.changeOrientation = function () { 
-    // if (SNOW.isOK()) {
-    //     console.log("changeOrientation isLandscape");  
-    // } else {
-    //     console.log("changeOrientation is not Landscape"); 
-    // }
-    
-    // var temp = SNOW.HEIGHT;
-    // SNOW.HEIGHT = SNOW.WIDTH;
-    // SNOW.WIDTH = temp;
-    // alert(screen.orientation);
+SNOW.changeOrientation = function () {  
     console.log('height', SNOW.HEIGHT, 'width', SNOW.WIDTH);// 
-    window.location.reload(true);
-    // SNOW.init();
+    window.location.reload();
 } 
 
 //分数 获取保存

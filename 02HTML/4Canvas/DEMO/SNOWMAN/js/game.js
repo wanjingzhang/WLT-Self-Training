@@ -10,10 +10,12 @@ window.Splash = function () {
         this.banner.src = "images/app_rotate_to_play.png"; 
     }
     
-
     this.init = function () {
         SNOW.entities = [];
-        SNOW.score.taps = SNOW.score.coins = 0;
+        SNOW.bg_grad = "day";
+        SNOW.score.taps = 0;
+        SNOW.score.coins = 0; 
+        SNOW.score.blood = 100; 
 
         for (var i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].init();
@@ -34,11 +36,12 @@ window.Splash = function () {
         SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2); 
     }
 }
-
-
-// scene play
+ 
+/**
+ * scene play 开始游戏
+ */
 window.Play = function () {
-    this.init = function () {
+    this.init = function () { 
         SNOW.sled = new SNOW.Sled();
 
         // Add entities
@@ -191,10 +194,10 @@ window.GameOver = function () {
     this.render = function () {
         if (this.banner) {
             SNOW.Draw.Image(this.banner, SNOW.WIDTH/2 -118, SNOW.HEIGHT/2 - 140  + 10);
-            SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, SNOW.HEIGHT / 2 - 140 + 113);
+            SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, SNOW.HEIGHT / 2 - 130 + 113);
             SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, SNOW.HEIGHT / 2 - 140 + 210);
             SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
-            SNOW.Draw.text(this.highscore, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 165, 15, 'black');
+            SNOW.Draw.text(this.highscore, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 168, 15, 'black');
         }
     }
 }
