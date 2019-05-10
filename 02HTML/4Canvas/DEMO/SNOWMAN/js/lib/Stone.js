@@ -1,7 +1,7 @@
-FB.Stone = function (x, w) {
+SNOW.Stone = function (x, w) {
     this.init = function () {
         this.vx = x;
-        this.vy = FB.HEIGHT - 50;
+        this.vy = SNOW.HEIGHT - 50;
         this.width = w;
         this.height = 20;
         this.speed = -2.5;
@@ -18,12 +18,12 @@ FB.Stone = function (x, w) {
 
     this.render = function () {
         if (this.show) {
-            FB.Draw.rect(this.vx, this.vy, this.width, this.height, '#000');
+            SNOW.Draw.rect(this.vx, this.vy, this.width, this.height, '#000');
         }
     }
 
     this.respawn = function () {
         this.show = true;
-        this.vx = FB.WIDTH;
+        this.vx = SNOW.WIDTH;
     }
 }

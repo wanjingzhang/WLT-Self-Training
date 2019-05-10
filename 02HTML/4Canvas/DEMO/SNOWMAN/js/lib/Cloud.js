@@ -1,4 +1,4 @@
-FB.Cloud = function (x, y) {
+SNOW.Cloud = function (x, y) {
     this.init = function () {
         this.x = x;
         this.y = y;
@@ -20,14 +20,14 @@ FB.Cloud = function (x, y) {
     };
 
     this.render = function () {
-        FB.Draw.circle(this.x + this.r, (this.y + this.r), this.r, this.col);
-        FB.Draw.circle(this.x + 55, (this.y + this.r / 2), this.r / 0.88, this.col);
-        FB.Draw.circle(this.x + 55, (this.y + this.r + 15), this.r, this.col);
-        FB.Draw.circle(this.x + 85, (this.y + this.r), this.r, this.col);
+        SNOW.Draw.circle(this.x + this.r, (this.y + this.r), this.r, this.col);
+        SNOW.Draw.circle(this.x + 55, (this.y + this.r / 2), this.r / 0.88, this.col);
+        SNOW.Draw.circle(this.x + 55, (this.y + this.r + 15), this.r, this.col);
+        SNOW.Draw.circle(this.x + 85, (this.y + this.r), this.r, this.col);
     }
 
     this.respawn = function () {
-        this.x = ~~(Math.random() * this.r * 2) + FB.WIDTH;
-        this.y = ~~(Math.random() * FB.HEIGHT / 2);
+        this.x = ~~(Math.random() * this.r * 2) + SNOW.WIDTH;
+        this.y = ~~(Math.random() * SNOW.HEIGHT / 2);
     }
 }

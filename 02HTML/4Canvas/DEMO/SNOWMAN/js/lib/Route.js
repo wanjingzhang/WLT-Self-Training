@@ -1,4 +1,4 @@
-FB.Route = function (x, y, r) {
+SNOW.Route = function (x, y, r) {
     this.init = function () {
         this.x = x;
         this.y = y;
@@ -15,13 +15,13 @@ FB.Route = function (x, y, r) {
     }
 
     this.render = function () {
-        FB.Draw.rect(this.x, this.y, this.r, 100, "#22cc22");
+        SNOW.Draw.rect(this.x, this.y, this.r, 100, "#22cc22");
         for (var i = 0; i < 10; i++) {
-            FB.Draw.semiCircle(Math.round(this.x + i * (this.r / 9)), this.y, 30, '#fff');
+            SNOW.Draw.semiCircle(Math.round(this.x + i * (this.r / 9)), this.y, 30, '#fff');
         }
     }
 
     this.respawn = function () {
-        this.x = FB.WIDTH - 3;
+        this.x = SNOW.WIDTH - 3;
     }
 }

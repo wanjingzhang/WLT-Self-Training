@@ -1,4 +1,4 @@
-FB.Sled = function () {
+SNOW.Sled = function () {
 
     this.init = function () {
         this.img = new Image();
@@ -10,7 +10,7 @@ FB.Sled = function () {
             this.ix = 0;
         this.iy = 0;
         this.fr = 0;
-        this.vy = FB.HEIGHT - 80; //y position
+        this.vy = SNOW.HEIGHT - 80; //y position
         this.vx = 70;
         this.jump = -7.6; //jump height
         this.velocity = 0;
@@ -35,16 +35,16 @@ FB.Sled = function () {
             //     this.vy = 20;
             // }
 
-            if (this.vy >= FB.HEIGHT - 80) {
-                this.vy = FB.HEIGHT - 80;
+            if (this.vy >= SNOW.HEIGHT - 80) {
+                this.vy = SNOW.HEIGHT - 80;
 
                 this.play = false;
             }
 
-            // console.log('velocity=' + this.velocity + ' vy=' + this.vy + ' stop at='+ (FB.HEIGHT -80)); 
+            // console.log('velocity=' + this.velocity + ' vy=' + this.vy + ' stop at='+ (SNOW.HEIGHT -80)); 
         }
 
-        if (FB.Input.tapped && !this.play) {
+        if (SNOW.Input.tapped && !this.play) {
             this.play = true;
             this.velocity = this.jump;
             // console.log("velocity=jump");
@@ -52,8 +52,8 @@ FB.Sled = function () {
 
     }
     this.render = function () {
-        FB.Draw.Sprite(this.img, this.ix, this.iy, this.width, this.height, this.vx, this.vy, this.width, this.height, this.rotation);
-        // FB.Draw.Image(this.img,88,200); 
-        // FB.Draw.rect(this.ix,this.iy,this.width,this.height,'#ff0');
+        SNOW.Draw.Sprite(this.img, this.ix, this.iy, this.width, this.height, this.vx, this.vy, this.width, this.height, this.rotation);
+        // SNOW.Draw.Image(this.img,88,200); 
+        // SNOW.Draw.rect(this.ix,this.iy,this.width,this.height,'#ff0');
     }
 }

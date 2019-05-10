@@ -1,4 +1,4 @@
-FB.Diamond = function (x, y) {
+SNOW.Diamond = function (x, y) {
     this.init = function () {
         this.vx = x;
         this.vy = y;
@@ -21,14 +21,14 @@ FB.Diamond = function (x, y) {
 
     this.render = function () {
         if (this.show) {
-            FB.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.vx, this.vy, this.width / 2, this.height / 2, 0);
+            SNOW.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.vx, this.vy, this.width / 2, this.height / 2, 0);
         }
         
     }
 
     this.respawn = function () {
         this.show = true;
-        this.vx = FB.WIDTH; //初始化为屏幕宽度
+        this.vx = SNOW.WIDTH; //初始化为屏幕宽度
         console.log('respawn diamond.x = ' + this.vx);
         
     }

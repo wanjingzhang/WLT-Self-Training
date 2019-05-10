@@ -3,7 +3,7 @@
 // scene opening
 window.Splash = function () {
     this.banner = new Image();
-    if (FB.isOK()) {
+    if (SNOW.isOK()) {
         this.banner.src = "images/splash.png"; 
     }
     else {
@@ -12,26 +12,26 @@ window.Splash = function () {
     
 
     this.init = function () {
-        FB.entities = [];
-        FB.score.taps = FB.score.coins = 0;
+        SNOW.entities = [];
+        SNOW.score.taps = SNOW.score.coins = 0;
 
-        for (var i = 0; i < FB.entities.length; i += 1) {
-            FB.entities[i].init();
+        for (var i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].init();
         }
     }
 
     this.update = function () {
-        for (i = 0; i < FB.entities.length; i += 1) {
-            FB.entities[i].update();
+        for (i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].update();
         }
-        if (FB.Input.tapped) {
-            FB.changeState('Play');
-            FB.Input.trapped = false;
+        if (SNOW.Input.tapped) {
+            SNOW.changeState('Play');
+            SNOW.Input.trapped = false;
         }
     }
 
     this.render = function () { 
-        FB.Draw.Image(this.banner, (FB.WIDTH - this.banner.width) / 2, (FB.HEIGHT - this.banner.height) / 2); 
+        SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2); 
     }
 }
 
@@ -39,37 +39,37 @@ window.Splash = function () {
 // scene play
 window.Play = function () {
     this.init = function () {
-        FB.sled = new FB.Sled();
+        SNOW.sled = new SNOW.Sled();
 
         // Add entities
-        FB.entities.push(new FB.Cloud(30, ~~(Math.random() * FB.HEIGHT / 2)));
-        FB.entities.push(new FB.Cloud(~~(Math.random() * (FB.WIDTH * 2)), ~~(Math.random() * FB.HEIGHT / 2)));
-        FB.entities.push(new FB.Cloud(~~(Math.random() * (FB.WIDTH * 3)), ~~(Math.random() * FB.HEIGHT / 2)));
-        FB.entities.push(new FB.Snow());
+        SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
+        SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
+        SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
+        SNOW.entities.push(new SNOW.Snow());
         for (i = 0; i < 2; i += 1) {
-            FB.entities.push(new FB.Route(FB.WIDTH * i, FB.HEIGHT - 60, FB.WIDTH + 3));
+            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i, SNOW.HEIGHT - 60, SNOW.WIDTH + 3));
         }
 
-        FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH), FB.HEIGHT - 120));
-        FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH + 50), FB.HEIGHT - 120));
-        FB.entities.push(new FB.Tree(~~(Math.random() * FB.WIDTH + 100), FB.HEIGHT - 120));
+        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH), SNOW.HEIGHT - 120));
+        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 50), SNOW.HEIGHT - 120));
+        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 100), SNOW.HEIGHT - 120));
 
-        FB.entities.push(FB.sled);
+        SNOW.entities.push(SNOW.sled);
 
-        FB.entities.push(new FB.Stone(FB.WIDTH, 20));
+        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, 20));
 
-        FB.entities.push(new FB.Diamond(FB.WIDTH / 2, FB.HEIGHT - 120));
+        SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH / 2, SNOW.HEIGHT - 120));
 
-        for (var i = 0; i < FB.entities.length; i += 1) {
-            FB.entities[i].init();
+        for (var i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].init();
         }
     }
 
 
     this.update = function () {
-        FB.distance += 1;
-        var level = Math.floor(FB.distance / 2048);
-        var levelUp = ((FB.distance % 2048) === 0 ? true : false);
+        SNOW.distance += 1;
+        var level = Math.floor(SNOW.distance / 2048);
+        var levelUp = ((SNOW.distance % 2048) === 0 ? true : false);
 
         if (levelUp) {
             var bg = "day";
@@ -79,41 +79,41 @@ window.Play = function () {
             } else if (level === gradients.length) {
                 bg = "day";
             }
-            FB.bg_grad = bg;
-            // console.log("levelUp. FB.bg_grad=" + bg);
+            SNOW.bg_grad = bg;
+            // console.log("levelUp. SNOW.bg_grad=" + bg);
         }
 
         //check for a collision if the user tapped on this game tick;
         var checkCollision = false;
-        if (FB.Input.tapped) {
-            FB.score.taps += 1;
+        if (SNOW.Input.tapped) {
+            SNOW.score.taps += 1;
             checkCollision = true;
         }
 
-        for (var i = 0; i < FB.entities.length; i += 1) {
-            FB.entities[i].update();
+        for (var i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].update();
 
-            if (FB.entities[i].type === 'stone' && FB.entities[i].show === true) { 
-                var hit = FB.Collides(FB.sled, FB.entities[i]);
+            if (SNOW.entities[i].type === 'stone' && SNOW.entities[i].show === true) { 
+                var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
                 if (hit) { 
-                    FB.entities[i].show = false;
-                    FB.score.blood -= FB.score.bloodStep; 
-                    console.log('失血' + FB.score.bloodStep);
+                    SNOW.entities[i].show = false;
+                    SNOW.score.blood -= SNOW.score.bloodStep; 
+                    console.log('失血' + SNOW.score.bloodStep);
 
-                    if (FB.score.blood <= 0) {
-                        FB.changeState('GameOver');
+                    if (SNOW.score.blood <= 0) {
+                        SNOW.changeState('GameOver');
                         console.log('游戏结束');
                     }
                     break;
                 }
-            } else if (FB.entities[i].type === 'diamond' && FB.entities[i].show === true) { 
-                var hitd = FB.Collides(FB.sled, FB.entities[i]);
+            } else if (SNOW.entities[i].type === 'diamond' && SNOW.entities[i].show === true) { 
+                var hitd = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
                 if (hitd) { 
                     // 得分
-                    FB.entities[i].show = false;
-                    FB.score.coins += FB.score.coinStep;
+                    SNOW.entities[i].show = false;
+                    SNOW.score.coins += SNOW.score.coinStep;
                     
-                    console.log('得分：' + FB.score.coinStep);
+                    console.log('得分：' + SNOW.score.coinStep);
                     break;
                 }
             }
@@ -121,15 +121,15 @@ window.Play = function () {
     }
 
     this.render = function () {
-        FB.Draw.text('得分：' + FB.score.coins, 10, 20, 15, 'black');
-        FB.Draw.text('生命值：' + FB.score.blood, FB.WIDTH - 100 , 20, 15, 'black');
+        SNOW.Draw.text('得分：' + SNOW.score.coins, 10, 20, 15, 'black');
+        SNOW.Draw.text('生命值：' + SNOW.score.blood, SNOW.WIDTH - 100 , 20, 15, 'black');
     }
 }
 
 
 window.GameOver = function () {
     this.getMedal = function () {
-        var score = FB.score.coins;
+        var score = SNOW.score.coins;
         console.log(score)
         if (score <= 10)
             medal = "bronze";
@@ -147,15 +147,15 @@ window.GameOver = function () {
         var savedscore = getCookie("highscore");
         if (savedscore != "") {
             var hs = parseInt(savedscore) || 0;
-            if (hs < FB.score.coins) {
-                hs = FB.score.coins
+            if (hs < SNOW.score.coins) {
+                hs = SNOW.score.coins
                 setCookie("highscore", hs, 999);
             }
             return hs;
         }
         else {
-            setCookie("highscore", FB.score.coins, 999);
-            return FB.score.coins;
+            setCookie("highscore", SNOW.score.coins, 999);
+            return SNOW.score.coins;
         }
     }
 
@@ -174,25 +174,25 @@ window.GameOver = function () {
     }
 
     this.update = function () {
-        if (FB.Input.tapped) {
-            var x = FB.Input.x;
-            var y = FB.Input.y;
+        if (SNOW.Input.tapped) {
+            var x = SNOW.Input.x;
+            var y = SNOW.Input.y;
 
             if ((x >= 102.5 && x <= 102.5 + 115) && (y >= 260 && y <= 260 + 70)) {
-                FB.changeState('Splash');
+                SNOW.changeState('Splash');
             }
-            FB.Input.tapped = false;
+            SNOW.Input.tapped = false;
         }
-        // FB.bird.update();
+        // SNOW.bird.update();
     }
 
     this.render = function () {
         if (this.banner) {
-            FB.Draw.Image(this.banner, FB.WIDTH/2 -118, 70);
-            FB.Draw.Image(this.medal, FB.WIDTH / 2 - 86, 183);
-            FB.Draw.Image(this.replay, FB.WIDTH / 2 - 57, 260);
-            FB.Draw.text(FB.score.coins, FB.WIDTH / 2 + 70, 185, 15, 'black');
-            FB.Draw.text(this.highscore, FB.WIDTH / 2 + 70, 225, 15, 'black');
+            SNOW.Draw.Image(this.banner, SNOW.WIDTH/2 -118, 70);
+            SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, 183);
+            SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, 260);
+            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, 185, 15, 'black');
+            SNOW.Draw.text(this.highscore, SNOW.WIDTH / 2 + 70, 225, 15, 'black');
         }
     }
 }

@@ -1,7 +1,7 @@
 /*
  *  游戏属性状态管理
  */
-var FB = {
+var SNOW = {
     WIDTH: window.innerWidth,
     HEIGHT: window.innerHeight,
     isNotMobile: false,
@@ -21,7 +21,7 @@ var FB = {
         coins: 0,
         coinStep: 1,
         blood: 100,
-        bloodStep:100
+        bloodStep:25
     },
     RATIO: null,
     bg_grad: "day",
@@ -35,100 +35,100 @@ var FB = {
     snowMax: 20, 
     init: function () {
         var grad;
-        FB.RATIO = FB.WIDTH / FB.HEIGHT;
+        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
         // these will change when the screen is resize
-        // FB.currentWidth = FB.WIDTH;
-        // FB.currentHeight = FB.HEIGHT;
+        // SNOW.currentWidth = SNOW.WIDTH;
+        // SNOW.currentHeight = SNOW.HEIGHT;
         // this is our canvas element
-        FB.Body = document.getElementById('body');
-        FB.canvas = document.getElementById('canvas');
+        SNOW.Body = document.getElementById('body');
+        SNOW.canvas = document.getElementById('canvas');
          
-        FB.ctx = FB.canvas.getContext('2d');
-        FB.ua = navigator.userAgent.toLowerCase();
-        FB.android = FB.ua.indexOf('android') > -1 ? true : false;
-        FB.ios = (FB.ua.indexOf('iphone') > -1 || FB.ua.indexOf('ipad') > -1) ? true : false; 
-        // FB.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
+        SNOW.ctx = SNOW.canvas.getContext('2d');
+        SNOW.ua = navigator.userAgent.toLowerCase();
+        SNOW.android = SNOW.ua.indexOf('android') > -1 ? true : false;
+        SNOW.ios = (SNOW.ua.indexOf('iphone') > -1 || SNOW.ua.indexOf('ipad') > -1) ? true : false; 
+        // SNOW.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
  
-        FB.canvas.width = FB.WIDTH;
-        FB.canvas.height = FB.HEIGHT;
+        SNOW.canvas.width = SNOW.WIDTH;
+        SNOW.canvas.height = SNOW.HEIGHT;
        
         // setup some gradients
-        grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+        grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
         grad.addColorStop(0, '#036');
         grad.addColorStop(0.5, '#69a');
         grad.addColorStop(1, 'yellow');
-        FB.gradients.dawn = grad;
+        SNOW.gradients.dawn = grad;
 
-        grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+        grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
         grad.addColorStop(0, '#69a');
         grad.addColorStop(0.5, '#9cd');
         grad.addColorStop(1, '#fff');
-        FB.gradients.day = grad;
+        SNOW.gradients.day = grad;
 
-        grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+        grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
         grad.addColorStop(0, '#036');
         grad.addColorStop(0.3, '#69a');
         grad.addColorStop(1, 'pink');
-        FB.gradients.dusk = grad;
+        SNOW.gradients.dusk = grad;
 
-        grad = FB.ctx.createLinearGradient(0, 0, 0, FB.HEIGHT);
+        grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
         grad.addColorStop(0, '#036');
         grad.addColorStop(1, 'black');
-        FB.gradients.night = grad;
+        SNOW.gradients.night = grad;
    
         console.log('isOK');
         // add events
         window.addEventListener('click', function (e) {
-            if (FB.isOK()) {
+            if (SNOW.isOK()) {
                 e.preventDefault();
-                FB.Input.set(e);
+                SNOW.Input.set(e);
             } 
         }, false);
 
         window.addEventListener('touchstart', function (e) {
-            if (FB.isOK()) {
+            if (SNOW.isOK()) {
                 e.preventDefault();
-                FB.Input.set(e.touches[0]);
+                SNOW.Input.set(e.touches[0]);
             }
         }, false);
 
         window.addEventListener('touchmove', function (e) {
-            if (FB.isOK()) {
+            if (SNOW.isOK()) {
                 e.preventDefault();
             }
         }, false);
 
         window.addEventListener('touchend', function (e) {
-            if (FB.isOK()) {
+            if (SNOW.isOK()) {
                 e.preventDefault();
             }
         }, false);
 
-        // FB.resize();   
+        // SNOW.resize();   
 
-        FB.changeState("Splash"); 
-        FB.loop(); 
+        SNOW.changeState("Splash"); 
+        SNOW.loop(); 
     }, 
     changeState: function (state) {
-        FB.game = new window[state]();
-        FB.game.init();
+        SNOW.game = new window[state]();
+        SNOW.game.init();
     },
     loop: function () {
-        requestAnimationFrame(FB.loop);
-        FB.update();
-        FB.render();
+        requestAnimationFrame(SNOW.loop);
+        SNOW.update();
+        SNOW.render();
     },
     update: function () {
-        FB.game.update();
-        FB.Input.tapped = false;
+        SNOW.game.update();
+        SNOW.Input.tapped = false;
     },
     render: function () {
-        FB.Draw.rect(0, 0, FB.WIDTH, FB.HEIGHT, FB.gradients[FB.bg_grad]);
+        SNOW.Draw.rect(0, 0, SNOW.WIDTH, SNOW.HEIGHT, SNOW.gradients[SNOW.bg_grad]);
 
-        for (i = 0; i < FB.entities.length; i += 1) {
-            FB.entities[i].render();
+        for (i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].render();
         }
 
-        FB.game.render();
+        SNOW.game.render();
     }
 }

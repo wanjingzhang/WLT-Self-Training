@@ -1,4 +1,4 @@
-FB.isMobile = function(){
+SNOW.iSNOWobile = function(){
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     // Windows Phone must come first because its UA also contains "Android"
@@ -21,51 +21,53 @@ FB.isMobile = function(){
     return false;
 }
 
-FB.isOK = function() {
+SNOW.isOK = function() {
     var isLandscape = window.matchMedia('(orientation: landscape)');
     console.log("isLandscape.matches = " + isLandscape.matches); 
     // 横屏手机 或 不是手机 
-    var isok = (isLandscape.matches && FB.isMobile()) || !FB.isMobile(); 
+    var isok = (isLandscape.matches && SNOW.iSNOWobile()) || !SNOW.iSNOWobile(); 
 
     return isok;
 }
 
-FB.resize = function () {
-    FB.currentHeight = window.innerHeight;
-    FB.currentWidth = Math.round(FB.currentHeight * FB.RATIO) + 1;
+SNOW.resize = function () {
+    SNOW.currentHeight = window.innerHeight;
+    SNOW.currentWidth = Math.round(SNOW.currentHeight * SNOW.RATIO) + 1;
 
-    // if (FB.android || FB.ios) {
+    // if (SNOW.android || SNOW.ios) {
     //     document.body.style.height = (window.innerHeight + 50) + "px";
     // }
 
-    FB.canvas.style.width = FB.currentWidth + "px";
-    FB.canvas.style.height = FB.currentHeight + "px";
-    FB.Body.style.width = FB.currentWidth + "px";
+    SNOW.canvas.style.width = SNOW.currentWidth + "px";
+    SNOW.canvas.style.height = SNOW.currentHeight + "px";
+    SNOW.Body.style.width = SNOW.currentWidth + "px";
 
-    FB.scale = FB.currentWidth / FB.WIDTH;
+    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
 
-    FB.offset.top = FB.canvas.offsetTop;
-    FB.offset.left = FB.canvas.offsetLeft;
+    SNOW.offset.top = SNOW.canvas.offsetTop;
+    SNOW.offset.left = SNOW.canvas.offsetLeft;
 
     window.setTimeout(function () {
         window.scrollTo(0, 1);
     }); 
 }
 
-FB.changeOrientation = function () { 
-    // if (FB.isOK()) {
+SNOW.changeOrientation = function () { 
+    // if (SNOW.isOK()) {
     //     console.log("changeOrientation isLandscape");  
     // } else {
     //     console.log("changeOrientation is not Landscape"); 
     // }
     
-    // var temp = FB.HEIGHT;
-    // FB.HEIGHT = FB.WIDTH;
-    // FB.WIDTH = temp;
+    // var temp = SNOW.HEIGHT;
+    // SNOW.HEIGHT = SNOW.WIDTH;
+    // SNOW.WIDTH = temp;
     // alert(screen.orientation);
-    console.log('height', FB.HEIGHT, 'width', FB.WIDTH);// 
-    // FB.init();
+    console.log('height', SNOW.HEIGHT, 'width', SNOW.WIDTH);// 
+    // SNOW.init();
 } 
+
+//分数 获取保存
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

@@ -1,4 +1,4 @@
-FB.Tree = function (x, y) {
+SNOW.Tree = function (x, y) {
     this.init = function () {
         this.x = x;
         this.y = y;
@@ -17,13 +17,13 @@ FB.Tree = function (x, y) {
     }
 
     this.render = function () {
-        FB.Draw.circle(this.x + this.r, (this.y + this.r) - 10, this.r, 'green');
-        FB.Draw.circle(this.x + (this.r / 2), (this.y + this.r) - 10, this.r / 3, 'rgba(0,0,0,0.08)');
-        FB.Draw.rect(this.x + this.r - 5, this.y + this.r, 10, this.r, 'brown');
+        SNOW.Draw.circle(this.x + this.r, (this.y + this.r) - 10, this.r, 'green');
+        SNOW.Draw.circle(this.x + (this.r / 2), (this.y + this.r) - 10, this.r / 3, 'rgba(0,0,0,0.08)');
+        SNOW.Draw.rect(this.x + this.r - 5, this.y + this.r, 10, this.r, 'brown');
 
     }
 
     this.respawn = function () {
-        this.x = FB.WIDTH + this.r;
+        this.x = SNOW.WIDTH + this.r;
     }
 }
