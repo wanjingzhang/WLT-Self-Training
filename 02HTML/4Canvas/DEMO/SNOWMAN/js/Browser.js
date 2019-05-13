@@ -34,14 +34,16 @@ SNOW.resize = function () {
     SNOW.currentHeight = window.innerHeight;
     SNOW.currentWidth = Math.round(SNOW.currentHeight * SNOW.RATIO) + 1;
 
-    // if (SNOW.android || SNOW.ios) {
-    //     document.body.style.height = (window.innerHeight + 50) + "px";
-    // }
+    if (!SNOW.isNotMobile) {
+        alert("isMobile + 50 pixels height");
+        document.body.style.height = (window.innerHeight + 50) + "px";
+    }
 
     SNOW.canvas.style.width = SNOW.currentWidth + "px";
     SNOW.canvas.style.height = SNOW.currentHeight + "px";
     SNOW.Body.style.width = SNOW.currentWidth + "px";
 
+    //响应交互测距
     SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
 
     SNOW.offset.top = SNOW.canvas.offsetTop;
@@ -55,8 +57,20 @@ SNOW.resize = function () {
 SNOW.changeOrientation = function () {  
     console.log('height', SNOW.HEIGHT, 'width', SNOW.WIDTH);// 
     window.location.reload();
+    
 } 
 
+//刷新页面
+function refresh() {
+        var random = Math.floor((Math.random() * 10000) + 1);
+        var url = decodeURI(window.location.href);
+        if (url.indexOf('?') < 0) {
+            url = url + "?random" + random;
+        } else {
+            url = url.substr(0, url.indexOf('?random')) + "?random" + random;
+        }
+        window.location.href = url;
+    } 
 //分数 获取保存
 function getCookie(cname) {
     var name = cname + "=";

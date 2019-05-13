@@ -2,6 +2,7 @@
  *  游戏属性状态管理
  */
 var SNOW = {
+    //游戏初始化时屏幕的大小 
     WIDTH: window.innerWidth,
     HEIGHT: window.innerHeight,
     isNotMobile: false,
@@ -28,15 +29,18 @@ var SNOW = {
     bg_grad: "day",
     gradients: {},
     game: null,
-    // currentWidth: null,
-    // currentHeight: null,
+    //当前的宽高 既是屏幕的宽高
+    currentWidth: null,
+    currentHeight: null,
     android: null,
     ios: null,
     snow: [],
     snowMax: 20, 
     init: function () {
         var grad;
+
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
+        
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;
         // SNOW.currentHeight = SNOW.HEIGHT;
