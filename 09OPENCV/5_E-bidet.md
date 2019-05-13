@@ -13,11 +13,11 @@
 
 [轮廓](https://docs.opencv.org/4.1.0/d5/daa/tutorial_js_contours_begin.html)
 
-[轮廓边缘](https://docs.opencv.org/4.1.0/dc/dcf/tutorial_js_contour_features.html)
+[轮廓边缘 Good](https://docs.opencv.org/4.1.0/dc/dcf/tutorial_js_contour_features.html)
 
 [模版匹配](https://docs.opencv.org/4.1.0/d8/dd1/tutorial_js_template_matching.html)
 
-[迭代割图](https://docs.opencv.org/4.1.0/dd/dfc/tutorial_js_grabcut.html)
+[抓取前景 Good](https://docs.opencv.org/4.1.0/dd/dfc/tutorial_js_grabcut.html)
 
 # 适应性
 我测试了安卓手机，chrome和firefox都是可以运行的
@@ -54,3 +54,12 @@ npm run electron-rebuild
 ```
 
 测试图片，边缘形状测试
+
+
+形状匹配、缩放。 卡缩放成 长方形 
+卡片有一定的倾斜角度，但是角度不大；卡片背景是亮色的，而且卡片的边缘应该比较明显。
+
+没错，卡片的边缘比较明显，所以把轮廓找出来（找出来的轮廓当然就是一个大大的矩形），然后用矩形去包围它，得到他的旋转角度，然后根据得到的角度进行旋转，实现矫正
+
+我把该矫正算法命名为基于轮廓提取的矫正算法，因为其关键技术就是通过轮廓来获取旋转角度。
+[](https://www.cnblogs.com/skyfsm/p/6902524.html)
