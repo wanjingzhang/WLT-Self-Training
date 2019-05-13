@@ -93,6 +93,8 @@ if (SNOW.isNotMobile) {
     window.addEventListener('orientationchange', SNOW.changeOrientation, false);
 }
 
-window.addEventListener('load', SNOW.init, false);
+window.addEventListener('load', function () {
+    this.setTimeout(SNOW.init, 200);
+}, false);
  
 

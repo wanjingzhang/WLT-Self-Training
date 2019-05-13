@@ -38,6 +38,8 @@ var SNOW = {
     snowMax: 20, 
     init: function () {
         var grad;
+        SNOW.WIDTH = window.innerWidth;
+        SNOW.HEIGHT = window.innerHeight;
 
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
         
