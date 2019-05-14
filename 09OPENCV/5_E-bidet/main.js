@@ -18,21 +18,35 @@ imgElement.onload = function () {
 
     //2. 阈值二值化 
     cv.threshold(gray, binImg, 177, 200, cv.THRESH_BINARY);
-    cv.imshow('canvasOutput', binImg);
+    // cv.imshow('canvasOutput', binImg);
 
     //3. 检测轮廓 
     let contours = new cv.MatVector();
     let hierarchy = new cv.Mat();
     //第5个参数为CV_RETR_EXTERNAL，只检索外框   找轮廓
     cv.findContours(binImg, contours, hierarchy, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE);
-    console.log(contours);
-    for (let i = 0; i < contours;i++){
+     
+    console.log(contours.size());
+    for (let i = 0; i < contours.size(); i++){
+        
         //需要获取的坐标  ++
         // CvPoint2D32f rectpoint[4];
-        // CvBox2D rect = minAreaRect(Mat(contours[i]));
-
+        // CvBox2D rect = minAreaRect(Mat(contours[i])); 
         // cvBoxPoints(rect, rectpoint); //获取4个顶点坐标
 
+        let tmp = new cv.Mat();
+        let cnt = contours.get(i);
+        let rotatedRect = cv.minAreaRect(cnt);
+        console.log('rect angle:' + rotatedRect.angle);
+
+        let rect = cv.boundingRect(tmp);
+        let contoursColor = new cv.Scalar(255, 255, 255);
+        let rectangleColor = new cv.Scalar(255, 0, 0);
+        cv.drawContours(binImg, contours, 0, contoursColor, 1, 8, hierarchy, 100);
+        let point1 = new cv.Point(rect.x, rect.y);
+        let point2 = new cv.Point(rect.x + rect.width, rect.y + rect.height);
+        cv.rectangle(binImg, point1, point2, rectangleColor, 2, cv.LINE_AA, 0);
+        cv.imshow('canvasOutput', binImg);
     }
 
 
