@@ -58,7 +58,7 @@ var elem = document.querySelector('expr');
 
 ### 7. 代码导航
 * cmd + shift + O			\\@跳转定义的变量
-* control + G				\\条转行
+* control + G				\\跳转行
 * cmd + P					\\文件列表
 
 ### 8. 多选
