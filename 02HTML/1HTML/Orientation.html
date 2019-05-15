@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>DeviceOrientationEvent</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+</head>
+
+<body>
+    <div id="arrow">Arrow testing...</div>
+</body>
+
+</html>
+<script>
+var arrow = document.getElementById("arrow");
+    try {
+        alert("try ..");
+        var text = "";
+        window.addEventListener("deviceorientation", orientationHandler, false);
+        function orientationHandler(event) {
+            text = ""
+            
+            text += "左右旋转：rotate alpha{" + Math.round(event.alpha) + "deg)<br>";
+            text += "前后旋转：rotate beta{" + Math.round(event.beta) + "deg)<br>";
+            text += "扭转设备：rotate gamma{" + Math.round(event.gamma) + "deg)<br>";
+            arrow.innerHTML = text;
+
+            alert(text);
+        }
+    }
+    catch (e) {
+        arrow.innerHTML = e.message;
+    }  
+</script> 

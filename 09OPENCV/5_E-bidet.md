@@ -71,3 +71,6 @@ npm run electron-rebuild
 查找了其他js方法用来替代Opencv的功能。这个在真实图片上的状态不是很好。但是对于纯色图片效果不错
 [查找边缘](http://arybin.ru/autocontour/#) 
 [C#的AForge](http://www.aforgenet.com/articles/shape_checker/)
+
+[OpenCV 入门](https://github.com/allenGKC/Blog/issues/9)
+ 
