@@ -63,3 +63,11 @@ npm run electron-rebuild
 
 我把该矫正算法命名为基于轮廓提取的矫正算法，因为其关键技术就是通过轮廓来获取旋转角度。
 [](https://www.cnblogs.com/skyfsm/p/6902524.html)
+
+
+14-05
+做了Opencv的模版匹配和边缘查找。
+查看了WebGL 并没有什么好的方法
+查找了其他js方法用来替代Opencv的功能。这个在真实图片上的状态不是很好。但是对于纯色图片效果不错
+[查找边缘](http://arybin.ru/autocontour/#) 
+[C#的AForge](http://www.aforgenet.com/articles/shape_checker/)

@@ -2,9 +2,9 @@ var imgElement = document.getElementById('imageSrc');
 var inputElement = document.getElementById('fileInput');
 
 //从文件中获取图片
-inputElement.addEventListener('change', (e) => {
-    imgElement.src = URL.createObjectURL(e.target.files[0]);
-}, false);
+// inputElement.addEventListener('change', (e) => {
+//     imgElement.src = URL.createObjectURL(e.target.files[0]);
+// }, false);
 
 //图片加载时自动填充canvas Demo1. 获取图片边缘
 // imgElement.onload = checkContours;
@@ -54,9 +54,7 @@ var checkContours = function () {
     gray.devare(); binImg.devare(); contours.devare(); hierarchy.devare();
 
 };
-
-
-
+  
 
 var loadImageToCanvas = function (url, cavansId) {
     let canvas = document.getElementById(cavansId);
@@ -83,23 +81,7 @@ var addFileInputHandler = function (fileInputId, canvasId) {
 };
  
 // Demo2 获取特征图片进行变换
-imgElement.onload = getFeature;
-var getFeature = function () { 
-    let src = cv.imread('imageCanvasInput');
-    let templ = cv.imread('templateCanvasInput');
-    let dst = new cv.Mat();
-    let mask = new cv.Mat();
-    cv.matchTemplate(src, templ, dst, cv.TM_CCOEFF, mask);
-    let result = cv.minMaxLoc(dst, mask);
-    let maxPoint = result.maxLoc;
-    let color = new cv.Scalar(255, 0, 0, 255);
-    let point = new cv.Point(maxPoint.x + templ.cols, maxPoint.y + templ.rows);
-    cv.rectangle(src, maxPoint, point, color, 2, cv.LINE_8, 0);
-    cv.imshow('canvasOutput', src);
-    src.delete(); dst.delete(); mask.delete();
-
-}
-
+ 
 executeCode = function (textAreaId) {
     try {
         this.clearError();
@@ -111,9 +93,8 @@ executeCode = function (textAreaId) {
 };
 
   
-loadImageToCanvas('./images/lena.jpg', 'imageCanvasInput');
-loadImageToCanvas('./images/lenaFace.jpg', 'templateCanvasInput');
-addFileInputHandler('fileInput', 'canvasInput');
+loadImageToCanvas('./images/2127102300.jpg', 'imageCanvasInput');
+loadImageToCanvas('./images/match2.jpg', 'templateCanvasInput'); 
 
 let tryIt = document.getElementById('tryIt');
 tryIt.addEventListener('click', () => {
