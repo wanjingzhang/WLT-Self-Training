@@ -5,30 +5,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
 </head>
-
+<style>
+    #arrow{
+        position: absolute;
+        top:0;
+        left:0;
+    }
+</style>
 <body>
+    <canvas id="myCanvas"></canvas>
     <div id="arrow">Arrow testing...</div>
 </body>
 
 </html>
 <script>
-var arrow = document.getElementById("arrow");
-    try {
-        alert("try ..");
-        var text = "";
-        window.addEventListener("deviceorientation", orientationHandler, false);
-        function orientationHandler(event) {
-            text = ""
-            
-            text += "左右旋转：rotate alpha{" + Math.round(event.alpha) + "deg)<br>";
-            text += "前后旋转：rotate beta{" + Math.round(event.beta) + "deg)<br>";
-            text += "扭转设备：rotate gamma{" + Math.round(event.gamma) + "deg)<br>";
-            arrow.innerHTML = text;
+var OT = {
+    arrow : document.getElementById("arrow"),
+    text : "",
+    canvas : null,
+    ctx: null,
+    WIDTH: window.innerWidth,
+    HEIGHT: window.innerHeight,
+    radius: 40,
+    alpha:0,
+    beta:0,
+    gamma:0,
 
-            alert(text);
+    init: function(){
+        OT.canvas = document.getElementById("myCanvas");
+        OT.ctx = OT.canvas.getContext("2d"); 
+        OT.canvas.width = OT.WIDTH;
+        OT.canvas.height = OT.HEIGHT;
+
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener("deviceorientation", orientationHandler, false); 
+            OT.loop();
         }
+        else {
+            arrow.innerHTML = "cann't support";
+        } 
+    },
+
+    Draw: {
+        clear: function () { 
+             OT.ctx.clearRect(0, 0, 600, 800);
+        },
+        circle: function (x,y,r,col){ 
+            
+            OT.ctx.fillStyle = col;
+            OT.ctx.beginPath(); 
+            OT.ctx.arc(x,y,r,0,Math.PI*2,true);
+            OT.ctx.fill(); 
+            // OT.ctx.globalCompositeOperation = "destination-in";
+            OT.ctx.closePath();
+            OT.ctx.stroke();
+
+            console.log("circle");
+        }
+    },
+
+    loop: function(){
+        console.log("loop");
+        requestAnimationFrame(OT.loop); 
+        OT.update();
+        OT.render();
+    },
+    update: function(){
+        
+    },
+    render: function(){ 
+        console.log("render");
+        OT.Draw.clear();
+        if(Math.round(OT.gamma) == 0 && Math.round(OT.beta) == 0){
+             OT.Draw.circle(OT.WIDTH / 2 + Math.round(OT.gamma), OT.HEIGHT / 2 + Math.round(OT.beta), OT.radius, 'green');
+        }else{
+            
+            OT.Draw.circle(OT.WIDTH/2 + Math.round(OT.gamma), OT.HEIGHT/2 + Math.round(OT.beta),OT.radius,'red');  
+            OT.Draw.circle(OT.WIDTH / 2 - Math.round(OT.gamma), OT.HEIGHT / 2 - Math.round(OT.beta), OT.radius, 'red');
+        }
+        
     }
-    catch (e) {
-        arrow.innerHTML = e.message;
-    }  
+} 
+
+function orientationHandler(event) {
+    text = ""; 
+    text += "左右旋转：rotate alpha{" + Math.round(event.alpha) + "deg)<br>";
+    text += "前后旋转：rotate beta{" + Math.round(event.beta) + "deg 上下)<br>";
+    text += "扭转设备：rotate gamma{" + Math.round(event.gamma) + "deg 左右)<br>";
+    OT.alpha = event.alpha;
+    OT.beta = event.beta;
+    OT.gamma = event.gamma;
+
+
+    arrow.innerHTML = text;  
+}
+
+window.requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 30);
+        };
+})();
+ 
+    OT.init(); 
 </script> 
