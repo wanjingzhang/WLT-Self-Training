@@ -50,14 +50,33 @@ var OT = {
         clear: function () { 
              OT.ctx.clearRect(0, 0, 600, 800);
         },
-        circle: function (x,y,r,col){ 
-            
+        circle: function (x, y, r, col) {
+
             OT.ctx.fillStyle = col;
-            OT.ctx.beginPath(); 
-            OT.ctx.arc(x,y,r,0,Math.PI*2,true);
-            OT.ctx.fill(); 
+            OT.ctx.beginPath();
+            OT.ctx.arc(x, y, r, 0, Math.PI * 2, true);
+            OT.ctx.fill();
             // OT.ctx.globalCompositeOperation = "destination-in";
             OT.ctx.closePath();
+            OT.ctx.stroke();
+
+            console.log("circle");
+        },
+        circleTwo: function (x1,y1,x2,y2,r,col){  
+            OT.ctx.fillStyle = col;
+            OT.ctx.beginPath(); 
+            OT.ctx.arc(x1,y1,r,0,Math.PI*2,true);
+            OT.ctx.fill();  
+            OT.ctx.closePath();
+
+            OT.ctx.fillStyle = col;
+            // OT.ctx.globalCompositeOperation = "destination-in";
+            OT.ctx.beginPath();
+            OT.ctx.arc(x2, y2, r, 0, Math.PI * 2, true);
+            OT.ctx.fill();
+            // OT.ctx.globalCompositeOperation = "source-out";
+            OT.ctx.closePath();
+
             OT.ctx.stroke();
 
             console.log("circle");
@@ -78,10 +97,8 @@ var OT = {
         OT.Draw.clear();
         if(Math.round(OT.gamma) == 0 && Math.round(OT.beta) == 0){
              OT.Draw.circle(OT.WIDTH / 2 + Math.round(OT.gamma), OT.HEIGHT / 2 + Math.round(OT.beta), OT.radius, 'green');
-        }else{
-            
-            OT.Draw.circle(OT.WIDTH/2 + Math.round(OT.gamma), OT.HEIGHT/2 + Math.round(OT.beta),OT.radius,'red');  
-            OT.Draw.circle(OT.WIDTH / 2 - Math.round(OT.gamma), OT.HEIGHT / 2 - Math.round(OT.beta), OT.radius, 'red');
+        }else{ 
+            OT.Draw.circleTwo(OT.WIDTH/2 + Math.round(OT.gamma), OT.HEIGHT/2 + Math.round(OT.beta), OT.WIDTH / 2 - Math.round(OT.gamma), OT.HEIGHT / 2 - Math.round(OT.beta), OT.radius,'red');   
         }
         
     }
