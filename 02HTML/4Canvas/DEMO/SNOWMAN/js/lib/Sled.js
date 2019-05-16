@@ -7,7 +7,7 @@ SNOW.Sled = function () {
         this.height = 92;
 
         this.gravity = 0.25,
-            this.ix = 0;
+        this.ix = 0;
         this.iy = 0;
         this.fr = 0;
         this.vy = SNOW.HEIGHT - 80; //y position
@@ -19,29 +19,31 @@ SNOW.Sled = function () {
         this.type = 'sled';
 
     }
-    this.update = function () {
-        // if (this.fr++ > 5) {
-        //     this.fr = 0;
-        //     if (this.iy == this.height * 3) {
-        //         this.iy = 0;
-        //     }
-        //     this.iy += this.height;
-        // }
+    this.update = function () { 
 
         if (this.play) {
             this.velocity += this.gravity;
             this.vy += this.velocity;
-            // if(this.vy <= 20){
-            //     this.vy = 20;
-            // }
 
+            // 前进速度加速度
+            if (this.velocity < 0) {
+                this.vx -= this.velocity/2;
+            } 
             if (this.vy >= SNOW.HEIGHT - 80) {
                 this.vy = SNOW.HEIGHT - 80;
-
+                 
                 this.play = false;
-            }
+            }  
 
             // console.log('velocity=' + this.velocity + ' vy=' + this.vy + ' stop at='+ (SNOW.HEIGHT -80)); 
+        }
+
+        //回到原来状态
+        if (SNOW.tapTime == 1) {
+            // console.log("开始慢慢回到原来状态 this.vx = " + this.vx);
+            if (this.vx > 70) {
+                this.vx --;
+            } 
         }
 
         if (SNOW.Input.tapped && !this.play) {

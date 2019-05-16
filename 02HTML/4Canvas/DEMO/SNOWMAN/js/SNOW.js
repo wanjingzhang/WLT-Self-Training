@@ -36,6 +36,8 @@ var SNOW = {
     ios: null,
     snow: [],
     snowMax: 20, 
+    tapTime: 0,
+    tapInterval: null,
     init: function () {
         var grad;
         SNOW.WIDTH = window.innerWidth;

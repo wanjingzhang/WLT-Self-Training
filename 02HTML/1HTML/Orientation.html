@@ -37,6 +37,7 @@ var OT = {
         OT.canvas.width = OT.WIDTH;
         OT.canvas.height = OT.HEIGHT;
 
+        // Do not support S7 chrome Version 74
         if (window.DeviceOrientationEvent) {
             window.addEventListener("deviceorientation", orientationHandler, false); 
             OT.loop();
