@@ -20,7 +20,7 @@ SNOW.Input = {
         this.x = (data.pageX - SNOW.offset.left) / SNOW.scale;
         this.y = (data.pageY - SNOW.offset.top) / SNOW.scale;
         this.tapped = true;
-        console.log('trapped = true 开始计时');
+        // console.log('trapped = true 开始计时');
 
         clearInterval(SNOW.tapInterval);
 
@@ -30,7 +30,7 @@ SNOW.Input = {
                 if (SNOW.tapTime == 0) {
                     SNOW.tapTime = 1;   
                     clearInterval(SNOW.tapInterval);
-                    console.log('tapInterval Over');
+                    // console.log('tapInterval Over');
                 }
                 
         }, 1000);  

@@ -26,8 +26,11 @@ SNOW.Sled = function () {
             this.vy += this.velocity;
 
             // 前进速度加速度
-            if (this.velocity < 0) {
-                this.vx -= this.velocity/2;
+            if (this.velocity < 0 && this.vx < (SNOW.WIDTH-70)) {
+                //在屏幕范围内
+                this.vx -= this.velocity / 2;
+                // console.log(this.vx);
+                  
             } 
             if (this.vy >= SNOW.HEIGHT - 80) {
                 this.vy = SNOW.HEIGHT - 80;

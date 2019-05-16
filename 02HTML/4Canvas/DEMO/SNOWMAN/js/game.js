@@ -133,6 +133,7 @@ window.Play = function () {
 window.GameOver = function () {
     this.getMedal = function () {
         var score = SNOW.score.coins;
+        var medal;
         console.log(score)
         if (score <= 10)
             medal = "bronze";
