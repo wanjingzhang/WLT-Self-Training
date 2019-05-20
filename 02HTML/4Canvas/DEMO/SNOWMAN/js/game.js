@@ -102,10 +102,11 @@ window.Play = function () {
                     SNOW.entities[i].show = false;
                     SNOW.score.blood -= SNOW.score.bloodStep; 
                     console.log('失血' + SNOW.score.bloodStep);
-
+                    play_sound(soundHit);
                     if (SNOW.score.blood <= 0) {
                         SNOW.changeState('GameOver');
                         console.log('游戏结束');
+                        play_sound(soundDie);
                     }
                     break;
                 }
@@ -115,7 +116,7 @@ window.Play = function () {
                     // 得分
                     SNOW.entities[i].show = false;
                     SNOW.score.coins += SNOW.score.coinStep;
-                    
+                    play_sound(soundScore);
                     console.log('得分：' + SNOW.score.coinStep);
                     break;
                 }

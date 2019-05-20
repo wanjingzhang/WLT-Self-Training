@@ -52,6 +52,7 @@ SNOW.Sled = function () {
         if (SNOW.Input.tapped && !this.play) {
             this.play = true;
             this.velocity = this.jump;
+            play_sound(soundJump);
             // console.log("velocity=jump");
         }
 
