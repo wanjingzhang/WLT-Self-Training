@@ -1,3 +1,8 @@
+# create react app and install
+npx create-react-app my-app
+cd my-app
+npm start
+
 [Guide book](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial#_debugging-your-express-application)
 ### How to start
 1. yarn install
