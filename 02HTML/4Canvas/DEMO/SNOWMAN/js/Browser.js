@@ -70,19 +70,7 @@ SNOW.changeOrientation = function () {
     console.log('height', SNOW.HEIGHT, 'width', SNOW.WIDTH);// 
     refresh();
     
-} 
-
-//刷新页面
-function refresh() {
-        var random = Math.floor((Math.random() * 10000) + 1);
-        var url = decodeURI(window.location.href);
-        if (url.indexOf('?') < 0) {
-            url = url + "?random" + random;
-        } else {
-            url = url.substr(0, url.indexOf('?random')) + "?random" + random;
-        }
-        window.location.href = url;
-    } 
+}  
 //分数 获取保存
 function getCookie(cname) {
     var name = cname + "=";
