@@ -16,6 +16,7 @@ var rankings = new Array();
 // 客户可以通过服务端接口发送数据，
 
 io.on('connect', (client) => {
+    // 添加新的数据
     client.on('subscribeToTimer', (rank) => {
         console.log('client submit the rank obj:', rank);
 
@@ -34,9 +35,13 @@ io.on('connect', (client) => {
         client.emit('getData', rankings);
     })
 
+    // 获取初始化数据
     client.on('getInitData', () => {
         client.emit('getData',rankings);
     })
+
+    // 实时同步数据
+    
  
 });
 
