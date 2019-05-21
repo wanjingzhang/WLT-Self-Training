@@ -7,9 +7,7 @@ var rankings = new Array();
 // io.on('connect', (client) => {
 //     // 在此开始发送emitting事件去客户端 
 // })
-
-
-
+ 
 // 4. 使用 node src/server.js 启动8000端口
 // 此刻服务器正在监听 listening on port 8000 
 
@@ -21,12 +19,19 @@ io.on('connect', (client) => {
     client.on('subscribeToTimer', (rank) => {
         console.log('client submit the rank obj:', rank);
 
-        // 插入数据，先判断排名可不可以放在列表 
-        if (rankings.length < 10) { //排名小于10 可以直接插入
-            rankings.push(rank);
+        // 插入数据，然后进行潘旭
+        rankings.push(rank); 
+        rankings.sort((a, b) => {
+            return b.score - a.score;
+        })  
+        
+        if (rankings.length >= 10) { //删除最后一个数据
+            rankings.pop();
         }
+
         console.log('server return the ranking list:' , rankings);
         client.emit('timer', rankings); 
+        client.emit('getData', rankings);
     })
 
     client.on('getInitData', () => {

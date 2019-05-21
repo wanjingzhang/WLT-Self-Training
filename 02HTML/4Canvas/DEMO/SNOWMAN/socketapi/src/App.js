@@ -36,20 +36,19 @@ class App extends Component {
     let { rankings,obj } = this.state;
     return (
       <div className="App">
-        <p className="App-intro">
-          {/* Current ranking: {this.state.rankings} */}
-          {
-            console.log(rankings) 
-          
+        <p className="App-intro"> <ul>
+          {rankings != null?rankings.map((item,id) =>{
+            return (<li key={id}>{item.name}:{item.score}</li>)
           }
-        </p>
+          ):null}
+        </ul></p>
         <form>
           name:
-          <input id="name" type="text" onChange={this.handleChange} ></input><br />
+          <input id="name" type="text" maxLength="10" onChange={this.handleChange} ></input><br />
           score:
-          <input id="score" type="number" onChange={this.handleScoreChange}></input><br />
+          <input id="score" type="tel" maxLength="10" onChange={this.handleScoreChange}></input><br />
           <span onClick={() => { 
-            subscribeToTimer(obj, (rankings) => {
+            subscribeToTimer({ name:obj.name,score: obj.score }, (rankings) => {
               console.log('call back', rankings);
               this.setState({ rankings})
             });
