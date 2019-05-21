@@ -36,12 +36,12 @@ class App extends Component {
     let { rankings,obj } = this.state;
     return (
       <div className="App">
-        <p className="App-intro"> <ul>
+        <ul className="App-intro">
           {rankings != null?rankings.map((item,id) =>{
             return (<li key={id}>{item.name}:{item.score}</li>)
           }
           ):null}
-        </ul></p>
+        </ul>
         <form>
           name:
           <input id="name" type="text" maxLength="10" onChange={this.handleChange} ></input><br />
@@ -50,7 +50,7 @@ class App extends Component {
           <span onClick={() => { 
             subscribeToTimer({ name:obj.name,score: obj.score }, (rankings) => {
               console.log('call back', rankings);
-              this.setState({ rankings})
+              this.setState({ rankings,obj:null})
             });
           }}>Add one data</span>
         </form>

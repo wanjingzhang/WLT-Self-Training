@@ -15,7 +15,7 @@ var rankings = new Array();
 // 我们希望服务器可以为每个客户开始一个计时器，用户可以传如想要的间隔时间
 // 客户可以通过服务端接口发送数据，
 
-io.on('connect', (client) => {
+io.on('connect', (client) => { 
     // 添加新的数据
     client.on('subscribeToTimer', (rank) => {
         console.log('client submit the rank obj:', rank);
@@ -32,7 +32,8 @@ io.on('connect', (client) => {
 
         console.log('server return the ranking list:' , rankings);
         client.emit('timer', rankings); 
-        client.emit('getData', rankings);
+        // 通过广播 实时同步数据 
+        client.broadcast.emit('getData', rankings); 
     })
 
     // 获取初始化数据
@@ -40,9 +41,7 @@ io.on('connect', (client) => {
         client.emit('getData',rankings);
     })
 
-    // 实时同步数据
     
- 
 });
 
 // 3. 完成之后，需要告诉socket.io去开始监听客户端
