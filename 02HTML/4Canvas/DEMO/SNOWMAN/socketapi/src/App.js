@@ -1,5 +1,4 @@
-import React,{Component} from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react'; 
 import './App.css';
 import { subscribeToTimer, getInitData } from './api';
 
@@ -7,24 +6,34 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      timestamp: 'no timestamp yet',
-      rankings: null,
-      id:1,
+    this.state = { 
+      rankings: null, 
+      obj:{},
     }
 
+    // 初始化数据列表
     getInitData((rankings) => { 
       this.setState({ rankings });
     });
  
+    this.handleChange = this.handleChange.bind(this);
+    this.handleScoreChange = this.handleScoreChange.bind(this);
   }
 
   subscribeToTimer = ( (obj,cb) => { 
     console.log('this.subscribeTotimer 2 rankings:' , cb);
   });
 
+  handleChange(event) {
+    this.setState({ obj: { name:  event.target.value ,score: this.state.obj.score } });
+  }
+
+  handleScoreChange(event) {
+    this.setState({ obj: { score: event.target.value, name: this.state.obj.name } });
+  }
+
   render() {
-    let { rankings ,id} = this.state;
+    let { rankings,obj } = this.state;
     return (
       <div className="App">
         <p className="App-intro">
@@ -34,21 +43,18 @@ class App extends Component {
           
           }
         </p>
-        <div>
+        <form>
           name:
-          <input id="name" ></input><br />
+          <input id="name" type="text" onChange={this.handleChange} ></input><br />
           score:
-          <input id="score" ></input><br />
-          <span onClick={() => {
-            this.setState({
-              id:id++
-            })
-            subscribeToTimer({ name: "xxx", score: id }, (rankings) => {
+          <input id="score" type="number" onChange={this.handleScoreChange}></input><br />
+          <span onClick={() => { 
+            subscribeToTimer(obj, (rankings) => {
               console.log('call back', rankings);
               this.setState({ rankings})
             });
           }}>Add one data</span>
-        </div>
+        </form>
       </div>
     );
   }

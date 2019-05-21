@@ -5,7 +5,7 @@ const socket = openSocket('http://localhost:8000');
 // 返回timer事件 到客户端
 function subscribeToTimer(obj,cb) { 
     socket.on('timer', rankings => cb(rankings));
-    console.log("subscribeToTimer 1",obj);
+    // console.log("subscribeToTimer 1",obj);
     socket.emit('subscribeToTimer', obj); 
 }
 
