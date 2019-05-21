@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { subscribeToTimer } from './api';
+import { subscribeToTimer, getInitData } from './api';
 
 class App extends Component {
   constructor(props) {
@@ -9,24 +9,29 @@ class App extends Component {
 
     this.state = {
       timestamp: 'no timestamp yet',
-      rankings: { name: "xxx", score: 10 },
+      rankings: null,
+      id:1,
     }
 
-    this.subscribeToTimer = this.subscribeToTimer.bind(this);
+    getInitData((rankings) => { 
+      this.setState({ rankings });
+    });
+ 
   }
 
-  subscribeToTimer = ((err, rankings) => this.setState({
-      rankings
-    }));
+  subscribeToTimer = ( (obj,cb) => { 
+    console.log('this.subscribeTotimer 2 rankings:' , cb);
+  });
 
   render() {
-    let { rankings } = this.state;
+    let { rankings ,id} = this.state;
     return (
       <div className="App">
         <p className="App-intro">
           {/* Current ranking: {this.state.rankings} */}
           {
-            console.log(rankings)
+            console.log(rankings) 
+          
           }
         </p>
         <div>
@@ -35,7 +40,13 @@ class App extends Component {
           score:
           <input id="score" ></input><br />
           <span onClick={() => {
-            this.subscribeToTimer({ name: "xxx", score: 10 });
+            this.setState({
+              id:id++
+            })
+            subscribeToTimer({ name: "xxx", score: id }, (rankings) => {
+              console.log('call back', rankings);
+              this.setState({ rankings})
+            });
           }}>Add one data</span>
         </div>
       </div>

@@ -19,7 +19,7 @@ var rankings = new Array();
 
 io.on('connect', (client) => {
     client.on('subscribeToTimer', (rank) => {
-        console.log('client submit the rank object:', rank);
+        console.log('client submit the rank obj:', rank);
 
         // 插入数据，先判断排名可不可以放在列表 
         if (rankings.length < 10) { //排名小于10 可以直接插入
@@ -27,6 +27,10 @@ io.on('connect', (client) => {
         }
         console.log('server return the ranking list:' , rankings);
         client.emit('timer', rankings); 
+    })
+
+    client.on('getInitData', () => {
+        client.emit('getData',rankings);
     })
  
 });
