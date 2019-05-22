@@ -1,6 +1,11 @@
-import React,{Component} from 'react'; 
+import React, { Component } from 'react'; 
+import ReactCanvas from 'react-canvas';
+
 import './App.css';
 import { subscribeToTimer, getInitData } from './api';
+
+var Surface = ReactCanvas.Surface;
+var Gradient = ReactCanvas.Gradient;
 
 class App extends Component {
   constructor(props) {
