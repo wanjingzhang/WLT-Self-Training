@@ -19,9 +19,9 @@ class Background extends React.Component {
                 }}
                 width={width}
                 height={height} 
-                fillLinearGradientStartPoint={{ x: 100, y: 0 }}
-                fillLinearGradientEndPoint={{ x: 100, y: 100 }}
-                fillLinearGradientColorStops={[0, 'red', 1, 'yellow']}
+                fillLinearGradientStartPoint={{ x: 0, y: 0 }}
+                fillLinearGradientEndPoint={{ x: 0, y: height }}
+                fillLinearGradientColorStops={[0, '#036', 0.5, '#69a', 1, 'yellow']}
             />
         );
     }
