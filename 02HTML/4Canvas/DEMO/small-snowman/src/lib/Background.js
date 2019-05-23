@@ -18,8 +18,10 @@ class Background extends React.Component {
                     this.rect = node;
                 }}
                 width={width}
-                height={height}
-                fill="green"
+                height={height} 
+                fillLinearGradientStartPoint={{ x: 100, y: 0 }}
+                fillLinearGradientEndPoint={{ x: 100, y: 100 }}
+                fillLinearGradientColorStops={[0, 'red', 1, 'yellow']}
             />
         );
     }
