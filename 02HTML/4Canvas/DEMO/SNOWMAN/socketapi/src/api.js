@@ -14,4 +14,8 @@ function getInitData(cb) {
     socket.emit('getInitData');
 }
 
+
+/**
+ * 接入 socket， 调用、回调刷新数据
+ */
 export { subscribeToTimer, getInitData}

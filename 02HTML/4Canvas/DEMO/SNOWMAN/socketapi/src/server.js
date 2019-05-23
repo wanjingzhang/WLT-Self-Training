@@ -26,7 +26,7 @@ io.on('connect', (client) => {
             return b.score - a.score;
         })  
         
-        if (rankings.length >= 10) { //删除最后一个数据
+        if (rankings.length > 10) { //删除最后一个数据
             rankings.pop();
         }
 
