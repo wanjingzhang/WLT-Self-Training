@@ -37,11 +37,33 @@ class App extends Component {
     this.setState({ obj: { score: event.target.value, name: this.state.obj.name } });
   }
 
+  getGradientStyle(){
+    var size = this.getSize();
+    return {
+      top: 0,
+      left: 0,
+      width: size.width,
+      height: size.height
+    };
+  }
+
+  getGradientColors() {
+    return [
+      { color: "transparent", position: 0 },
+      { color: "#000", position: 1 }
+    ];
+  }
+
+  getSize () {
+    return document.getElementById('main').getBoundingClientRect();
+  }
+
   render() {
+    let size = this.getSize();
     let { rankings,obj } = this.state;
     return (
       <div className="App">
-        <ul className="App-intro">
+        {/* <ul className="App-intro">
           {rankings != null?rankings.map((item,id) =>{
             return (<li key={id}>{item.name}:{item.score}</li>)
           }
@@ -58,7 +80,12 @@ class App extends Component {
               this.setState({ rankings,obj:null})
             });
           }}>Add one data</span>
-        </form>
+        </form> */}
+
+        <Surface top={0} left={0} width={size.width} height={size.height}>
+          <Gradient style={this.getGradientStyle()}
+            colorStops={this.getGradientColors()} />
+        </Surface>
       </div>
     );
   }
