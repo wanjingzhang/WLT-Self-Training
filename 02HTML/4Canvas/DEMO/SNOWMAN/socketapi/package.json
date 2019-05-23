@@ -4,14 +4,16 @@
   "private": true,
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "konva": "^3.2.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-konva": "^16.8.7-2",
     "react-scripts": "3.0.1",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3002 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

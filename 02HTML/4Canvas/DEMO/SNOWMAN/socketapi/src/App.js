@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <Game></Game>
-        <Score></Score>
+        {/* <Score></Score> */}
       </div>
     );
   }

@@ -65,4 +65,7 @@ var elem = document.querySelector('expr');
 * cmd + D					\\选择当前鼠标所在的代码
 * cmd + shift + L			\\重复选择相同的代码
 * cmd + opt + UP			\\向上选择
+
+### 9. MD文件
+* cmd + shift + v			\\ 预览markdown文件
  
