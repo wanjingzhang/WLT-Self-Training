@@ -62,11 +62,11 @@ class App extends Component {
   }
 
   render() {
-    let { originalHeight, originalWidth, isLandscape} = this.state;
+    let { originalHeight, originalWidth, isLandscape, isMobile} = this.state;
     return (
       <div className="App">
         {isLandscape ?
-          <Game width={originalWidth} height={originalHeight}></Game>
+          <Game width={originalWidth} height={originalHeight} isMobile={isMobile}></Game>
           :
           <Note width={originalWidth} height={originalHeight}></Note>
         }
