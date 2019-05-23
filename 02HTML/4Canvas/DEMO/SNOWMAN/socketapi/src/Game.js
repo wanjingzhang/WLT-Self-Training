@@ -1,39 +1,74 @@
-import React, { Component } from 'react'; 
-import { render } from 'react-dom';
-import { Stage, Layer, Rect } from 'react-konva';
+import React, { Component } from 'react';  
+import { Stage, Layer } from 'react-konva';
 
-class MyRect extends React.Component {
-    changeSize = () => {
-        // to() is a method of `Konva.Node` instances
-        this.rect.to({
-            scaleX: Math.random() + 0.8,
-            scaleY: Math.random() + 0.8,
-            duration: 0.2
-        });
-    };
-    render() {
-        return (
-            <Rect
-                ref={node => {
-                    this.rect = node;
-                }}
-                width={50}
-                height={50}
-                fill="green"
-                draggable
-                onDragEnd={this.changeSize}
-                onDragStart={this.changeSize}
-            />
-        );
-    }
-}
-
+import Background from './lib/Background';
+ 
 class Game extends Component { 
+
+    constructor(props) {
+        super(props); 
+        this.state = {
+            originalWidth: 0,
+            originalHeight: 0,
+            isLandscape: null,
+            isMobile: null,
+            isAndroid: null, 
+
+        }
+    }
+
+    componentDidMount() {
+        // 获取初始宽高
+        this.setState({
+            originalWidth: window.innerWidth,
+            originalHeight: window.innerHeight,
+        });
+
+        // 
+        let isMobile = window.innerWidth <= 640 ? true : false;
+        let isLandscape = window.matchMedia('(orientation: landscape)');
+        isLandscape = isLandscape.matches;
+
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+
+        this.setState({ isLandscape });
+        this.setState({ isMobile });
+        this.setState({ isAndroid });
+        console.log('isMobile:' + isMobile);
+        console.log('isLandscape:' + isLandscape);
+        window.addEventListener('resize', this.handleResize); 
+    } 
+
+    // 改变窗口大小
+    handleResize = () => {
+        console.log('handleResize'); 
+        let { isLandscape } = this.state; 
+
+        let isMobile = window.innerWidth <= 640 ? true : false;
+        let isLandscapeN = window.matchMedia('(orientation: landscape)');
+        isLandscapeN = isLandscapeN.matches;
+ 
+
+        this.setState({
+            originalWidth: window.innerWidth,
+            originalHeight: window.innerHeight,
+        });
+
+        this.setState({ isLandscape,isMobile  }); 
+  
+    };
+
+    componentWillMount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
     render() {
+        let { originalHeight, originalWidth } = this.state;
         return (
-            <Stage width={window.innerWidth} height={window.innerHeight}>
+            <Stage width={originalWidth} height={originalHeight}>
                 <Layer>
-                    <MyRect />
+                    <Background width={originalWidth} height={originalHeight} />
                 </Layer>
             </Stage>
         )
