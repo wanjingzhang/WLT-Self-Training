@@ -32,8 +32,13 @@ class URLImage extends Component {
         // you will have to update layer manually:
         // this.imageNode.getLayer().batchDraw();
     };
+    handleClick = () => {
+        let { onClick } = this.props; 
+        onClick();
+    }
+
     render() {
-        let { x, y, width, height } = this.props;
+        let { x, y, width, height, onClick } = this.props;
         return (
             <Image
                 x={x}
@@ -43,7 +48,8 @@ class URLImage extends Component {
                 image={this.state.image}
                 ref={node => {
                     this.imageNode = node;
-                }}
+                }} 
+                onClick={this.handleClick}
             />
         );
     }

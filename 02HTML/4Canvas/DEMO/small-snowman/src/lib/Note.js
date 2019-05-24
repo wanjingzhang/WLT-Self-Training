@@ -14,7 +14,7 @@ class Note extends Component {
             <Stage width={width} height={height}>
                 <Layer> 
                     <Background width={width} height={height} />
-                    <URLImage src="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/app_rotate_to_play.png" x={width*0.1} width={width*0.8} height={width*.58*0.8} y={(height - width*0.8*0.58) /2}></URLImage> 
+                    <URLImage src="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/app_rotate_to_play.png" x={width*0.1} width={width*0.8} height={width*.58*0.8} y={(height - width*0.8*0.58)/2}></URLImage> 
                 </Layer>
             </Stage>
         )

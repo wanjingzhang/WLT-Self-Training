@@ -16,6 +16,13 @@ class Game extends Component {
             gameState: 0
         }
     }
+
+    ChangeState = (gameState) => {
+        console.log('changeState-',gameState);
+        this.setState({
+            gameState
+        })
+    }
  
     render() {
         let { width, height, isMobile } = this.props;
@@ -24,7 +31,7 @@ class Game extends Component {
             <Stage width={width} height={height}>
                 <Layer>
                     <Background width={width} height={height} />
-                    {gameState == 0 ? <Opening width={width} height={height} isMobile={isMobile} gameState={gameState}/> : null}
+                    {gameState == 0 ? <Opening width={width} height={height} isMobile={isMobile} gameState={gameState} ChangeState={this.ChangeState}/> : null}
                     
                 </Layer>
             </Stage>

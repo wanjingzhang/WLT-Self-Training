@@ -10,11 +10,16 @@ class Opening extends Component {
             ratio: 0.606
         }
     }
+    
+    handleClick = () => { 
+        let { ChangeState } = this.props;
+        ChangeState(1);
+    }
     render() {
         let { ratio } = this.state;
-        let { width, height } = this.props;
+        let { width, height, ChangeState } = this.props;
         return (
-            <URLImage src="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/opening.png" x={width * 0.2} width={width * 0.6} height={width*0.6*ratio}  y={(height - width * 0.6 * ratio) / 2} ></URLImage> 
+            <URLImage src="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/opening.png" x={width * 0.2} width={width * 0.6} height={width * 0.6 * ratio} y={(height - width * 0.6 * ratio) / 2} onClick={this.handleClick}></URLImage> 
         )  
     }
 }
