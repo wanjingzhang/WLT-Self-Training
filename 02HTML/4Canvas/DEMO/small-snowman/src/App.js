@@ -13,8 +13,7 @@ class App extends Component {
       originalHeight: 0,
       isLandscape: null,
       isMobile: null,
-      isAndroid: null,
-
+      isAndroid: null, 
     }
   }
 
@@ -53,8 +52,7 @@ class App extends Component {
       originalHeight: window.innerHeight,
     });
 
-    this.setState({ isLandscape, isMobile });
-
+    this.setState({ isLandscape, isMobile }); 
   };
 
   componentWillMount() {

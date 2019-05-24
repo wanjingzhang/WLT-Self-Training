@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Stage, Layer } from 'react-konva';
 
 import Background from './lib/Background';
-import Opening from './Opening';
+import Opening from './scene/Opening';
+import Instruction from './scene/Instuction';
 
 var gameStates = { opening: 0, instruction: 1, inputName: 2, start: 3, gameover: 4 };
 /**
@@ -31,7 +32,9 @@ class Game extends Component {
             <Stage width={width} height={height}>
                 <Layer>
                     <Background width={width} height={height} />
-                    {gameState == 0 ? <Opening width={width} height={height} isMobile={isMobile} gameState={gameState} ChangeState={this.ChangeState}/> : null}
+                    {gameState == 0 ? <Opening width={width} height={height} isMobile={isMobile} gameState={gameState} ChangeState={this.ChangeState} /> : 
+                        gameState === 1 ? <Instruction width={width} height={height} isMobile={isMobile} gameState={gameState} ChangeState={this.ChangeState} /> : null
+                    }
                     
                 </Layer>
             </Stage>

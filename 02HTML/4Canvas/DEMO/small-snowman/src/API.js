@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
+const socket = openSocket('http://172.26.13.43:8000');
 
 // 1. 新建一个可以调用服务器事件的subscribeToTimer方法，
 // 返回timer事件 到客户端

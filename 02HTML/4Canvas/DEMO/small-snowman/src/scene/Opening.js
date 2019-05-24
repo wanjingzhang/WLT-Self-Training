@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Rect } from 'react-konva';
-import URLImage from './lib/URLImage';
+import URLImage from '../lib/URLImage';
  
 class Opening extends Component {
     constructor(props) {
