@@ -1,7 +1,7 @@
 import React, { Component } from 'react';  
 
 import './App.css';
-import Score from './Score';
+import Score from './lib/Score';
 import Game from './Game';
 import Note from './lib/Note';
 
@@ -70,7 +70,7 @@ class App extends Component {
           :
           <Note width={originalWidth} height={originalHeight}></Note>
         }
-        {/* <Score></Score> */}
+        <Score></Score>
       </div>
     );
   }

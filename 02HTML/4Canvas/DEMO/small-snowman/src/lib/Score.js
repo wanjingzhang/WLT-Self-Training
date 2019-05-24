@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { subscribeToTimer, getInitData } from './API'; 
+import { subscribeToTimer, getInitData } from '../API'; 
+
+import "./Score.css";
 
 class Score extends Component{
     constructor(props) {

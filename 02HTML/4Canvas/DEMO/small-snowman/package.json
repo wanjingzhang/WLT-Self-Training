@@ -2,6 +2,7 @@
   "name": "socketapi",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "konva": "^3.2.6",
