@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import { Rect } from 'react-konva';
-import URLImage from './lib/Image';
-
-
+import URLImage from './lib/URLImage';
+ 
 class Opening extends Component {
-    render() {
-        let { width, height, isMobile } = this.props;
-        return (
-            // <URLImage src="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/opening.png" width={isMobile? width : 200 } ></URLImage>
-            
-            <Rect
-                x={0}
-                y={0}
-                width={width}
-                height={height}
-                fillPatternScaleY={height / 300}
-                fillPatternImage="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/opening.png"
+    constructor(props) {
+        super(props);
 
-            ></Rect>
-        )
-        
+        this.state = {
+            ratio: 0.606
+        }
+    }
+    render() {
+        let { ratio } = this.state;
+        let { width, height } = this.props;
+        return (
+            <URLImage src="http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/images/opening.png" x={width * 0.2} width={width * 0.6} height={width*0.6*ratio}  y={(height - width * 0.6 * ratio) / 2} ></URLImage> 
+        )  
     }
 }
 
