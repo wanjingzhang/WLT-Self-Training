@@ -26,9 +26,9 @@ SNOW.Sled = function () {
             this.vy += this.velocity;
 
             // 前进速度加速度
-            if (this.velocity < 0 && this.vx < (SNOW.WIDTH-70)) {
+            if (this.vy < SNOW.HEIGHT - 80 && this.vx < (SNOW.WIDTH-70)) {
                 //在屏幕范围内
-                this.vx -= this.velocity / 2;
+                this.vx += 3;
                 // console.log(this.vx);
                   
             } 
@@ -55,6 +55,8 @@ SNOW.Sled = function () {
             play_sound(soundJump);
             // console.log("velocity=jump");
         }
+
+        // console.log(this.vx);
 
     }
     this.render = function () {

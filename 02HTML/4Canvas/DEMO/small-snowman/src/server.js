@@ -1,3 +1,18 @@
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: '',
+    user: 'root',
+    password: '',
+    database: ''
+})
+
+// select MyGuests table and print all colums
+connection.query('select * from MyGuests', function (err, rows, fields) {
+    if (err) throw err;
+    console.log('The solution is: ', rows);
+});
+
+
 // 1. 导入构建socket，使用io变量
 const io = require('socket.io')();
 var rankings = new Array();
