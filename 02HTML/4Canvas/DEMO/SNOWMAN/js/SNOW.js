@@ -26,6 +26,7 @@ var SNOW = {
         bloodStep:100
     },
     RATIO: null,
+    Scale: 1,
     bg_grad: "day",
     gradients: {},
     game: null,
@@ -42,8 +43,10 @@ var SNOW = {
         var grad;
         SNOW.WIDTH = window.innerWidth;
         SNOW.HEIGHT = window.innerHeight;
+        SNOW.Scale = SNOW.WIDTH / 800; 
 
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
+        alert("Ratio:" + SNOW.RATIO + "  Scale:" + SNOW.Scale);
         
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;
@@ -60,6 +63,9 @@ var SNOW = {
  
         SNOW.canvas.width = SNOW.WIDTH;
         SNOW.canvas.height = SNOW.HEIGHT;
+
+
+        SNOW.highscore = SNOW.readData();
        
         // setup some gradients
         grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
@@ -139,5 +145,23 @@ var SNOW = {
         }
 
         SNOW.game.render();
+    },
+    readData: function () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var hs = parseInt(this.responseText);
+                if (hs < SNOW.score.coins) {
+                    // 当前分数小于最大分数；
+
+                }
+                SNOW.highscore = hs;
+
+                console.log('-------' + hs + '-------');
+                //return hs; 
+            }
+        };
+        xhttp.open("GET", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/gettop.php", true);
+        xhttp.send();
     }
 }

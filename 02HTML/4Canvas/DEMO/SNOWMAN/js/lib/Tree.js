@@ -2,8 +2,8 @@ SNOW.Tree = function (x, y) {
     this.init = function () {
         this.x = x;
         this.y = y;
-        this.r = 30;
-        this.h = 50;
+        this.r = 30* SNOW.Scale;
+        this.h = 50* SNOW.Scale;
         this.w = this.r * 2;
         this.vx = -2;
         this.type = "Tree";
@@ -17,9 +17,9 @@ SNOW.Tree = function (x, y) {
     }
 
     this.render = function () {
-        SNOW.Draw.circle(this.x + this.r, (this.y + this.r) - 10, this.r, 'green');
-        SNOW.Draw.circle(this.x + (this.r / 2), (this.y + this.r) - 10, this.r / 3, 'rgba(0,0,0,0.08)');
-        SNOW.Draw.rect(this.x + this.r - 5, this.y + this.r, 10, this.r, 'brown');
+        SNOW.Draw.circle(this.x + this.r, (this.y + this.r) - 10* SNOW.Scale, this.r, 'green');
+        SNOW.Draw.circle(this.x + (this.r / 2), (this.y + this.r) - 10* SNOW.Scale, this.r / 3, 'rgba(0,0,0,0.08)');
+        SNOW.Draw.rect(this.x + this.r - 5, this.y + this.r, 10* SNOW.Scale, this.r, 'brown');
 
     }
 

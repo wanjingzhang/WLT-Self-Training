@@ -1,4 +1,5 @@
-var soundJump = new Audio('music/wing.ogg');
+
+var soundJump = document.getElementById('soundJump');
 var soundScore = new Audio('music/point.ogg');
 var soundHit = new Audio('music/hit.ogg');
 var soundDie = new Audio('music/die.ogg');
@@ -25,7 +26,14 @@ function play_sound(s) {
             audiochannels[a]['finished'] = thistime.getTime() + s.duration * 1000;
             audiochannels[a]['channel'].src = s.src;
             audiochannels[a]['channel'].load();
-            audiochannels[a]['channel'].play();
+            var playPromise = audiochannels[a]['channel'].play();
+            if (playPromise !== undefined) {
+                playPromise.then(function () {
+                    console.log("Automatic playback stared~!")
+                }).catch(function (error) {
+                    console.log("Automatic playback failed")
+                });
+            }
             break;
         }
     }

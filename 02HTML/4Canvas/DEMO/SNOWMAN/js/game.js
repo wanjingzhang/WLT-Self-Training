@@ -50,24 +50,26 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Snow());
         for (i = 0; i < 2; i += 1) {
-            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i, SNOW.HEIGHT - 60, SNOW.WIDTH + 3));
+            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i,~~(SNOW.HEIGHT - 60 * SNOW.Scale) , ~~(SNOW.WIDTH + 3)));
         }
 
-        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH), SNOW.HEIGHT - 120));
-        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 50), SNOW.HEIGHT - 120));
-        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 100), SNOW.HEIGHT - 120));
+        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 50*SNOW.Scale), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 100*SNOW.Scale), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
 
         SNOW.entities.push(SNOW.sled);
 
-        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, 20));
+        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH,~~(20 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Stone(~~(SNOW.WIDTH + 200 * SNOW.Scale),~~(20 * SNOW.Scale)));
 
-        SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH / 2, SNOW.HEIGHT - 120));
+        SNOW.entities.push(new SNOW.Diamond(Math.round(SNOW.WIDTH / 2),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(Math.round(SNOW.WIDTH / 2 + SNOW.Scale * 50),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(Math.round(SNOW.WIDTH / 2 + SNOW.Scale * 100),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
 
         for (var i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].init();
         }
-    }
-
+    } 
 
     this.update = function () {
         SNOW.distance += 1;
@@ -148,33 +150,34 @@ window.GameOver = function () {
         return medal;
     }
 
-    this.getHighScore = function () {
-        var savedscore = getCookie("highscore");
-        if (savedscore != "") {
-            var hs = parseInt(savedscore) || 0;
-            if (hs < SNOW.score.coins) {
-                hs = SNOW.score.coins
-                setCookie("highscore", hs, 999);
-            }
-            return hs;
-        }
-        else {
-            setCookie("highscore", SNOW.score.coins, 999);
-            return SNOW.score.coins;
-        }
-    }
+    // this.getHighScore = function () {
+    //     var savedscore = getCookie("highscore");
+    //     if (savedscore != "") {
+    //         var hs = parseInt(savedscore) || 0;
+    //         if (hs < SNOW.score.coins) {
+    //             hs = SNOW.score.coins
+    //             setCookie("highscore", hs, 999);
+    //         }
+    //         return hs;
+    //     }
+    //     else {
+    //         setCookie("highscore", SNOW.score.coins, 999);
+    //         return SNOW.score.coins;
+    //     } 
+    // } 
 
     this.init = function () {
         var that = this;
+         
         setTimeout(function () { 
             that.banner = new Image();
             that.banner.src = "images/scoreboard.png";
             var m = that.getMedal();
             that.medal = new Image();
-            that.medal.src = 'images/medal_' + m + '.png';
-            that.replay = new Image();
-            that.replay.src = "images/replay.png";
-            that.highscore = that.getHighScore();
+            that.medal.src = 'images/medal_' + m + '.png'; 
+
+            // that.replay = new Image();
+            // that.replay.src = "images/replay.png";  
         }, 500);
     }
 
@@ -197,9 +200,9 @@ window.GameOver = function () {
         if (this.banner) {
             SNOW.Draw.Image(this.banner, SNOW.WIDTH/2 -118, SNOW.HEIGHT/2 - 140  + 10);
             SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, SNOW.HEIGHT / 2 - 130 + 113);
-            SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, SNOW.HEIGHT / 2 - 140 + 210);
+            // SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, SNOW.HEIGHT / 2 - 140 + 210);
             SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
-            SNOW.Draw.text(this.highscore, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 168, 15, 'black');
+            SNOW.Draw.text(SNOW.highscore, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 168, 15, 'black'); 
         }
     }
 }

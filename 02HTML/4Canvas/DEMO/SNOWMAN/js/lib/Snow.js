@@ -1,8 +1,8 @@
 SNOW.Flake = function (y) {
-    this.x = Math.round(Math.random() * SNOW.WIDTH);
+    this.x =~~(Math.random() * SNOW.WIDTH);
     this.y = -10 + y;
     this.drift = Math.random();
-    this.speed = Math.round(Math.random() * 2) + 1;
+    this.speed =~~(Math.random() * 2) + 1;
     this.width = Math.random() * 3;
 }
 

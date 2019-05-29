@@ -12,6 +12,17 @@
 <body id="body">
     <canvas id="canvas"  ></canvas>
     <iframe id="scoreboard"  src="./data/insertdata.php"></iframe>  
+    <div class="sound">
+        <audio id="soundJump">
+            <source src="./music/wing.ogg" type="audio/ogg">  
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+ 
+    <!-- var soundScore = new Audio('music/point.ogg');
+    var soundHit = new Audio('music/hit.ogg');
+    var soundDie = new Audio('music/die.ogg');
+    var soundSwoosh = new Audio('music/swooshing.ogg'); -->
 </body>
 <script src="js/SNOW.js"></script>
 <script src="js/Browser.js"></script>
@@ -21,7 +32,7 @@
 <script src="js/lib/Sled.js"></script>
 <script src="js/lib/Snow.js"></script>
 <script src="js/lib/Stone.js"></script>
-<script src="js/lib/Tree.js"></script>
+<script src="js/lib/Tree.js"></script> 
 <script src="js/game.js"></script>
 <script src="js/sound.js"></script>
 <script src="js/main.js"></script> 
