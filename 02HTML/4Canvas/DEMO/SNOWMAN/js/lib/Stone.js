@@ -2,9 +2,9 @@ SNOW.Stone = function (x, w) {
     this.init = function () {
         this.vx = x;
         this.vy = SNOW.HEIGHT - 80* SNOW.Scale;
-        this.width = w;
+        this.width = w ;
         this.height = w;
-        this.speed = -2.5;
+        this.speed = -3  ;
         this.show = true
         this.type = 'stone';
     }
@@ -25,5 +25,6 @@ SNOW.Stone = function (x, w) {
     this.respawn = function () {
         this.show = true;
         this.vx = SNOW.WIDTH;
+        this.speed = -3 * SNOW.speed;
     }
 }

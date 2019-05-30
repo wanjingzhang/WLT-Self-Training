@@ -23,12 +23,13 @@ var SNOW = {
         coins: 0,
         coinStep: 1,
         blood: 100,
-        bloodStep:100
+        bloodStep:20
     },
+    speed: 1,
     RATIO: null,
     Scale: 1,
-    bg_grad: "day",
-    gradients: {},
+    bg_grad: "day", 
+    gradients: ["day", "dusk", "night", "dawn"],
     game: null,
     //当前的宽高 既是屏幕的宽高
     currentWidth: null,
@@ -46,7 +47,7 @@ var SNOW = {
         SNOW.Scale = SNOW.WIDTH / 800; 
 
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
-        alert("Ratio:" + SNOW.RATIO + "  Scale:" + SNOW.Scale);
+        // alert("Ratio:" + SNOW.RATIO + "  Scale:" + SNOW.Scale);
         
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;
@@ -88,7 +89,8 @@ var SNOW = {
 
         grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
         grad.addColorStop(0, '#036');
-        grad.addColorStop(1, 'black');
+        grad.addColorStop(0.7, '#69a');
+        grad.addColorStop(1, '#000');
         SNOW.gradients.night = grad;
    
         console.log('isOK');

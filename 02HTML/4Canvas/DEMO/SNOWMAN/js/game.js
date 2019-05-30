@@ -3,6 +3,7 @@
 // scene opening
 window.Splash = function () {
     this.banner = new Image();
+    this.level = 1;
     if (SNOW.isOK()) {
         this.banner.src = "images/splash.png"; 
     }
@@ -50,7 +51,7 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Snow());
         for (i = 0; i < 2; i += 1) {
-            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i,~~(SNOW.HEIGHT - 60 * SNOW.Scale) , ~~(SNOW.WIDTH + 3)));
+            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i,~~(SNOW.HEIGHT - 60 * SNOW.Scale) , SNOW.WIDTH ));
         }
 
         SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
@@ -60,34 +61,21 @@ window.Play = function () {
         SNOW.entities.push(SNOW.sled);
 
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH,~~(20 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Stone(~~(SNOW.WIDTH + 200 * SNOW.Scale),~~(20 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Stone(~~(SNOW.WIDTH + 50 * SNOW.Scale),~~(20 * SNOW.Scale)));
 
-        SNOW.entities.push(new SNOW.Diamond(Math.round(SNOW.WIDTH / 2),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Diamond(Math.round(SNOW.WIDTH / 2 + SNOW.Scale * 50),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Diamond(Math.round(SNOW.WIDTH / 2 + SNOW.Scale * 100),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + SNOW.Scale * 50),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + SNOW.Scale * 100), ~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+ 
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.Scale * 50), ~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.Scale * 100), ~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
 
         for (var i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].init();
         }
     } 
 
-    this.update = function () {
-        SNOW.distance += 1;
-        var level = Math.floor(SNOW.distance / 2048);
-        var levelUp = ((SNOW.distance % 2048) === 0 ? true : false);
-
-        if (levelUp) {
-            var bg = "day";
-            var gradients = ["day", "dust", "neight", "dawn"];
-            if (level < gradients.length) {
-                bg = gradients[level];
-            } else if (level === gradients.length) {
-                bg = "day";
-            }
-            SNOW.bg_grad = bg;
-            // console.log("levelUp. SNOW.bg_grad=" + bg);
-        }
-
+    this.update = function () {  
         //check for a collision if the user tapped on this game tick;
         var checkCollision = false;
         if (SNOW.Input.tapped) {
@@ -118,8 +106,16 @@ window.Play = function () {
                     // 得分
                     SNOW.entities[i].show = false;
                     SNOW.score.coins += SNOW.score.coinStep;
-                    play_sound(soundScore);
+                    play_sound(soundScore); 
+                    
+                    var level = ~~(SNOW.score.coins / 10); 
+                    var bg = SNOW.gradients[level % 4];
+                     
+                    SNOW.bg_grad = bg;
+                    SNOW.speed = level+1;
+                    
                     console.log('得分：' + SNOW.score.coinStep);
+                    console.log('level',level, 'speed',SNOW.speed,'bg',bg);
                     break;
                 }
             }
