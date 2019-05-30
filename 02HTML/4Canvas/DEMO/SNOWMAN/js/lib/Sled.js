@@ -14,7 +14,8 @@ SNOW.Sled = function (width,height) {
         this.fr = 0;
         this.initialVy = SNOW.HEIGHT - 120;
         this.vy = SNOW.HEIGHT - 120; //y position
-        this.vx = 70;
+        this.oldVx = 50;
+        this.vx = this.oldVx;
         this.jump = - 7.6; //jump height
         this.velocity = 0;
         this.rotation = 0;
@@ -26,12 +27,12 @@ SNOW.Sled = function (width,height) {
 
         if (this.play) {
             this.velocity += this.gravity;
-            this.vy += this.velocity;
+            this.vy += this.velocity ;
 
             // 前进速度加速度
-            if (this.vy < (this.initialVy+20) && this.vx < (SNOW.WIDTH-70)) {
+            if (this.vy < (this.initialVy+20) && this.vx < (SNOW.WIDTH-this.oldVx)) {
                 //在屏幕范围内
-                this.vx += 3;
+                this.vx += 1;
                 // console.log(this.vx); 
             } 
 
@@ -46,7 +47,7 @@ SNOW.Sled = function (width,height) {
         //回到原来状态
         if (SNOW.tapTime == 1) {
             // console.log("开始慢慢回到原来状态 this.vx = " + this.vx);
-            if (this.vx > 70) {
+            if (this.vx > this.oldVx) {
                 this.vx --;
             } 
         }

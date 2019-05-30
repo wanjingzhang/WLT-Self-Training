@@ -29,5 +29,6 @@ SNOW.Cloud = function (x, y) {
     this.respawn = function () {
         this.x = ~~(Math.random() * this.r * 2) + SNOW.WIDTH;
         this.y = ~~(Math.random() * SNOW.HEIGHT / 2);
+        this.vx = this.vx - (0.10 * SNOW.Speed);
     }
 }

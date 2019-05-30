@@ -4,13 +4,13 @@ SNOW.Route = function (x, y, r) {
         this.y = y;
         this.oldx = x;
         this.r = r +10;
-        this.vx = -3 ;
+        this.vx = -2 ;
         this.name = "BottomRoute"; 
         
     }
 
     this.update = function () {
-        this.x += this.vx;
+        this.x += this.vx ;
         if (this.x < (0 - this.r)) {
             this.respawn();
         }
@@ -25,5 +25,6 @@ SNOW.Route = function (x, y, r) {
 
     this.respawn = function () {
         this.x = SNOW.WIDTH - 3;
+        this.speed = -2 - SNOW.Speed ;
     }
 }
