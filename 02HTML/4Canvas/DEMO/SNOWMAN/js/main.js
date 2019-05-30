@@ -17,8 +17,8 @@ SNOW.Input = {
     tapped: false,
 
     set: function (data) {
-        this.x = (data.pageX - SNOW.offset.left) / SNOW.scale;
-        this.y = (data.pageY - SNOW.offset.top) / SNOW.scale;
+        this.x = (data.pageX - SNOW.offset.left) ;
+        this.y = (data.pageY - SNOW.offset.top) ;
         this.tapped = true;
         // console.log('trapped = true 开始计时');
 
@@ -69,8 +69,8 @@ SNOW.Draw = {
         SNOW.ctx.closePath();
         SNOW.ctx.fill();
     },
-    Image: function (img, x, y) {
-        SNOW.ctx.drawImage(img, x, y);
+    Image: function (img, x, y) { 
+        SNOW.ctx.drawImage(img, x, y); 
     },
     Sprite: function (img, srcX, srcY, srcW, srcH, destX, destY, destW, destH, r) {
         SNOW.ctx.save();

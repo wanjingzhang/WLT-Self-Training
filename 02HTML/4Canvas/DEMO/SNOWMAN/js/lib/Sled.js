@@ -1,19 +1,21 @@
-SNOW.Sled = function () {
+SNOW.Sled = function (width,height) {
 
     this.init = function () {
         this.img = new Image();
-        this.img.src = "images/sled3.png";
-        this.width = 100;
-        this.height = 92;
+        this.img.src = "images/sled.png";
+        this.width =  width;
+        this.height = height;
+        this.disWid = 304;
+        this.disHei = 280; 
 
-        this.gravity = 0.25,
+        this.gravity =0.25,
         this.ix = 0;
         this.iy = 0;
         this.fr = 0;
-        this.initialVy = SNOW.HEIGHT - 80 * SNOW.Scale;
-        this.vy = SNOW.HEIGHT - 80 * SNOW.Scale; //y position
+        this.initialVy = SNOW.HEIGHT - 120;
+        this.vy = SNOW.HEIGHT - 120; //y position
         this.vx = 70;
-        this.jump = -7.6; //jump height
+        this.jump = - 7.6; //jump height
         this.velocity = 0;
         this.rotation = 0;
         this.play = false;
@@ -30,8 +32,7 @@ SNOW.Sled = function () {
             if (this.vy < (this.initialVy+20) && this.vx < (SNOW.WIDTH-70)) {
                 //在屏幕范围内
                 this.vx += 3;
-                // console.log(this.vx);
-                  
+                // console.log(this.vx); 
             } 
 
             if (this.vy >= this.initialVy) {
@@ -61,7 +62,7 @@ SNOW.Sled = function () {
 
     }
     this.render = function () {
-        SNOW.Draw.Sprite(this.img, this.ix, this.iy, this.width, this.height, this.vx, this.vy, this.width, this.height, this.rotation);
+        SNOW.Draw.Sprite(this.img, this.ix, this.iy,this.disWid,this.disHei, this.vx, this.vy, this.width, this.height, this.rotation);
         // SNOW.Draw.Image(this.img,88,200); 
         // SNOW.Draw.rect(this.ix,this.iy,this.width,this.height,'#ff0');
     }

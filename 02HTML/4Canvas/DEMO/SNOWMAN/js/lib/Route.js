@@ -5,8 +5,7 @@ SNOW.Route = function (x, y, r) {
         this.oldx = x;
         this.r = r +10;
         this.vx = -3 ;
-        this.name = "BottomRoute";
-        alert('route');
+        this.name = "BottomRoute"; 
         
     }
 
@@ -18,9 +17,9 @@ SNOW.Route = function (x, y, r) {
     }
 
     this.render = function () {
-        SNOW.Draw.rect(this.oldx, this.y, this.r, ~~(100 * SNOW.Scale), "#22cc22");
+        SNOW.Draw.rect(this.oldx, this.y, this.r, 100, "#22cc22");
         for (var i = 0; i < 10; i++) {
-            SNOW.Draw.semiCircle(~~(this.x + i * (this.r / 5)), this.y, ~~(80 *SNOW.Scale) , '#fff');
+            SNOW.Draw.semiCircle(~~(this.x + i * (this.r / 5)), this.y, 80  , '#fff');
         }
     }
 

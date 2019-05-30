@@ -43,7 +43,7 @@ window.Splash = function () {
  */
 window.Play = function () {
     this.init = function () { 
-        SNOW.sled = new SNOW.Sled();
+        SNOW.sled = new SNOW.Sled( 100  ,  92  );
 
         // Add entities
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
@@ -51,24 +51,24 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Snow());
         for (i = 0; i < 2; i += 1) {
-            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i,~~(SNOW.HEIGHT - 60 * SNOW.Scale) , SNOW.WIDTH ));
+            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i,SNOW.HEIGHT - 100  , SNOW.WIDTH ));
         }
 
-        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 50*SNOW.Scale), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Tree(~~(Math.random() * SNOW.WIDTH + 100*SNOW.Scale), ~~(SNOW.HEIGHT - 120*SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 160));
+        SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 160));
+        SNOW.entities.push(new SNOW.Tree(Math.random()  + 100, SNOW.HEIGHT - 160));
 
         SNOW.entities.push(SNOW.sled);
 
-        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH,~~(20 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Stone(~~(SNOW.WIDTH + 50 * SNOW.Scale),~~(20 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH,  SNOW.HEIGHT -120,20 ));
+        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50 ,  SNOW.HEIGHT -120,20 ));
 
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + SNOW.Scale * 50),~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + SNOW.Scale * 100), ~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2),SNOW.HEIGHT - 160));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 50),SNOW.HEIGHT - 170));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 100), SNOW.HEIGHT - 160));
  
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.Scale * 50), ~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.Scale * 100), ~~(SNOW.HEIGHT - 120 * SNOW.Scale)));
+        SNOW.entities.push(new SNOW.Diamond(50, SNOW.HEIGHT - 170 ));
+        SNOW.entities.push(new SNOW.Diamond(100, SNOW.HEIGHT - 170 ));
 
         for (var i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].init();

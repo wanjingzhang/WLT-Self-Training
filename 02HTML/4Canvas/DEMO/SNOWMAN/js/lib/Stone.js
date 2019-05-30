@@ -1,7 +1,7 @@
-SNOW.Stone = function (x, w) {
+SNOW.Stone = function (x,y, w) {
     this.init = function () {
         this.vx = x;
-        this.vy = SNOW.HEIGHT - 80* SNOW.Scale;
+        this.vy = y;
         this.width = w ;
         this.height = w;
         this.speed = -3  ;

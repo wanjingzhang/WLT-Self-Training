@@ -9,8 +9,7 @@ var SNOW = {
     isLandscape: false,
     Body:null,
     canvas: null,
-    ctx: null,
-    scale: 1,
+    ctx: null, 
     offset: {
         top: 0,
         left: 0
@@ -44,8 +43,8 @@ var SNOW = {
         var grad;
         SNOW.WIDTH = window.innerWidth;
         SNOW.HEIGHT = window.innerHeight;
-        SNOW.Scale = SNOW.WIDTH / 800; 
-
+        // SNOW.Scale = SNOW.WIDTH / 800; 
+        // SNOW.speed = ~~(SNOW.Scale * SNOW.speed );
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
         // alert("Ratio:" + SNOW.RATIO + "  Scale:" + SNOW.Scale);
         
