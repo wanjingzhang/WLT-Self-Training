@@ -3,8 +3,8 @@
  */
 var SNOW = {
     //游戏初始化时屏幕的大小 
-    WIDTH: window.innerWidth,
-    HEIGHT: window.innerHeight,
+    WIDTH:0,
+    HEIGHT:0,
     isNotMobile: false,
     isLandscape: false,
     Body:null,
@@ -41,8 +41,14 @@ var SNOW = {
     tapInterval: null,
     init: function () {
         var grad;
-        SNOW.WIDTH = window.innerWidth;
-        SNOW.HEIGHT = window.innerHeight;
+        if (SNOW.isNotMobile) {
+            SNOW.WIDTH = 800;
+            SNOW.HEIGHT = 600; 
+        } else {
+            SNOW.WIDTH = window.innerWidth;
+            SNOW.HEIGHT = window.innerHeight;
+        }
+        
         // SNOW.Scale = SNOW.WIDTH / 800; 
         // SNOW.speed = ~~(SNOW.Scale * SNOW.speed );
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
@@ -62,9 +68,7 @@ var SNOW = {
         // SNOW.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
  
         SNOW.canvas.width = SNOW.WIDTH;
-        SNOW.canvas.height = SNOW.HEIGHT;
-
-
+        SNOW.canvas.height = SNOW.HEIGHT; 
         SNOW.highscore = SNOW.readData();
        
         // setup some gradients
@@ -119,11 +123,13 @@ var SNOW = {
                 e.preventDefault();
             }
         }, false);
-
-        // SNOW.resize();   
-
+   
         SNOW.changeState("Splash"); 
-        SNOW.loop(); 
+        SNOW.loop();
+        
+        if (SNOW.isNotMobile) { 
+            SNOW.resize();
+        }
     }, 
     changeState: function (state) {
         SNOW.game = new window[state]();

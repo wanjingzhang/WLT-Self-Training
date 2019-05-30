@@ -34,10 +34,10 @@ SNOW.resize = function () {
     SNOW.currentHeight = window.innerHeight;
     SNOW.currentWidth =~~(SNOW.currentHeight * SNOW.RATIO) + 1;
 
-    if (!SNOW.isNotMobile) {
-        alert("isMobile + 50 pixels height");
-        document.body.style.height = (window.innerHeight + 50) + "px";
-    }
+    // if (!SNOW.isNotMobile) {
+    //     alert("isMobile + 50 pixels height");
+    //     document.body.style.height = (window.innerHeight + 50) + "px";
+    // }
 
     SNOW.canvas.style.width = SNOW.currentWidth + "px";
     SNOW.canvas.style.height = SNOW.currentHeight + "px";
