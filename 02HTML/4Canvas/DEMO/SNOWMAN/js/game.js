@@ -42,8 +42,7 @@ window.Input = function () {
     this.init = function () {
         SNOW.entities = []; 
         SNOW.entities.push(new SNOW.Nameinput(SNOW.WIDTH / 2, SNOW.HEIGHT / 2, 236, 90));
-        
-
+         
         for (var i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].init();
         }
@@ -52,21 +51,14 @@ window.Input = function () {
     this.update = function () { 
         for (i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].update();
-            if (SNOW.Input.tapped && SNOW.entities[i].type == 'Nameinput') {
-                if (SNOW.ClickDetect(SNOW.entities[i])) {
-                    SNOW.entities[i].changeState('typing');
-                    SNOW.changeState('Play');
-                    
-                    SNOW.Input.trapped = false; 
-                }  
+            if (SNOW.Input.tapped && SNOW.entities[i].type == 'Nameinput') {  
+                    SNOW.changeState('Play'); 
+                    SNOW.Input.trapped = false;  
             }
-        } 
-
-        
+        }  
     }
 
-    this.render = function () {
-        
+    this.render = function () { 
         // SNOW.Draw.rect(SNOW.WIDTH /2 - this.banner.width/2, SNOW.HEIGHT/2 - this.banner.height, this.banner.width, this.banner.height, "red");
         // SNOW.Draw.rect(SNOW.WIDTH / 2 - 57, (SNOW.HEIGHT / 2 - 140 + 210), 115, 70, 'red');
     }
@@ -99,15 +91,15 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50 , SNOW.HEIGHT -80,20 ));
 
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2), SNOW.HEIGHT - 160));
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 50), SNOW.HEIGHT - 170));
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 100), SNOW.HEIGHT - 160));
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2), SNOW.HEIGHT - 170));
+        // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 50), SNOW.HEIGHT - 170));
+        // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 100), SNOW.HEIGHT - 160));
  
         SNOW.entities.push(new SNOW.Diamond(50, SNOW.HEIGHT - 170 ));
         SNOW.entities.push(new SNOW.Diamond(100, SNOW.HEIGHT - 170));
         
-        SNOW.entities.push(new SNOW.Tree(200, SNOW.HEIGHT - 80));
-        SNOW.entities.push(new SNOW.Tree(250, SNOW.HEIGHT - 80));
+        // SNOW.entities.push(new SNOW.Tree(200, SNOW.HEIGHT - 80));
+        // SNOW.entities.push(new SNOW.Tree(250, SNOW.HEIGHT - 80));
 
         for (var i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].init();
@@ -162,8 +154,8 @@ window.Play = function () {
     }
 
     this.render = function () {
-        SNOW.Draw.text('得分：' + SNOW.score.coins, 10, 20, 15, 'black');
-        SNOW.Draw.text('生命值：' + SNOW.score.blood, SNOW.WIDTH - 100 , 20, 15, 'black');
+        SNOW.Draw.text('得分：' + SNOW.score.coins, 100, 20, 15, 'black');
+        SNOW.Draw.text('生命值：' + SNOW.score.blood, SNOW.WIDTH - 150 , 20, 15, 'black');
     }
 }
 
@@ -216,11 +208,8 @@ window.GameOver = function () {
         }, 500);
     }
 
-    this.update = function () {
-        console.log('update');
-        if (SNOW.Input.tapped) {
-            
-            SNOW.Restart();
+    this.update = function () { 
+        if (SNOW.Input.tapped) { 
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
             console.log('x'+ x);

@@ -34,8 +34,7 @@ SNOW.Input = {
             function () {
                 if (SNOW.tapTime == 0) {
                     SNOW.tapTime = 1;   
-                    clearInterval(SNOW.tapInterval);
-                    // console.log('tapInterval Over');
+                    clearInterval(SNOW.tapInterval); 
                 }
                 
         }, 1000);  
@@ -53,6 +52,12 @@ SNOW.Collides = function (object_1, object_2) {
         return true;
     }
 
+}
+
+SNOW.RecordName = function () {
+    SNOW.popBackground.style.display = "none";
+    SNOW.inputContent.style.display = "none";
+    SNOW.userName = document.querySelector('.userName').value; 
 }
 
 /**
@@ -98,22 +103,7 @@ SNOW.ClickDetect = function (obj) {
         
     }
 }
-
-SNOW.Restart = function (obj) {
-    var startX = (SNOW.WIDTH - obj.width) / 2 * SNOW.scale;
-    var endX = startX + obj.width;
-    var startY = ((SNOW.HEIGHT - obj.height) / 2 ) * SNOW.scale;
-    var endY = startY + obj.height;
-    var currentX = SNOW.Input.x;
-    var currentY = SNOW.Input.y;
-     
-    // input text
-    if ((currentX > startX && currentX < endX) &&
-        (currentY > startY && currentY < endY)) {
-        console.log("restart");
-        return true;
-    }
-}
+ 
  
 /**
  * 绘制方法，正方形、圆形、图片、矢量图形、半圆
@@ -157,8 +147,9 @@ SNOW.Draw = {
         SNOW.ctx.fill();
     },
     text: function (string,x,y,size,col) {
-        SNOW.ctx.font = size + "px Arial";;
+        SNOW.ctx.font = size + "px Arial";
         SNOW.ctx.fillStyle = col;
+        SNOW.ctx.textAlign = "center";
         SNOW.ctx.fillText(string, x, y);
     }
 }

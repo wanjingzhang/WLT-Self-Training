@@ -9,14 +9,23 @@
     <title>Skiing</title>
 </head>
 
-<body id="body"> 
-    <canvas id="canvas" ></canvas>  
-    <iframe id="scoreboard"  src="./data/insertdata.php"></iframe>  
+<body id="body">
     <div class="sound">
         <audio id="soundJump">
             <source src="./music/wing.ogg" type="audio/ogg">  
             Your browser does not support the audio element.
         </audio>
+    </div> 
+    <canvas id="canvas" ></canvas>  
+    <iframe id="scoreboard"  src="./data/insertdata.php"></iframe>  
+    <div class="popBackground"> 
+    </div>
+    <div class="inputContent"> 
+        <input id="userName" class="userName" type="text" name="userName" placeholder="Input you name please " maxlength="20" required /> <br />
+        <!-- <input type="text" name="userScore" placeholder="Personal phone number: mobile, home phone etc." required /> -->
+        <br />
+        <input type="submit" class="submitOk" value="OK" onClick="SNOW.RecordName()" />
+            <!-- <input type="submit" name="submit" class="button submitOk" value="OK" onClick="SNOW.RecordName()" /> --> å
     </div>
  
     <!-- var soundScore = new Audio('music/point.ogg');

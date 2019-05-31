@@ -39,7 +39,9 @@ var SNOW = {
     snowMax: 20, 
     tapTime: 0,
     tapInterval: null,
-    userName:'',
+    userName: '',
+    popBackground: document.querySelector('.popBackground'),
+    inputContent: document.querySelector('.inputContent'),
     init: function () {
         var grad;
         if (SNOW.isNotMobile) {
