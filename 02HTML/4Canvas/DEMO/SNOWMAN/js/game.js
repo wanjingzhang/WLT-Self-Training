@@ -154,8 +154,8 @@ window.Play = function () {
     }
 
     this.render = function () {
-        SNOW.Draw.text('得分：' + SNOW.score.coins, 100, 20, 15, 'black');
-        SNOW.Draw.text('生命值：' + SNOW.score.blood, SNOW.WIDTH - 150 , 20, 15, 'black');
+        SNOW.Draw.text('得分：' + SNOW.score.coins, 100, 20, 15, 'orange');
+        SNOW.Draw.text('生命值：' + SNOW.score.blood, SNOW.WIDTH - 150 , 20, 15, 'orange');
     }
 }
 
