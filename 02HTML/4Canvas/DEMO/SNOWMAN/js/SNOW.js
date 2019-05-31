@@ -51,8 +51,7 @@ var SNOW = {
         
         // SNOW.Scale = SNOW.WIDTH / 800; 
         // SNOW.speed = ~~(SNOW.Scale * SNOW.speed );
-        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;
-        // alert("Ratio:" + SNOW.RATIO + "  Scale:" + SNOW.Scale);
+        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT; 
         
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;

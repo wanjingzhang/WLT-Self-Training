@@ -57,11 +57,31 @@ window.Input = function () {
         if (SNOW.Input.tapped) {
             SNOW.changeState('Play');
             SNOW.Input.trapped = false;
+
+            // var x = SNOW.Input.x;
+            // var y = SNOW.Input.y;
+
+            // console.log('x='+ x+ ' y='+ y +'ts.width=' + this.banner.width*SNOW.Scale+'ts.height=' +this.banner.height*SNOW.Scale ); 
+
+            // if (
+            //     ((x > - this.banner.width / 2) &&
+            //         (x <  - this.banner.width / 2 )) 
+                    
+            //     && ((y >  SNOW.HEIGHT/2 - this.banner.height/2 )&&
+            //         (y <  SNOW.HEIGHT/2 + this.banner.height /2))
+            //  ) {
+                
+            //     console.log("input data");
+
+                
+            // }
         }
     }
 
     this.render = function () {
-        SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2);
+        // SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2);
+        // SNOW.Draw.rect(SNOW.WIDTH /2 - this.banner.width/2, SNOW.HEIGHT/2 - this.banner.height, this.banner.width, this.banner.height, "red");
+        // SNOW.Draw.rect(SNOW.WIDTH / 2 - 57, (SNOW.HEIGHT / 2 - 140 + 210), 115, 70, 'red');
     }
 }
 
@@ -215,14 +235,10 @@ window.GameOver = function () {
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
             console.log('x'+ x);
-             console.log('y'+y);
-
- 
-            if ((x >= -52 && x <= 52) &&
-                (y >=340 && y <= 403) ){
-                SNOW.changeState('Splash');
-                
-            }
+            console.log('y'+y); 
+  
+            SNOW.changeState('Splash');   
+            
             SNOW.Input.tapped = false;
         }
         // SNOW.bird.update();

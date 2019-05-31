@@ -44,7 +44,7 @@ SNOW.resize = function () {
     SNOW.Body.style.width = SNOW.currentWidth + "px";
 
     //响应交互测距
-    // SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
+    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
 
     SNOW.offset.top = SNOW.canvas.offsetTop;
     SNOW.offset.left = SNOW.canvas.offsetLeft;
