@@ -17,7 +17,12 @@ SNOW.Input = {
     tapped: false,
 
     set: function (data) {
-        this.x = (data.pageX - SNOW.offset.left) ;
+        console.log('pageX=' + data.pageX + 
+            'pageY=' + data.pageY + 
+            'offset.left=' + SNOW.offset.left + 
+            'offset.top=' + SNOW.offset.top 
+        );
+        this.x = (data.pageX - SNOW.offset.left ) ;
         this.y = (data.pageY - SNOW.offset.top) ;
         this.tapped = true;
         // console.log('trapped = true 开始计时');
@@ -48,6 +53,49 @@ SNOW.Collides = function (object_1, object_2) {
         return true;
     }
 
+}
+
+/**
+ * 输入名称 
+ */
+SNOW.ClickDetect = function (obj) {
+    var startX = (SNOW.WIDTH - obj.width)/2 * SNOW.scale ;
+    var endX = startX + obj.width;
+    var startY = ((SNOW.HEIGHT - obj.height)/2 + obj.height/3) * SNOW.scale;
+    var endY  = startY + obj.height/3; 
+    var currentX = SNOW.Input.x;
+    var currentY = SNOW.Input.y; 
+    console.log(
+        'ClickDetect(startX=' + startX +
+        '| endX=' + endX +
+        '| startY=' + startY +
+        '| endY=' + endY +
+        '| currentX=' + currentX +
+        '| currentY=' + currentY +
+        '| Scale=' + SNOW.scale + 
+        '| SNOW.WIDTH =' + SNOW.WIDTH + 
+        '| SNOW.HEIGHT =' + SNOW.HEIGHT + 
+        '| SNOW.currentWidth =' + SNOW.currentWidth +
+        ')'
+    );
+    // input text
+    if ((currentX > startX && currentX < endX) &&
+        (currentY > startY && currentY < endY))
+    {
+        console.log("input status");
+        return true;
+    }
+
+    startY = ((SNOW.HEIGHT - obj.height) / 2 + (obj.height/ 3) * 2 ) * SNOW.scale;
+    endY = startY + (obj.height / 3) * 2; 
+    if ((currentX > startX && currentX < endX) &&
+        (currentY > startY && currentY < endY)) {
+        console.log("submit status");
+        if (SNOW.userName == '') {
+            alert('Input your name please.');
+        }
+        return true;
+    }
 }
  
 /**

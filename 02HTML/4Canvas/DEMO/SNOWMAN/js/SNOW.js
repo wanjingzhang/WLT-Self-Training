@@ -39,6 +39,7 @@ var SNOW = {
     snowMax: 20, 
     tapTime: 0,
     tapInterval: null,
+    userName:'',
     init: function () {
         var grad;
         if (SNOW.isNotMobile) {
@@ -48,10 +49,8 @@ var SNOW = {
             SNOW.WIDTH = window.innerWidth;
             SNOW.HEIGHT = window.innerHeight;
         }
-        
-        // SNOW.Scale = SNOW.WIDTH / 800; 
-        // SNOW.speed = ~~(SNOW.Scale * SNOW.speed );
-        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT; 
+         
+        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;  
         
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;
@@ -97,27 +96,27 @@ var SNOW = {
    
         console.log('isOK');
         // add events
-        window.addEventListener('click', function (e) {
+        SNOW.canvas.addEventListener('click', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
                 SNOW.Input.set(e);
             } 
         }, false);
 
-        window.addEventListener('touchstart', function (e) {
+        SNOW.canvas.addEventListener('touchstart', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
                 SNOW.Input.set(e.touches[0]);
             }
         }, false);
 
-        window.addEventListener('touchmove', function (e) {
+        SNOW.canvas.addEventListener('touchmove', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
             }
         }, false);
 
-        window.addEventListener('touchend', function (e) {
+        SNOW.canvas.addEventListener('touchend', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
             }

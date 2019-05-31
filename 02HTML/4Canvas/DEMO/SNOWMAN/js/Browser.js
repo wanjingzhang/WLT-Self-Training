@@ -32,7 +32,8 @@ SNOW.isOK = function() {
 
 SNOW.resize = function () {
     SNOW.currentHeight = window.innerHeight;
-    SNOW.currentWidth =~~(SNOW.currentHeight * SNOW.RATIO) + 1;
+    SNOW.currentWidth = ~~(SNOW.currentHeight * SNOW.RATIO) + 1; 
+    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
 
     // if (!SNOW.isNotMobile) {
     //     alert("isMobile + 50 pixels height");
@@ -42,12 +43,9 @@ SNOW.resize = function () {
     SNOW.canvas.style.width = SNOW.currentWidth + "px";
     SNOW.canvas.style.height = SNOW.currentHeight + "px";
     SNOW.Body.style.width = SNOW.currentWidth + "px";
-
-    //响应交互测距
-    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
-
+ 
     SNOW.offset.top = SNOW.canvas.offsetTop;
-    SNOW.offset.left = SNOW.canvas.offsetLeft;
+    SNOW.offset.left = SNOW.canvas.offsetLeft; 
 
     window.setTimeout(function () {
         window.scrollTo(0, 1);
