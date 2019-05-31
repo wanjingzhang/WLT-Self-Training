@@ -55,8 +55,9 @@ window.Input = function () {
             if (SNOW.Input.tapped && SNOW.entities[i].type == 'Nameinput') {
                 if (SNOW.ClickDetect(SNOW.entities[i])) {
                     SNOW.entities[i].changeState('typing');
-                    // SNOW.changeState('Play');
-                    // SNOW.Input.trapped = false; 
+                    SNOW.changeState('Play');
+                    
+                    SNOW.Input.trapped = false; 
                 }  
             }
         } 

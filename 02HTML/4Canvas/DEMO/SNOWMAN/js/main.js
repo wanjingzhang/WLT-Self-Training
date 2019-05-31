@@ -83,7 +83,7 @@ SNOW.ClickDetect = function (obj) {
         (currentY > startY && currentY < endY))
     {
         console.log("input status");
-        return true;
+        // return true;
     }
 
     startY = ((SNOW.HEIGHT - obj.height) / 2 + (obj.height/ 3) * 2 ) * SNOW.scale;
@@ -92,9 +92,10 @@ SNOW.ClickDetect = function (obj) {
         (currentY > startY && currentY < endY)) {
         console.log("submit status");
         if (SNOW.userName == '') {
-            alert('Input your name please.');
+            // alert('Input your name please.');
+            return true;
         }
-        return true;
+        
     }
 }
  
