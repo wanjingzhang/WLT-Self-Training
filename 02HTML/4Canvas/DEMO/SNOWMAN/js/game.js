@@ -220,6 +220,7 @@ window.GameOver = function () {
         console.log('update');
         if (SNOW.Input.tapped) {
             
+            SNOW.Restart();
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
             console.log('x'+ x);
