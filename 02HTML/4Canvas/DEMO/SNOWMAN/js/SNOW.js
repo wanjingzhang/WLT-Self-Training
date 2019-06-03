@@ -40,6 +40,7 @@ var SNOW = {
     tapTime: 0,
     tapInterval: null,
     userName: '',
+    rankings:null,
     popBackground: document.querySelector('.popBackground'),
     inputContent: document.querySelector('.inputContent'),
     init: function () {
@@ -68,8 +69,7 @@ var SNOW = {
         // SNOW.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
  
         SNOW.canvas.width = SNOW.WIDTH;
-        SNOW.canvas.height = SNOW.HEIGHT; 
-        SNOW.highscore = SNOW.readData();
+        SNOW.canvas.height = SNOW.HEIGHT;  
        
         // setup some gradients
         grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
@@ -157,14 +157,13 @@ var SNOW = {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var hs = parseInt(this.responseText); 
-                SNOW.highscore = hs;
+                SNOW.rankings = JSON.parse(this.responseText);  
 
-                console.log('-------' + hs + '-------');
+                console.log(SNOW.rankings);
                 //return hs; 
             }
         };
-        xhttp.open("GET", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/gettop.php", true);
+        xhttp.open("GET", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/getTop.php", true);
         xhttp.send();
     },
     postData: function () {
@@ -173,6 +172,8 @@ var SNOW = {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) { 
                 console.log('------success post data-------'); 
+
+                SNOW.readData();
             }
         };
         xhttp.open("POST", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/insertData.php" + params, true);

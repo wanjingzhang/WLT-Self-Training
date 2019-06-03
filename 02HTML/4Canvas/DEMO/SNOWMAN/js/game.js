@@ -126,7 +126,7 @@ window.Play = function () {
                     play_sound(soundHit);
                     if (SNOW.score.blood <= 0) {
                         SNOW.changeState('GameOver'); 
-                        SNOW.postData();
+                        SNOW.postData(); 
                         console.log('游戏结束');
                         play_sound(soundDie);
                     }
@@ -164,52 +164,15 @@ window.Play = function () {
 
 
 window.GameOver = function () {
-    var play = false;
-    this.getMedal = function () {
-        var score = SNOW.score.coins;
-        var medal;
-        console.log(score)
-        if (score <= 10)
-            medal = "bronze";
-        if (score >= 20)
-            medal = "silver";
-        if (score >= 30)
-            medal = "gold";
-        if (score >= 40)
-            medal = "platinum";
-
-        return medal;
-    }
-
-    // this.getHighScore = function () {
-    //     var savedscore = getCookie("highscore");
-    //     if (savedscore != "") {
-    //         var hs = parseInt(savedscore) || 0;
-    //         if (hs < SNOW.score.coins) {
-    //             hs = SNOW.score.coins
-    //             setCookie("highscore", hs, 999);
-    //         }
-    //         return hs;
-    //     }
-    //     else {
-    //         setCookie("highscore", SNOW.score.coins, 999);
-    //         return SNOW.score.coins;
-    //     } 
-    // } 
-
+    var play = false; 
+    
     this.init = function () {
         var that = this;
         play = false;
          
         setTimeout(function () { 
             that.banner = new Image();
-            that.banner.src = "images/scoreboard.png";
-            var m = that.getMedal();
-            that.medal = new Image();
-            that.medal.src = 'images/medal_' + m + '.png'; 
-
-            that.replay = new Image();
-            that.replay.src = "images/replay.png";  
+            that.banner.src = "images/top.png"; 
 
             play = true;
         }, 500);
@@ -217,15 +180,10 @@ window.GameOver = function () {
 
     this.update = function () { 
 
-        if (SNOW.Input.tapped && play == true) { 
-            
+        if (SNOW.Input.tapped && play == true) {   
+            SNOW.changeState('Splash');   
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
-            console.log('x'+ x);
-            console.log('y'+y); 
-  
-            SNOW.changeState('Splash');   
-            
             //SNOW.Input.tapped = false;
         }
         // SNOW.bird.update();
@@ -233,11 +191,17 @@ window.GameOver = function () {
 
     this.render = function () {
         if (this.banner) {
-            SNOW.Draw.Image(this.banner, SNOW.WIDTH/2 -118, SNOW.HEIGHT/2 - 140  + 10);
-            SNOW.Draw.Image(this.medal, SNOW.WIDTH / 2 - 86, SNOW.HEIGHT / 2 - 130 + 113);
-            SNOW.Draw.Image(this.replay, SNOW.WIDTH / 2 - 57, SNOW.HEIGHT / 2 - 140 + 210);
+            SNOW.Draw.Image(this.banner, SNOW.WIDTH / 2 - 255, SNOW.HEIGHT / 2 - 120);
+            
+            var vx = SNOW.WIDTH / 2 - 185;
+            var vy = SNOW.HEIGHT / 2 - 44;
             SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
-            SNOW.Draw.text(SNOW.highscore, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 168, 15, 'black');
+            for (var i = 0, len = SNOW.rankings.length; i < len; i++) { 
+                SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
+                SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
+                vy += 18;
+            };
+             
             // SNOW.Draw.rect(SNOW.WIDTH / 2 - 57, (SNOW.HEIGHT / 2 - 140 + 210), 115, 70, 'red');
         }
     }
