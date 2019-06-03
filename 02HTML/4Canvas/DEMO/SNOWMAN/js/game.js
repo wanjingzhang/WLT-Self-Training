@@ -126,6 +126,7 @@ window.Play = function () {
                     play_sound(soundHit);
                     if (SNOW.score.blood <= 0) {
                         SNOW.changeState('GameOver');
+                        SNOW.postData();
                         console.log('游戏结束');
                         play_sound(soundDie);
                     }
@@ -143,7 +144,9 @@ window.Play = function () {
                     var bg = SNOW.gradients[level % 4];
                      
                     SNOW.bg_grad = bg;
-                    SNOW.Speed = level+1;
+                    SNOW.Speed = level + 1;
+                    
+                    // post 得分 
                     
                     console.log('得分：' + SNOW.score.coinStep);
                     console.log('level',level, 'speed',SNOW.Speed,'bg',bg);

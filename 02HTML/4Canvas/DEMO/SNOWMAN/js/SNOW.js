@@ -157,11 +157,7 @@ var SNOW = {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var hs = parseInt(this.responseText);
-                if (hs < SNOW.score.coins) {
-                    // 当前分数小于最大分数；
-
-                }
+                var hs = parseInt(this.responseText); 
                 SNOW.highscore = hs;
 
                 console.log('-------' + hs + '-------');
@@ -170,5 +166,17 @@ var SNOW = {
         };
         xhttp.open("GET", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/gettop.php", true);
         xhttp.send();
+    },
+    postData: function () {
+        var xhttp = new XMLHttpRequest();
+        var params = '?userName=' + SNOW.userName + '&userScore=' + SNOW.score.coins;
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) { 
+                console.log('------success post data-------'); 
+            }
+        };
+        xhttp.open("POST", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/insertData.php" + params, true);
+        xhttp.send();
     }
+
 }
