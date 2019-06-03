@@ -5,7 +5,7 @@ window.requestAnimFrame = (function () {
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
         function (callback) {
-            window.setTimeout(callback, 1000 / 30);
+            window.setTimeout(callback, 1000 / 25);
         };
 })();
 /**
@@ -35,11 +35,16 @@ SNOW.Input = {
                 if (SNOW.tapTime == 0) {
                     SNOW.tapTime = 1;   
                     clearInterval(SNOW.tapInterval); 
-                }
-                
+                } 
         }, 1000);  
+    },
+    stop: function () {
+        this.tapped = false;
+        clearInterval(SNOW.tapInterval);
     }
+
 }
+ 
 
 /** 
  *  碰撞检测

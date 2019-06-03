@@ -125,7 +125,7 @@ window.Play = function () {
                     console.log('失血' + SNOW.score.bloodStep);
                     play_sound(soundHit);
                     if (SNOW.score.blood <= 0) {
-                        SNOW.changeState('GameOver');
+                        SNOW.changeState('GameOver'); 
                         SNOW.postData();
                         console.log('游戏结束');
                         play_sound(soundDie);
@@ -164,6 +164,7 @@ window.Play = function () {
 
 
 window.GameOver = function () {
+    var play = false;
     this.getMedal = function () {
         var score = SNOW.score.coins;
         var medal;
@@ -198,6 +199,7 @@ window.GameOver = function () {
 
     this.init = function () {
         var that = this;
+        play = false;
          
         setTimeout(function () { 
             that.banner = new Image();
@@ -208,11 +210,15 @@ window.GameOver = function () {
 
             that.replay = new Image();
             that.replay.src = "images/replay.png";  
+
+            play = true;
         }, 500);
     }
 
     this.update = function () { 
-        if (SNOW.Input.tapped) { 
+
+        if (SNOW.Input.tapped && play == true) { 
+            
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
             console.log('x'+ x);
@@ -220,7 +226,7 @@ window.GameOver = function () {
   
             SNOW.changeState('Splash');   
             
-            SNOW.Input.tapped = false;
+            //SNOW.Input.tapped = false;
         }
         // SNOW.bird.update();
     }
