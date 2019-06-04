@@ -157,8 +157,11 @@ window.Play = function () {
     }
 
     this.render = function () {
-        SNOW.Draw.text('得分：' + SNOW.score.coins, 100, 20, 15, 'orange');
-        SNOW.Draw.text('生命值：' + SNOW.score.blood, SNOW.WIDTH - 150 , 20, 15, 'orange');
+        SNOW.Draw.text( SNOW.score.coins, 100, 20, 15, 'orange');
+        
+        SNOW.Draw.rect(SNOW.WIDTH - 130, 8, 42, 12, "white"); // bg
+        SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.score.blood/100), 10, "orange");
+        SNOW.Draw.text('HP' , SNOW.WIDTH - 146, 20, 15, 'orange');
     }
 }
 
@@ -191,11 +194,11 @@ window.GameOver = function () {
 
     this.render = function () {
         if (this.banner) {
-            SNOW.Draw.Image(this.banner, SNOW.WIDTH / 2 - 255, SNOW.HEIGHT / 2 - 120);
+            SNOW.Draw.Image(this.banner, SNOW.WIDTH / 2 - 165, SNOW.HEIGHT / 2 - 120);
             
-            var vx = SNOW.WIDTH / 2 - 185;
+            var vx = SNOW.WIDTH / 2 - 95;
             var vy = SNOW.HEIGHT / 2 - 44;
-            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 70, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
+            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 160, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
             for (var i = 0, len = SNOW.rankings.length; i < len; i++) { 
                 SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
                 SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
