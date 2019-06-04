@@ -28,7 +28,7 @@ SNOW.Diamond = function (x, y) {
 
     this.respawn = function () {
         this.show = true;
-        this.vx = SNOW.WIDTH + ~~(Math.random() * 10) *50 ; //初始化为屏幕宽度
+        this.vx = SNOW.WIDTH + ~~(Math.random() * 150); //初始化为屏幕宽度
         this.speed = -2 - SNOW.Speed;
         console.log('respawn diamond.x = ' + this.vx);
         

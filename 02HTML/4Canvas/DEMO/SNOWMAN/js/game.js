@@ -95,8 +95,8 @@ window.Play = function () {
         // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 50), SNOW.HEIGHT - 170));
         // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 100), SNOW.HEIGHT - 160));
  
-        SNOW.entities.push(new SNOW.Diamond(50, SNOW.HEIGHT - 170 ));
-        SNOW.entities.push(new SNOW.Diamond(100, SNOW.HEIGHT - 170));
+        SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH + 50, SNOW.HEIGHT - 170 ));
+        SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH + 100, SNOW.HEIGHT - 170));
         
         // SNOW.entities.push(new SNOW.Tree(200, SNOW.HEIGHT - 80));
         // SNOW.entities.push(new SNOW.Tree(250, SNOW.HEIGHT - 80));
@@ -175,8 +175,7 @@ window.GameOver = function () {
          
         setTimeout(function () { 
             that.banner = new Image();
-            that.banner.src = "images/top.png"; 
-
+            that.banner.src = "images/top.png";  
             play = true;
         }, 500);
     }
@@ -187,8 +186,9 @@ window.GameOver = function () {
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y;
             console.log(x, y); 
-            if ((x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)) {
-                
+            if (SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)) { 
+                SNOW.changeState('Splash'); 
+            } else if (!SNOW.isNotMobile){
                 SNOW.changeState('Splash'); 
             }
 

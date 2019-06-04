@@ -44,22 +44,12 @@ var SNOW = {
     popBackground: document.querySelector('.popBackground'),
     inputContent: document.querySelector('.inputContent'),
     init: function () {
-        var grad;
-        if (SNOW.isNotMobile) {
-            SNOW.WIDTH = 800;
-            SNOW.HEIGHT = 600;  
-        } else {
-            SNOW.WIDTH = window.innerWidth;
-            SNOW.HEIGHT = window.innerHeight;
-        }
-         
-        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;  
-        
+        var grad; 
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;
         // SNOW.currentHeight = SNOW.HEIGHT;
         // this is our canvas element
-        SNOW.Body = document.getElementById('body');
+        SNOW.Body = document.getElementById('body'); 
         SNOW.canvas = document.getElementById('canvas');
          
         SNOW.ctx = SNOW.canvas.getContext('2d');
@@ -67,7 +57,23 @@ var SNOW = {
         SNOW.android = SNOW.ua.indexOf('android') > -1 ? true : false;
         SNOW.ios = (SNOW.ua.indexOf('iphone') > -1 || SNOW.ua.indexOf('ipad') > -1) ? true : false; 
         // SNOW.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
- 
+        
+        if (SNOW.isNotMobile) {
+            SNOW.WIDTH = 800;
+            SNOW.HEIGHT = 600;
+        } else {
+            SNOW.WIDTH = window.innerWidth;
+            SNOW.HEIGHT = window.innerHeight;
+            //强制让内容超过 
+            SNOW.Body.style.height = (SNOW.HEIGHT + 100) + "px";
+            window.scrollTo(0, 1);
+            //重置成新高度
+            SNOW.Body.style.height = SNOW.HEIGHT + "px";
+            //非常重要，用于兼容不同机型，防止浏览器窗口移动
+            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        }
+
+        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;  
         SNOW.canvas.width = SNOW.WIDTH;
         SNOW.canvas.height = SNOW.HEIGHT;  
        

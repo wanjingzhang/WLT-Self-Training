@@ -57,4 +57,10 @@ canvas, .popBackground{
 	height: 50%;
 	display: none;
 }
+
+@media only screen and (max-height: 836px) {
+  canvas{
+	top:auto;
+  }
+}
  

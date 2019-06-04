@@ -180,6 +180,7 @@ window.addEventListener('load', function () {
         if (SNOW.isOK()) {
             SNOW.popBackground.style.display = "block";
             SNOW.inputContent.style.display = "block";
+ 
         }  
     }
     this.setTimeout(SNOW.init, 200);
