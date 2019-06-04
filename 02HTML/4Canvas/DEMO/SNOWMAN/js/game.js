@@ -183,11 +183,17 @@ window.GameOver = function () {
 
     this.update = function () { 
 
-        if (SNOW.Input.tapped && play == true) {   
-            // SNOW.changeState('Splash');   
-            var x = SNOW.Input.x;
+        if (SNOW.Input.tapped && play == true) {  
+            var x = SNOW.Input.x ;
             var y = SNOW.Input.y;
-            console.log(x,y);
+            console.log(x, y); 
+            if ((x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)) {
+                
+                SNOW.changeState('Splash'); 
+            }
+
+            //width: 10.3%  left:65% top:53.8%
+            // console.log(x,y);
             //SNOW.Input.tapped = false;
         }
         // SNOW.bird.update();

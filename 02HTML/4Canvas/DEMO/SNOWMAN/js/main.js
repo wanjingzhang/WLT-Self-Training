@@ -17,14 +17,17 @@ SNOW.Input = {
     tapped: false,
 
     set: function (data) {
-        console.log('pageX=' + data.pageX + 
-            'pageY=' + data.pageY + 
-            'offset.left=' + SNOW.offset.left + 
-            'offset.top=' + SNOW.offset.top 
-        );
-        this.x = (data.pageX - SNOW.offset.left ) ;
-        this.y = (data.pageY - SNOW.offset.top) ;
+        // console.log('pageX=' + data.pageX + 
+        //     'pageY=' + data.pageY + 
+        //     'offset.left=' + SNOW.offset.left + 
+        //     'offset.top=' + SNOW.offset.top +
+        //     'this.x=' + this.x +
+        //     'this.y=' + this.y 
+        // );
+        this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
+        this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
         this.tapped = true;
+        // console.log(this.x, this.y);
         // console.log('trapped = true 开始计时');
 
         clearInterval(SNOW.tapInterval);
@@ -59,10 +62,14 @@ SNOW.Collides = function (object_1, object_2) {
 
 }
 
-SNOW.RecordName = function () {
-    SNOW.popBackground.style.display = "none";
-    SNOW.inputContent.style.display = "none";
+SNOW.RecordName = function () { 
     SNOW.userName = document.querySelector('.userName').value; 
+    if (SNOW.userName == '' || SNOW.userName.length < 1) {
+        alert("Input your name please.");
+    } else {
+        SNOW.popBackground.style.display = "none";
+        SNOW.inputContent.style.display = "none";
+    }
 }
 
 /**

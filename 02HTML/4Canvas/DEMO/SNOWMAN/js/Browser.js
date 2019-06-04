@@ -33,7 +33,8 @@ SNOW.isOK = function() {
 SNOW.resize = function () {
     SNOW.currentHeight = window.innerHeight;
     SNOW.currentWidth = ~~(SNOW.currentHeight * SNOW.RATIO) + 1; 
-    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;
+    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;  
+    console.log("scale = " + SNOW.scale);
 
     // if (!SNOW.isNotMobile) {
     //     alert("isMobile + 50 pixels height");
