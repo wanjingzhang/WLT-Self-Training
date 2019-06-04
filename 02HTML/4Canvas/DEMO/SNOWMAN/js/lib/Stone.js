@@ -7,8 +7,8 @@ SNOW.Stone = function (x,y, w) {
         this.speed = -2;
         this.img = new Image();
         this.img.src = 'images/stone.png';
-        this.width = 80;
-        this.height = 80;
+        this.width = 100;
+        this.height = 70;
         this.type = 'stone';
         this.show = true 
     }
@@ -24,7 +24,7 @@ SNOW.Stone = function (x,y, w) {
         if (this.show) {
             // SNOW.Draw.rect(this.vx, this.vy, this.width, this.height, '#000');;
 
-            SNOW.Draw.Sprite(this.img, 0, 0, 200, 203, this.vx, this.vy, this.width/2, this.height/2, 0);
+            SNOW.Draw.Sprite(this.img, 0, 0, 100, 70, this.vx, this.vy, this.width/2, this.height/2, 0);
         }
     }
 

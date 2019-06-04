@@ -166,8 +166,14 @@ window.addEventListener('load', function () {
 
     if (SNOW.isNotMobile) {
         window.addEventListener('resize', SNOW.resize, false); 
+        SNOW.popBackground.style.display = "block";
+        SNOW.inputContent.style.display = "block";
     } else {
         window.addEventListener('orientationchange', SNOW.changeOrientation, false);
+        if (SNOW.isOK()) {
+            SNOW.popBackground.style.display = "block";
+            SNOW.inputContent.style.display = "block";
+        }  
     }
     this.setTimeout(SNOW.init, 200);
 }, false);

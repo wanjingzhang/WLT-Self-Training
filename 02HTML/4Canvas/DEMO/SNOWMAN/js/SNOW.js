@@ -40,14 +40,14 @@ var SNOW = {
     tapTime: 0,
     tapInterval: null,
     userName: '',
-    rankings:null,
+    rankings: [],
     popBackground: document.querySelector('.popBackground'),
     inputContent: document.querySelector('.inputContent'),
     init: function () {
         var grad;
         if (SNOW.isNotMobile) {
             SNOW.WIDTH = 800;
-            SNOW.HEIGHT = 600; 
+            SNOW.HEIGHT = 600;  
         } else {
             SNOW.WIDTH = window.innerWidth;
             SNOW.HEIGHT = window.innerHeight;
@@ -157,9 +157,7 @@ var SNOW = {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                SNOW.rankings = JSON.parse(this.responseText);  
-
-                console.log(SNOW.rankings);
+                SNOW.rankings = JSON.parse(this.responseText); 
                 //return hs; 
             }
         };

@@ -21,6 +21,7 @@ canvas, .popBackground{
 
 .popBackground{
 	background: rgba(0,0 , 0, 0.8);
+	display: none;
 }
 
 .inputContent{
@@ -33,7 +34,7 @@ canvas, .popBackground{
 	width: 180px;
 	height: 100px;
 	text-align: center;
-	display: inline-block;
+	display: none;
 }
 
 .userName{

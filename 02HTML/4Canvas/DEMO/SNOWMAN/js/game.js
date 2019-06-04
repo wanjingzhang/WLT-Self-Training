@@ -157,7 +157,7 @@ window.Play = function () {
     }
 
     this.render = function () {
-        SNOW.Draw.text( SNOW.score.coins, 100, 20, 15, 'orange');
+        SNOW.Draw.text('SCORE '+ SNOW.score.coins, 100, 20, 15, 'orange');
         
         SNOW.Draw.rect(SNOW.WIDTH - 130, 8, 42, 12, "white"); // bg
         SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.score.blood/100), 10, "orange");
@@ -184,9 +184,10 @@ window.GameOver = function () {
     this.update = function () { 
 
         if (SNOW.Input.tapped && play == true) {   
-            SNOW.changeState('Splash');   
+            // SNOW.changeState('Splash');   
             var x = SNOW.Input.x;
             var y = SNOW.Input.y;
+            console.log(x,y);
             //SNOW.Input.tapped = false;
         }
         // SNOW.bird.update();
@@ -198,7 +199,7 @@ window.GameOver = function () {
             
             var vx = SNOW.WIDTH / 2 - 95;
             var vy = SNOW.HEIGHT / 2 - 44;
-            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 160, SNOW.HEIGHT / 2 - 140 + 125, 15, 'black');
+            SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 160, SNOW.HEIGHT / 2 - 170 + 125, 15, 'black');
             for (var i = 0, len = SNOW.rankings.length; i < len; i++) { 
                 SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
                 SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
