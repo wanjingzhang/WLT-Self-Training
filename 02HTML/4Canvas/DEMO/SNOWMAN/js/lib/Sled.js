@@ -23,8 +23,7 @@ SNOW.Sled = function (width,height) {
         this.type = 'sled';
 
     }
-    this.update = function () { 
-
+    this.update = function () {  
         if (this.play) {
             this.velocity += this.gravity;
             this.vy += this.velocity ;
