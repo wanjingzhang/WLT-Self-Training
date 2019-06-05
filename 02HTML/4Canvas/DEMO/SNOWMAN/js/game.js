@@ -123,12 +123,12 @@ window.Play = function () {
                     SNOW.entities[i].show = false;
                     SNOW.score.blood -= SNOW.score.bloodStep; 
                     console.log('失血' + SNOW.score.bloodStep);
-                    play_sound(soundHit);
+                    play_sound('hit');
                     if (SNOW.score.blood <= 0) {
                         SNOW.changeState('GameOver'); 
                         SNOW.postData(); 
                         console.log('游戏结束');
-                        play_sound(soundDie);
+                        play_sound('die');
                     }
                     break;
                 }
@@ -138,7 +138,7 @@ window.Play = function () {
                     // 得分
                     SNOW.entities[i].show = false;
                     SNOW.score.coins += SNOW.score.coinStep;
-                    play_sound(soundScore); 
+                    play_sound('point'); 
                     
                     var level = ~~(SNOW.score.coins / 10); 
                     var bg = SNOW.gradients[level % 4];

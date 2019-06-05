@@ -7,14 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
+    
+<div id="myPlay">Play</div> 
+
+<script>
         var audio = document.createElement('audio');
-        audio.setAttribute('id',audio);
+        audio.setAttribute('id',"myAudio");
         audio.setAttribute('src','music/wing.mp3');
         document.body.appendChild(audio);
-        audio.load();
-        audio.play();
-    </script>
-   
+        audio.load(); 
+        document.getElementById('myPlay').addEventListener('touchstart', function(){ 
+            var playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(function () {
+                    console.log("Automatic playback stared~!")
+                }).catch(function (error) { 
+                    console.log("Automatic playback failed");
+                    console.log(playPromise);
+                });
+            }
+        });
+    </script> 
 </body>
 </html>

@@ -30,7 +30,7 @@ SNOW.Sled = function (width,height) {
             this.vy += this.velocity ;
 
             // 前进速度加速度
-            if (this.vy < (this.initialVy+20) && this.vx < (SNOW.WIDTH-this.oldVx)) {
+            if (this.vy < (this.initialVy+20) && this.vx < (SNOW.WIDTH/2)) {
                 //在屏幕范围内
                 this.vx += 1;
                 // console.log(this.vx); 
@@ -55,7 +55,7 @@ SNOW.Sled = function (width,height) {
         if (SNOW.Input.tapped && !this.play) {
             this.play = true;
             this.velocity = this.jump;
-            play_sound(soundJump);
+            play_sound('wing');
             // console.log("velocity=jump");
         }
 

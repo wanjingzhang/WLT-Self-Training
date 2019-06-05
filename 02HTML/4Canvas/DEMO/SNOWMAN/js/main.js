@@ -31,6 +31,7 @@ SNOW.Input = {
         // console.log('trapped = true 开始计时');
 
         clearInterval(SNOW.tapInterval);
+        play_sound('wing');
 
         SNOW.tapTime = 0;
         SNOW.tapInterval = setInterval(
@@ -82,19 +83,19 @@ SNOW.ClickDetect = function (obj) {
     var endY  = startY + obj.height/3; 
     var currentX = SNOW.Input.x;
     var currentY = SNOW.Input.y; 
-    console.log(
-        'ClickDetect(startX=' + startX +
-        '| endX=' + endX +
-        '| startY=' + startY +
-        '| endY=' + endY +
-        '| currentX=' + currentX +
-        '| currentY=' + currentY +
-        '| Scale=' + SNOW.scale + 
-        '| SNOW.WIDTH =' + SNOW.WIDTH + 
-        '| SNOW.HEIGHT =' + SNOW.HEIGHT + 
-        '| SNOW.currentWidth =' + SNOW.currentWidth +
-        ')'
-    );
+    // console.log(
+    //     'ClickDetect(startX=' + startX +
+    //     '| endX=' + endX +
+    //     '| startY=' + startY +
+    //     '| endY=' + endY +
+    //     '| currentX=' + currentX +
+    //     '| currentY=' + currentY +
+    //     '| Scale=' + SNOW.scale + 
+    //     '| SNOW.WIDTH =' + SNOW.WIDTH + 
+    //     '| SNOW.HEIGHT =' + SNOW.HEIGHT + 
+    //     '| SNOW.currentWidth =' + SNOW.currentWidth +
+    //     ')'
+    // );
     // input text
     if ((currentX > startX && currentX < endX) &&
         (currentY > startY && currentY < endY))
@@ -114,6 +115,8 @@ SNOW.ClickDetect = function (obj) {
         }
         
     }
+
+    play_sound('wing');
 }
  
  
