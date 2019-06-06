@@ -5,7 +5,7 @@ window.requestAnimFrame = (function () {
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
         function (callback) {
-            window.setTimeout(callback, 1000 / 25);
+            window.setTimeout(callback, 1000 / 23);
         };
 })();
 /**
@@ -26,12 +26,11 @@ SNOW.Input = {
         // );
         this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
         this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
-        this.tapped = true;
-        // console.log(this.x, this.y);
-        // console.log('trapped = true 开始计时');
+        this.tapped = true; 
+        SNOW.sound = 'wing';
+        SNOW.simulateClick.dispatchEvent(event); 
 
         clearInterval(SNOW.tapInterval);
-        play_sound('wing');
 
         SNOW.tapTime = 0;
         SNOW.tapInterval = setInterval(
@@ -114,9 +113,8 @@ SNOW.ClickDetect = function (obj) {
             return true;
         }
         
-    }
+    } 
 
-    play_sound('wing');
 }
  
  
