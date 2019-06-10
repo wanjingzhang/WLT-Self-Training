@@ -1,30 +1,36 @@
 var box;
 var plane;
+var line;
 
 function init() {
     // 新建一个场景      
     var scene = new THREE.Scene();
     box = getBox(1, 1, 1);
-    plane = getPlane(4); 
+    line = getLine();
+    plane = getPlane(4);
+    
 
     box.position.y = box.geometry.parameters.height / 2;
     plane.rotation.x = Math.PI / 2;
 
     // 像场景添加对象到坐标(0，0，0)点
     scene.add(box);
+    scene.add(line);
     scene.add(plane);
+   
 
     // 视野、纵横比以及远、近剪裁平面
     var camera = new THREE.PerspectiveCamera(
         45,
         window.innerWidth/window.innerHeight,
         1,
-        1000
+        500
     );
     // 摄像机的位置
-    camera.position.x = 1;
-    camera.position.y = 2;
-    camera.position.z = 5;
+    // camera.position.x = 1;
+    // camera.position.y = 2;
+    // camera.position.z = 5;
+    camera.position.set(1, 2, 6);
 
     camera.lookAt(new THREE.Vector3(0, 0, 0));
     // Three.js 有几个渲染器
@@ -61,6 +67,16 @@ function getPlane(size) {
         material
     )
     return mesh;
+}
+
+function getLine() {
+    var material = new THREE.LineBasicMaterial({ color: 0xffffff });
+    var geometry = new THREE.Geometry();
+    geometry.vertices.push(new THREE.Vector3(-2, 0, 0));
+    geometry.vertices.push(new THREE.Vector3(0, 2, 0));
+    geometry.vertices.push(new THREE.Vector3(2, 0, 0));
+    var line = new THREE.Line(geometry, material);
+    return line;
 }
 
 // 渲染循环的动画
