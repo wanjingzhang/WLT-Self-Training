@@ -5,11 +5,7 @@ window.Splash = function () {
     this.banner = new Image(); 
     if (SNOW.isOK()) {
         this.banner.src = "images/splash.png"; 
-    }
-    else {
-        this.banner.src = "images/app_rotate_to_play.png"; 
-    }
-    
+    } 
     this.init = function () {
         SNOW.entities = [];
         SNOW.bg_grad = "day";
@@ -122,15 +118,13 @@ window.Play = function () {
                 if (hit) { 
                     SNOW.entities[i].show = false;
                     SNOW.score.blood -= SNOW.score.bloodStep; 
-                    console.log('失血' + SNOW.score.bloodStep);
-                    // play_sound('hit');
-                    Sound.play_sound(Sound.soundAry.hit); 
+                    console.log('失血' + SNOW.score.bloodStep); 
+                    SNOW.Sound.play_sound(SNOW.Sound.soundAry[2]); 
                     if (SNOW.score.blood <= 0) {
                         SNOW.changeState('GameOver'); 
                         SNOW.postData(); 
-                        console.log('游戏结束');
-                        // play_sound('die');
-                        Sound.play_sound(Sound.soundAry.die); 
+                        console.log('游戏结束'); 
+                        SNOW.Sound.play_sound(SNOW.Sound.soundAry[3]); 
                     }
                     break;
                 }
@@ -139,9 +133,8 @@ window.Play = function () {
                 if (hitd) { 
                     // 得分
                     SNOW.entities[i].show = false;
-                    SNOW.score.coins += SNOW.score.coinStep;
-                    // play_sound('point'); 
-                    Sound.play_sound(Sound.soundAry.point); 
+                    SNOW.score.coins += SNOW.score.coinStep; 
+                    SNOW.Sound.play_sound(SNOW.Sound.soundAry[1]); 
                     
                     var level = ~~(SNOW.score.coins / 10); 
                     var bg = SNOW.gradients[level % 4];

@@ -41,9 +41,12 @@ var SNOW = {
     tapInterval: null,
     userName: '',
     rankings: [],
+    state: '',
+    Sound: new Sound(),
     popBackground: document.querySelector('.popBackground'),
     inputContent: document.querySelector('.inputContent'),  
-    init: function () {
+    init: function () { 
+        SNOW.Sound.init();
         var grad; 
         // these will change when the screen is resize
         // SNOW.currentWidth = SNOW.WIDTH;
@@ -130,7 +133,7 @@ var SNOW = {
             }
         }, false); 
         
-        Sound.init();
+        
         SNOW.changeState("Input"); 
         SNOW.loop();
         
@@ -139,6 +142,7 @@ var SNOW = {
         }
     }, 
     changeState: function (state) {
+        SNOW.state = state;
         SNOW.game = new window[state]();
         SNOW.game.init();
     },
