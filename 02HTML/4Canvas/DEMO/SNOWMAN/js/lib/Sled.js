@@ -39,7 +39,7 @@ SNOW.Sled = function (width,height) {
                 this.vy = this.initialVy; 
                 this.play = false;
             }  
-
+            Sound.play_sound(Sound.soundAry.wing);
             // console.log('velocity=' + this.velocity + ' vy=' + this.vy + ' stop at='+ (SNOW.HEIGHT -80)); 
         }
 

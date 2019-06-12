@@ -124,15 +124,13 @@ window.Play = function () {
                     SNOW.score.blood -= SNOW.score.bloodStep; 
                     console.log('失血' + SNOW.score.bloodStep);
                     // play_sound('hit');
-                    SNOW.sound = 'hit';
-                    SNOW.simulateClick.dispatchEvent(event); 
+                    Sound.play_sound(Sound.soundAry.hit); 
                     if (SNOW.score.blood <= 0) {
                         SNOW.changeState('GameOver'); 
                         SNOW.postData(); 
                         console.log('游戏结束');
                         // play_sound('die');
-                        SNOW.sound = 'die';
-                        SNOW.simulateClick.dispatchEvent(event); 
+                        Sound.play_sound(Sound.soundAry.die); 
                     }
                     break;
                 }
@@ -143,8 +141,7 @@ window.Play = function () {
                     SNOW.entities[i].show = false;
                     SNOW.score.coins += SNOW.score.coinStep;
                     // play_sound('point'); 
-                    SNOW.sound = 'point';
-                    SNOW.simulateClick.dispatchEvent(event); 
+                    Sound.play_sound(Sound.soundAry.point); 
                     
                     var level = ~~(SNOW.score.coins / 10); 
                     var bg = SNOW.gradients[level % 4];

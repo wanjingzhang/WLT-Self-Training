@@ -42,9 +42,7 @@ var SNOW = {
     userName: '',
     rankings: [],
     popBackground: document.querySelector('.popBackground'),
-    inputContent: document.querySelector('.inputContent'),
-    sound: 'wing', 
-    simulateClick: document.querySelector('#simulateClick'),
+    inputContent: document.querySelector('.inputContent'),  
     init: function () {
         var grad; 
         // these will change when the screen is resize
@@ -130,13 +128,9 @@ var SNOW = {
             if (SNOW.isOK()) {
                 e.preventDefault();
             }
-        }, false);
-
-        //play sound
-        simulateClick.addEventListener('click', function (e) { 
-            play_sound(e);
-        })
-   
+        }, false); 
+        
+        Sound.init();
         SNOW.changeState("Input"); 
         SNOW.loop();
         

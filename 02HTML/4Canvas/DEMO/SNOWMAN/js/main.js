@@ -26,10 +26,7 @@ SNOW.Input = {
         // );
         this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
         this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
-        this.tapped = true; 
-        SNOW.sound = 'wing';
-        SNOW.simulateClick.dispatchEvent(event); 
-
+        this.tapped = true;    
         clearInterval(SNOW.tapInterval);
 
         SNOW.tapTime = 0;
