@@ -5,7 +5,7 @@ SNOW.Nameinput = function (x, y, w,h) {
         this.width = w;
         this.height = h;
         this.img = new Image();
-        this.img.src = 'images/name.png';  
+        this.img.src = 'images/hi.png';  
         this.type = 'Nameinput'; 
         this.status = 'default'; 
     }

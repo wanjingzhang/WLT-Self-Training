@@ -27,7 +27,7 @@ window.Splash = function () {
             SNOW.entities[i].update();
         }
         if (SNOW.Input.tapped) {
-            SNOW.changeState('Input');
+            SNOW.changeState('Play');
             SNOW.Input.trapped = false;
         }
     }
@@ -52,7 +52,7 @@ window.Input = function () {
         for (i = 0; i < SNOW.entities.length; i += 1) {
             SNOW.entities[i].update();
             if (SNOW.Input.tapped && SNOW.entities[i].type == 'Nameinput') {  
-                    SNOW.changeState('Play'); 
+                    SNOW.changeState('Splash'); 
                     SNOW.Input.trapped = false;  
             }
         }  

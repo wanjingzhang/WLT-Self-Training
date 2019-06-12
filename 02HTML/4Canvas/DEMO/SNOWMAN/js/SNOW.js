@@ -137,7 +137,7 @@ var SNOW = {
             play_sound(e);
         })
    
-        SNOW.changeState("Splash"); 
+        SNOW.changeState("Input"); 
         SNOW.loop();
         
         if (SNOW.isNotMobile) { 
