@@ -24,24 +24,27 @@ SNOW.Input = {
         //     'this.x=' + this.x +
         //     'this.y=' + this.y 
         // );
-        console.log(SNOW.state + '---SNOW.state');
+        if (!this.tapped) {
+            console.log(SNOW.state + '---SNOW.state');
 
-        if (SNOW.state == 'Input') {
-            SNOW.Sound.initPlay();
+            if (SNOW.state == 'Input') {
+                SNOW.Sound.initPlay();
+            }
+            this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
+            this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
+            this.tapped = true;    
+            clearInterval(SNOW.tapInterval);
+
+            SNOW.tapTime = 0;
+            SNOW.tapInterval = setInterval(
+                function () {
+                    if (SNOW.tapTime == 0) {
+                        SNOW.tapTime = 1;   
+                        clearInterval(SNOW.tapInterval); 
+                    } 
+            }, 1000);  
         }
-        this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
-        this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
-        this.tapped = true;    
-        clearInterval(SNOW.tapInterval);
-
-        SNOW.tapTime = 0;
-        SNOW.tapInterval = setInterval(
-            function () {
-                if (SNOW.tapTime == 0) {
-                    SNOW.tapTime = 1;   
-                    clearInterval(SNOW.tapInterval); 
-                } 
-        }, 1000);  
+        
     },
     stop: function () {
         this.tapped = false;

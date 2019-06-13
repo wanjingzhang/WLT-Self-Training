@@ -16,14 +16,15 @@ var Sound = function() {
              audioElement.muted = true;
              audioElement.load(); 
              this.audios.push(audioElement);
-             function _listener(e) { 
-                 e.currentTarget.currentTime = 1;  
+             audioElement.addEventListener('ended', function _listener (e) {
+                 console.log('this.Sound audioEnded');
+                 console.log(e.target.src);
+                 e.currentTarget.currentTime = 1; 
+                 //  e.target.setAttribute('muted', true);
                  e.target.muted = true;
                  e.target.play();
-                //  e.target.removeEventListener('ended', _listener, true);
-                //  e.target.addEventListener('ended', _listener, true);
-             }
-             this.audios[a].addEventListener('ended',_listener ,true);
+                 e.target.removeEventListener('ended', _listener,true);
+             },true);
              document.body.appendChild(this.audios[a]); 
              
          } 
