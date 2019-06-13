@@ -24,7 +24,8 @@ SNOW.Nameinput = function (x, y, w,h) {
     }
     
     this.render = function () { 
-        SNOW.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height, 0);  
+        // SNOW.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height, 0); 
+        SNOW.Draw.Image(this.img, (SNOW.WIDTH - this.img.width) / 2, (SNOW.HEIGHT - this.img.height) / 2); 
         SNOW.Draw.text(SNOW.userName, SNOW.WIDTH/2,SNOW.HEIGHT/2,12,'black');
     }
 
