@@ -27,7 +27,9 @@ SNOW.Input = {
         if (!this.tapped) {
             console.log(SNOW.state + '---SNOW.state');
 
-            if (SNOW.state == 'Input') {
+            // 添加声音事件
+            if (SNOW.state == 'Splash') { 
+                SNOW.Sound.addEvent();  
                 SNOW.Sound.initPlay();
             }
             this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;

@@ -1,38 +1,3 @@
-
-
-// scene opening
-window.Splash = function () {
-    this.banner = new Image(); 
-    if (SNOW.isOK()) {
-        this.banner.src = "images/splash.png"; 
-    } 
-    this.init = function () {
-        SNOW.entities = [];
-        SNOW.bg_grad = "day";
-        SNOW.score.taps = 0;
-        SNOW.score.coins = 0; 
-        SNOW.score.blood = 100; 
-
-        for (var i = 0; i < SNOW.entities.length; i += 1) {
-            SNOW.entities[i].init();
-        }
-    }
-
-    this.update = function () {
-        for (i = 0; i < SNOW.entities.length; i += 1) {
-            SNOW.entities[i].update();
-        }
-        if (SNOW.Input.tapped) {
-            SNOW.changeState('Play');
-            SNOW.Input.trapped = false;
-        }
-    }
-
-    this.render = function () { 
-        SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2); 
-    }
-}
-
 // scene opening
 window.Input = function () { 
     this.init = function () {
@@ -60,6 +25,41 @@ window.Input = function () {
     }
 }
 
+// scene opening
+window.Splash = function () {
+    this.banner = new Image(); 
+    if (SNOW.isOK()) {
+        this.banner.src = "images/splash.png"; 
+    } 
+    this.init = function () { 
+        SNOW.entities = [];
+        SNOW.bg_grad = "day";
+        SNOW.score.taps = 0;
+        SNOW.score.coins = 0; 
+        SNOW.score.blood = 100; 
+
+        for (var i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].init();
+        }
+    }
+
+    this.update = function () {
+        for (i = 0; i < SNOW.entities.length; i += 1) {
+            SNOW.entities[i].update();
+        }
+        if (SNOW.Input.tapped) {
+            SNOW.changeState('Play');
+            SNOW.Input.trapped = false;
+        }
+    }
+
+    this.render = function () { 
+        SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2); 
+    }
+}
+
+
+
  
 /**
  * scene play 开始游戏
@@ -67,7 +67,7 @@ window.Input = function () {
 window.Play = function () {
     this.init = function () { 
         SNOW.entities = []; 
-        SNOW.sled = new SNOW.Sled( 100  ,  92  );
+        SNOW.sled = new SNOW.Sled(100, 92); 
 
         // Add entities
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
@@ -174,10 +174,10 @@ window.GameOver = function () {
             that.banner.src = "images/top.png";  
             play = true;
         }, 500);
+        SNOW.Sound.removeEvent();
     }
 
-    this.update = function () { 
-
+    this.update = function () {  
         if (SNOW.Input.tapped && play == true) {  
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y;
