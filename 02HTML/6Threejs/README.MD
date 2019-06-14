@@ -33,3 +33,14 @@ extremely sophisticated:Blender, Maya, Modo, 3ds Max, Houdini, More
 
 # 常见类型
 FBX, OBJ, STL
+
+# 后处理-Shader
+是一段描述GPU渲染像素在屏幕上的代码，GLSL是高级别的渲染代码，语法基于C
+
+# WebAR
+
+### WhitestormJS 
+是一个3D框架，使用three.js构建的，它可以根据容易的创建3D物理模拟器。
+
+[whs-dev](https://whs-dev.surge.sh/examples/)
+[Engin Arslan](https://www.linkedin.com/in/enginarslan)
