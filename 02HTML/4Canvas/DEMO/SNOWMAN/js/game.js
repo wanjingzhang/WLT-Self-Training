@@ -20,9 +20,7 @@ window.Input = function () {
         }  
     }
 
-    this.render = function () { 
-        // SNOW.Draw.rect(SNOW.WIDTH /2 - this.banner.width/2, SNOW.HEIGHT/2 - this.banner.height, this.banner.width, this.banner.height, "red");
-        // SNOW.Draw.rect(SNOW.WIDTH / 2 - 57, (SNOW.HEIGHT / 2 - 140 + 210), 115, 70, 'red');
+    this.render = function () {  
     }
 }
 
@@ -76,12 +74,8 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
-        SNOW.entities.push(new SNOW.Snow()); 
-         
-        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2), SNOW.HEIGHT - 170));
-        // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 50), SNOW.HEIGHT - 170));
-        // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 100), SNOW.HEIGHT - 160));
-        
+        SNOW.entities.push(new SNOW.Snow());  
+        SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2), SNOW.HEIGHT - 170));  
         SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH + 50, SNOW.HEIGHT - 170 ));
         SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH + 100, SNOW.HEIGHT - 170));
         

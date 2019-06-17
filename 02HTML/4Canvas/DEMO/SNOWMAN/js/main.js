@@ -1,4 +1,4 @@
-var intervalTime = 1000 / 23;
+var intervalTime = ~~(1000 / 20);
 var interv; 
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
