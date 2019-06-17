@@ -19,6 +19,11 @@ canvas, .popBackground{
 	margin: auto;
 }
 
+.Status :first-child, .Status :last-child{
+	top:58px;
+	left:20px;
+}
+
 .popBackground{
 	background: rgba(0,0 , 0, 0.8);
 	display: none;
