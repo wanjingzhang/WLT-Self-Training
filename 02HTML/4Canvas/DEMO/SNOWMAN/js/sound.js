@@ -15,7 +15,7 @@ var Sound = function() {
          for(a = 0, lenth = this.soundAry.length; a<lenth; a++){
             var audioElement = document.createElement('audio');
              audioElement.setAttribute("id", this.soundAry[a]); 
-             audioElement.setAttribute('src', 'music/' + this.soundAry[a] + '.mp3'); 
+             audioElement.setAttribute('src', 'music/' + this.soundAry[a] + '.mp3?id=2'); 
              audioElement.load(); 
              this.audios.push(audioElement); 
              document.body.appendChild(this.audios[a]);   

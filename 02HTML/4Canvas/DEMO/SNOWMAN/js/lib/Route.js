@@ -19,7 +19,7 @@ SNOW.Route = function (x, y, r) {
     this.render = function () {
         SNOW.Draw.rect(this.oldx, this.y, this.r, 100, "#22cc22");
         for (var i = 0; i < 10; i++) {
-            SNOW.Draw.semiCircle(~~(this.x + i * (this.r / 5)), this.y, 80  , '#fff');
+            SNOW.Draw.semiCircle(~~(this.x + i * 100), this.y, 50  , '#fff');
         }
     }
 
