@@ -10,7 +10,7 @@ SNOW.Route = function (x, y, width) {
         this.name = "BottomRoute";  
         this.count = ~~(SNOW.WIDTH * 2 / this.r) + 1;
         this.endposition = ~~(this.count/2 - 1) * this.r;
-        console.log('route x: ' + this.x + ' endposition:' + this.endposition);
+        // console.log('route x: ' + this.x + ' endposition:' + this.endposition);
     }
 
     this.update = function () {

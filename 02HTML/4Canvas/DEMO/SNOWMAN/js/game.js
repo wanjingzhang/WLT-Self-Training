@@ -112,13 +112,13 @@ window.Play = function () {
                 if (hit) { 
                     SNOW.entities[i].show = false;
                     SNOW.score.blood -= SNOW.score.bloodStep; 
-                    console.log('失血' + SNOW.score.bloodStep); 
+                    // console.log('失血' + SNOW.score.bloodStep); 
                     SNOW.Sound.play_sound(2); 
                     if (SNOW.score.blood <= 0) {
                         
                         SNOW.changeState('GameOver'); 
                         SNOW.postData(); 
-                        console.log('游戏结束'); 
+                        // console.log('游戏结束'); 
                         SNOW.Sound.play_sound(3); 
                         // this.unload();
                     }
@@ -140,19 +140,16 @@ window.Play = function () {
                     
                     // post 得分 
                     
-                    console.log('得分：' + SNOW.score.coinStep);
-                    console.log('level',level, 'speed',SNOW.Speed,'bg',bg);
+                    // console.log('得分：' + SNOW.score.coinStep);
+                    // console.log('level',level, 'speed',SNOW.Speed,'bg',bg);
                     break;
                 }
             } 
-        } 
- 
-            
+        }     
     }
 
     this.render = function () {
-        SNOW.Draw.text('SCORE '+ SNOW.score.coins, 100, 20, 15, 'orange');
-        
+        SNOW.Draw.text('SCORE '+ SNOW.score.coins, 100, 20, 15, 'orange'); 
         SNOW.Draw.rect(SNOW.WIDTH - 130, 8, 42, 12, "white"); // bg
         SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.score.blood/100), 10, "orange");
         SNOW.Draw.text('HP' , SNOW.WIDTH - 146, 20, 15, 'orange');

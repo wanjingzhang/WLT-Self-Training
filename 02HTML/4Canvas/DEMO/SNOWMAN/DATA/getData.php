@@ -61,7 +61,7 @@
         // console.log(obj);
         var list = '<ul>'
         obj.forEach(function(item){
-             console.log(item.userName , item.userScore); 
+            //  console.log(item.userName , item.userScore); 
             list += '<li><span>' + item.userName + '</span> <span>' + item.userScore + '</span></li>';
         }); 
         list += '</ul>'; 

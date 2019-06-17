@@ -28,7 +28,7 @@ SNOW.Input = {
         //     'this.y=' + this.y 
         // );
         if (!this.tapped) {
-            console.log(SNOW.state + '---SNOW.state');
+            // console.log(SNOW.state + '---SNOW.state');
 
             // 添加声音事件
             if (SNOW.state == 'Splash') { 
@@ -66,7 +66,7 @@ SNOW.Collides = function (object_1, object_2) {
     if ((object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < object_2.vx + object_1.width / 2)
         && object_1.vy + object_1.height / 2 > object_2.vy
     ) { 
-        console.log("collide");
+        // console.log("collide");
         return true;
     }
 
@@ -109,7 +109,7 @@ SNOW.ClickDetect = function (obj) {
     if ((currentX > startX && currentX < endX) &&
         (currentY > startY && currentY < endY))
     {
-        console.log("input status");
+        // console.log("input status");
         // return true;
     }
 
@@ -117,7 +117,7 @@ SNOW.ClickDetect = function (obj) {
     endY = startY + (obj.height / 3) * 2; 
     if ((currentX > startX && currentX < endX) &&
         (currentY > startY && currentY < endY)) {
-        console.log("submit status");
+        // console.log("submit status");
         if (SNOW.userName == '') {
             // alert('Input your name please.');
             return true;

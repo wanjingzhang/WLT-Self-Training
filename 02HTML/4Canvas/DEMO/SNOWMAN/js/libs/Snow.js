@@ -13,7 +13,7 @@ SNOW.Snow = function () {
         while (i--) {
             SNOW.snow.push(new SNOW.Flake(Math.round((i * 50) * Math.random())));
         }  
-        console.log("SNOW.snow =" + SNOW.snow);
+        // console.log("SNOW.snow =" + SNOW.snow);
 
     }
 

@@ -23,7 +23,7 @@ SNOW.isMobile = function(){
 
 SNOW.isOK = function() {
     var isLandscape = window.matchMedia('(orientation: landscape)');
-    console.log("isLandscape.matches = " + isLandscape.matches); 
+    // console.log("isLandscape.matches = " + isLandscape.matches); 
     // 横屏手机 或 不是手机 
     var isok = (isLandscape.matches && SNOW.isMobile()) || !SNOW.isMobile(); 
 
@@ -34,7 +34,7 @@ SNOW.resize = function () {
     SNOW.currentHeight = window.innerHeight;
     SNOW.currentWidth = ~~(SNOW.currentHeight * SNOW.RATIO) + 1; 
     SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;  
-    console.log("scale = " + SNOW.scale);
+    // console.log("scale = " + SNOW.scale);
 
     // if (!SNOW.isNotMobile) {
     //     alert("isMobile + 50 pixels height");

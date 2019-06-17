@@ -107,7 +107,7 @@ var SNOW = {
         grad.addColorStop(1, '#000');
         SNOW.gradients.night = grad;
    
-        console.log('isOK');
+        // console.log('isOK');
         // add events
         SNOW.canvas.addEventListener('click', function (e) {
             if (SNOW.isOK()) {
@@ -183,7 +183,7 @@ var SNOW = {
         var params = '?userName=' + SNOW.userName + '&userScore=' + SNOW.score.coins;
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) { 
-                console.log('------success post data-------'); 
+                // console.log('------success post data-------'); 
 
                 SNOW.readData();
             }
