@@ -1,11 +1,14 @@
+var intervalTime = 1000 / 23;
+var interv; 
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
         window.msRequestAnimationFrame ||
-        function (callback) { 
-            window.setTimeout(callback, 1000 / 23);
+        function (callback) {  
+            clearInterval(interv);
+            interv = setInterval(callback, intervalTime);   
         };
 })();
 /**
@@ -191,7 +194,10 @@ window.addEventListener('load', function () {
  
         }  
     }
-    this.setTimeout(SNOW.init, 200);
+    var loadInterval = setInterval(function () {
+        clearInterval(loadInterval);
+        SNOW.init();
+    }, 200); 
 }, false);
  
 

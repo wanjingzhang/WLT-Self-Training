@@ -164,16 +164,17 @@ window.Play = function () {
 
 window.GameOver = function () {
     var play = false; 
-    
+    var gameoverInterval;
     this.init = function () {
         var that = this;
         play = false;
          
-        setTimeout(function () { 
+        gameoverInterval = setInterval(function () {
+            clearInterval(gameoverInterval);
             that.banner = new Image();
             that.banner.src = "images/top.png";  
             play = true;
-        }, 500);
+        }, 500); 
         SNOW.Sound.removeEvent();
     }
 

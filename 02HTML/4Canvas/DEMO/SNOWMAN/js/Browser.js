@@ -50,9 +50,10 @@ SNOW.resize = function () {
     SNOW.offset.top = SNOW.canvas.offsetTop;
     SNOW.offset.left = SNOW.canvas.offsetLeft; 
 
-    window.setTimeout(function () {
-        window.scrollTo(0, 1);
-    }); 
+    var resizeInterval;
+    resizeInterval = setInterval(function () {
+            clearInterval(resizeInterval);
+            window.scrollTo(0, 1);},0) 
 }
 
 //刷新页面
