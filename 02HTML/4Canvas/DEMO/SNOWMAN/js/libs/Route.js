@@ -22,9 +22,10 @@ SNOW.Route = function (x, y, width) {
 
     this.render = function () {
         SNOW.Draw.rect(this.oldx, this.y, this.width, 100, "#22cc22");
-        for (var i = 0; i < this.count; i++) {
+        var i = SNOW.entities.length;
+        while (i--) {
             SNOW.Draw.semiCircle(this.x + i * this.r, this.y, this.radius  , '#fff');
-        }
+        }  
     }
 
     this.respawn = function () {

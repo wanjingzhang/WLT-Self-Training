@@ -160,8 +160,8 @@ var SNOW = {
     },
     render: function () {
         SNOW.Draw.rect(0, 0, SNOW.WIDTH, SNOW.HEIGHT, SNOW.gradients[SNOW.bg_grad]);
-
-        for (i = 0; i < SNOW.entities.length; i += 1) {
+        var i = SNOW.entities.length;
+        while (i--) { 
             SNOW.entities[i].render();
         }
 

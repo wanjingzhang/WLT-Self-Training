@@ -11,29 +11,32 @@ var Sound = function() {
              //  e.target.removeEventListener('ended', _listener, true);
              //  e.target.addEventListener('ended', _listener, true);
          }
-     this.init = function () { 
-         for(a = 0, lenth = this.soundAry.length; a<lenth; a++){
+    this.init = function () { 
+        for (var a = 0, l = this.soundAry.length; a < l;a++){
             var audioElement = document.createElement('audio');
              audioElement.setAttribute("id", this.soundAry[a]); 
              audioElement.setAttribute('src', 'music/' + this.soundAry[a] + '.mp3?id=2'); 
              audioElement.load(); 
              this.audios.push(audioElement); 
              document.body.appendChild(this.audios[a]);   
-         } 
+        } 
     },
-    this.initPlay = function () { 
-        for (a = 0, lenth = this.soundAry.length; a < lenth; a++) { 
+    this.initPlay = function () {  
+        var a = this.soundAry.length;
+        while (a--) {
             this.audios[a].muted = true;
             this.audios[a].play();
         }
     }, 
     this.removeEvent = function () {
-         for (a = 0, lenth = this.soundAry.length; a < lenth; a++) { 
+        var a = this.soundAry.length;
+        while (a--) {
              this.audios[a].removeEventListener('ended', this._listener, true);  
          } 
          },
     this.addEvent = function () {
-        for (a = 0, lenth = this.soundAry.length; a < lenth; a++) {
+        var a = this.soundAry.length;
+        while (a--) {
             this.audios[a].addEventListener('ended', this._listener, true);
         }
     }

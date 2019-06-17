@@ -9,15 +9,17 @@ SNOW.Flake = function (y) {
 SNOW.Snow = function () {
     this.init = function () {
         SNOW.snow = [];
-        for (var i = 0; i < SNOW.snowMax; i++) {
+        var i = SNOW.snowMax;
+        while (i--) {
             SNOW.snow.push(new SNOW.Flake(Math.round((i * 50) * Math.random())));
-        }
+        }  
         console.log("SNOW.snow =" + SNOW.snow);
 
     }
 
     this.update = function () {
-        for (var i = 0; i < SNOW.snowMax; i++) {
+        var i = SNOW.snowMax;
+        while (i--) {
             SNOW.snow[i].y += SNOW.snow[i].speed;
             if (SNOW.snow[i].y > SNOW.HEIGHT)
                 SNOW.snow[i].y = -5;
@@ -28,7 +30,8 @@ SNOW.Snow = function () {
     }
 
     this.render = function () {
-        for (var i = 0; i < SNOW.snowMax; i++) {
+        var i = SNOW.snowMax;
+        while (i--) {
             SNOW.Draw.circle(SNOW.snow[i].x, SNOW.snow[i].y, SNOW.snow[i].width, "rgb(255,255,255)");
         }
     }

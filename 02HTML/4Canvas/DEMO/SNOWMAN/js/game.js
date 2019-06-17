@@ -3,18 +3,19 @@ window.Input = function () {
     this.init = function () {
         SNOW.entities = []; 
         SNOW.entities.push(new SNOW.Nameinput(SNOW.WIDTH / 2, SNOW.HEIGHT / 2, 236, 90));
-         
-        for (var i = 0; i < SNOW.entities.length; i += 1) {
-            SNOW.entities[i].init();
-        }
+        var l = SNOW.entities.length;
+        while (l--) {
+            SNOW.entities[l].init();
+        } 
     } 
 
     this.update = function () { 
-        for (i = 0; i < SNOW.entities.length; i += 1) {
-            SNOW.entities[i].update();
-            if (SNOW.Input.tapped && SNOW.entities[i].type == 'Nameinput') {  
-                    SNOW.changeState('Splash'); 
-                    SNOW.Input.trapped = false;  
+        var l = SNOW.entities.length;
+        while (l--) {
+            SNOW.entities[l].update();
+            if (SNOW.Input.tapped && SNOW.entities[l].type == 'Nameinput') {
+                SNOW.changeState('Splash');
+                SNOW.Input.trapped = false;
             }
         }  
     }
@@ -38,15 +39,17 @@ window.Splash = function () {
         SNOW.score.coins = 0; 
         SNOW.score.blood = 100; 
 
-        for (var i = 0; i < SNOW.entities.length; i += 1) {
+        var i = i < SNOW.entities.length;
+        while (i--) {
             SNOW.entities[i].init();
-        }
+        } 
     }
 
     this.update = function () {
-        for (i = 0; i < SNOW.entities.length; i += 1) {
-            SNOW.entities[i].update();
-        }
+        var i = i < SNOW.entities.length;
+        while (i--) {
+             SNOW.entities[i].update();
+        } 
         if (SNOW.Input.tapped) {
             SNOW.changeState('Play');
             SNOW.Input.trapped = false;
@@ -67,39 +70,37 @@ window.Splash = function () {
 window.Play = function () {
     this.init = function () { 
         SNOW.entities = []; 
+        
         SNOW.sled = new SNOW.Sled(100, 92); 
-
         // Add entities
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Snow()); 
-
-        SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH )); 
-
-        SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
-        SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
-        SNOW.entities.push(new SNOW.Tree(Math.random()  + 100, SNOW.HEIGHT - 140));
-
-        SNOW.entities.push(SNOW.sled);
- 
-        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
-        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50 , SNOW.HEIGHT -80,20 ));
-
+         
         SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2), SNOW.HEIGHT - 170));
         // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 50), SNOW.HEIGHT - 170));
         // SNOW.entities.push(new SNOW.Diamond(~~(SNOW.WIDTH / 2 + 100), SNOW.HEIGHT - 160));
- 
+        
         SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH + 50, SNOW.HEIGHT - 170 ));
         SNOW.entities.push(new SNOW.Diamond(SNOW.WIDTH + 100, SNOW.HEIGHT - 170));
         
+        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
+        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
+        
+        SNOW.entities.push(SNOW.sled);
+        SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
+        SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
+        SNOW.entities.push(new SNOW.Tree(Math.random()  + 100, SNOW.HEIGHT - 140));
+        
+        SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH )); 
         // SNOW.entities.push(new SNOW.Tree(200, SNOW.HEIGHT - 80));
         // SNOW.entities.push(new SNOW.Tree(250, SNOW.HEIGHT - 80));
-
-        for (var i = 0; i < SNOW.entities.length; i += 1) {
+        var i = SNOW.entities.length;
+        while (i--) {
             SNOW.entities[i].init();
-        }
-    } 
+        } 
+    }  
 
     this.update = function () {  
         //check for a collision if the user tapped on this game tick;
@@ -108,8 +109,8 @@ window.Play = function () {
             SNOW.score.taps += 1;
             checkCollision = true;
         }
-
-        for (var i = 0; i < SNOW.entities.length; i += 1) {
+        var i = SNOW.entities.length;
+        while (i--) {
             SNOW.entities[i].update();
 
             if (SNOW.entities[i].type === 'stone' && SNOW.entities[i].show === true) { 
@@ -120,10 +121,12 @@ window.Play = function () {
                     console.log('失血' + SNOW.score.bloodStep); 
                     SNOW.Sound.play_sound(2); 
                     if (SNOW.score.blood <= 0) {
+                        
                         SNOW.changeState('GameOver'); 
                         SNOW.postData(); 
                         console.log('游戏结束'); 
                         SNOW.Sound.play_sound(3); 
+                        // this.unload();
                     }
                     break;
                 }
@@ -147,8 +150,10 @@ window.Play = function () {
                     console.log('level',level, 'speed',SNOW.Speed,'bg',bg);
                     break;
                 }
-            }
-        }
+            } 
+        } 
+ 
+            
     }
 
     this.render = function () {
@@ -202,11 +207,14 @@ window.GameOver = function () {
             var vx = SNOW.WIDTH / 2 - 95;
             var vy = SNOW.HEIGHT / 2 - 44;
             SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 160, SNOW.HEIGHT / 2 - 170 + 125, 15, 'black');
-            for (var i = 0, len = SNOW.rankings.length; i < len; i++) { 
-                SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
-                SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
-                vy += 18;
-            };
+            if (SNOW.rankings.length != 0) {
+                for (var i = 0, l = SNOW.entities.length;i<l;i++){ 
+                    SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
+                    SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
+                    vy += 18;
+                }  
+            }
+            
              
             // SNOW.Draw.rect(SNOW.WIDTH / 2 - 57, (SNOW.HEIGHT / 2 - 140 + 210), 115, 70, 'red');
         }
