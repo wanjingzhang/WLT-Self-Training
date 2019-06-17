@@ -45,6 +45,8 @@ var SNOW = {
     Sound: new Sound(),
     popBackground: document.querySelector('.popBackground'),
     inputContent: document.querySelector('.inputContent'),  
+    StatsDiv: document.querySelector('.Status'),
+    stats : new Stats(),
     init: function () { 
         SNOW.Sound.init();
         var grad; 
@@ -60,7 +62,7 @@ var SNOW = {
         SNOW.android = SNOW.ua.indexOf('android') > -1 ? true : false;
         SNOW.ios = (SNOW.ua.indexOf('iphone') > -1 || SNOW.ua.indexOf('ipad') > -1) ? true : false; 
         // SNOW.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
-        
+        SNOW.StatsDiv.appendChild(SNOW.stats.dom);
         if (SNOW.isNotMobile) {
             SNOW.WIDTH = 800;
             SNOW.HEIGHT = 600;
@@ -154,6 +156,7 @@ var SNOW = {
     update: function () {
         SNOW.game.update();
         SNOW.Input.tapped = false;
+        SNOW.stats.update();
     },
     render: function () {
         SNOW.Draw.rect(0, 0, SNOW.WIDTH, SNOW.HEIGHT, SNOW.gradients[SNOW.bg_grad]);
