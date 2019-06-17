@@ -73,10 +73,9 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
-        SNOW.entities.push(new SNOW.Snow());
-        for (i = 0; i < 2; i += 1) {
-            SNOW.entities.push(new SNOW.Route(SNOW.WIDTH * i, SNOW.HEIGHT - 80  , SNOW.WIDTH ));
-        }
+        SNOW.entities.push(new SNOW.Snow()); 
+
+        SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH )); 
 
         SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
         SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
