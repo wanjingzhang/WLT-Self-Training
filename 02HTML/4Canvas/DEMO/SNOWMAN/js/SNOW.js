@@ -8,8 +8,10 @@ var SNOW = {
     isNotMobile: false,
     isLandscape: false,
     Body:null,
-    canvas: null,
+    canvas: null, //cache canvas,
+    relCanvas: null,
     ctx: null, 
+    relCtx: null,
     offset: {
         top: 0,
         left: 0
@@ -55,9 +57,10 @@ var SNOW = {
         // SNOW.currentHeight = SNOW.HEIGHT;
         // this is our canvas element
         SNOW.Body = document.getElementById('body'); 
-        SNOW.canvas = document.getElementById('canvas');
-         
-        SNOW.ctx = SNOW.canvas.getContext('2d');
+        SNOW.cacheCanvas = document.getElementById('cacheCanvas');
+        SNOW.relCanvas = document.getElementById('canvas');  
+        SNOW.ctx = SNOW.cacheCanvas.getContext('2d', { alpha: false });
+        SNOW.relCtx = SNOW.relCanvas.getContext('2d', { alpha: false });
         SNOW.ua = navigator.userAgent.toLowerCase();
         SNOW.android = SNOW.ua.indexOf('android') > -1 ? true : false;
         SNOW.ios = (SNOW.ua.indexOf('iphone') > -1 || SNOW.ua.indexOf('ipad') > -1) ? true : false; 
@@ -79,8 +82,8 @@ var SNOW = {
         }
 
         SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;  
-        SNOW.canvas.width = SNOW.WIDTH;
-        SNOW.canvas.height = SNOW.HEIGHT;  
+        SNOW.relCanvas.width = SNOW.cacheCanvas.width = SNOW.WIDTH;
+        SNOW.relCanvas.height = SNOW.cacheCanvas.height = SNOW.HEIGHT;  
        
         // setup some gradients
         grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
@@ -109,27 +112,27 @@ var SNOW = {
    
         // console.log('isOK');
         // add events
-        SNOW.canvas.addEventListener('click', function (e) {
+        SNOW.relCanvas.addEventListener('click', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
                 SNOW.Input.set(e);
             } 
         }, false);
 
-        SNOW.canvas.addEventListener('touchstart', function (e) {
+        SNOW.relCanvas.addEventListener('touchstart', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
                 SNOW.Input.set(e.touches[0]);
             }
         }, false);
 
-        SNOW.canvas.addEventListener('touchmove', function (e) {
+        SNOW.relCanvas.addEventListener('touchmove', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
             }
         }, false);
 
-        SNOW.canvas.addEventListener('touchend', function (e) {
+        SNOW.relCanvas.addEventListener('touchend', function (e) {
             if (SNOW.isOK()) {
                 e.preventDefault();
             }
@@ -163,9 +166,9 @@ var SNOW = {
         var i = SNOW.entities.length;
         while (i--) { 
             SNOW.entities[i].render();
-        }
-
+        } 
         SNOW.game.render();
+        SNOW.relCtx.drawImage(SNOW.cacheCanvas, 0, 0);
     },
     readData: function () {
         var xhttp = new XMLHttpRequest();

@@ -110,7 +110,7 @@ SNOW.Draw = {
         SNOW.ctx.translate(destX, destY);
         SNOW.ctx.rotate(r * (Math.PI / 180));
         SNOW.ctx.translate(-(destX + destW / 2), -(destY + destH / 2));
-        SNOW.ctx.drawImage(img, srcX, srcY, srcW, srcH, destX, destY, destW, destH);
+        SNOW.ctx.drawImage(img,srcX, srcY, srcW, srcH, destX, destY, destW, destH);
         SNOW.ctx.restore();
 
         // console.log(arguments);
@@ -120,7 +120,7 @@ SNOW.Draw = {
     semiCircle: function (x, y, r, col) {
         SNOW.ctx.fillStyle = col;
         SNOW.ctx.beginPath();
-        SNOW.ctx.arc(x, y, r, 0, Math.PI, true);
+        SNOW.ctx.arc(~~x, ~~y, r, 0, Math.PI, true);
         SNOW.ctx.closePath();
         SNOW.ctx.fill();
     },
@@ -128,7 +128,7 @@ SNOW.Draw = {
         SNOW.ctx.font = size + "px Arial";
         SNOW.ctx.fillStyle = col;
         SNOW.ctx.textAlign = "center";
-        SNOW.ctx.fillText(string, x, y);
+        SNOW.ctx.fillText(string, ~~x, ~~y);
     }
 }
 

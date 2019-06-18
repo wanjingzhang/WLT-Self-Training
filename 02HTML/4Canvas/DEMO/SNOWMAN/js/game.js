@@ -27,7 +27,7 @@ window.Splash = function () {
     this.init = function () {
         // clear GC
         SNOW.GC(); 
-        
+
         SNOW.entities = []; 
         SNOW.bg_grad = "day";
         SNOW.score.taps = 0;
@@ -146,6 +146,7 @@ window.GameOver = function () {
         if (SNOW.Input.tapped && play == true) {  
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y; 
+            console.log('this.x ='+ x +'|this.y =' + y);
             if((SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641) ) ||  (!SNOW.isNotMobile) ){  
                 SNOW.GC(); 
                 SNOW.changeState('Splash');

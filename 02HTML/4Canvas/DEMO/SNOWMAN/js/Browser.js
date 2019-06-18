@@ -32,14 +32,16 @@ SNOW.resize = function () {
     SNOW.currentHeight = window.innerHeight;
     SNOW.currentWidth = ~~(SNOW.currentHeight * SNOW.RATIO) + 1; 
     SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;   
-    SNOW.canvas.style.width = SNOW.currentWidth + "px";
-    SNOW.canvas.style.height = SNOW.currentHeight + "px";
+
+    SNOW.relCanvas.style.width = SNOW.cacheCanvas.style.width = SNOW.currentWidth + "px";
+    SNOW.relCanvas.style.height = SNOW.cacheCanvas.style.height = SNOW.currentHeight + "px";
+ 
     SNOW.Body.style.width = SNOW.currentWidth + "px";
     SNOW.popBackground.style.width = SNOW.currentWidth + 'px';
     SNOW.popBackground.style.height = SNOW.currentHeight + 'px';
  
-    SNOW.offset.top = SNOW.canvas.offsetTop;
-    SNOW.offset.left = SNOW.canvas.offsetLeft; 
+    SNOW.offset.top = SNOW.cacheCanvas.offsetTop;
+    SNOW.offset.left = SNOW.cacheCanvas.offsetLeft; 
 
     var resizeInterval;
     resizeInterval = setInterval(function () {

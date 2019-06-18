@@ -19,6 +19,10 @@ canvas, .popBackground{
 	margin: auto;
 }
 
+#cacheCanvas{
+	display: none;
+}
+
 .Status :first-child, .Status :last-child{
 	top:58px;
 	left:20px;
