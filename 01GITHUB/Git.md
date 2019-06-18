@@ -17,3 +17,14 @@ git config --global user.name "wanjingzhang"        \\ 修改系统用户名
 git config --global user.email 95616085@qq.com      \\ 修改系统邮箱
 git config --list                   \\ 查看配置文件列表
 ```
+
+# SourceTree 添加 Github账号 
+1. 托管主机选“Github”
+
+1. 授权类型选“OAuth”
+
+1. 协议选“SSH”
+
+1. 点击“连接帐号”
+
+1. 如果没有SSH密钥，点击“创建密钥”，确认，这个SSH的公钥就会由SourceTree推到Github上。
