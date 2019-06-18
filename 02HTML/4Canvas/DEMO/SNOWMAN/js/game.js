@@ -25,6 +25,9 @@ window.Splash = function () {
         this.banner.src = "images/splash.png"; 
     } 
     this.init = function () {
+        // clear GC
+        var t = SNOW.entities.splice(0, 1);
+        t = null;
         SNOW.entities = []; 
         SNOW.bg_grad = "day";
         SNOW.score.taps = 0;
@@ -49,6 +52,7 @@ window.Splash = function () {
  */
 window.Play = function () {
     this.init = function () { 
+        
         SNOW.entities = [];  
         SNOW.sled = new SNOW.Sled(100, 92);  
         // Add entities
@@ -74,7 +78,7 @@ window.Play = function () {
             SNOW.entities[i].init();
         } 
 
-        console.log(SNOW.entities);
+        // console.log(SNOW.entities);
     }  
 
     this.update = function () {  
@@ -126,12 +130,11 @@ window.Play = function () {
 }
  
 window.GameOver = function () {
-    var play = false; 
-    var gameoverInterval;
-    this.init = function () {
+    var play = false;  
+    this.init = function () { 
         var that = this;
         play = false;
-         
+        var gameoverInterval; 
         gameoverInterval = setInterval(function () {
             clearInterval(gameoverInterval);
             that.banner = new Image();
@@ -145,12 +148,22 @@ window.GameOver = function () {
         if (SNOW.Input.tapped && play == true) {  
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y; 
-            if (SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)) { 
-                SNOW.changeState('Splash'); 
-            } else if (!SNOW.isNotMobile){
-                SNOW.changeState('Splash'); 
+            if (SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)) {  
+                this.GC();
+            } else if (!SNOW.isNotMobile){ 
+                this.GC();
             } 
         } 
+    }
+    // 回收新建的对象
+    this.GC = function () {
+        // clear GC 
+        var i = SNOW.entities.length
+        while (i--) {
+            var t = SNOW.entities.splice(0, 1);
+            t = null;
+        } 
+        SNOW.changeState('Splash'); 
     }
 
     this.render = function () {

@@ -19,17 +19,8 @@ SNOW.Input = {
     y: 0,
     tapped: false,
 
-    set: function (data) {
-        // console.log('pageX=' + data.pageX + 
-        //     'pageY=' + data.pageY + 
-        //     'offset.left=' + SNOW.offset.left + 
-        //     'offset.top=' + SNOW.offset.top +
-        //     'this.x=' + this.x +
-        //     'this.y=' + this.y 
-        // );
-        if (!this.tapped) {
-            // console.log(SNOW.state + '---SNOW.state');
-
+    set: function (data) { 
+        if (!this.tapped) {  
             // 添加声音事件
             if (SNOW.state == 'Splash') { 
                 SNOW.Sound.addEvent();  
@@ -48,17 +39,14 @@ SNOW.Input = {
                         clearInterval(SNOW.tapInterval); 
                     } 
             }, 1000);  
-        }
-        
+        } 
     },
     stop: function () {
         this.tapped = false;
         clearInterval(SNOW.tapInterval);
-    }
-
+    } 
 }
- 
-
+  
 /** 
  *  碰撞检测
  */
@@ -66,12 +54,12 @@ SNOW.Collides = function (object_1, object_2) {
     if ((object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < object_2.vx + object_1.width / 2)
         && object_1.vy + object_1.height / 2 > object_2.vy
     ) { 
-        // console.log("collide");
+        console.log("collide");
         return true;
-    }
-
+    } 
 }
 
+// 姓名检测
 SNOW.RecordName = function () { 
     SNOW.userName = document.querySelector('.userName').value; 
     if (SNOW.userName == '' || SNOW.userName.length < 1) {
@@ -81,53 +69,7 @@ SNOW.RecordName = function () {
         SNOW.inputContent.style.display = "none";
     }
 }
-
-/**
- * 输入名称 
- */
-SNOW.ClickDetect = function (obj) {
-    var startX = (SNOW.WIDTH - obj.width)/2 * SNOW.scale ;
-    var endX = startX + obj.width;
-    var startY = ((SNOW.HEIGHT - obj.height)/2 + obj.height/3) * SNOW.scale;
-    var endY  = startY + obj.height/3; 
-    var currentX = SNOW.Input.x;
-    var currentY = SNOW.Input.y; 
-    // console.log(
-    //     'ClickDetect(startX=' + startX +
-    //     '| endX=' + endX +
-    //     '| startY=' + startY +
-    //     '| endY=' + endY +
-    //     '| currentX=' + currentX +
-    //     '| currentY=' + currentY +
-    //     '| Scale=' + SNOW.scale + 
-    //     '| SNOW.WIDTH =' + SNOW.WIDTH + 
-    //     '| SNOW.HEIGHT =' + SNOW.HEIGHT + 
-    //     '| SNOW.currentWidth =' + SNOW.currentWidth +
-    //     ')'
-    // );
-    // input text
-    if ((currentX > startX && currentX < endX) &&
-        (currentY > startY && currentY < endY))
-    {
-        // console.log("input status");
-        // return true;
-    }
-
-    startY = ((SNOW.HEIGHT - obj.height) / 2 + (obj.height/ 3) * 2 ) * SNOW.scale;
-    endY = startY + (obj.height / 3) * 2; 
-    if ((currentX > startX && currentX < endX) &&
-        (currentY > startY && currentY < endY)) {
-        // console.log("submit status");
-        if (SNOW.userName == '') {
-            // alert('Input your name please.');
-            return true;
-        }
-        
-    } 
-
-}
- 
- 
+   
 /**
  * 绘制方法，正方形、圆形、图片、矢量图形、半圆
  */
