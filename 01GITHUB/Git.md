@@ -19,12 +19,9 @@ git config --list                   \\ 查看配置文件列表
 ```
 
 # SourceTree 添加 Github账号 
-1. 托管主机选“Github”
-
-1. 授权类型选“OAuth”
-
-1. 协议选“SSH”
-
-1. 点击“连接帐号”
-
+1. 托管主机选“Github” 
+1. 授权类型选“OAuth” 
+1. 协议选“SSH” 
+1. 点击“连接帐号” 
 1. 如果没有SSH密钥，点击“创建密钥”，确认，这个SSH的公钥就会由SourceTree推到Github上。
+1. 最后上传还需要输入用户名密码，保存好。
