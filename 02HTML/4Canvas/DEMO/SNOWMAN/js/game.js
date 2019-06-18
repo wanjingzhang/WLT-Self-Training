@@ -76,9 +76,7 @@ window.Play = function () {
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
-        } 
-
-        // console.log(SNOW.entities);
+        }  
     }  
 
     this.update = function () {  
@@ -105,7 +103,7 @@ window.Play = function () {
                             // SNOW.Sound.play_sound(3);  
                         }
                         break; 
-                    } else if (SNOW.entities[i].type === 'diamond') {
+                    } else {
                         // 得分
                         SNOW.Sound.play_sound(0);  
                         SNOW.entities[i].show = false;

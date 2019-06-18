@@ -26,11 +26,8 @@ SNOW.Sled = function (width,height) {
         if (SNOW.Input.tapped && !this.play) {
             // 如果在初始状态下，激活跳起
             this.play = true;
-            this.velocity = this.jump;
-            
-            // 当不在点击状态 慢慢恢复到原来状态  
-            this.vx > this.oldVx ? this.vx-- : null; 
-        } else if (this.play) {
+            this.velocity = this.jump;  
+        } else if (this.play) { 
             this.velocity += this.gravity;
             this.vy = ~~(this.vy + this.velocity); 
             
@@ -45,9 +42,10 @@ SNOW.Sled = function (width,height) {
                 this.play = false;
             }  
             // SNOW.Sound.play_sound(0); 
-        }
-
-        
+        } else if (!this.play) {
+            // 当不在点击状态 慢慢恢复到原来状态  
+            this.vx > this.oldVx ? this.vx-- : null; 
+        }  
     }
     this.render = function () {
         SNOW.Draw.Sprite(this.img, this.ix, this.iy,this.disWid,this.disHei, this.vx, this.vy, this.width, this.height, this.rotation); 
