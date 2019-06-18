@@ -69,6 +69,19 @@ SNOW.RecordName = function () {
         SNOW.inputContent.style.display = "none";
     }
 }
+
+// 回收新建的对象
+SNOW.GC = function () {
+    // clear GC 
+    var i = SNOW.entities.length
+    while (i--) {
+        var t = SNOW.entities.splice(0, 1);
+        for (var item in t) {
+            delete t[item];
+        }
+        t = null;
+    }
+}
    
 /**
  * 绘制方法，正方形、圆形、图片、矢量图形、半圆
