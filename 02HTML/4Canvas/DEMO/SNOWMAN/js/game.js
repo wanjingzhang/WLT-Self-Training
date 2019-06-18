@@ -98,16 +98,16 @@ window.Play = function () {
                     if (SNOW.entities[i].type === 'stone') {
                         SNOW.entities[i].show = false;
                         SNOW.score.blood -= SNOW.score.bloodStep;  
-                        SNOW.Sound.play_sound(2); 
+                        SNOW.Sound.play_sound(1); 
                         if (SNOW.score.blood <= 0) { 
                             SNOW.changeState('GameOver'); 
                             SNOW.postData();  
-                            SNOW.Sound.play_sound(3);  
+                            // SNOW.Sound.play_sound(3);  
                         }
                         break; 
                     } else if (SNOW.entities[i].type === 'diamond') {
                         // 得分
-                        SNOW.Sound.play_sound(1);  
+                        SNOW.Sound.play_sound(0);  
                         SNOW.entities[i].show = false;
                         SNOW.score.coins += SNOW.score.coinStep; 
                         var level = ~~(SNOW.score.coins / 10); 
@@ -173,9 +173,10 @@ window.GameOver = function () {
             var vx = SNOW.WIDTH / 2 - 95;
             var vy = SNOW.HEIGHT / 2 - 44;
             var pst = 18;
+            var l = SNOW.rankings.length
             SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 160, SNOW.HEIGHT / 2 - 170 + 125, 15, 'black');
-            if (SNOW.rankings.length != 0) {
-                for (var i = 0, l = SNOW.entities.length;i<l;i++){ 
+            if (l !== 0) {
+                for (var i = 0;i<l;i++){ 
                     SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
                     SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
                     vy += pst;

@@ -1,21 +1,19 @@
  
 var Sound = function() {
-     this.soundAry = ['wing', 'point', 'hit', 'die'],
+     this.soundAry = [ 'point', 'hit'],//,'wing', 'die'
      this.channel_max = 10, //频道数量 
      this.audios = [],
      this.event = new MouseEvent('click'),
      this._listener = function(e) {
              e.target.muted = true;
              e.target.play();
-            //  console.log('ended' + e.target.src);
-             //  e.target.removeEventListener('ended', _listener, true);
-             //  e.target.addEventListener('ended', _listener, true);
+            //  console.log('ended' + e.target.src); 
          }
     this.init = function () { 
         for (var a = 0, l = this.soundAry.length; a < l;a++){
             var audioElement = document.createElement('audio');
              audioElement.setAttribute("id", this.soundAry[a]); 
-             audioElement.setAttribute('src', 'music/' + this.soundAry[a] + '.mp3?id=2'); 
+             audioElement.setAttribute('src', 'music/' + this.soundAry[a] + '.mp3'); 
              audioElement.load(); 
              this.audios.push(audioElement); 
              document.body.appendChild(this.audios[a]);   
@@ -33,7 +31,7 @@ var Sound = function() {
         while (a--) {
              this.audios[a].removeEventListener('ended', this._listener, true);  
          } 
-         },
+    },
     this.addEvent = function () {
         var a = this.soundAry.length;
         while (a--) {
@@ -46,7 +44,7 @@ var Sound = function() {
  */
     this.play_sound = function (s) {  
          var current = this.audios[s];
-         if (current.muted != false) {
+         if (current.muted !== false) {
              current.currentTime = 0;   
              current.muted = false;
              

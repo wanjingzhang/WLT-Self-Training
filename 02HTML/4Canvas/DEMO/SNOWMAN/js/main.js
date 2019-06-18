@@ -51,7 +51,7 @@ SNOW.Input = {
  *  碰撞检测
  */
 SNOW.Collides = function (object_1, object_2) {  
-    if ((object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < object_2.vx + object_1.width / 2)
+    if (~~(object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < ~~(object_2.vx + object_1.width / 2))
         && object_1.vy + object_1.height / 2 > object_2.vy
     ) { 
         console.log("collide");
@@ -120,8 +120,7 @@ SNOW.Draw = {
 }
 
 
-window.addEventListener('load', function () {
-
+window.addEventListener('load', function () { 
     SNOW.isNotMobile = !SNOW.isMobile();
 
     if (SNOW.isNotMobile) {

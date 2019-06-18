@@ -44,7 +44,7 @@ SNOW.Sled = function (width,height) {
                 this.vy = this.initialVy; 
                 this.play = false;
             }  
-            SNOW.Sound.play_sound(0); 
+            // SNOW.Sound.play_sound(0); 
         }
 
         
