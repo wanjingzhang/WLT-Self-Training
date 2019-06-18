@@ -21,9 +21,7 @@ SNOW.Stone = function (x,y, w) {
     }
 
     this.render = function () {
-        if (this.show) {
-            // SNOW.Draw.rect(this.vx, this.vy, this.width, this.height, '#000');;
-
+        if (this.show) { 
             SNOW.Draw.Sprite(this.img, 0, 0, 100, 70, this.vx, this.vy, this.width/2, this.height/2, 0);
         }
     }

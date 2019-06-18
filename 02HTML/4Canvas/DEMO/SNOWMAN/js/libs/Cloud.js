@@ -8,9 +8,8 @@ SNOW.Cloud = function (x, y) {
         this.type = 'cloud';
         this.vx = -0.10;
         this.remove = false;
-    }
-
-
+    } 
+    
     this.update = function () {
         // update coordinates
         this.x += this.vx;

@@ -3,51 +3,36 @@ window.Input = function () {
     this.init = function () {
         SNOW.entities = []; 
         SNOW.entities.push(new SNOW.Nameinput(SNOW.WIDTH / 2, SNOW.HEIGHT / 2, 236, 90));
-        var l = SNOW.entities.length;
-        while (l--) {
-            SNOW.entities[l].init();
-        } 
+        SNOW.entities[0].init();
     } 
 
-    this.update = function () { 
-        var l = SNOW.entities.length;
-        while (l--) {
-            SNOW.entities[l].update();
-            if (SNOW.Input.tapped && SNOW.entities[l].type == 'Nameinput') {
-                SNOW.changeState('Splash');
-                SNOW.Input.trapped = false;
-            }
-        }  
+    this.update = function () {  
+        SNOW.entities[0].update();
+        if (SNOW.Input.tapped) {
+            SNOW.changeState('Splash');
+            SNOW.Input.trapped = false;
+        } 
     }
 
     this.render = function () {  
     }
 }
 
-// scene opening
+// scene let's start
 window.Splash = function () {
     this.banner = new Image(); 
     if (SNOW.isOK()) {
         this.banner.src = "images/splash.png"; 
     } 
-    this.init = function () { 
-        SNOW.entities = [];
+    this.init = function () {
+        SNOW.entities = []; 
         SNOW.bg_grad = "day";
         SNOW.score.taps = 0;
         SNOW.score.coins = 0; 
-        SNOW.score.blood = 100; 
-
-        var i = i < SNOW.entities.length;
-        while (i--) {
-            SNOW.entities[i].init();
-        } 
+        SNOW.score.blood = 100;  
     }
 
-    this.update = function () {
-        var i = i < SNOW.entities.length;
-        while (i--) {
-             SNOW.entities[i].update();
-        } 
+    this.update = function () { 
         if (SNOW.Input.tapped) {
             SNOW.changeState('Play');
             SNOW.Input.trapped = false;
@@ -55,20 +40,16 @@ window.Splash = function () {
     }
 
     this.render = function () { 
-        SNOW.Draw.Image(this.banner, (SNOW.WIDTH - this.banner.width) / 2, (SNOW.HEIGHT - this.banner.height) / 2); 
+        SNOW.Draw.Image(this.banner, ~~((SNOW.WIDTH - this.banner.width) / 2), ~~((SNOW.HEIGHT - this.banner.height) / 2)) ; 
     }
 }
-
-
-
  
 /**
  * scene play 开始游戏
  */
 window.Play = function () {
     this.init = function () { 
-        SNOW.entities = []; 
-        
+        SNOW.entities = [];  
         SNOW.sled = new SNOW.Sled(100, 92); 
         // Add entities
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
@@ -105,8 +86,7 @@ window.Play = function () {
         }
         var i = SNOW.entities.length;
         while (i--) {
-            SNOW.entities[i].update();
-
+            SNOW.entities[i].update(); 
             if (SNOW.entities[i].type === 'stone' && SNOW.entities[i].show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
                 if (hit) { 
@@ -176,19 +156,13 @@ window.GameOver = function () {
     this.update = function () {  
         if (SNOW.Input.tapped && play == true) {  
             var x = SNOW.Input.x ;
-            var y = SNOW.Input.y;
-            console.log(x, y); 
+            var y = SNOW.Input.y; 
             if (SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)) { 
                 SNOW.changeState('Splash'); 
             } else if (!SNOW.isNotMobile){
                 SNOW.changeState('Splash'); 
-            }
-
-            //width: 10.3%  left:65% top:53.8%
-            // console.log(x,y);
-            //SNOW.Input.tapped = false;
-        }
-        // SNOW.bird.update();
+            } 
+        } 
     }
 
     this.render = function () {
@@ -197,17 +171,15 @@ window.GameOver = function () {
             
             var vx = SNOW.WIDTH / 2 - 95;
             var vy = SNOW.HEIGHT / 2 - 44;
+            var pst = 18;
             SNOW.Draw.text(SNOW.score.coins, SNOW.WIDTH / 2 + 160, SNOW.HEIGHT / 2 - 170 + 125, 15, 'black');
             if (SNOW.rankings.length != 0) {
                 for (var i = 0, l = SNOW.entities.length;i<l;i++){ 
                     SNOW.Draw.text(SNOW.rankings[i].userName, vx, vy, 15, 'black');
                     SNOW.Draw.text(SNOW.rankings[i].userScore, vx + 100, vy, 15, 'black');
-                    vy += 18;
+                    vy += pst;
                 }  
-            }
-            
-             
-            // SNOW.Draw.rect(SNOW.WIDTH / 2 - 57, (SNOW.HEIGHT / 2 - 140 + 210), 115, 70, 'red');
+            } 
         }
     }
 }

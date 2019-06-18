@@ -13,12 +13,8 @@ SNOW.Nameinput = function (x, y, w,h) {
         }
         this.type = 'Nameinput'; 
         this.status = 'default'; 
-    }
-
-    this.changeState = function (status) {
-        this.status = status;
-    }
-
+    } 
+    
     this.update = function () {
         
     }
@@ -27,7 +23,5 @@ SNOW.Nameinput = function (x, y, w,h) {
         SNOW.Draw.Image(this.img, (SNOW.WIDTH - this.img.width) / 2, (SNOW.HEIGHT - this.img.height) / 2); 
         SNOW.Draw.text(SNOW.userName, SNOW.WIDTH/2,SNOW.HEIGHT/2,12,'black');
     }
-
-    this.respawn = function () { 
-    }
+ 
 }

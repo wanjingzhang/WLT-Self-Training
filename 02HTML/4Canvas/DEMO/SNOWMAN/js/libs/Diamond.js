@@ -22,15 +22,13 @@ SNOW.Diamond = function (x, y) {
     this.render = function () {
         if (this.show) {
             SNOW.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.vx, this.vy, this.width / 2, this.height / 2, 0);
-        }
-        
+        } 
     }
 
     this.respawn = function () {
         this.show = true;
         this.vx = SNOW.WIDTH + ~~(Math.random() * 150); //初始化为屏幕宽度
         this.speed = -2 - SNOW.Speed;
-        // console.log('respawn diamond.x = ' + this.vx);
-        
+        // console.log('respawn diamond.x = ' + this.vx); 
     }
 }
