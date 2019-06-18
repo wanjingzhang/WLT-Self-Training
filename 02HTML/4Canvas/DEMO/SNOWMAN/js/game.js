@@ -50,7 +50,7 @@ window.Splash = function () {
 window.Play = function () {
     this.init = function () { 
         SNOW.entities = [];  
-        SNOW.sled = new SNOW.Sled(100, 92); 
+        SNOW.sled = new SNOW.Sled(100, 92);  
         // Add entities
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
@@ -68,13 +68,13 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
         SNOW.entities.push(new SNOW.Tree(Math.random()  + 100, SNOW.HEIGHT - 140));
         
-        SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH )); 
-        // SNOW.entities.push(new SNOW.Tree(200, SNOW.HEIGHT - 80));
-        // SNOW.entities.push(new SNOW.Tree(250, SNOW.HEIGHT - 80));
+        SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH ));  
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
         } 
+
+        console.log(SNOW.entities);
     }  
 
     this.update = function () {  
@@ -85,44 +85,33 @@ window.Play = function () {
             checkCollision = true;
         }
         var i = SNOW.entities.length;
-        while (i--) {
-            SNOW.entities[i].update(); 
-            if (SNOW.entities[i].type === 'stone' && SNOW.entities[i].show === true) { 
+        while (i--) { 
+            SNOW.entities[i].update();
+            if (i < 4 && i >8) { break; };
+            if ( SNOW.entities[i].show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
                 if (hit) { 
-                    SNOW.entities[i].show = false;
-                    SNOW.score.blood -= SNOW.score.bloodStep; 
-                    // console.log('失血' + SNOW.score.bloodStep); 
-                    SNOW.Sound.play_sound(2); 
-                    if (SNOW.score.blood <= 0) {
-                        
-                        SNOW.changeState('GameOver'); 
-                        SNOW.postData(); 
-                        // console.log('游戏结束'); 
-                        SNOW.Sound.play_sound(3); 
-                        // this.unload();
-                    }
-                    break;
-                }
-            } else if (SNOW.entities[i].type === 'diamond' && SNOW.entities[i].show === true) { 
-                var hitd = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
-                if (hitd) { 
-                    // 得分
-                    SNOW.entities[i].show = false;
-                    SNOW.score.coins += SNOW.score.coinStep; 
-                    SNOW.Sound.play_sound(1); 
-                    
-                    var level = ~~(SNOW.score.coins / 10); 
-                    var bg = SNOW.gradients[level % 4];
-                     
-                    SNOW.bg_grad = bg;
-                    SNOW.Speed = level + 1;
-                    
-                    // post 得分 
-                    
-                    // console.log('得分：' + SNOW.score.coinStep);
-                    // console.log('level',level, 'speed',SNOW.Speed,'bg',bg);
-                    break;
+                    if (SNOW.entities[i].type === 'stone') {
+                        SNOW.entities[i].show = false;
+                        SNOW.score.blood -= SNOW.score.bloodStep;  
+                        SNOW.Sound.play_sound(2); 
+                        if (SNOW.score.blood <= 0) { 
+                            SNOW.changeState('GameOver'); 
+                            SNOW.postData();  
+                            SNOW.Sound.play_sound(3);  
+                        }
+                        break; 
+                    } else if (SNOW.entities[i].type === 'diamond') {
+                        // 得分
+                        SNOW.Sound.play_sound(1);  
+                        SNOW.entities[i].show = false;
+                        SNOW.score.coins += SNOW.score.coinStep; 
+                        var level = ~~(SNOW.score.coins / 10); 
+                        var bg = SNOW.gradients[level % 4]; 
+                        SNOW.bg_grad = bg;
+                        SNOW.Speed = level + 1; 
+                        break;
+                    } 
                 }
             } 
         }     
@@ -135,8 +124,7 @@ window.Play = function () {
         SNOW.Draw.text('HP' , SNOW.WIDTH - 146, 20, 15, 'orange');
     }
 }
-
-
+ 
 window.GameOver = function () {
     var play = false; 
     var gameoverInterval;
