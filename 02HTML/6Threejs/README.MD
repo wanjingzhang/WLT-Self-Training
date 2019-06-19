@@ -1,4 +1,9 @@
-# Three.js 原理
+# Three.js 是什么
+* 一款webGL框架，封装了webGL原生的api、简化创建3D场景的过程。
+* 采用3D图形最佳实践保证极高的性能。支持交互。
+* 包含数据库：矩阵、投影和矢量运算。
+* 内置文件格式：支持文本格式、JSON或二进制格式。
+
  
 1. Scene Objecct 场景对象
 ，是一个3D容器，2D世界中没有摄像机，所看到的东西都是一样的，3D中需要摄像头来定义视角。
@@ -41,9 +46,9 @@ LinkIn Learning 3D Graphics on the Web with Three.js
 
 [Clara io](https://clara.io)
 
-# 如何使用
+# 新建场景 
 1. 新建一个能够预览的场景在Three.
-1. js里面需要3件事，场景、相机、渲染，有了这3样我们才可以用相机渲染场景。//透视相机 投射模型模拟人眼看到的。它最常被用作为3D场景做渲染。
+1. js里面需要3件事，场景Scene、相机Camera、渲染Renderer，有了这3样我们才可以用相机渲染场景。//透视相机 投射模型模拟人眼看到的。它最常被用作为3D场景做渲染。
     1. `var scene = new THREE.Scene();`
     1. `var camera = new THREE.PerspectiveCamera(fov,aspect,near,far);`
     1. `var renderer = new THREE.WebGLRenderer();` 
@@ -54,3 +59,7 @@ LinkIn Learning 3D Graphics on the Web with Three.js
 >  far — 平面远视锥.
 * `renderer.setSize(window.innerWidth, window.innerHeight);//渲染大小`
 * `document.body.appendChild(renderer.domElement); //加入渲染对象` 
+
+# 创建物体
+1. 形状Geometry、材质Material、模型Mesh
+1. 形状是点的集合，代表在3D坐标下的各种几何形状。材质决定了模型的光照反应。模型指最终的网络模型。模型=形状+材质
