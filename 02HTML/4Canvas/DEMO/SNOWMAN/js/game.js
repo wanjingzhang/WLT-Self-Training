@@ -147,7 +147,7 @@ window.GameOver = function () {
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y; 
             console.log('this.x ='+ x +'|this.y =' + y);
-            if( SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)  ){  
+            if( SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641) ){  
                 SNOW.GC(); 
                 SNOW.changeState('Splash');
             } else if (!SNOW.isNotMobile) {
