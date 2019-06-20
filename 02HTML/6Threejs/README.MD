@@ -63,3 +63,15 @@ LinkIn Learning 3D Graphics on the Web with Three.js
 # 创建物体
 1. 形状Geometry、材质Material、模型Mesh
 1. 形状是点的集合，代表在3D坐标下的各种几何形状。材质决定了模型的光照反应。模型指最终的网络模型。模型=形状+材质
+
+# 渲染阴影
+1. 比较花计算机性能computer power，所以默认是没有渲染阴影的。
+    `renderer.shadowMapEnabled = true;`
+1. 还需要设置哪个物体投射阴影，哪个物体接受阴影。
+```javascript 
+    // 在例子中平面接受 球形和立方体投射的阴影
+    plane.receiveShadow = true;  
+    cube.castShadow = true; 
+    sphere.castShadow = true;
+```
+        
