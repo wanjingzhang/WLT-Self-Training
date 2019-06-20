@@ -40,8 +40,8 @@ SNOW.resize = function () {
     SNOW.popBackground.style.width = SNOW.currentWidth + 'px';
     SNOW.popBackground.style.height = SNOW.currentHeight + 'px';
  
-    SNOW.offset.top = SNOW.relCanvas.offsetTop;
-    SNOW.offset.left = SNOW.relCanvas.offsetLeft; 
+    SNOW.offset.top = SNOW.cacheCanvas.offsetTop;
+    SNOW.offset.left = SNOW.cacheCanvas.offsetLeft; 
 
     var resizeInterval;
     resizeInterval = setInterval(function () {

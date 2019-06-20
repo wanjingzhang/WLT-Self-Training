@@ -26,8 +26,8 @@ SNOW.Input = {
                 SNOW.Sound.addEvent();  
                 SNOW.Sound.initPlay();
             }
-            this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH / SNOW.scale;
-            this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT / SNOW.scale;
+            this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
+            this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
             this.tapped = true;    
             clearInterval(SNOW.tapInterval);
 
@@ -59,9 +59,7 @@ SNOW.Collides = function (object_1, object_2) {
     } 
 }
 
-/**
- *  姓名检测 
- */
+// 姓名检测
 SNOW.RecordName = function () { 
     SNOW.userName = document.querySelector('.userName').value; 
     if (SNOW.userName == '' || SNOW.userName.length < 1) {
@@ -72,9 +70,7 @@ SNOW.RecordName = function () {
     }
 }
 
-/**
- *  回收新建的对象
- */ 
+// 回收新建的对象
 SNOW.GC = function () {
     // clear GC 
     var i = SNOW.entities.length
