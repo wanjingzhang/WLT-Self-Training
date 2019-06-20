@@ -113,6 +113,10 @@ function getSize(width, height) {
 }
 ```
 
+### 6. requestAnimationFrame
+> 被浏览器按间隔调用，浏览器会确保尽可能的流畅和高效。尤其在处理渲染的方法上。
+> setInterval 在没有被浏览时也是被触发的。造成高CPU使用和极差的性能。
+
 # JS 高级功能
 ### 1. 异步调用包括 Promises, async, await
 > 可以不阻隔用户操作，是页面响应变得流畅。

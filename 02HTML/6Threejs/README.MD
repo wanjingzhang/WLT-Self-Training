@@ -34,17 +34,23 @@ FBX, OBJ, STL
 [Engin Arslan](https://www.linkedin.com/in/enginarslan)
 
 1. DEMO
-[水母](http://aleksandarrodic.com/p/jellyfish/
-)
+ 
+[水母](http://aleksandarrodic.com/p/jellyfish/)
+
 
 LinkIn Learning 3D Graphics on the Web with Three.js
+
 [3D全球地图 cool](https://www.gsmlondon.ac.uk/global-oil-map/)
+
 
 [Live-Server 动态实时启动服务器](https://github.com/tapio/live-server)
 
+
 [3D Modering Web](https://sketchfab.com)
+
 
 [Clara io](https://clara.io)
 
 
+[Web GUI](https://github.com/dataarts/dat.gui)
         

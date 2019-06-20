@@ -37,3 +37,23 @@
 ```
 
 #### 添加动画
+> 使用 `requestAnimationFrame(renderScene);`
+
+#### stats状态 和 GUI调节控制 工具
+```javascript   
+    <script type="text/javascript" src="../libs/stats.js"></script>
+    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+```
+
+#### 重新设置窗口大小
+```javascript
+    window.addEventlistener('resize',onResize,false); 
+    function onResize() {
+        // 对于照相机来说我们需要改变视角属性，它保留屏幕方向的比例
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        // 对于渲染来说我们需要改变其大小
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+```
