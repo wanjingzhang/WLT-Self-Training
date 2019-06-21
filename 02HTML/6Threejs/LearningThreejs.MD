@@ -128,6 +128,36 @@ var sphereGeometry = new THREE.SphereGeometry(4,20,20); // 定义对象的形状
 var sphereMaterial = new THREE.MeshBasicMaterial({color:0x7777ff); // 定义基础材质
 var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial); // 组合形状和材质，形成网格
 ```
-> 几何体的属性和方法，在Three.js中几个物体基本上是3D空间中点的集合，也称为顶点，以及将这些点链接在一起的多个面。
-
-
+> 几何体的属性和方法，在Three.js中几个物体基本上是3D空间中点的集合，也称为顶点，以及将这些点链接在一起的多个面。每个正方形的面有2个三角形组成
+```javascript
+var vertices = [
+     new THREE.Vector3(1,3,1),
+     new THREE.Vector3(1,3,-1),
+     new THREE.Vector3(1,-1,1),
+     new THREE.Vector3(1,-1,-1),
+     new THREE.Vector3(-1,3,-1),
+     new THREE.Vector3(-1,3,1),
+     new THREE.Vector3(-1,-1,-1),
+     new THREE.Vector3(-1,-1,1)
+];
+var faces = [
+    new THREE.Face3(0,2,1),
+    new THREE.Face3(2,3,1),
+    new THREE.Face3(4,6,5),
+    new THREE.Face3(6,7,5),
+    new THREE.Face3(4,5,1),
+    new THREE.Face3(5,0,1),
+    new THREE.Face3(7,6,2),
+    new THREE.Face3(6,3,2),
+    new THREE.Face3(5,7,0),
+    new THREE.Face3(7,2,0),
+    new THREE.Face3(1,3,4),
+    new THREE.Face3(3,6,4),
+];
+var geom = new THREE.Geometry();
+geom.vertices = vertices;
+geom.faces = faces;
+geom.computeFaceNormals();
+```
+> 顶点vertices中存放了构成立方体的点。这些点以三角形的面存储在faces数组中。Face顶点的顺序 作为面向前面的面。
+THREE.Face3元素定义立方体的六个边，每个面就2个三角形。

@@ -65,6 +65,12 @@ var SNOW = {
         SNOW.android = SNOW.ua.indexOf('android') > -1 ? true : false;
         SNOW.ios = (SNOW.ua.indexOf('iphone') > -1 || SNOW.ua.indexOf('ipad') > -1) ? true : false; 
         // SNOW.orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
+        SNOW.stats.setMode(0); // 0: fps, 1: ms 
+        // Align top-left
+        SNOW.stats.domElement.style.position = 'absolute';
+        SNOW.stats.domElement.style.left = '0px';
+        SNOW.stats.domElement.style.top = '0px';
+
         SNOW.StatsDiv.appendChild(SNOW.stats.dom);
         if (SNOW.isNotMobile) {
             SNOW.WIDTH = 800;
