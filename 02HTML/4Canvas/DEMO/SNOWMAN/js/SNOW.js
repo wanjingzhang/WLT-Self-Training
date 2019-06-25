@@ -24,7 +24,7 @@ var SNOW = {
         coins: 0,
         coinStep: 1,
         blood: 100,
-        bloodStep:80
+        bloodStep:20
     },
     Speed: 1, // 移动倍数
     RATIO: null,

@@ -20,6 +20,9 @@ SNOW.Sled = function (width,height) {
         this.rotation = 0;
         this.play = false;
         this.type = 'sled'; 
+
+        this.step = 0;
+        this.amplitude = 0.2;
     }
 
     this.update = function () {  
@@ -45,6 +48,10 @@ SNOW.Sled = function (width,height) {
         } else if (!this.play) {
             // 当不在点击状态 慢慢恢复到原来状态  
             this.vx > this.oldVx ? this.vx-- : null; 
+            // 上下位置加上正弦移动
+            this.step = this.step + this.amplitude ~~(Math.cos(step);
+            console.log(this.step);
+            //this.vy = initialVy + (10 * ));
         }  
     }
     this.render = function () {

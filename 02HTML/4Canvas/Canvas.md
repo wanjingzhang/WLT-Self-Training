@@ -123,4 +123,75 @@
    > 基础动画
    > 双倍缓冲动画
 
-1. 结论
+1. 结论 路径绘图分成4步：
+    1. 路径开始与封闭：`beginPath / closePath`  
+    1. 移动与画线：`moveTo / lineTo / arc...`
+    1. 指定填色或线条颜色：`fillStyle / strokeStyle`
+    1. 最后把路径填色或者描绘出来：`stroke / fill`
+1. 变形位移
+    `ctx.translate //移动`
+    `ctx.scale //缩放`
+    `ctx.rotate //旋转`
+1. 状态的保存与还原
+    `ctx.save() //存储当下坐标状态`
+    `ctx.restore() //还原上一个存储的状态`
+1. 原则先进后出stack，利用存储状态，将函数产生的坐标变化限制在函数内
+    ```javascript
+    function drawSomething(x,y,angle){
+        ctx.save(); //存储进函数前的状态 
+        ctx.translate(x,y);
+        ctx.rotate(angle);
+        //...drawing
+        ctx.restore(); //还原进来前的状态，前面的位移旋转将不会影响当前画布
+    }
+    ```
+    > 相对关系的绘制
+    ```javascript 
+    ctx.save();
+    var i = 7;
+    while(i){
+        ctx.fillRect(0,0,50,50);
+        ctx.translate(70,0);
+        i--;
+    }
+    ctx.restore();
+    ```
+    > 相对角度的绘制
+    ```javascript
+    ctx.save();
+    ctx.translate(100, 100);
+    var i = 7;
+    while (i) {
+        ctx.beginPath(); 
+        ctx.arc(50, 0, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.rotate(Math.PI / 4);
+        ctx.scale(0.8, 0.8);
+        i--;
+    }
+    ctx.restore(); 
+    ```
+    > 残影
+    ```javascript
+    var canvas = document.getElementById('mycanvas');
+    var ctx = canvas.getContext("2d");
+    var ww = window.innerWidth;
+    var wh = window.innerHeight;
+    canvas.width = ww;
+    canvas.height = wh;  
+    var obj = {
+        x: 200,
+        y: 0
+    };
+    function draw() {
+        ctx.fillStyle = "black";
+        ctx.fillStyle = "rgba(0,0,0,0.2)"; // 残影
+        ctx.fillRect(0, 0, ww, wh);
+        obj.x += 5;
+        obj.y += 5;
+        ctx.fillStyle = 'red';
+        ctx.fillRect(obj.x, obj.y, 50, 50);
+    }
+    setInterval(draw, 100); 
+    ```
+    
