@@ -49,8 +49,8 @@ SNOW.Sled = function (width,height) {
             // 当不在点击状态 慢慢恢复到原来状态  
             this.vx > this.oldVx ? this.vx-- : null; 
             // 上下位置加上正弦移动
-            this.step = this.step + this.amplitude ~~(Math.cos(step);
-            console.log(this.step);
+            // this.step = this.step + this.amplitude + ~~(Math.cos(this.step));
+            // console.log(this.step);
             //this.vy = initialVy + (10 * ));
         }  
     }
