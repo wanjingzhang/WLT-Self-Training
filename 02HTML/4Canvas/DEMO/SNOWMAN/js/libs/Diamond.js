@@ -1,6 +1,7 @@
-SNOW.Diamond = function (x, y) {
+SNOW.Diamond = function (x, y,id) {
     this.init = function () {
-        this.vx = x;
+        this.id = id;
+        this.vx = x - id * 50;
         this.vy = y;
         this.speed = -2;
         this.img = new Image();
@@ -8,14 +9,15 @@ SNOW.Diamond = function (x, y) {
         this.width = 50;
         this.height = 66;
         this.type = 'diamond';
-        this.show = true;
+        this.show = true; 
     }
 
     this.update = function () {
         this.vx += this.speed  ;
-
-        if (this.vx <= ( - this.width )) { //移出屏幕时 重新绘制
-            this.respawn();
+       
+        if (this.vx <= (- this.width)) { //
+            this.show = false;
+            //this.respawn();   console.log('移出屏幕时 重新绘制 id = ' + this.id);
         } 
     }
 
@@ -27,7 +29,7 @@ SNOW.Diamond = function (x, y) {
 
     this.respawn = function () {
         this.show = true;
-        this.vx = SNOW.WIDTH + ~~(Math.random() * 150); //初始化为屏幕宽度
+        this.vx = SNOW.WIDTH + id * 50; //初始化为屏幕宽度
         this.speed = -2 - SNOW.Speed;
         // console.log('respawn diamond.x = ' + this.vx); 
     }

@@ -16,8 +16,7 @@ var SNOW = {
         top: 0,
         left: 0
     },
-    entities: [],
-    distance: 0,
+    entities: [], 
     sled: null,
     score: {
         taps: 0,
@@ -26,7 +25,9 @@ var SNOW = {
         blood: 100,
         bloodStep:20
     },
-    Speed: 1, // 移动倍数
+    level: 0, // 共三关
+    Speed: 0, // 移动倍数 
+    distance: 0,
     RATIO: null,
     Scale: 1,
     bg_grad: "day", 
@@ -48,7 +49,7 @@ var SNOW = {
     popBackground: document.querySelector('.popBackground'),
     inputContent: document.querySelector('.inputContent'),  
     StatsDiv: document.querySelector('.Status'),
-    stats : new Stats(),
+    stats: new Stats(), 
     init: function () { 
         SNOW.Sound.init();
         var grad; 
@@ -143,8 +144,7 @@ var SNOW = {
                 e.preventDefault();
             }
         }, false); 
-        
-        
+         
         SNOW.changeState("Input"); 
         SNOW.loop();
         
@@ -199,6 +199,23 @@ var SNOW = {
         };
         xhttp.open("POST", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/insertData.php" + params, true);
         xhttp.send();
+    },
+    resetGame: function (s) {
+        if (s = -1) {
+            SNOW.entities = []; 
+            SNOW.score.taps = 0;
+            SNOW.score.coins = 0;
+            SNOW.level = 0;
+            SNOW.Speed = 0;
+            SNOW.distance = 0; 
+        } else {
+            SNOW.score.taps = 0;
+            SNOW.score.coins = 0;
+            SNOW.distance = 0; 
+        }
+        var bg = SNOW.gradients[SNOW.level];
+        SNOW.bg_grad = bg;
+        
     }
 
 }

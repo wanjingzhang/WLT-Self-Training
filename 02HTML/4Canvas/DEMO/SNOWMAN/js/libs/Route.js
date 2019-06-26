@@ -15,7 +15,8 @@ SNOW.Route = function (x, y, width) {
 
     this.update = function () {
         this.x += this.vx ;
-        if (this.x < -this.endposition ) {
+        if (this.x < -this.endposition) {
+            console.log('route respawn');
             this.respawn();
         }
     }

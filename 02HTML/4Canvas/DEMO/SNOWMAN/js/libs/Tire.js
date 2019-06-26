@@ -8,13 +8,32 @@ var obj = {
     x: 200,
     y: 0
 };
-function draw() {
-    ctx.fillStyle = "black";
-    ctx.fillStyle = "rgba(0,0,0,0.2)"; // 残影
-    ctx.fillRect(0, 0, ww, wh);
-    obj.x += 5;
-    obj.y += 5;
-    ctx.fillStyle = 'red';
-    ctx.fillRect(obj.x, obj.y, 50, 50);
+
+var ship = {
+    x: 0,
+    y: 0,
+    deg: 0
 }
-setInterval(draw, 100); 
+
+function init() {
+    ship.deg = 45;
+}
+
+function update() {
+    ship.x += 0.1;
+    ship.y += 0.5;
+}
+function draw() {
+    ctx.fillStyle = 'black'; 
+    ctx.fillRect(0, 0, ww,wh);
+
+    ctx.fillStyle = 'white';
+    ctx.fillRect(ship.x, ship.y, 50, 50);
+
+    requestAnimationFrame(draw);
+}
+
+init();
+
+setInterval(update, 100);  //update 
+requestAnimationFrame(draw);
