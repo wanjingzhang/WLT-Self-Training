@@ -152,10 +152,10 @@ var SNOW = {
             SNOW.resize();
         }
     }, 
-    changeState: function (state) {
+    changeState: function (state,com) {
         SNOW.state = state;
-        SNOW.game = new window[state]();
-        SNOW.game.init();
+        SNOW.game = new window[state](com);
+        SNOW.game.init(); 
     },
     loop: function () {
         requestAnimationFrame(SNOW.loop);
@@ -201,20 +201,22 @@ var SNOW = {
         xhttp.send();
     },
     resetGame: function (s) {
-        if (s = -1) {
+        if (s === -1) {
             SNOW.entities = []; 
             SNOW.score.taps = 0;
             SNOW.score.coins = 0;
-            SNOW.level = 0;
+            SNOW.level = 1;
             SNOW.Speed = 0;
             SNOW.distance = 0; 
-        } else {
-            SNOW.score.taps = 0;
-            SNOW.score.coins = 0;
-            SNOW.distance = 0; 
+            SNOW.score.blood = 100; 
+            SNOW.bg_grad = SNOW.gradients[0];
+        } else if(s > 0){
+            SNOW.score.taps = 0; 
+            SNOW.distance = 0;
+            var bg = SNOW.gradients[SNOW.level];
+            SNOW.bg_grad = bg;
         }
-        var bg = SNOW.gradients[SNOW.level];
-        SNOW.bg_grad = bg;
+       
         
     }
 

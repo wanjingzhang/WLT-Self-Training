@@ -27,11 +27,9 @@ window.Splash = function () {
     this.init = function () {
         // clear GC
         SNOW.GC();  
-        if (SNOW.level < 3) {
-            SNOW.distance = 0;
+        if (SNOW.level < 3) { 
             SNOW.level++;
-            SNOW.Speed++; 
-            SNOW.score.blood = 100;
+            SNOW.Speed++;  
         }   
         console.log('Splash'); 
     }
@@ -100,13 +98,13 @@ window.Play = function () {
         if (SNOW.distance >= 3 && SNOW.level <= 3 && SNOW.score.blood > 0) { // 大于20屏幕， 升级一次
             if (SNOW.level === 3) {
                 // 第三关过完结束上传游戏数据  
-                SNOW.changeState('GameOver');
+                SNOW.changeState('GameOver',true);
                 SNOW.postData();
-                SNOW.resetGame(-1);
+                SNOW.resetGame();
             } else {
                 console.log(" 大于20屏幕， 升级一次 level" + SNOW.level);
                 SNOW.changeState('Splash');
-                SNOW.resetGame(1);
+                SNOW.resetGame(SNOW.level);
             }
             
         } 
@@ -154,7 +152,7 @@ window.Play = function () {
     }
 }
  
-window.GameOver = function () {
+window.GameOver = function (com) {
     var play = false;  
     this.init = function () { 
         var that = this;
@@ -163,7 +161,12 @@ window.GameOver = function () {
         gameoverInterval = setInterval(function () {
             clearInterval(gameoverInterval);
             that.banner = new Image();
-            that.banner.src = "images/top.png";  
+            if (com === true) {
+                that.banner.src = "images/com.png";  
+            } else {
+                that.banner.src = "images/top.png";   
+            }
+            
             play = true;
         }, 500); 
         SNOW.Sound.removeEvent();
@@ -177,11 +180,11 @@ window.GameOver = function () {
             if( SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)  ){  
                 SNOW.GC(); 
                 SNOW.changeState('Splash');
-                SNOW.level = 1;
+                SNOW.resetGame(-1);
             } else if (!SNOW.isNotMobile) {
                 SNOW.GC();
                 SNOW.changeState('Splash');
-                SNOW.level = 1;
+                SNOW.resetGame(-1);
             }
         } 
     } 
