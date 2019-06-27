@@ -30,8 +30,7 @@ window.Splash = function () {
         if (SNOW.level < 3) { 
             SNOW.level++;
             SNOW.Speed++;  
-        }   
-        console.log('Splash'); 
+        }    
     }
 
     this.update = function () { 
@@ -72,7 +71,8 @@ window.Play = function () {
         
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
-        
+         
+        SNOW.entities.push(new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT-120));
         SNOW.entities.push(SNOW.sled);
         SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
         SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
@@ -82,31 +82,32 @@ window.Play = function () {
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
-        }   
+        }  
+        
+        console.log(SNOW.entities);
  
     }  
 
     this.update = function () {  
         if (!SNOW.diamonds[0].show && !SNOW.diamonds[1].show && !SNOW.diamonds[2].show) {
-            SNOW.distance.current++; console.log('distance =' + SNOW.distance.current);
+            SNOW.distance.current++;
+            console.log( "current=" + SNOW.distance.current );
             var i = 3;  
             while (i--) { 
                 SNOW.diamonds[i].respawn(); 
+                
             } 
-        } 
-        console.log('distance =' + SNOW.distance.current + ' level =' + SNOW.level + ' blood =' + SNOW.score.blood);
-        if (SNOW.distance.current >= SNOW.distance.step && SNOW.level <= 3 && SNOW.score.blood > 0) { // 大于最多屏， 升级一次
+        }  
+        if (SNOW.distance.current >= SNOW.distance.step && SNOW.level <= 3 && SNOW.hp.blood > 0) { // 大于最多屏， 升级一次
             if (SNOW.level === 3) {
                 // 第三关过完结束上传游戏数据  
                 SNOW.changeState('GameOver',true);
                 SNOW.postData();
                 SNOW.resetGame();
-            } else {
-                console.log(" 大于20屏幕， 升级一次 level" + SNOW.level);
+            } else { 
                 SNOW.changeState('Splash');
                 SNOW.resetGame(SNOW.level);
-            }
-            
+            } 
         } 
 
         //check for a collision if the user tapped on this game tick;
@@ -122,23 +123,28 @@ window.Play = function () {
             if ( SNOW.entities[i].show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
                 if (hit) { 
-                    if (SNOW.entities[i].type === 'stone') {
-                        SNOW.entities[i].show = false;
-                        SNOW.score.blood -= SNOW.score.bloodStep;  
-                        SNOW.Sound.play_sound(1); 
-                        if (SNOW.score.blood <= 0) { 
-                            SNOW.changeState('GameOver'); 
-                            SNOW.postData();  
-                            // SNOW.Sound.play_sound(3);  
-                        }
-                        break; 
-                    } else {
-                        // 得分
-                        SNOW.Sound.play_sound(0);  
-                        SNOW.entities[i].show = false;
-                        SNOW.score.coins += SNOW.score.coinStep;  
-                        break;
-                    } 
+                    switch (SNOW.entities[i].type) {
+                        case 'stone':
+                            SNOW.entities[i].show = false;
+                            SNOW.hp.blood -= SNOW.hp.bloodStep;  
+                            SNOW.Sound.play_sound(1); 
+                            if (SNOW.hp.blood <= 0) { 
+                                SNOW.changeState('GameOver'); 
+                                SNOW.postData();  
+                                // SNOW.Sound.play_sound(3);  
+                            }
+                            break;
+                        case 'diamond':
+                            // 得分
+                            SNOW.Sound.play_sound(0);  
+                            SNOW.entities[i].show = false;
+                            SNOW.score.coins += SNOW.score.coinStep;  
+                            break;  
+                        case 'lock':
+                            SNOW.entities[i].show = false;
+                            SNOW.hp.blood += SNOW.hp.bloodStep;
+                    }
+ 
                 }
             } 
         }     
@@ -147,7 +153,7 @@ window.Play = function () {
     this.render = function () {
         SNOW.Draw.text('SCORE '+ SNOW.score.coins, 100, 20, 15, 'orange'); 
         SNOW.Draw.rect(SNOW.WIDTH - 130, 8, 42, 12, "white"); // bg
-        SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.score.blood/100), 10, "orange");
+        SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.hp.blood/100), 10, "orange");
         SNOW.Draw.text('HP' , SNOW.WIDTH - 146, 20, 15, 'orange');
     }
 }
@@ -175,8 +181,7 @@ window.GameOver = function (com) {
     this.update = function () {  
         if (SNOW.Input.tapped && play == true) {  
             var x = SNOW.Input.x ;
-            var y = SNOW.Input.y; 
-            console.log('this.x ='+ x +'|this.y =' + y);
+            var y = SNOW.Input.y;  
             if( SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)  ){  
                 SNOW.GC(); 
                 SNOW.changeState('Splash');

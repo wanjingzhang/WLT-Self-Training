@@ -6,8 +6,7 @@ var Sound = function() {
      this.event = new MouseEvent('click'),
      this._listener = function(e) {
              e.target.muted = true;
-             e.target.play();
-            //  console.log('ended' + e.target.src); 
+             e.target.play(); 
          }
     this.init = function () { 
         for (var a = 0, l = this.soundAry.length; a < l;a++){

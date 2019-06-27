@@ -62,7 +62,6 @@ function refresh() {
 } 
 
 // 屏幕转动
-SNOW.changeOrientation = function () {  
-    console.log('height', SNOW.HEIGHT, 'width', SNOW.WIDTH);// 
+SNOW.changeOrientation = function () {   
     refresh(); 
 }  

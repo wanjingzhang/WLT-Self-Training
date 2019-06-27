@@ -53,8 +53,7 @@ SNOW.Input = {
 SNOW.Collides = function (object_1, object_2) {  
     if (~~(object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < ~~(object_2.vx + object_1.width / 2))
         && object_1.vy + object_1.height / 2 > object_2.vy
-    ) { 
-        console.log("collide");
+    ) {  
         return true;
     } 
 }
@@ -112,9 +111,7 @@ SNOW.Draw = {
         SNOW.ctx.translate(-(destX + destW / 2), -(destY + destH / 2));
         SNOW.ctx.drawImage(img,srcX, srcY, srcW, srcH, destX, destY, destW, destH);
         SNOW.ctx.restore();
-
-        // console.log(arguments);
-        // console.log("translateX=" + (-(destX + destW/2)) + " Y="+ (-(destY + destH/2)));
+  
     },
     // Arguments [246, 420, 20, "#050000"] (4)
     semiCircle: function (x, y, r, col) {

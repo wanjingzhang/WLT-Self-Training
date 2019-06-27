@@ -3,8 +3,7 @@ SNOW.Stone = function (x,y, w) {
         this.vx = x;
         this.vy = y;
         this.width = w ;
-        this.height = w;
-        this.speed = -2;
+        this.height = w; 
         this.img = new Image();
         this.img.src = 'images/stone.png';
         this.width = 100;
@@ -14,7 +13,7 @@ SNOW.Stone = function (x,y, w) {
     }
 
     this.update = function () {
-        this.vx += this.speed;
+        this.vx -= SNOW.Speed;
         if (this.vx <= - this.width) {
             this.respawn();
         }
@@ -28,7 +27,6 @@ SNOW.Stone = function (x,y, w) {
 
     this.respawn = function () {
         this.show = true;
-        this.vx = SNOW.WIDTH;
-        this.speed = -2 - SNOW.Speed;
+        this.vx = SNOW.WIDTH; 
     }
 }

@@ -17,20 +17,23 @@ var SNOW = {
         left: 0
     },
     entities: [], 
-    sled: null,
+    sled: null, 
     score: {
         taps: 0,
         coins: 0,
-        coinStep: 1,
+        coinStep: 1, 
+    },
+    hp: {
         blood: 100,
-        bloodStep:20
+        bloodStep: 20,
+        locks: 2, 
     },
     level: 0, // 共三关
-    Speed: 0, // 移动倍数 
+    Speed: 1, // 移动倍数 
 
     distance: {
         current: 0, 
-        step:20, // 每关的距离为10
+        step:5, // 每关的距离为10
     },
     RATIO: null,
     Scale: 1,
@@ -120,8 +123,7 @@ var SNOW = {
         grad.addColorStop(0.7, '#69a');
         grad.addColorStop(1, '#000');
         SNOW.gradients.night = grad;
-   
-        // console.log('isOK');
+    
         // add events
         SNOW.relCanvas.addEventListener('click', function (e) {
             if (SNOW.isOK()) {
@@ -195,9 +197,7 @@ var SNOW = {
         var xhttp = new XMLHttpRequest();
         var params = '?userName=' + SNOW.userName + '&userScore=' + SNOW.score.coins;
         xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) { 
-                // console.log('------success post data-------'); 
-
+            if (this.readyState == 4 && this.status == 200) {   
                 SNOW.readData();
             }
         };
@@ -210,13 +210,14 @@ var SNOW = {
             SNOW.score.taps = 0;
             SNOW.score.coins = 0;
             SNOW.level = 1;
-            SNOW.Speed = 0;
+            SNOW.Speed = 1;
             SNOW.distance.current = 0; 
-            SNOW.score.blood = 100; 
+            SNOW.hp.blood = 100; 
             SNOW.bg_grad = SNOW.gradients[0];
         } else if(s > 0){
             SNOW.score.taps = 0; 
             SNOW.distance.current = 0;
+            SNOW.hp.locks = 2;
             var bg = SNOW.gradients[SNOW.level];
             SNOW.bg_grad = bg;
         }

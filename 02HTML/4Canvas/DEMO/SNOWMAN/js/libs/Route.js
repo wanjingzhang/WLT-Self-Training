@@ -3,20 +3,17 @@ SNOW.Route = function (x, y, width) {
         this.x = x;
         this.y = y;
         this.oldx = x;
-        this.width = width + 10;
-        this.vx = -2;
+        this.width = width + 10; 
         this.r = 120;
         this.radius = this.r / 2;
         this.name = "BottomRoute";  
         this.count = ~~(SNOW.WIDTH * 2 / this.r) + 1;
-        this.endposition = ~~(this.count/2 - 1) * this.r;
-        // console.log('route x: ' + this.x + ' endposition:' + this.endposition);
+        this.endposition = ~~(this.count/2 - 1) * this.r; 
     }
 
     this.update = function () {
-        this.x += this.vx ;
-        if (this.x < -this.endposition) {
-            console.log('route respawn');
+        this.x -= SNOW.Speed;
+        if (this.x < -this.endposition) { 
             this.respawn();
         }
     }
@@ -30,7 +27,6 @@ SNOW.Route = function (x, y, width) {
     }
 
     this.respawn = function () {
-        this.x = this.oldx ;
-        this.speed = SNOW.Speed ;
+        this.x = this.oldx ; 
     }
 }
