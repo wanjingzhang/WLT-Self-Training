@@ -27,7 +27,11 @@ var SNOW = {
     },
     level: 0, // 共三关
     Speed: 0, // 移动倍数 
-    distance: 0,
+
+    distance: {
+        current: 0, 
+        step:20, // 每关的距离为10
+    },
     RATIO: null,
     Scale: 1,
     bg_grad: "day", 
@@ -207,12 +211,12 @@ var SNOW = {
             SNOW.score.coins = 0;
             SNOW.level = 1;
             SNOW.Speed = 0;
-            SNOW.distance = 0; 
+            SNOW.distance.current = 0; 
             SNOW.score.blood = 100; 
             SNOW.bg_grad = SNOW.gradients[0];
         } else if(s > 0){
             SNOW.score.taps = 0; 
-            SNOW.distance = 0;
+            SNOW.distance.current = 0;
             var bg = SNOW.gradients[SNOW.level];
             SNOW.bg_grad = bg;
         }

@@ -88,14 +88,14 @@ window.Play = function () {
 
     this.update = function () {  
         if (!SNOW.diamonds[0].show && !SNOW.diamonds[1].show && !SNOW.diamonds[2].show) {
-            SNOW.distance++;console.log('distance =' + SNOW.distance);
+            SNOW.distance.current++; console.log('distance =' + SNOW.distance.current);
             var i = 3;  
             while (i--) { 
                 SNOW.diamonds[i].respawn(); 
             } 
         } 
-        console.log('distance =' + SNOW.distance + ' level =' + SNOW.level + ' blood =' + SNOW.score.blood);
-        if (SNOW.distance >= 3 && SNOW.level <= 3 && SNOW.score.blood > 0) { // 大于20屏幕， 升级一次
+        console.log('distance =' + SNOW.distance.current + ' level =' + SNOW.level + ' blood =' + SNOW.score.blood);
+        if (SNOW.distance.current >= SNOW.distance.step && SNOW.level <= 3 && SNOW.score.blood > 0) { // 大于最多屏， 升级一次
             if (SNOW.level === 3) {
                 // 第三关过完结束上传游戏数据  
                 SNOW.changeState('GameOver',true);
