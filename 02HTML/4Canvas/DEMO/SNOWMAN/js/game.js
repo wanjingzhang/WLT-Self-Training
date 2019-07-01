@@ -53,7 +53,8 @@ window.Play = function () {
     this.init = function () { 
         
         SNOW.entities = [];  
-        SNOW.sled = new SNOW.Sled(100, 92);  
+        SNOW.sled = new SNOW.Sled(100, 92); 
+        SNOW.lock = new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT - 120);
         // Add entities
         SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
@@ -72,7 +73,7 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
          
-        SNOW.entities.push(new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT-120));
+        SNOW.entities.push(SNOW.lock);
         SNOW.entities.push(SNOW.sled);
         SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
         SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
@@ -94,9 +95,12 @@ window.Play = function () {
             console.log( "current=" + SNOW.distance.current );
             var i = 3;  
             while (i--) { 
-                SNOW.diamonds[i].respawn(); 
-                
+                SNOW.diamonds[i].respawn();  
             } 
+            if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
+                SNOW.lock.respawn();
+                // console.log('SNOW.distance.current=' + SNOW.distance.current + "show Lock ~~");
+            }
         }  
         if (SNOW.distance.current >= SNOW.distance.step && SNOW.level <= 3 && SNOW.hp.blood > 0) { // 大于最多屏， 升级一次
             if (SNOW.level === 3) {

@@ -13,14 +13,7 @@ SNOW.Lock = function (x,y) {
     }
 
     this.update = function () {
-        this.vx -= SNOW.Speed;
-        if (this.vx <= (-this.width)) {
-            if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
-                this.respawn();
-                console.log('SNOW.distance.current=' + SNOW.distance.current + "show Lock ~~");
-            }
-            
-        } 
+        this.vx > 0 ? this.vx -= SNOW.Speed : null;
     }
 
     this.render = function () {
@@ -31,7 +24,7 @@ SNOW.Lock = function (x,y) {
 
     this.respawn = function () { 
         this.show = true;
-        this.vx = SNOW.WIDTH + ~~(SNOW.WIDTH * Math.random);
+        this.vx = SNOW.WIDTH + 150; // 出现在金币后面
         SNOW.hp.locks--;  
     }
 }

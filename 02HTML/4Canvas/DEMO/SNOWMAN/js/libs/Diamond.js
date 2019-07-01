@@ -1,7 +1,7 @@
 SNOW.Diamond = function (x, y,id) {
     this.init = function () {
         this.id = id;
-        this.vx = x - id * 50;
+        this.vx = SNOW.WIDTH + id * 50;
         this.vy = y; 
         this.img = new Image();
         this.img.src = 'images/1.png';
@@ -30,5 +30,6 @@ SNOW.Diamond = function (x, y,id) {
     this.respawn = function () {
         this.show = true;
         this.vx = SNOW.WIDTH + id * 50; //初始化为屏幕宽度 
+        console.log('初始化为屏幕宽度  id = ' + this.id);
     }
 }
