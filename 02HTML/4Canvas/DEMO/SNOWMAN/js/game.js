@@ -78,8 +78,7 @@ window.Play = function () {
         SNOW.entities.push(SNOW.sled);
         SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
         SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
-        SNOW.entities.push(new SNOW.Tree(Math.random() + 100, SNOW.HEIGHT - 140));
-        SNOW.entities.push(new SNOW.Hp(SNOW.WIDTH - 200, 20));
+        SNOW.entities.push(new SNOW.Tree(Math.random() + 100, SNOW.HEIGHT - 140)); 
         
         SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH ));  
         var i = SNOW.entities.length;
@@ -148,7 +147,8 @@ window.Play = function () {
                             break;  
                         case 'lock':
                             SNOW.entities[i].show = false;
-                            SNOW.hp.blood += SNOW.hp.bloodStep;
+                            SNOW.hp.blood > 100 ?
+                            SNOW.hp.blood += SNOW.hp.bloodStep:null;
                     }
  
                 }
