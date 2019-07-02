@@ -1,32 +1,35 @@
-SNOW.Route = function (x, y, width) {
+SNOW.Route = function (x, y, width ) {
     this.init = function () {
-        this.x = x;
+        this.x = x; 
         this.y = y;
-        this.oldx = x;
-        this.width = width + 10; 
-        this.r = 120;
-        this.radius = this.r / 2;
-        this.name = "BottomRoute";  
-        this.count = ~~(SNOW.WIDTH * 2 / this.r) + 1;
-        this.endposition = ~~(this.count/2 - 1) * this.r; 
+        this.oldx = x;   
+        this.img = new Image();
+        this.img.src = 'images/bg/mountains.png';
+        this.tree = new Image();
+        this.tree.src = 'images/bg/tree.png';
+        this.width = width; 
+
     }
 
     this.update = function () {
         this.x -= SNOW.Speed;
-        if (this.x < -this.endposition) { 
+        if (this.x < -this.width) { 
             this.respawn();
-        }
+        }     
     }
 
     this.render = function () {
-        SNOW.Draw.rect(this.oldx, this.y, this.width, 100, "#22cc22");
-        var i = SNOW.entities.length;
-        while (i--) {
-            SNOW.Draw.semiCircle(this.x + i * this.r, this.y, this.radius  , '#fff');
-        }  
+        // mountains
+        // SNOW.Draw.Image(this.img, this.x, this.y);
+        // SNOW.Draw.Image(this.img, this.x + this.width, this.y);
+        
+        // trees
+        SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 223);
+        SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 223); 
+        
     }
 
     this.respawn = function () {
-        this.x = this.oldx ; 
+        this.x = this.oldx;
     }
 }

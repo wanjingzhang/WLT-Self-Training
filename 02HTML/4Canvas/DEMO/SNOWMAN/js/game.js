@@ -75,11 +75,11 @@ window.Play = function () {
          
         SNOW.entities.push(SNOW.lock);
         SNOW.entities.push(SNOW.sled);
-        SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
-        SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
-        SNOW.entities.push(new SNOW.Tree(Math.random() + 100, SNOW.HEIGHT - 140)); 
+        // SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
+        // SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
+        // SNOW.entities.push(new SNOW.Tree(Math.random() + 100, SNOW.HEIGHT - 140)); 
         
-       SNOW.entities.push(new SNOW.Route(0, SNOW.HEIGHT - 80  , SNOW.WIDTH ));  
+       SNOW.entities.push(new SNOW.Route(0, 0  , 1800, 600 ,1800));  
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
