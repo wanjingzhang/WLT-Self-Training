@@ -6,10 +6,10 @@ SNOW.Nameinput = function (x, y, w,h) {
         this.height = h;
         this.img = new Image(); 
         if (SNOW.isOK()) {
-            this.img.src = "images/introduction.png";
+            this.img.src = "images/introduction.svg";
         } 
         else {
-            this.img.src = "images/app_rotate_to_play.png";
+            this.img.src = "images/app_rotate_to_play.svg";
         }
         this.type = 'Nameinput'; 
         this.status = 'default'; 

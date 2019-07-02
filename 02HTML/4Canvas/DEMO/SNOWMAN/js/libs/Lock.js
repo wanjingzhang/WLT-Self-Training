@@ -3,11 +3,11 @@ SNOW.Lock = function (x,y) {
         this.vx = x;
         this.vy = y; 
         this.img = new Image();
-        this.img.src = 'images/lock.png';
-        this.width = 168;
-        this.height = 291;
-        this.displayWidth = 21;
-        this.displayHeight = 36;
+        this.img.src = 'images/jug.svg';
+        this.width = 1200;
+        this.height = 1200;
+        this.displayWidth = 30;
+        this.displayHeight = 30;
         this.type = 'lock'
         this.show = false ;
     }

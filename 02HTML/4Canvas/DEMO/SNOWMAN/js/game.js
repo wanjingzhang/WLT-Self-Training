@@ -58,10 +58,9 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.sled = new SNOW.Sled(100, 92); 
-        SNOW.lock = new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT - 120);
-        
         SNOW.entities.push(new SNOW.Snow());  
-
+        SNOW.lock = new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT - 120);
+         
         // 设置
         var i = 3;
         SNOW.diamonds = [];
@@ -158,9 +157,9 @@ window.Play = function () {
 
     this.render = function () {
         SNOW.Draw.text('SCORE '+ SNOW.score.coins, 100, 20, 15, 'orange'); 
-        // SNOW.Draw.rect(SNOW.WIDTH - 130, 8, 42, 12, "white"); // bg
-        // SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.hp.blood/100), 10, "orange");
-        // SNOW.Draw.text('HP' , SNOW.WIDTH - 146, 20, 15, 'orange');
+        SNOW.Draw.rect(SNOW.WIDTH - 130, 8, 42, 12, "white"); // bg
+        SNOW.Draw.rect(SNOW.WIDTH - 129, 9, ~~(40*SNOW.hp.blood/100), 10, "orange");
+        SNOW.Draw.text('HP' , SNOW.WIDTH - 146, 20, 15, 'orange');
     }
 }
  

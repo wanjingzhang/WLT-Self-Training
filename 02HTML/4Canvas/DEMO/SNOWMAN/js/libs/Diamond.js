@@ -4,11 +4,11 @@ SNOW.Diamond = function (x, y,id) {
         this.vx = SNOW.WIDTH + id * 50;
         this.vy = y; 
         this.img = new Image();
-        this.img.src = 'images/1.png';
-        this.width = 100;
-        this.height = 120;
-        this.displayWidth = 20;
-        this.displayHeight = 24;
+        this.img.src = 'images/diamond.svg';
+        this.width = 1200;
+        this.height = 1200;
+        this.displayWidth = 40;
+        this.displayHeight = 40;
         this.type = 'diamond';
         this.show = true; 
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 224" style="enable-background:new 0 0 600 224;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.4;fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st1{font-family:'ArialMT';}
+	.st2{font-size:12px;}
+	.st3{font-family:'SIL-Hei-Med-Jian';}
+	.st4{font-size:18px;}
+</style>
+<g id="Layer_2">
+	<rect class="st0" width="600" height="224"/>
+</g>
+<g id="Layer_1">
+	<text transform="matrix(1 0 0 1 246.2449 41.502)" class="st1 st2">Introduction</text>
+	<text transform="matrix(1 0 0 1 70.6965 82.2491)" class="st3 st4">游戏分为三关，每一关的速度都会不一样由慢到快。</text>
+	<text transform="matrix(1 0 0 1 70.6965 106.2491)" class="st3 st4">场景设置有功能性的物件，以及排名用的金币。</text>
+	<text transform="matrix(1 0 0 1 70.6965 130.2491)" class="st3 st4">生命值一共有5条。水壶可以加生命值。头盔可以无</text>
+	<text transform="matrix(1 0 0 1 70.6965 154.2491)" class="st3 st4">敌状态，自动消除障碍物。雪橇碰到可以加速。</text>
+	<text transform="matrix(1 0 0 1 240.5 201)" class="st1 st2">Click to Continue</text>
+</g>
+</svg>
