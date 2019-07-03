@@ -7,6 +7,8 @@ SNOW.Route = function (x, y, width ) {
         this.img.src = 'images/bg/mountains.png';
         this.tree = new Image();
         this.tree.src = 'images/bg/tree.png';
+        this.trees = new Image();
+        this.trees.src = 'images/bg/trees.png';
         this.width = width; 
 
     }
@@ -20,12 +22,16 @@ SNOW.Route = function (x, y, width ) {
 
     this.render = function () {
         // mountains
-        // SNOW.Draw.Image(this.img, this.x, this.y);
-        // SNOW.Draw.Image(this.img, this.x + this.width, this.y);
+        SNOW.Draw.Image(this.img, this.x, this.y);
+        SNOW.Draw.Image(this.img, this.x + this.width, this.y);
         
         // trees
         SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 223);
         SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 223); 
+
+        // trees
+        SNOW.Draw.Image(this.trees, this.x, SNOW.HEIGHT - 253);
+        SNOW.Draw.Image(this.trees, this.x + this.width, SNOW.HEIGHT - 253); 
         
     }
 

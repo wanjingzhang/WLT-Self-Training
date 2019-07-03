@@ -190,7 +190,7 @@ var SNOW = {
                 //return hs; 
             }
         };
-        xhttp.open("GET", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/getTop.php", true);
+        xhttp.open("GET", "http://wltshtdi2.w256-e1.ezwebtest.com/shanghai/WLT/Snowman/data/getTop.php", true);
         xhttp.send();
     },
     postData: function () {
@@ -201,7 +201,7 @@ var SNOW = {
                 SNOW.readData();
             }
         };
-        xhttp.open("POST", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/insertData.php" + params, true);
+        xhttp.open("POST", "http://wltshtdi2.w256-e1.ezwebtest.com/shanghai/WLT/Snowman/data/insertData.php" + params, true);
         xhttp.send();
     },
     resetGame: function (s) {
