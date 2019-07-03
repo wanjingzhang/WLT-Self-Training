@@ -33,10 +33,12 @@ SNOW.resize = function () {
     if ((window.innerWidth / window.innerHeight) > (SNOW.WIDTH / SNOW.HEIGHT)) {
         SNOW.currentWidth = SNOW.WIDTH * window.innerHeight / SNOW.HEIGHT;
         SNOW.currentHeight = window.innerHeight;
+        SNOW.Scale = SNOW.currentWidth / SNOW.WIDTH;
     }
     else {
         SNOW.currentWidth = window.innerWidth;
         SNOW.currentHeight = SNOW.HEIGHT * window.innerWidth / SNOW.WIDTH;
+        SNOW.Scale =  SNOW.currentHeight / SNOW.HEIGHT;
     }   
       
 

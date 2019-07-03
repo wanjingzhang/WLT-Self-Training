@@ -59,6 +59,8 @@ window.Play = function () {
         SNOW.sled = new SNOW.Sled(100, 92); 
           
         SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120); 
+
+        SNOW.route = new SNOW.Route(0, 0, 1800, 600, 1800);
         // 设置
         var i = 3;
         SNOW.diamonds = [];
@@ -79,7 +81,7 @@ window.Play = function () {
         // SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
         // SNOW.entities.push(new SNOW.Tree(Math.random() + 100, SNOW.HEIGHT - 140)); 
         
-       SNOW.entities.push(new SNOW.Route(0, 0  , 1800, 600 ,1800));  
+        SNOW.entities.push(SNOW.route);  
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
@@ -87,6 +89,7 @@ window.Play = function () {
         console.log(SNOW.entities);
  
     }  
+ 
 
     this.update = function () {  
         if (!SNOW.diamonds[0].show && !SNOW.diamonds[1].show && !SNOW.diamonds[2].show) {
@@ -107,9 +110,11 @@ window.Play = function () {
                 SNOW.changeState('GameOver',true);
                 SNOW.postData();
                 SNOW.resetGame();
+                
             } else { 
                 SNOW.changeState('Splash');
                 SNOW.resetGame(SNOW.level);
+                SNOW.route.changeBG();
             } 
         } 
 
@@ -187,6 +192,7 @@ window.GameOver = function (com) {
         if (SNOW.Input.tapped && play == true) {  
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y;  
+            console.log('x= '+ x +' y='+ y );
             if( SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)  ){  
                 SNOW.GC(); 
                 SNOW.changeState('Splash');

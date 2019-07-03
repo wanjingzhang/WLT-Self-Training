@@ -3,15 +3,31 @@ SNOW.Route = function (x, y, width ) {
         this.x = x; 
         this.x2 = x;
         this.y = y;
-        this.oldx = x;   
-        // this.img = new Image();
-        // this.img.src = 'images/bg/mountains.png';
+        this.oldx = x;    
         this.tree = new Image();
         this.tree.src = 'images/bg/tree.png';
         this.trees = new Image();
         this.trees.src = 'images/bg/trees.png';
-        this.width = width; 
+        this.width = width;  
+    }
 
+    this.changeBG = function () {
+       
+        switch (SNOW.level) {
+            case 1:
+                this.tree = new Image();
+                this.tree.src = 'images/bg/tree.png'; 
+                this.trees = new Image();
+                this.trees.src = 'images/bg/trees.png';
+                break;
+            case 2:
+                console.log('changeBG=>' + SNOW.level);
+                this.tree = new Image();
+                this.tree.src = 'images/bg/desert.svg'; 
+                break;
+            case 3:
+                break;
+        } 
     }
 
     this.update = function () {
@@ -25,11 +41,7 @@ SNOW.Route = function (x, y, width ) {
         } 
     }
 
-    this.render = function () {
-        // mountains
-        // SNOW.Draw.Image(this.img, this.x, this.y);
-        // SNOW.Draw.Image(this.img, this.x + this.width, this.y);
-        
+    this.render = function () { 
         // trees
         SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 240);
         SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 240); 

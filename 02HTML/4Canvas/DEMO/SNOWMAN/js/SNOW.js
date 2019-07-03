@@ -18,6 +18,8 @@ var SNOW = {
     },
     entities: [], 
     sled: null, 
+    route: null,
+    cocktail:null,
     score: {
         taps: 0,
         coins: 0,
@@ -25,7 +27,7 @@ var SNOW = {
     },
     hp: {
         blood: 100,
-        bloodStep: 20,
+        bloodStep: 80,
         locks: 2, 
     },
     level: 0, // 共三关
@@ -33,7 +35,7 @@ var SNOW = {
 
     distance: {
         current: 0, 
-        step:5, // 每关的距离为10
+        step:2, // 每关的距离为10
     },
     RATIO: null,
     Scale: 1,
@@ -220,9 +222,7 @@ var SNOW = {
             console.log('level=' + SNOW.level);
             var bg = SNOW.gradients[SNOW.level];
             SNOW.bg_grad = bg;
-        }
-       
-        
+        }  
     }
 
 }

@@ -26,8 +26,8 @@ SNOW.Input = {
                 SNOW.Sound.addEvent();  
                 SNOW.Sound.initPlay();
             }
-            this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.scale;
-            this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.scale;
+            this.x = (data.pageX - SNOW.offset.left) / SNOW.WIDTH /SNOW.Scale;
+            this.y = (data.pageY - SNOW.offset.top) /SNOW.HEIGHT /SNOW.Scale;
             this.tapped = true;    
             clearInterval(SNOW.tapInterval);
 
