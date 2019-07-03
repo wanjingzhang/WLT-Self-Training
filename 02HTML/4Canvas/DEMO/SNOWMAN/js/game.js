@@ -50,17 +50,15 @@ window.Splash = function () {
  * scene play 开始游戏
  */
 window.Play = function () {
-    this.init = function () { 
-        
+    this.init = function () {  
         SNOW.entities = [];
         // Add entities
         // SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.sled = new SNOW.Sled(100, 92); 
-        SNOW.entities.push(new SNOW.Snow());  
-        SNOW.lock = new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT - 120);
-         
+          
+        SNOW.lock = new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT - 120); 
         // 设置
         var i = 3;
         SNOW.diamonds = [];
@@ -74,6 +72,8 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
          
         SNOW.entities.push(SNOW.lock);
+        
+        SNOW.entities.push(new SNOW.Snow());
         SNOW.entities.push(SNOW.sled);
         // SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
         // SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
@@ -83,8 +83,7 @@ window.Play = function () {
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
-        }  
-        
+        }   
         console.log(SNOW.entities);
  
     }  
@@ -123,7 +122,8 @@ window.Play = function () {
         var i = SNOW.entities.length;
         while (i--) { 
             SNOW.entities[i].update();
-            if (i < 4 && i >8) { break; };
+            if (i > 5) { continue; }
+            // 排除不需要碰撞的物体。排除不显示的物体
             if ( SNOW.entities[i].show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
                 if (hit) { 

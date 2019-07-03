@@ -14,9 +14,8 @@ SNOW.Diamond = function (x, y,id) {
     }
 
     this.update = function () {
-        this.vx -= SNOW.Speed  ;
-       
-        if (this.vx <= (- this.width)) { //
+        this.vx -= SNOW.Speed; 
+        if (this.vx < 0 ) {
             this.show = false; 
         } 
     }
@@ -30,6 +29,6 @@ SNOW.Diamond = function (x, y,id) {
     this.respawn = function () {
         this.show = true;
         this.vx = SNOW.WIDTH + id * 50; //初始化为屏幕宽度 
-        console.log('初始化为屏幕宽度  id = ' + this.id);
+        console.log('初始化为屏幕宽度  id = ' + this.id );
     }
 }
