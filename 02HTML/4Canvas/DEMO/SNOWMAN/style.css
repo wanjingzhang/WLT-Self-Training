@@ -17,6 +17,8 @@ canvas, .popBackground{
 	top: 0;
 	bottom: 0;
 	margin: auto;
+	max-width: 1500px;
+	max-height: 750px;
 }
 
 #cacheCanvas{
@@ -31,6 +33,12 @@ canvas, .popBackground{
 .popBackground{
 	background: rgba(0,0 , 0, 0.8);
 	display: none;
+}
+
+#container{
+	display:block;
+	width: 100%;
+	height: 100%;
 }
 
 .inputContent{
@@ -68,9 +76,7 @@ canvas, .popBackground{
 }
 
 @media only screen and (max-height: 836px) {
-  canvas{
-	top:auto;
-	bottom: 0;
+  canvas{ 
   }
 }
  

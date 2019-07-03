@@ -7,7 +7,7 @@ var SNOW = {
     HEIGHT:0,
     isNotMobile: false,
     isLandscape: false,
-    Body:null,
+    Container:null,
     canvas: null, //cache canvas,
     relCanvas: null,
     ctx: null, 
@@ -64,7 +64,7 @@ var SNOW = {
         // SNOW.currentWidth = SNOW.WIDTH;
         // SNOW.currentHeight = SNOW.HEIGHT;
         // this is our canvas element
-        SNOW.Body = document.getElementById('body'); 
+        SNOW.Container = document.getElementById('container'); 
         SNOW.cacheCanvas = document.getElementById('cacheCanvas');
         SNOW.relCanvas = document.getElementById('canvas');  
         SNOW.ctx = SNOW.cacheCanvas.getContext('2d', { alpha: false });
@@ -82,20 +82,19 @@ var SNOW = {
         SNOW.StatsDiv.appendChild(SNOW.stats.dom);
         if (SNOW.isNotMobile) {
             SNOW.WIDTH = 800;
-            SNOW.HEIGHT = 600;
+            SNOW.HEIGHT = 400;
         } else {
             SNOW.WIDTH = window.innerWidth;
             SNOW.HEIGHT = window.innerHeight;
             //强制让内容超过 
-            SNOW.Body.style.height = (SNOW.HEIGHT + 100) + "px";
+            // SNOW.Container.style.height = (SNOW.HEIGHT + 100) + "px";
             window.scrollTo(0, 1);
             //重置成新高度
-            SNOW.Body.style.height = SNOW.HEIGHT + "px";
+            // SNOW.Container.style.height = SNOW.HEIGHT + "px";
             //非常重要，用于兼容不同机型，防止浏览器窗口移动
             document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-        }
-
-        SNOW.RATIO = SNOW.WIDTH / SNOW.HEIGHT;  
+        } 
+        
         SNOW.relCanvas.width = SNOW.cacheCanvas.width = SNOW.WIDTH;
         SNOW.relCanvas.height = SNOW.cacheCanvas.height = SNOW.HEIGHT;  
        

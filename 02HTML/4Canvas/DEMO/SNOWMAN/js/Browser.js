@@ -28,15 +28,21 @@ SNOW.isOK = function() {
 }
 
 // 屏幕大小改变
-SNOW.resize = function () {
-    SNOW.currentHeight = window.innerHeight;
-    SNOW.currentWidth = ~~(SNOW.currentHeight * SNOW.RATIO) + 1; 
-    SNOW.scale = SNOW.currentWidth / SNOW.WIDTH;   
+SNOW.resize = function () { 
+
+    if ((window.innerWidth / window.innerHeight) > (SNOW.WIDTH / SNOW.HEIGHT)) {
+        SNOW.currentWidth = SNOW.WIDTH * window.innerHeight / SNOW.HEIGHT;
+        SNOW.currentHeight = window.innerHeight;
+    }
+    else {
+        SNOW.currentWidth = window.innerWidth;
+        SNOW.currentHeight = SNOW.HEIGHT * window.innerWidth / SNOW.WIDTH;
+    }   
+      
 
     SNOW.relCanvas.style.width = SNOW.cacheCanvas.style.width = SNOW.currentWidth + "px";
-    SNOW.relCanvas.style.height = SNOW.cacheCanvas.style.height = SNOW.currentHeight + "px";
- 
-    SNOW.Body.style.width = SNOW.currentWidth + "px";
+    SNOW.relCanvas.style.height = SNOW.cacheCanvas.style.height = SNOW.currentHeight + "px"; 
+
     SNOW.popBackground.style.width = SNOW.currentWidth + 'px';
     SNOW.popBackground.style.height = SNOW.currentHeight + 'px';
  
