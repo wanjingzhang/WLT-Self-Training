@@ -1,14 +1,14 @@
-SNOW.Lock = function (x,y) {
+SNOW.Cocktail = function (x,y) {
     this.init = function () { 
         this.vx = x;
         this.vy = y; 
         this.img = new Image();
-        this.img.src = 'images/jug.svg';
-        this.width = 1200;
-        this.height = 1200;
-        this.displayWidth = 30;
-        this.displayHeight = 30;
-        this.type = 'lock'
+        this.img.src = 'images/cocktail.svg';
+        this.width = 662;
+        this.height = 724;
+        this.displayWidth = 20;
+        this.displayHeight = 22;
+        this.type = 'cocktail'
         this.show = false ;
     }
 

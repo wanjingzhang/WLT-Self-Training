@@ -58,7 +58,7 @@ window.Play = function () {
         // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         SNOW.sled = new SNOW.Sled(100, 92); 
           
-        SNOW.lock = new SNOW.Lock(SNOW.WIDTH, SNOW.HEIGHT - 120); 
+        SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120); 
         // 设置
         var i = 3;
         SNOW.diamonds = [];
@@ -71,7 +71,7 @@ window.Play = function () {
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
          
-        SNOW.entities.push(SNOW.lock);
+        SNOW.entities.push(SNOW.cocktail);
         
         SNOW.entities.push(new SNOW.Snow());
         SNOW.entities.push(SNOW.sled);
@@ -97,7 +97,7 @@ window.Play = function () {
                 SNOW.diamonds[i].respawn();  
             } 
             if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
-                SNOW.lock.respawn();
+                SNOW.cocktail.respawn();
                 // console.log('SNOW.distance.current=' + SNOW.distance.current + "show Lock ~~");
             }
         }  
@@ -144,7 +144,7 @@ window.Play = function () {
                             SNOW.entities[i].show = false;
                             SNOW.score.coins += SNOW.score.coinStep;  
                             break;  
-                        case 'lock':
+                        case 'cocktail':
                             SNOW.entities[i].show = false;
                             SNOW.hp.blood > 100 ?
                             SNOW.hp.blood += SNOW.hp.bloodStep:null;

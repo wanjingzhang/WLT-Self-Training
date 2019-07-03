@@ -37,8 +37,8 @@ var SNOW = {
     },
     RATIO: null,
     Scale: 1,
-    bg_grad: "day", 
-    gradients: ["day", "dusk", "night", "dawn"],
+    bg_grad: "dusk", 
+    gradients: ["dusk", "night", "dawn", "day"],
     game: null,
     //当前的宽高 既是屏幕的宽高
     currentWidth: null,
@@ -217,6 +217,7 @@ var SNOW = {
             SNOW.score.taps = 0; 
             SNOW.distance.current = 0;
             SNOW.hp.locks = 2;
+            console.log('level=' + SNOW.level);
             var bg = SNOW.gradients[SNOW.level];
             SNOW.bg_grad = bg;
         }
