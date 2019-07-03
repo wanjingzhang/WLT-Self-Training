@@ -7,28 +7,11 @@ SNOW.Route = function (x, y, width ) {
         this.tree = new Image();
         this.tree.src = 'images/bg/tree.png';
         this.trees = new Image();
-        this.trees.src = 'images/bg/trees.png';
+        this.trees.src = 'images/bg/trees.png'; 
+        this.desert = new Image();
+        this.desert.src = 'images/bg/desert.svg'; 
         this.width = width;  
-    }
-
-    this.changeBG = function () {
-       
-        switch (SNOW.level) {
-            case 1:
-                this.tree = new Image();
-                this.tree.src = 'images/bg/tree.png'; 
-                this.trees = new Image();
-                this.trees.src = 'images/bg/trees.png';
-                break;
-            case 2:
-                console.log('changeBG=>' + SNOW.level);
-                this.tree = new Image();
-                this.tree.src = 'images/bg/desert.svg'; 
-                break;
-            case 3:
-                break;
-        } 
-    }
+    } 
 
     this.update = function () {
         this.x -= SNOW.Speed;
@@ -42,13 +25,23 @@ SNOW.Route = function (x, y, width ) {
     }
 
     this.render = function () { 
-        // trees
-        SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 240);
-        SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 240); 
+
+        switch (SNOW.level) {
+            case 1:
+                // trees
+                SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 240);
+                SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 240);
+            
+                // trees
+                SNOW.Draw.Image(this.trees, this.x2, SNOW.HEIGHT - 253);
+                SNOW.Draw.Image(this.trees, this.x2 + this.width, SNOW.HEIGHT - 253);
+                break;
+            case 2:
+                // trees
+                SNOW.Draw.Image(this.desert, this.x + this.width, SNOW.HEIGHT - 623);
+                SNOW.Draw.Image(this.desert, this.x, SNOW.HEIGHT - 623);
+        }
         
-        // trees
-        SNOW.Draw.Image(this.trees, this.x2, SNOW.HEIGHT - 253);
-        SNOW.Draw.Image(this.trees, this.x2 + this.width, SNOW.HEIGHT - 253); 
         
     }
 

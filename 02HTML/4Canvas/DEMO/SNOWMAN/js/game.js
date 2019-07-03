@@ -113,8 +113,7 @@ window.Play = function () {
                 
             } else { 
                 SNOW.changeState('Splash');
-                SNOW.resetGame(SNOW.level);
-                SNOW.route.changeBG();
+                SNOW.resetGame(SNOW.level); 
             } 
         } 
 
