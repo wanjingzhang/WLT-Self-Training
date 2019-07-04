@@ -17,8 +17,8 @@ canvas, .popBackground{
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	max-width: 1500px;
-	max-height: 750px;
+	max-width: 1600px;
+	max-height: 800px;
 }
 
 #cacheCanvas{
