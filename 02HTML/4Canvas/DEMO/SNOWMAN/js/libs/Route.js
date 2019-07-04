@@ -10,6 +10,9 @@ SNOW.Route = function (x, y, width ) {
         this.trees.src = 'images/bg/trees.png'; 
         this.desert = new Image();
         this.desert.src = 'images/bg/desert.svg'; 
+        this.sea = new Image();
+        this.sea.src = 'images/bg/sea.svg';
+
         this.width = width;  
     } 
 
@@ -24,8 +27,7 @@ SNOW.Route = function (x, y, width ) {
         } 
     }
 
-    this.render = function () { 
-
+    this.render = function () {  
         switch (SNOW.level) {
             case 1:
                 // trees
@@ -37,12 +39,17 @@ SNOW.Route = function (x, y, width ) {
                 SNOW.Draw.Image(this.trees, this.x2 + this.width, SNOW.HEIGHT - 253);
                 break;
             case 2:
-                // trees
-                SNOW.Draw.Image(this.desert, this.x + this.width, SNOW.HEIGHT - 623);
-                SNOW.Draw.Image(this.desert, this.x, SNOW.HEIGHT - 623);
-        }
-        
-        
+                // desert
+                SNOW.Draw.Image(this.desert, this.x + this.width, SNOW.HEIGHT - 268);
+                SNOW.Draw.Image(this.desert, this.x, SNOW.HEIGHT - 268);
+                break;
+            case 3:
+                // desert
+                SNOW.Draw.Image(this.sea, this.x + this.width, SNOW.HEIGHT - 152);
+                SNOW.Draw.Image(this.sea, this.x, SNOW.HEIGHT - 152);
+                break;
+                
+        } 
     }
 
     this.respawn = function (id) {
