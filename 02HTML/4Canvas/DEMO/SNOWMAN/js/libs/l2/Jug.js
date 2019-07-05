@@ -1,12 +1,12 @@
-SNOW.Diamond = function (x, y,id) {
+SNOW.Jug = function (x, y,id) {
     this.init = function () {
         this.id = id;
         this.vx = SNOW.WIDTH + id * 50;
         this.vy = y; 
         this.img = new Image();
-        this.img.src = 'images/diamond.svg';
-        this.width = 777;
-        this.height = 612;
+        this.img.src = 'images/l2/jug.svg';
+        this.width = 496;
+        this.height = 728;
         this.displayWidth = 30;
         this.displayHeight = 23;
         this.type = 'diamond';

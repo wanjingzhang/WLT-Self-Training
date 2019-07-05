@@ -56,38 +56,63 @@ window.Play = function () {
         // SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
         // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
         // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
-        SNOW.sled = new SNOW.Sled(100, 92); 
-          
-        SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120); 
-
+        
         SNOW.route = new SNOW.Route(0, 0, 1800, 600, 1800);
         // 设置
         var i = 3;
         SNOW.diamonds = [];
         while (i--) {
-            var diamond = new SNOW.Diamond(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
+            var diamond;
+            switch (SNOW.level) {
+                case 1:
+                    diamond = new SNOW.Diamond(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
+                    break;
+                case 2:
+                    diamond = new SNOW.Jug(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
+                    break;
+                case 3:
+                    diamond = new SNOW.Oxygen(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
+                    break; 
+            }
+
+
             SNOW.diamonds.push( diamond );
             SNOW.entities.push( diamond );  
         } 
         
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
         SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
-         
-        SNOW.entities.push(SNOW.cocktail);
         
-        SNOW.entities.push(new SNOW.Snow());
-        SNOW.entities.push(SNOW.sled);
-        // SNOW.entities.push(new SNOW.Tree(Math.random() , SNOW.HEIGHT - 140));
-        // SNOW.entities.push(new SNOW.Tree(Math.random() + 50, SNOW.HEIGHT - 140));
-        // SNOW.entities.push(new SNOW.Tree(Math.random() + 100, SNOW.HEIGHT - 140)); 
+        switch (SNOW.level) {
+            case 1:
+                SNOW.snow = new SNOW.Snow();
+                SNOW.sled = new SNOW.Sled(100, 92);
+                SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
+                SNOW.entities.push(SNOW.snow);
+                SNOW.entities.push(SNOW.cocktail);
+                SNOW.entities.push(SNOW.sled);
+                break;
+            case 2:
+                SNOW.sled = new SNOW.Sking(100, 98);
+                SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
+                SNOW.entities.push(SNOW.cocktail);
+                SNOW.entities.push(SNOW.sled);
+                break;
+            case 3:
+                SNOW.sled = new SNOW.Submarine(100, 67);
+                SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
+                SNOW.entities.push(SNOW.cocktail);
+                SNOW.entities.push(SNOW.sled);
+                break;
+                
+        } 
         
-        SNOW.entities.push(SNOW.route);  
+        SNOW.entities.push(SNOW.route);
         var i = SNOW.entities.length;
         while (i--) {
             SNOW.entities[i].init();
         }   
-        console.log(SNOW.entities);
- 
+        console.log(SNOW.entities); 
     }  
  
 
@@ -109,7 +134,7 @@ window.Play = function () {
                 // 第三关过完结束上传游戏数据  
                 SNOW.changeState('GameOver',true);
                 SNOW.postData();
-                SNOW.resetGame();
+                SNOW.resetGame(-1);
                 
             } else { 
                 SNOW.changeState('Splash');
@@ -124,8 +149,9 @@ window.Play = function () {
             checkCollision = true;
         }
         var i = SNOW.entities.length;
-        while (i--) { 
-            SNOW.entities[i].update();
+        while (i--) {  
+            SNOW.entities[i].update(); 
+            
             if (i > 5) { continue; }
             // 排除不需要碰撞的物体。排除不显示的物体
             if ( SNOW.entities[i].show === true) { 
@@ -192,7 +218,7 @@ window.GameOver = function (com) {
             var x = SNOW.Input.x ;
             var y = SNOW.Input.y;  
             console.log('x= '+ x +' y='+ y );
-            if( SNOW.isNotMobile && (x > 0.65 && x < 0.753) && (y > 0.538 && y < 0.641)  ){  
+            if( SNOW.isNotMobile && (x > 0.65 && x < 0.75) && (y > 0.55 && y < 0.75)  ){  
                 SNOW.GC(); 
                 SNOW.changeState('Splash');
                 SNOW.resetGame(-1);

@@ -205,8 +205,9 @@ var SNOW = {
         xhttp.open("POST", "http://preview2.williamsleatag.cn/shanghai/WLT/Snowman/data/insertData.php" + params, true);
         xhttp.send();
     },
-    resetGame: function (s) {
-        if (s === -1) {
+    resetGame: function (s) { // 重置
+        console.log('resetGame SNOW.level=' + SNOW.level);
+        if (s === -1) { // 回到 level 1    
             SNOW.entities = []; 
             SNOW.score.taps = 0;
             SNOW.score.coins = 0;
@@ -215,13 +216,12 @@ var SNOW = {
             SNOW.distance.current = 0; 
             SNOW.hp.blood = 100; 
             SNOW.bg_grad = SNOW.gradients[0];
-        } else if(s > 0){
+        } else if (s > 0) { // 其他level   
             SNOW.score.taps = 0; 
             SNOW.distance.current = 0;
-            SNOW.hp.locks = 2;
-            console.log('level=' + SNOW.level);
+            SNOW.hp.locks = 2; 
             var bg = SNOW.gradients[SNOW.level];
-            SNOW.bg_grad = bg;
+            SNOW.bg_grad = bg; 
         }  
     }
 

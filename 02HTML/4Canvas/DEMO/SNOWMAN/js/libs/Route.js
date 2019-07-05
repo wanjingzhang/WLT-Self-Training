@@ -5,13 +5,13 @@ SNOW.Route = function (x, y, width ) {
         this.y = y;
         this.oldx = x;    
         this.tree = new Image();
-        this.tree.src = 'images/bg/tree.png';
+        this.tree.src = 'images/l1/bg/tree.png';
         this.trees = new Image();
-        this.trees.src = 'images/bg/trees.png'; 
+        this.trees.src = 'images/l1/bg/trees.png'; 
         this.desert = new Image();
-        this.desert.src = 'images/bg/desert.svg'; 
+        this.desert.src = 'images/l2/bg/desert.svg'; 
         this.sea = new Image();
-        this.sea.src = 'images/bg/sea.svg';
+        this.sea.src = 'images/l3/bg/sea.svg';
 
         this.width = width;  
     } 
