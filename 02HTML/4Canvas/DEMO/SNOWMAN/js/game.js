@@ -73,18 +73,17 @@ window.Play = function () {
                 case 3:
                     diamond = new SNOW.Oxygen(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
                     break; 
-            }
-
-
+            } 
             SNOW.diamonds.push( diamond );
             SNOW.entities.push( diamond );  
         } 
         
-        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT -80,20 ));
-        SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
+        
         
         switch (SNOW.level) {
             case 1:
+                SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT - 80, 20));
+                SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
                 SNOW.snow = new SNOW.Snow();
                 SNOW.sled = new SNOW.Sled(100, 92);
                 SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
@@ -93,6 +92,8 @@ window.Play = function () {
                 SNOW.entities.push(SNOW.sled);
                 break;
             case 2:
+                SNOW.entities.push(new SNOW.Cactus(SNOW.WIDTH, SNOW.HEIGHT - 80, 20));
+                SNOW.entities.push(new SNOW.Cactus(SNOW.WIDTH + 450, SNOW.HEIGHT - 80, 20));
                 SNOW.sled = new SNOW.Sking(100, 98);
                 SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
                 SNOW.entities.push(SNOW.cocktail);

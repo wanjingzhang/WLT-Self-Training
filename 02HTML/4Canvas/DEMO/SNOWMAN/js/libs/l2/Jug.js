@@ -8,7 +8,7 @@ SNOW.Jug = function (x, y,id) {
         this.width = 496;
         this.height = 728;
         this.displayWidth = 30;
-        this.displayHeight = 23;
+        this.displayHeight = 44;
         this.type = 'diamond';
         this.show = true; 
     }
