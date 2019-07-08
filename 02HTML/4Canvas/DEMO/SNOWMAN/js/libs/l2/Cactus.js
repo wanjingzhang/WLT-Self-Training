@@ -23,8 +23,7 @@ SNOW.Cactus = function (x, y, w) {
     }
 
     this.render = function () {
-        if (this.show) {
-            0.158
+        if (this.show) { 
             SNOW.Draw.Sprite(this.img, 0, 0,this.width,this.height , this.vx, this.vy, this.disWidth, this.disHeight, 0);
 
         }

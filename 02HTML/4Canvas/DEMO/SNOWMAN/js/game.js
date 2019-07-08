@@ -65,7 +65,7 @@ window.Play = function () {
             var diamond;
             switch (SNOW.level) {
                 case 1:
-                    diamond = new SNOW.Diamond(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
+                    diamond = new SNOW.Diamond(i);
                     break;
                 case 2:
                     diamond = new SNOW.Jug(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
