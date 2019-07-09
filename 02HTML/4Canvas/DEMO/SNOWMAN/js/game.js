@@ -153,11 +153,12 @@ window.Play = function () {
         while (i--) {  
             SNOW.entities[i].update(); 
             
-            if (i > 5) { continue; }
+            if (i > 2) { continue; }
             // 排除不需要碰撞的物体。排除不显示的物体
             if ( SNOW.entities[i].show === true) { 
-                var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i]);
+                var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i].obj);
                 if (hit) { 
+                    console.log(SNOW.entities[i].type);
                     switch (SNOW.entities[i].type) {
                         case 'stone':
                             SNOW.entities[i].show = false;
@@ -172,7 +173,7 @@ window.Play = function () {
                         case 'diamond':
                             // 得分
                             SNOW.Sound.play_sound(0);  
-                            SNOW.entities[i].show = false;
+                            SNOW.entities[i].obj.show = false;
                             SNOW.score.coins += SNOW.score.coinStep;  
                             break;  
                         case 'cocktail':
