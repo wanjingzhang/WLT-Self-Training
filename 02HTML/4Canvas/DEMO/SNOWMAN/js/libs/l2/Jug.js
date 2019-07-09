@@ -1,34 +1,30 @@
-SNOW.Jug = function (x, y,id) {
+SNOW.Jug = function (id) { 
     this.init = function () {
         this.id = id;
         this.vx = SNOW.WIDTH + id * 50;
-        this.vy = y; 
-        this.img = new Image();
-        this.img.src = 'images/l2/jug.svg';
+        this.vy = SNOW.HEIGHT - 120;  
+        this.src = 'images/l2/jug.svg';
         this.width = 496;
         this.height = 728;
         this.displayWidth = 30;
         this.displayHeight = 44;
         this.type = 'diamond';
+        this.drawType = 'sprite';
         this.show = true; 
+        this.obj = new Myobj();
+        this.obj.init(this.id, this.vx, this.vy, this.width, this.height, this.displayWidth, this.displayHeight, this.src, this.type, this.drawType); 
     }
 
     this.update = function () {
-        this.vx -= SNOW.Speed; 
-        if (this.vx < 0 ) {
-            this.show = false; 
-        } 
+        this.obj.update();
     }
 
     this.render = function () {
-        if (this.show) {
-            SNOW.Draw.Sprite(this.img, 0, 0, this.width, this.height, this.vx, this.vy, this.displayWidth,this.displayHeight, 0);
-        } 
+        this.obj.render();
     }
 
     this.respawn = function () {
-        this.show = true;
-        this.vx = SNOW.WIDTH + id * 50; //初始化为屏幕宽度 
-        console.log('初始化为屏幕宽度  id = ' + this.id );
+        this.obj.show = true;
+        this.obj.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10); //初始化
     }
 }

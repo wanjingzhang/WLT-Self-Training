@@ -1,9 +1,9 @@
-SNOW.Sking = function (width, height) {
+SNOW.Sking = function () {
     this.init = function () {
         this.img = new Image();
         this.img.src = "images/l2/skiing.svg";
-        this.width = width;
-        this.height = height;
+        this.width = 100;
+        this.height = 98;
         this.disWid = 328;
         this.disHei = 321;
 

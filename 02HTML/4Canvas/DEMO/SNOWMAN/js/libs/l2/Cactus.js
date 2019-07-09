@@ -1,36 +1,30 @@
-SNOW.Cactus = function (x, y, w) {
+SNOW.Cactus = function (id) { 
     this.init = function () {
-        this.vx = x;
-        this.vy = y;
-        this.width = w;
-        this.height = w;
-        this.img = new Image();
-        this.img.src = 'images/l2/cactus.svg';
+        this.id = id;
+        this.vx = SNOW.WIDTH + this.id * 450;  
+        this.vy = SNOW.HEIGHT - 80;  
+        this.src = 'images/l2/cactus.svg';
         this.width = 271;
-        this.height = 619;
-
-        this.disWidth =66;
-        this.disHeight =152;
+        this.height = 619; 
+        this.displayWidth =66;
+        this.displayHeight =152;
         this.type = 'stone';
-        this.show = true
+        this.drawType = 'sprite';
+        this.show = true;
+        this.obj = new Myobj();
+        this.obj.init(this.id, this.vx, this.vy, this.width, this.height, this.displayWidth, this.displayHeight, this.src, this.type, this.drawType); 
     }
 
     this.update = function () {
-        this.vx -= SNOW.Speed;
-        if (this.vx <= - this.width) {
-            this.respawn();
-        }
+        this.obj.update();  
     }
 
     this.render = function () {
-        if (this.show) { 
-            SNOW.Draw.Sprite(this.img, 0, 0,this.width,this.height , this.vx, this.vy, this.disWidth, this.disHeight, 0);
-
-        }
+        this.obj.render();
     }
 
     this.respawn = function () {
-        this.show = true;
-        this.vx = SNOW.WIDTH;
+        this.obj.show = true;
+        this.obj.vx = SNOW.WIDTH + this.id * 450; //初始化
     }
 }
