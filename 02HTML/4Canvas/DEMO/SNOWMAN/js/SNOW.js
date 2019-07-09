@@ -35,7 +35,7 @@ var SNOW = {
 
     distance: {
         current: 0, 
-        step:2, // 每关的距离为10
+        step:5, // 每关的距离为10
     },
     RATIO: null,
     Scale: 1,
@@ -219,7 +219,7 @@ var SNOW = {
         } else if (s > 0) { // 其他level   
             SNOW.score.taps = 0; 
             SNOW.distance.current = 0;
-            SNOW.hp.locks = 2; 
+            SNOW.hp.locks = 2;  
             var bg = SNOW.gradients[SNOW.level];
             SNOW.bg_grad = bg; 
         }  

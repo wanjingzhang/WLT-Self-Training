@@ -88,9 +88,9 @@ window.Play = function () {
             case 1:  
                 SNOW.snow = new SNOW.Snow();
                 SNOW.sled = new SNOW.Sled();
-                SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
-                SNOW.entities.push(SNOW.snow);
+                SNOW.cocktail = new SNOW.Cocktail(3); 
                 SNOW.entities.push(SNOW.cocktail);
+                SNOW.entities.push(SNOW.snow);
                 SNOW.entities.push(SNOW.sled);
                 break;
             case 2:
@@ -164,7 +164,7 @@ window.Play = function () {
         while (i--) {  
             SNOW.entities[i].update(); 
             
-            if (i > 4) { continue; }
+            if (i > 5) { continue; }
             // 排除不需要碰撞的物体。排除不显示的物体
             if ( SNOW.entities[i].obj.show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i].obj);
@@ -188,7 +188,7 @@ window.Play = function () {
                             SNOW.score.coins += SNOW.score.coinStep;  
                             break;  
                         case 'cocktail':
-                            SNOW.entities[i].show = false;
+                            SNOW.entities[i].obj.show = false;
                             SNOW.hp.blood > 100 ?
                             SNOW.hp.blood += SNOW.hp.bloodStep:null;
                     }
