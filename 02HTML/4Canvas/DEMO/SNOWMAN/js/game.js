@@ -52,11 +52,7 @@ window.Splash = function () {
 window.Play = function () {
     this.init = function () {  
         SNOW.entities = [];
-        // Add entities
-        // SNOW.entities.push(new SNOW.Cloud(30, ~~(Math.random() * SNOW.HEIGHT / 2)));
-        // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 2)), ~~(Math.random() * SNOW.HEIGHT / 2)));
-        // SNOW.entities.push(new SNOW.Cloud(~~(Math.random() * (SNOW.WIDTH * 3)), ~~(Math.random() * SNOW.HEIGHT / 2)));
-        
+        // Add entities  
         SNOW.route = new SNOW.Route(0, 0, 1800, 600, 1800);
         // 设置
         var i = 3;
@@ -82,8 +78,8 @@ window.Play = function () {
         
         switch (SNOW.level) {
             case 1:
-                SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH, SNOW.HEIGHT - 80, 20));
-                SNOW.entities.push(new SNOW.Stone(SNOW.WIDTH + 50, SNOW.HEIGHT - 80, 20));
+                SNOW.entities.push(new SNOW.Stone(0));
+                SNOW.entities.push(new SNOW.Stone(1));
                 SNOW.snow = new SNOW.Snow();
                 SNOW.sled = new SNOW.Sled(100, 92);
                 SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
@@ -118,12 +114,12 @@ window.Play = function () {
  
 
     this.update = function () {  
-        if (!SNOW.diamonds[0].show && !SNOW.diamonds[1].show && !SNOW.diamonds[2].show) {
+        if (!SNOW.diamonds[0].obj.show && !SNOW.diamonds[1].obj.show && !SNOW.diamonds[2].obj.show) {
             SNOW.distance.current++;
             console.log( "current=" + SNOW.distance.current );
             var i = 3;  
             while (i--) { 
-                SNOW.diamonds[i].respawn();  
+                SNOW.diamonds[i].obj.respawn();  
             } 
             if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
                 SNOW.cocktail.respawn();
@@ -153,7 +149,7 @@ window.Play = function () {
         while (i--) {  
             SNOW.entities[i].update(); 
             
-            if (i > 2) { continue; }
+            if (i > 4) { continue; }
             // 排除不需要碰撞的物体。排除不显示的物体
             if ( SNOW.entities[i].show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i].obj);
@@ -161,7 +157,7 @@ window.Play = function () {
                     console.log(SNOW.entities[i].type);
                     switch (SNOW.entities[i].type) {
                         case 'stone':
-                            SNOW.entities[i].show = false;
+                            SNOW.entities[i].obj.show = false;
                             SNOW.hp.blood -= SNOW.hp.bloodStep;  
                             SNOW.Sound.play_sound(1); 
                             if (SNOW.hp.blood <= 0) { 

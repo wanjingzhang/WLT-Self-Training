@@ -1,6 +1,7 @@
 function Myobj() { }
 
-Myobj.prototype.init = function (x, y, width, height, disWidth, disHeight, src, type, drawType) {
+Myobj.prototype.init = function (id,x, y, width, height, disWidth, disHeight, src, type, drawType) {
+    this.id = id;
     this.oldx = x;
     this.oldy = y;
     this.vx = x;
@@ -31,6 +32,6 @@ Myobj.prototype.update = function () {
 
 Myobj.prototype.respawn = function () {
     this.show = true;
-    this.vx = SNOW.WIDTH + id * 50; //初始化为屏幕宽度 
+    this.vx = SNOW.WIDTH + this.id * this.disWidth; //初始化为屏幕宽度 
     console.log('初始化为屏幕宽度  id = ' + this.id);
 }

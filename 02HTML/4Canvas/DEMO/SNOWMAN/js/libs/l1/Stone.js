@@ -1,33 +1,33 @@
-SNOW.Stone = function (x,y, w) {
-    this.init = function () {
-        this.vx = x;
-        this.vy = y;
-        this.width = w ;
-        this.height = w; 
-        this.img = new Image();
-        this.img.src = 'images/l1/rocks.svg';
+SNOW.Stone = function (id) {
+    this.init = function () { 
+        this.id = id;
+        this.src = 'images/l1/rocks.svg';
         this.width = 253;
         this.height = 152;
+        this.displayWidth = 40;
+        this.displayHeight = 24;  
+        this.vx = SNOW.WIDTH + id * this.displayWidth ;
+        this.vy = SNOW.HEIGHT - 80;
         this.type = 'stone';
-        this.show = true 
+        this.drawType = 'sprite';
+        this.show = true;
+        this.obj = new Myobj();
+        this.obj.init(this.id,this.vx, this.vy, this.width, this.height, this.displayWidth, this.displayHeight, this.src, this.type, this.drawType); 
     }
 
     this.update = function () {
-        this.vx -= SNOW.Speed;
-        if (this.vx <= - this.width) {
+        this.obj.update();
+
+        if (this.obj.vx <= - this.obj.width) {
             this.respawn();
         }
     }
 
     this.render = function () {
-        if (this.show) { 0.158
-            SNOW.Draw.Sprite(this.img, 0, 0, 253, 152, this.vx, this.vy, 40, 24, 0);
-
-        }
+        this.obj.render();
     }
 
     this.respawn = function () {
-        this.show = true;
-        this.vx = SNOW.WIDTH; 
+        this.obj.respawn();
     }
 }
