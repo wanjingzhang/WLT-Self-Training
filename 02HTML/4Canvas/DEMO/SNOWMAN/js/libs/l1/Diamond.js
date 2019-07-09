@@ -6,7 +6,7 @@ SNOW.Diamond = function (id) {
         this.height = 612;
         this.displayWidth = 30;
         this.displayHeight = 23;
-        this.vx = SNOW.WIDTH + id * this.displayWidth;
+        this.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10);
         this.vy = SNOW.HEIGHT - 120; 
         this.type = 'diamond';
         this.drawType = 'sprite';
@@ -23,7 +23,8 @@ SNOW.Diamond = function (id) {
         this.obj.render();
     }
 
-    this.respawn = function () {
-        this.obj.respawn();
+    this.respawn = function () { 
+        this.obj.show = true;
+        this.obj.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10); //初始化为屏幕宽度  
     }
 }  

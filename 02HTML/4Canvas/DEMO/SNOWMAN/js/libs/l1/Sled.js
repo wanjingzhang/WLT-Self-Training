@@ -2,8 +2,8 @@ SNOW.Sled = function (width,height) {
     this.init = function () {
         this.img = new Image();
         this.img.src = "images/sled.svg";
-        this.width =  width;
-        this.height = height;
+        this.width = 100;
+        this.height = 92;
         this.disWid = 100;
         this.disHei = 92; 
 

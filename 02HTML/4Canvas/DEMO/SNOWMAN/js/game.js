@@ -57,11 +57,15 @@ window.Play = function () {
         // 设置
         var i = 3;
         SNOW.diamonds = [];
+        SNOW.stones = [];
         while (i--) {
-            var diamond;
+            var diamond, stone;
             switch (SNOW.level) {
                 case 1:
                     diamond = new SNOW.Diamond(i);
+                    if (i < 2) { 
+                        stone = new SNOW.Stone(i);
+                    }
                     break;
                 case 2:
                     diamond = new SNOW.Jug(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
@@ -70,18 +74,20 @@ window.Play = function () {
                     diamond = new SNOW.Oxygen(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
                     break; 
             } 
+            
             SNOW.diamonds.push( diamond );
-            SNOW.entities.push( diamond );  
+            SNOW.entities.push(diamond);  
+            
+            if (i < 2) {
+                SNOW.stones.push(stone);
+                SNOW.entities.push(stone);
+            }
         } 
-        
-        
-        
+         
         switch (SNOW.level) {
-            case 1:
-                SNOW.entities.push(new SNOW.Stone(0));
-                SNOW.entities.push(new SNOW.Stone(1));
+            case 1:  
                 SNOW.snow = new SNOW.Snow();
-                SNOW.sled = new SNOW.Sled(100, 92);
+                SNOW.sled = new SNOW.Sled();
                 SNOW.cocktail = new SNOW.Cocktail(SNOW.WIDTH, SNOW.HEIGHT - 120);
                 SNOW.entities.push(SNOW.snow);
                 SNOW.entities.push(SNOW.cocktail);
@@ -114,18 +120,27 @@ window.Play = function () {
  
 
     this.update = function () {  
+        // 一组钻石
         if (!SNOW.diamonds[0].obj.show && !SNOW.diamonds[1].obj.show && !SNOW.diamonds[2].obj.show) {
             SNOW.distance.current++;
             console.log( "current=" + SNOW.distance.current );
             var i = 3;  
             while (i--) { 
-                SNOW.diamonds[i].obj.respawn();  
+                SNOW.diamonds[i].respawn();  
             } 
             if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
-                SNOW.cocktail.respawn();
-                // console.log('SNOW.distance.current=' + SNOW.distance.current + "show Lock ~~");
+                SNOW.cocktail.respawn(); 
             }
-        }  
+        } 
+        
+        // 一组障碍物
+        if (!SNOW.stones[0].obj.show && !SNOW.stones[1].obj.show) {
+            var i = 2;
+            while (i--) {
+                SNOW.stones[i].respawn();
+            }
+        }
+
         if (SNOW.distance.current >= SNOW.distance.step && SNOW.level <= 3 && SNOW.hp.blood > 0) { // 大于最多屏， 升级一次
             if (SNOW.level === 3) {
                 // 第三关过完结束上传游戏数据  
@@ -151,7 +166,7 @@ window.Play = function () {
             
             if (i > 4) { continue; }
             // 排除不需要碰撞的物体。排除不显示的物体
-            if ( SNOW.entities[i].show === true) { 
+            if ( SNOW.entities[i].obj.show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i].obj);
                 if (hit) { 
                     console.log(SNOW.entities[i].type);

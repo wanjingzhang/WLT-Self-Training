@@ -25,13 +25,7 @@ Myobj.prototype.render = function () {
 
 Myobj.prototype.update = function () {
     this.vx -= SNOW.Speed;
-    if (this.vx < 0) {
+    if (this.vx < -this.disWidth) {
         this.show = false;
     } 
-}
-
-Myobj.prototype.respawn = function () {
-    this.show = true;
-    this.vx = SNOW.WIDTH + this.id * this.disWidth; //初始化为屏幕宽度 
-    console.log('初始化为屏幕宽度  id = ' + this.id);
-}
+} 
