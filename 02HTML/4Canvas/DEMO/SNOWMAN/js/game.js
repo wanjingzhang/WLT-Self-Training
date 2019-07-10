@@ -74,7 +74,10 @@ window.Play = function () {
                     }
                     break;
                 case 3:
-                    diamond = new SNOW.Oxygen(SNOW.WIDTH, SNOW.HEIGHT - 120, i);
+                    diamond = new SNOW.Oxygen(i);
+                    if (i < 2) {
+                        stone = new SNOW.Can(i);
+                    }
                     break; 
             } 
             
@@ -103,7 +106,7 @@ window.Play = function () {
                 SNOW.entities.push(SNOW.sled);
                 break;
             case 3:
-                SNOW.sled = new SNOW.Submarine(100, 67);
+                SNOW.sled = new SNOW.Submarine();
                 SNOW.cocktail = new SNOW.Cocktail(3);
                 SNOW.entities.push(SNOW.cocktail);
                 SNOW.entities.push(SNOW.sled);
@@ -188,9 +191,11 @@ window.Play = function () {
                             SNOW.score.coins += SNOW.score.coinStep;  
                             break;  
                         case 'cocktail':
+                            console.log('add blood');
                             SNOW.entities[i].obj.show = false;
-                            SNOW.hp.blood > 100 ?
-                            SNOW.hp.blood += SNOW.hp.bloodStep:null;
+                            SNOW.hp.blood < 100 ?
+                                SNOW.hp.blood += SNOW.hp.bloodStep : null;
+                            break;
                     }
  
                 }

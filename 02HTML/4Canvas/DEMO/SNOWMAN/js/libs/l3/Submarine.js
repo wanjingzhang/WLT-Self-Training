@@ -2,8 +2,8 @@ SNOW.Submarine = function (width, height) {
     this.init = function () {
         this.img = new Image();
         this.img.src = "images/l3/submarine.svg";
-        this.width = width;
-        this.height = height;
+        this.width = 100;
+        this.height = 67;
         this.disWid = 420;
         this.disHei = 282;
 

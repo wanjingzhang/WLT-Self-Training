@@ -35,7 +35,7 @@ var SNOW = {
 
     distance: {
         current: 0, 
-        step:5, // 每关的距离为10
+        step:3, // 每关的距离为10
     },
     RATIO: null,
     Scale: 1,
