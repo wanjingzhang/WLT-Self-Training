@@ -81,7 +81,7 @@ window.Play = function () {
                     break; 
             } 
             
-            SNOW.diamonds.push( diamond );
+            SNOW.diamonds.push(diamond);
             SNOW.entities.push(diamond);  
             
             if (i < 2) {
