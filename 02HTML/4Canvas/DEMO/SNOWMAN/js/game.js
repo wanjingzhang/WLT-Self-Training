@@ -124,25 +124,31 @@ window.Play = function () {
 
     this.update = function () {  
         // 一组钻石
-        if (!SNOW.diamonds[0].obj.show && !SNOW.diamonds[1].obj.show && !SNOW.diamonds[2].obj.show) {
-            SNOW.distance.current++;
-            console.log( "current=" + SNOW.distance.current );
-            var i = 3;  
-            while (i--) { 
-                SNOW.diamonds[i].respawn();  
+        if (SNOW.diamonds) {
+            if (!SNOW.diamonds[0].obj.show && !SNOW.diamonds[1].obj.show && !SNOW.diamonds[2].obj.show) {
+                SNOW.distance.current++;
+                console.log( "current=" + SNOW.distance.current );
+                var i = 3;  
+                while (i--) { 
+                    SNOW.diamonds[i].respawn();  
+                } 
+                if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
+                    SNOW.cocktail.respawn(); 
+                }
             } 
-            if (SNOW.distance.current > (SNOW.distance.step / 2) && SNOW.hp.locks > 0) {
-                SNOW.cocktail.respawn(); 
-            }
-        } 
+        }
+        
         
         // 一组障碍物
-        if (!SNOW.stones[0].obj.show && !SNOW.stones[1].obj.show) {
-            var i = 2;
-            while (i--) {
-                SNOW.stones[i].respawn();
+        if (SNOW.stones) {
+            if (!SNOW.stones[0].obj.show && !SNOW.stones[1].obj.show) {
+                var i = 2;
+                while (i--) {
+                    SNOW.stones[i].respawn();
+                }
             }
         }
+        
 
         if (SNOW.distance.current >= SNOW.distance.step && SNOW.level <= 3 && SNOW.hp.blood > 0) { // 大于最多屏， 升级一次
             if (SNOW.level === 3) {

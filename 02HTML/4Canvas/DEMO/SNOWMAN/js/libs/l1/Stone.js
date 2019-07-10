@@ -25,7 +25,6 @@ SNOW.Stone = function (id) {
 
     this.respawn = function () {
         this.obj.show = true;
-        this.obj.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10); //初始化为屏幕宽度 
-        console.log('初始化为屏幕宽度  id = ' + this.id + 'vx = ' + this.obj.vx);
+        this.obj.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10); //初始化为屏幕宽度  
     }
 }

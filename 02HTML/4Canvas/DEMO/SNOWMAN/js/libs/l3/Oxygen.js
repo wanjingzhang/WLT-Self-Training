@@ -1,8 +1,8 @@
 SNOW.Oxygen = function (id) { 
     this.init = function () {
         this.id = id;
-        this.vx = SNOW.WIDTH + id * 50;
-        this.vy = SNOW.HEIGHT - 120; 
+        this.vx = SNOW.WIDTH + 200 + this.id * (this.displayWidth + 10); //初始化 
+        this.vy = SNOW.HEIGHT - 140; 
         this.src = 'images/l3/oxygen.svg';
         this.width = 26;
         this.height = 67;
@@ -25,6 +25,6 @@ SNOW.Oxygen = function (id) {
 
     this.respawn = function () {
         this.obj.show = true;
-        this.obj.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10); //初始化 
+        this.obj.vx = SNOW.WIDTH + 200 +  this.id * (this.displayWidth + 10); //初始化 
     }
 }
