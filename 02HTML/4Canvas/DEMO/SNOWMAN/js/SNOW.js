@@ -27,15 +27,15 @@ var SNOW = {
     },
     hp: {
         blood: 100,
-        bloodStep: 80,
+        bloodStep: 20,
         locks: 2, 
     },
     level: 0, // 共三关
-    Speed: 1, // 移动倍数 
+    Speed: 4, // 移动倍数 
 
     distance: {
         current: 0, 
-        step:3, // 每关的距离为10
+        step:6, // 每关的距离为10
     },
     RATIO: null,
     Scale: 1,
@@ -212,7 +212,7 @@ var SNOW = {
             SNOW.score.taps = 0;
             SNOW.score.coins = 0;
             SNOW.level = 1;
-            SNOW.Speed = 2;
+            SNOW.Speed = 4;
             SNOW.distance.current = 0; 
             SNOW.hp.blood = 100; 
             SNOW.bg_grad = SNOW.gradients[0];

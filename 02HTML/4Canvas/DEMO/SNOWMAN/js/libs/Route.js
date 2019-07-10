@@ -17,8 +17,8 @@ SNOW.Route = function (x, y, width ) {
     } 
 
     this.update = function () {
-        this.x -= SNOW.Speed;
-        this.x2 -= SNOW.Speed * 2;
+        this.x -= SNOW.Speed/2;
+        this.x2 -= SNOW.Speed;
         if (this.x < - this.width) { 
             this.respawn(1);
         } 
@@ -31,8 +31,8 @@ SNOW.Route = function (x, y, width ) {
         switch (SNOW.level) {
             case 1:
                 // trees
-                SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 240);
-                SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 240);
+                SNOW.Draw.Image(this.tree, this.x, SNOW.HEIGHT - 230);
+                SNOW.Draw.Image(this.tree, this.x + this.width, SNOW.HEIGHT - 230);
             
                 // trees
                 SNOW.Draw.Image(this.trees, this.x2, SNOW.HEIGHT - 253);
