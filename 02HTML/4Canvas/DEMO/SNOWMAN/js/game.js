@@ -22,7 +22,7 @@ window.Input = function () {
 window.Splash = function () {
     this.banner = new Image(); 
     if (SNOW.isOK()) {
-        this.banner.src = "images/splash.png"; 
+        this.banner.src = "images/tap.svg"; 
     } 
     this.init = function () {
         // clear GC
@@ -40,8 +40,8 @@ window.Splash = function () {
         }
     }
 
-    this.render = function () { 
-        SNOW.Draw.Image(this.banner, ~~((SNOW.WIDTH - this.banner.width) / 2), ~~((SNOW.HEIGHT - this.banner.height) / 2)); 
+    this.render = function () {  
+        SNOW.Draw.Sprite(this.banner, 0, 0, 374,250, ~~((SNOW.WIDTH + 374/2)/2  ), ~~((SNOW.HEIGHT + 250/2)/2 ), 374,250, 0);
         SNOW.Draw.text('LEVEL ' + SNOW.level, SNOW.WIDTH / 2, SNOW.HEIGHT / 2, 12, 'black');
     }
 }

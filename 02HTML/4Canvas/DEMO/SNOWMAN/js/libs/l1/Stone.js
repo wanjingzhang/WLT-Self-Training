@@ -16,11 +16,11 @@ SNOW.Stone = function (id) {
     }
 
     this.update = function () {
-        this.obj.update();  
+        if(this.obj.show)this.obj.update();  
     }
 
     this.render = function () {
-        this.obj.render();
+        if (this.obj.show)this.obj.render();
     }
 
     this.respawn = function () {

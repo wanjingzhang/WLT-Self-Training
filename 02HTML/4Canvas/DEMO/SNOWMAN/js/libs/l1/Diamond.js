@@ -7,7 +7,7 @@ SNOW.Diamond = function (id) {
         this.displayWidth = 30;
         this.displayHeight = 23;
         this.vx = SNOW.WIDTH + this.id * (this.displayWidth + 10);
-        this.vy = SNOW.HEIGHT - 140; 
+        this.vy = SNOW.HEIGHT - 180; 
         this.type = 'diamond';
         this.drawType = 'sprite';
         this.show = true;  
@@ -16,11 +16,11 @@ SNOW.Diamond = function (id) {
     }
 
     this.update = function () { 
-        this.obj.update(); 
+        if (this.obj.show)this.obj.update(); 
     }
 
     this.render = function () { 
-        this.obj.render();
+        if (this.obj.show)this.obj.render();
     }
 
     this.respawn = function () { 

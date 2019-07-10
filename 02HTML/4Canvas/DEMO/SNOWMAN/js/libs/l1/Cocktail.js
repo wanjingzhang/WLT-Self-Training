@@ -2,7 +2,7 @@ SNOW.Cocktail = function (id) {
     this.init = function () { 
         this.id = id;
         this.vx = SNOW.WIDTH + 120;
-        this.vy = SNOW.HEIGHT - 140;  
+        this.vy = SNOW.HEIGHT - 180;  
         this.src = 'images/l1/cocktail.svg';
         this.width = 390;
         this.height = 420;
@@ -16,15 +16,11 @@ SNOW.Cocktail = function (id) {
     }
 
     this.update = function () {
-        if (this.obj.show) {
-           this.obj.update(); 
-        } 
+        if (this.obj.show)this.obj.update();  
     }
 
     this.render = function () {
-        if (this.obj.show) {
-          this.obj.render();  
-        }  
+        if (this.obj.show)this.obj.render();   
     }
 
     this.respawn = function () { 

@@ -2,7 +2,7 @@ SNOW.Jug = function (id) {
     this.init = function () {
         this.id = id;
         this.vx = SNOW.WIDTH + id * 50;
-        this.vy = SNOW.HEIGHT - 140;  
+        this.vy = SNOW.HEIGHT - 180;  
         this.src = 'images/l2/jug.svg';
         this.width = 218;
         this.height = 244;
@@ -16,11 +16,11 @@ SNOW.Jug = function (id) {
     }
 
     this.update = function () {
-        this.obj.update();
+        if (this.obj.show)this.obj.update();
     }
 
     this.render = function () {
-        this.obj.render();
+        if (this.obj.show)this.obj.render();
     }
 
     this.respawn = function () {
