@@ -68,6 +68,7 @@ var SNOW = {
         // this is our canvas element
         SNOW.Container = document.getElementById('container'); 
         SNOW.cacheCanvas = document.getElementById('cacheCanvas');
+        SNOW.bubbles = document.getElementById('bubbles-container');
         SNOW.relCanvas = document.getElementById('canvas');  
         SNOW.ctx = SNOW.cacheCanvas.getContext('2d', { alpha: false });
         SNOW.relCtx = SNOW.relCanvas.getContext('2d', { alpha: false });
@@ -96,9 +97,10 @@ var SNOW = {
             //非常重要，用于兼容不同机型，防止浏览器窗口移动
             document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
         } 
-        
         SNOW.relCanvas.width = SNOW.cacheCanvas.width = SNOW.WIDTH;
-        SNOW.relCanvas.height = SNOW.cacheCanvas.height = SNOW.HEIGHT;  
+        SNOW.relCanvas.height = SNOW.cacheCanvas.height = SNOW.HEIGHT; 
+        SNOW.bubbles.style.width = SNOW.WIDTH + "px"; 
+        SNOW.bubbles.style.height = SNOW.HEIGHT + "px"; 
        
         // setup some gradients
         grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);
