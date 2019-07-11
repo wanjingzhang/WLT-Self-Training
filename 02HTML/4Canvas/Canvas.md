@@ -9,6 +9,14 @@
 * [开发工具](http://www.aptana.com/)
 * [document](https://www.html5rocks.com/en/tutorials/canvas/performance/)
 
+
+### 高端 canvas 网站案例
+* [webdesigner] (https://1stwebdesigner.com/)
+* [案例分享、css动画、js代码] (https://davidwalsh.name)
+
+
+
+
 ### 改善 HTML5 Canvas 性能
 
 ### Canvas 介绍
