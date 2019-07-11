@@ -13,8 +13,9 @@
 ### 高端 canvas 网站案例
 * [webdesigner] (https://1stwebdesigner.com/)
 * [案例分享、css动画、js代码] (https://davidwalsh.name)
-
-
+* [最新文章] (https://www.smashingmagazine.com/?utm_source=caibaojian.com)
+* [envato] (https://webdesign.tutsplus.com/ebooks)
+* [六角学院] (https://hackmd.io/gXGXV89pR7GdTQdGEsHaZQ?both)
 
 
 ### 改善 HTML5 Canvas 性能

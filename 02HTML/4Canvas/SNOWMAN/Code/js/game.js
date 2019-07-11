@@ -112,7 +112,7 @@ window.Play = function () {
                 SNOW.cocktail = new SNOW.Cocktail(3);
                 SNOW.entities.push(SNOW.cocktail);
                 SNOW.entities.push(SNOW.sled);
-                SNOW.bubbles.style.display = "block"
+                SNOW.bubbles.style.display = "block";
                 break;  
         } 
         
@@ -226,6 +226,7 @@ window.GameOver = function (com) {
         var that = this;
         play = false;
         var gameoverInterval; 
+        SNOW.bubbles.style.display = "none";
         gameoverInterval = setInterval(function () {
             clearInterval(gameoverInterval);
             that.banner = new Image();
