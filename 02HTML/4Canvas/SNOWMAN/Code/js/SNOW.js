@@ -98,9 +98,8 @@ var SNOW = {
             document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
         } 
         SNOW.relCanvas.width = SNOW.cacheCanvas.width = SNOW.WIDTH;
-        SNOW.relCanvas.height = SNOW.cacheCanvas.height = SNOW.HEIGHT; 
-        SNOW.bubbles.style.width = SNOW.WIDTH + "px"; 
-        SNOW.bubbles.style.height = SNOW.HEIGHT + "px"; 
+        SNOW.relCanvas.height = SNOW.cacheCanvas.height = SNOW.HEIGHT;  
+        
        
         // setup some gradients
         grad = SNOW.ctx.createLinearGradient(0, 0, 0, SNOW.HEIGHT);

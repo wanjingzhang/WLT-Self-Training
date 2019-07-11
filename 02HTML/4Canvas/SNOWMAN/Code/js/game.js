@@ -98,18 +98,21 @@ window.Play = function () {
                 SNOW.entities.push(SNOW.cocktail);
                 SNOW.entities.push(SNOW.snow);
                 SNOW.entities.push(SNOW.sled);
+                SNOW.bubbles.style.display = "none";
                 break;
             case 2: 
                 SNOW.sled = new SNOW.Sking();
                 SNOW.cocktail = new SNOW.Cocktail(3);
                 SNOW.entities.push(SNOW.cocktail);
                 SNOW.entities.push(SNOW.sled);
+                SNOW.bubbles.style.display = "none";
                 break;
             case 3:
                 SNOW.sled = new SNOW.Submarine();
                 SNOW.cocktail = new SNOW.Cocktail(3);
                 SNOW.entities.push(SNOW.cocktail);
                 SNOW.entities.push(SNOW.sled);
+                SNOW.bubbles.style.display = "block"
                 break;  
         } 
         

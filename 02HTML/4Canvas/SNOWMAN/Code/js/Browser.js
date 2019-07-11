@@ -47,6 +47,9 @@ SNOW.resize = function () {
 
     SNOW.popBackground.style.width = SNOW.currentWidth + 'px';
     SNOW.popBackground.style.height = SNOW.currentHeight + 'px';
+
+    SNOW.bubbles.style.width = SNOW.currentWidth + "px";
+    SNOW.bubbles.style.height = SNOW.currentHeight + "px"; 
  
     SNOW.offset.top = SNOW.relCanvas.offsetTop;
     SNOW.offset.left = SNOW.relCanvas.offsetLeft; 
