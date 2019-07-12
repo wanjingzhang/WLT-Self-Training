@@ -1,5 +1,5 @@
 var canvas, ctx, ww, wh, ship,ship2,bullets=[];
-
+var time = 0;
 var mousePos = {
     x: 0,
     y: 0
@@ -109,18 +109,19 @@ function draw() {
     requestAnimationFrame(draw); 
     
 }
-var time = 0;
+
+// 实时更新
 function update() { 
     ship.deg = mousePos.x / 50; 
     time++; 
     if (time % 30 == 0) {
         console.log('add Bullet');
         let b = new Bullet({
-            x: 50,
-            y: 50,
+            x: ww / 2 + Math.cos(ship.deg) * ship.r, // 中心点+ cos角度的分量 * 半径
+            y: wh / 2 + Math.sin(ship.deg) * ship.r,
             v: {
-                x: 1,
-                y: 1
+                x: Math.cos(ship.deg)*2, // cos 角度的分量 速度2
+                y: Math.sin(ship.deg)*2  // sin 角度的分量 速度2
             }
         });
         bullets.push(b);
