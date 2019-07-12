@@ -112,7 +112,17 @@ function draw() {
 
 // 实时更新
 function update() { 
-    ship.deg = mousePos.x / 50; 
+    // ship.deg = mousePos.x / 50; 
+
+    if (time % 100 == 0) { 
+        // 添加转场动画
+        TweenMax.to(ship, 1, {
+            deg: mousePos.x/50, // 每分钟 增加 120度 ship.deg + Math.PI,
+            ease: Elastic.easeOut
+        })
+    }
+
+
     time++; 
     if (time % 30 == 0) {
         console.log('add Bullet');

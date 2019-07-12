@@ -51,6 +51,7 @@ window.Splash = function () {
  */
 window.Play = function () {
     this.init = function () {  
+        SNOW.hideStaff();
         SNOW.entities = [];
         // Add entities  
         SNOW.route = new SNOW.Route(0, 0, 1800, 600, 1800);
@@ -88,31 +89,27 @@ window.Play = function () {
                 SNOW.stones.push(stone);
                 SNOW.entities.push(stone);
             }
-        } 
-         
+        }  
         switch (SNOW.level) {
-            case 1:  
-                SNOW.snow = new SNOW.Snow();
+            case 1:   
                 SNOW.sled = new SNOW.Sled();
                 SNOW.cocktail = new SNOW.Cocktail(3); 
-                SNOW.entities.push(SNOW.cocktail);
-                SNOW.entities.push(SNOW.snow);
-                SNOW.entities.push(SNOW.sled);
-                SNOW.bubbles.style.display = "none";
+                SNOW.entities.push(SNOW.cocktail); 
+                SNOW.entities.push(SNOW.sled); 
+                SNOW.snow.style.display = "block";
                 break;
             case 2: 
                 SNOW.sled = new SNOW.Sking();
                 SNOW.cocktail = new SNOW.Cocktail(3);
                 SNOW.entities.push(SNOW.cocktail);
-                SNOW.entities.push(SNOW.sled);
-                SNOW.bubbles.style.display = "none";
+                SNOW.entities.push(SNOW.sled); 
                 break;
             case 3:
                 SNOW.sled = new SNOW.Submarine();
                 SNOW.cocktail = new SNOW.Cocktail(3);
                 SNOW.entities.push(SNOW.cocktail);
                 SNOW.entities.push(SNOW.sled);
-                SNOW.bubbles.style.display = "block";
+                SNOW.bubbles.style.display = "block"; 
                 break;  
         } 
         
@@ -225,8 +222,8 @@ window.GameOver = function (com) {
     this.init = function () { 
         var that = this;
         play = false;
-        var gameoverInterval; 
-        SNOW.bubbles.style.display = "none";
+        var gameoverInterval;  
+        SNOW.hideStaff();
         gameoverInterval = setInterval(function () {
             clearInterval(gameoverInterval);
             that.banner = new Image();

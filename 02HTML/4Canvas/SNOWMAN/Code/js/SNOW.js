@@ -69,6 +69,7 @@ var SNOW = {
         SNOW.Container = document.getElementById('container'); 
         SNOW.cacheCanvas = document.getElementById('cacheCanvas');
         SNOW.bubbles = document.getElementById('bubbles-container');
+        SNOW.snow = document.getElementById('allstars');
         SNOW.relCanvas = document.getElementById('canvas');  
         SNOW.ctx = SNOW.cacheCanvas.getContext('2d', { alpha: false });
         SNOW.relCtx = SNOW.relCanvas.getContext('2d', { alpha: false });
@@ -223,7 +224,14 @@ var SNOW = {
             SNOW.hp.locks = 2;  
             var bg = SNOW.gradients[SNOW.level];
             SNOW.bg_grad = bg; 
+
+            SNOW.bubbles.style.display = "none";
+            SNOW.snow.style.display = "none";
         }  
+    },
+    hideStaff: function () {
+        SNOW.bubbles.style.display = "none";
+        SNOW.snow.style.display = "none";
     }
 
 }
