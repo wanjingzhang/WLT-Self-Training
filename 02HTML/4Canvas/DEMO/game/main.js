@@ -1,9 +1,15 @@
-var canvas, ctx, ww, wh, ship = {
+var canvas, ctx, ww, wh,
+    ship = {
     x: 0,
     y: 0,
     deg: 0,
     r: 60
-};
+    };
+
+var mousePos = {
+    x: 0,
+    y: 0
+}
 
 function draw() {
     ctx.fillStyle = "#001d2e";
@@ -34,7 +40,7 @@ function draw() {
     ctx.beginPath();
     ctx.arc(0, 0, ship.r, 0, Math.PI * 2); //2pai
     ctx.strokeStyle = "white";
-    ctx.lineWidth = 20;
+    ctx.lineWidth = 12;
 
    
     ctx.stroke(); 
@@ -64,9 +70,11 @@ function draw() {
 }
 
 function update() {
-    ship.x += 0.1;
-    ship.y += 0.5;
-    ship.deg += 0.05;
+    // ship.x += 0.1;
+    // ship.y += 0.5;
+    // ship.deg += 0.05;
+    ship.deg = mousePos.x/50;
+    console.log(mousePos);
 }
 
 function init() {
@@ -83,6 +91,11 @@ function init() {
 
     setInterval(update, 30);
     draw();
+
+    canvas.addEventListener("mousemove", function (evt) { 
+        mousePos.x = evt.x;
+        mousePos.y = evt.y;
+    })
 }
 
 init();
