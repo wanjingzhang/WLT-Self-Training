@@ -1,14 +1,5 @@
-.site {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
-
-.theimage {
-    width: 50%;
-}
-
-#custom-shape {
-	outline: 1px solid grey;
+* {
+    border:none;
+    margin: 0;
+    padding: 0;
 }
