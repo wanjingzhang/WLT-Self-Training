@@ -11,11 +11,11 @@ SNOW.Submarine = function (width, height) {
         this.ix = 0;
         this.iy = 0;
         this.fr = 0;
-        this.initialVy = SNOW.HEIGHT - 120;
+        this.initialVy = SNOW.HEIGHT - 100;
         this.vy = SNOW.HEIGHT - 120; //y position
         this.oldVx = 50;
         this.vx = this.oldVx;
-        this.jump = - 7.6; //jump height
+        this.jump = - 80; //jump height
         this.velocity = 0;
         this.rotation = 0;
         this.play = false;
@@ -29,28 +29,19 @@ SNOW.Submarine = function (width, height) {
         if (SNOW.Input.tapped && !this.play) {
             // 如果在初始状态下，激活跳起
             this.play = true;
-            this.velocity = this.jump;
-        } else if (this.play) {
-            this.velocity += this.gravity;
-            this.vy = ~~(this.vy + this.velocity);
+            TweenMax.to(this, 0.5, {
+                vy: ~~(this.vy + this.jump),
+                onComplete: function (e) {
 
-            // 当挑起状态时 角色前进加速度
-            if (this.vy < (this.initialVy + 20) && this.vx < (SNOW.WIDTH / 2)) {
-                //在屏幕范围内
-                this.vx += 1;
-            }
-            // 跳下回到原来状态则 恢复初始状态
-            if (this.vy > this.initialVy) {
-                this.vy = this.initialVy;
-                this.play = false;
-            }
-            // SNOW.Sound.play_sound(0); 
-        } else if (!this.play) {
-            // 当不在点击状态 慢慢恢复到原来状态  
-            this.vx > this.oldVx ? this.vx-- : null;
-            // 上下位置加上正弦移动
-            // this.step = this.step + this.amplitude + ~~(Math.cos(this.step)); 
-            //this.vy = initialVy + (10 * ));
+                    TweenMax.to(this.target, 0.5, {
+                        vy: this.target.initialVy,
+                        onComplete: function () {
+                            this.target.play = false;
+                        }
+                    })
+                }
+            });
+            SNOW.Sound.play_sound(0);
         }
     }
     this.render = function () {
