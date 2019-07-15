@@ -1,18 +1,6 @@
 SNOW.Cocktail = function (id) {
-    this.init = function () { 
-        this.id = id;
-        this.vx = SNOW.WIDTH + 120;
-        this.vy = SNOW.HEIGHT - 180;  
-        this.src = 'images/l1/cocktail.svg';
-        this.width = 390;
-        this.height = 420;
-        this.displayWidth = 30;
-        this.displayHeight = 32;
-        this.type = 'cocktail';
-        this.drawType = 'sprite';
-        this.show = false;
-        this.obj = new Myobj();
-        this.obj.init(this.id, this.vx, this.vy, this.width, this.height, this.displayWidth, this.displayHeight, this.src, this.type, this.drawType,this.show);
+    this.init = function () {  
+        this.obj = new Myobj({ id:id, vx: SNOW.WIDTH + 120, vy: SNOW.HEIGHT - 180, width: 390, height: 420, displayWidth: 30, displayHeight: 32, src: 'images/l1/cocktail.svg', type: 'cocktail', drawType: 'sprite', show:false}); 
     }
 
     this.update = function () {

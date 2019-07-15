@@ -1,18 +1,6 @@
 SNOW.Oxygen = function (id) { 
-    this.init = function () {
-        this.id = id;
-        this.vx = SNOW.WIDTH + 200 + this.id * (this.displayWidth + 10); //初始化 
-        this.vy = SNOW.HEIGHT - 180; 
-        this.src = 'images/l3/oxygen.svg';
-        this.width = 26;
-        this.height = 67;
-        this.displayWidth = 22;
-        this.displayHeight = 57;
-        this.type = 'diamond';
-        this.drawType = 'sprite';
-        this.show = true;
-        this.obj = new Myobj();
-        this.obj.init(this.id, this.vx, this.vy, this.width, this.height, this.displayWidth, this.displayHeight, this.src, this.type, this.drawType); 
+    this.init = function () { 
+        this.obj = new Myobj({ id: id, width: 26, height: 67, displayWidth: 22 , displayHeight: 57, vx: SNOW.WIDTH + 200 + id * (22 + 10), vy:SNOW.HEIGHT - 180, src:'images/l3/oxygen.svg',type: 'diamond', drawType: 'sprite', show: true });
     }
 
     this.update = function () {
@@ -25,6 +13,6 @@ SNOW.Oxygen = function (id) {
 
     this.respawn = function () {
         this.obj.show = true;
-        this.obj.vx = SNOW.WIDTH + 200 +  this.id * (this.displayWidth + 10); //初始化 
+        this.obj.vx = SNOW.WIDTH + 200 +  this.obj.id * (this.obj.displayWidth + 10); //初始化 
     }
 }

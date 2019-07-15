@@ -178,8 +178,8 @@ window.Play = function () {
             if ( SNOW.entities[i].obj.show === true) { 
                 var hit = SNOW.Collides(SNOW.sled, SNOW.entities[i].obj);
                 if (hit) { 
-                    console.log(SNOW.entities[i].type);
-                    switch (SNOW.entities[i].type) {
+                    console.log(SNOW.entities[i].obj.type);
+                    switch (SNOW.entities[i].obj.type) {
                         case 'stone':
                             SNOW.entities[i].obj.show = false;
                             SNOW.hp.blood -= SNOW.hp.bloodStep;  
