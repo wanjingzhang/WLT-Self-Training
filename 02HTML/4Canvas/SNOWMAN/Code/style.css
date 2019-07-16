@@ -625,6 +625,7 @@ canvas, .popBackground, .bubbles-container{
 
 @media only screen and (max-height: 836px) {
   canvas{ 
+    top: auto;
   }
 }
  
