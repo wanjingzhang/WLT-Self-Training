@@ -1,6 +1,6 @@
 SNOW.Oxygen = function (id) { 
     this.init = function () { 
-        this.obj = new Myobj({ id: id, width: 26, height: 67, displayWidth: 22 , displayHeight: 57, vx: SNOW.WIDTH + 200 + id * (22 + 10), vy:SNOW.HEIGHT - 180, src:'images/l3/oxygen.svg',type: 'diamond', drawType: 'sprite', show: true });
+        this.obj = new Myobj({ id: id, width: 26, height: 67, displayWidth: 26 , displayHeight: 67, vx: SNOW.WIDTH + 200 + id * (22 + 10), vy:SNOW.HEIGHT - 180, src:'images/l3/oxygen.svg',type: 'diamond', drawType: 'sprite', show: true });
     }
 
     this.update = function () {

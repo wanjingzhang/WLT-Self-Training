@@ -45,8 +45,8 @@ SNOW.Route = function (x, y, width ) {
                 break;
             case 3:
                 // desert
-                SNOW.Draw.Image(this.sea, this.x + this.width, SNOW.HEIGHT - 152);
-                SNOW.Draw.Image(this.sea, this.x, SNOW.HEIGHT - 152);
+                SNOW.Draw.Image(this.sea, this.x + this.width, SNOW.HEIGHT - 160);
+                SNOW.Draw.Image(this.sea, this.x, SNOW.HEIGHT - 160);
                 break;
                 
         } 
