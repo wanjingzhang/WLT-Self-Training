@@ -141,13 +141,16 @@ window.addEventListener('load', function () {
         window.addEventListener('orientationchange', SNOW.changeOrientation, false);
         if (SNOW.isOK()) {
             SNOW.popBackground.style.display = "block";
-            SNOW.inputContent.style.display = "block";
- 
-        }  
+            SNOW.inputContent.style.display = "block"; 
+        }   
     }
     var loadInterval = setInterval(function () { 
         clearInterval(loadInterval);
         SNOW.init();
+        if (!SNOW.isNotMobile) {
+            SNOW.relCanvas.classList.add("mobile");
+        }
+        console.log('SNOW.relCanvas.classList.add("mobile") SNOW.isNotMobile=' + SNOW.isNotMobile);
     }, 200); 
 }, false);
  

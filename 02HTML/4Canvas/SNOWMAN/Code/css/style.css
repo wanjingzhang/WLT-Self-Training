@@ -75,6 +75,22 @@ canvas, .popBackground, .bubbles-container{
 	display: none;
 }
 
+/*
+spaceship
+*/
+.spaceship_window{
+  transform-origin: 62px 52px 0;
+  animation: lanter 2s infinite alternate ease-in-out;
+}
+
+.lanter{
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-name: light;
+  animation-timing-function: ease;
+  animation-duration: 0.4s;
+}
+
 /* bubbles start */
 .bubbles-container { 
   max-width: 30rem;
@@ -623,8 +639,8 @@ canvas, .popBackground, .bubbles-container{
 }
 /* snow end */
 
-@media only screen and (max-height: 836px) {
-  canvas{ 
+@media only screen and (max-height: 836px)  {
+  canvas.mobile{ 
     top: auto;
   }
 }

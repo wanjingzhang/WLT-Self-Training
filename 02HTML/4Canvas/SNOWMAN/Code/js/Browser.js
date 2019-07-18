@@ -28,8 +28,8 @@ SNOW.isOK = function() {
 }
 
 // 屏幕大小改变
-SNOW.resize = function () { 
-
+SNOW.resize = function () {
+    
     if ((window.innerWidth / window.innerHeight) > (SNOW.WIDTH / SNOW.HEIGHT)) {
         SNOW.currentWidth = SNOW.WIDTH * window.innerHeight / SNOW.HEIGHT;
         SNOW.currentHeight = window.innerHeight;
@@ -39,8 +39,7 @@ SNOW.resize = function () {
         SNOW.currentWidth = window.innerWidth;
         SNOW.currentHeight = SNOW.HEIGHT * window.innerWidth / SNOW.WIDTH;
         SNOW.Scale =  SNOW.currentHeight / SNOW.HEIGHT;
-    }   
-      
+    }     
 
     SNOW.relCanvas.style.width = SNOW.cacheCanvas.style.width = SNOW.currentWidth + "px";
     SNOW.relCanvas.style.height = SNOW.cacheCanvas.style.height = SNOW.currentHeight + "px";  
@@ -54,10 +53,11 @@ SNOW.resize = function () {
     SNOW.offset.top = SNOW.relCanvas.offsetTop;
     SNOW.offset.left = SNOW.relCanvas.offsetLeft; 
 
-    var resizeInterval;
-    resizeInterval = setInterval(function () {
-            clearInterval(resizeInterval);
-            window.scrollTo(0, 1);},0) 
+    // var resizeInterval;
+    // resizeInterval = setInterval(function () {
+    //         clearInterval(resizeInterval);
+    //     window.scrollTo(0, 1);
+    // }, 0) 
 }
 
 // 刷新页面

@@ -24,6 +24,6 @@
 	</g>
 	
 		<ellipse transform="matrix(7.088900e-02 -0.9975 0.9975 7.088900e-02 54.6722 420.1696)" class="st1" cx="252.9" cy="180.7" rx="43.1" ry="43.1"/>
-	<circle class="st3" cx="252.9" cy="180.7" r="28.8"/>
+	<circle id="spaceship_window" class="st3" cx="252.9" cy="180.7" r="28.8"/>
 </g>
 </svg>
