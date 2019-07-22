@@ -51,11 +51,18 @@ SNOW.Input = {
  *  碰撞检测
  */
 SNOW.Collides = function (object_1, object_2) {  
-    if (~~(object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < ~~(object_2.vx + object_1.width / 2))
-        && object_1.vy + object_1.height / 2 > object_2.vy
+    var ob1Width = object_1.width/2;//object_1.displayWidth;
+    var ob1Hight = object_1.height/2;//object_1.displayHight;
+    if (~~(object_1.vx + ob1Width) > object_2.vx
+        && (object_1.vx < ~~(object_2.vx + ob1Width)) 
+        && ((object_1.vy + ob1Hight) > object_2.vy)
     ) {  
         return true;
     } 
+
+    // if (~~(object_1.vx + object_1.width / 2 > object_2.vx && object_1.vx < ~~(object_2.vx + object_1.width / 2))
+    //     && object_1.vy + object_1.height / 2 > object_2.vy
+    // ) 
 }
 
 // 姓名检测

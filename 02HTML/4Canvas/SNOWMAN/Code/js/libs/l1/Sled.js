@@ -4,8 +4,8 @@ SNOW.Sled = function (width,height) {
         this.img.src = "images/sled.svg";
         this.width = 103;
         this.height = 94;
-        this.disWid = 103;
-        this.disHei = 94; 
+        this.displayWidth = 103;
+        this.displayHeight = 94; 
 
         this.gravity =0.25,
         this.ix = 0;
@@ -54,6 +54,6 @@ SNOW.Sled = function (width,height) {
         }  
     }
     this.render = function () {
-        SNOW.Draw.Sprite(this.img, this.ix, this.iy,this.disWid,this.disHei, this.vx, this.vy, this.width, this.height, this.rotation); 
+        SNOW.Draw.Sprite(this.img, this.ix, this.iy,this.displayWidth,this.displayHeight, this.vx, this.vy, this.width, this.height, this.rotation); 
     }
 }
