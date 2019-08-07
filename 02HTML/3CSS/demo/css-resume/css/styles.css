@@ -118,6 +118,20 @@ nav a {
   font-weight: 700;
 }
 
+/* Background */
+.image-bg{
+  width:400px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background: linear-gradient(rgba(255,255,255,0.8),
+                          rgba(199,21,133,0.5)),
+                          url(https://unsplash.it/400/300) no-repeat;                   
+}
+
+.alpha-bg{
+  padding: 20px;
+}
+
 /* Work Experience
 -------------------------*/
 .work {
