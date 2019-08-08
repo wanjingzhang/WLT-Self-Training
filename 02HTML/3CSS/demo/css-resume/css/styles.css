@@ -43,16 +43,7 @@ a:hover {
   margin: 0 auto;
   padding: 60px 50px;
   overflow: hidden;
-}
-.col-narrow {
-  width: 30%;
-  float: left;
-}
-.col-wide {
-  width: 70%;
-  float: left;
-  padding-left: 20px;
-}
+} 
 .uppercase {
   text-transform: uppercase;
 }
@@ -140,8 +131,23 @@ h3 ~ p {
   background: #8D99AE;
    background: linear-gradient(rgba(141, 153, 174, 0.8),
                           rgba(141, 153, 174, 0.5)),
-                          url(https://unsplash.it/400/300) no-repeat; 
+                          url(../images/toronto.jpg) no-repeat fixed; 
+    background-size: cover;
 }
 p + h3 {
   margin-top: 30px;
+}
+
+/* Media Queries
+-------------------------*/
+@media( min-width: 900px ){
+  .col-narrow{
+    width: 30%;
+    float: left;
+  }
+  .col-wide{
+    width: 70%;
+    float: left;
+    padding-left: 20px;
+  }
 }
