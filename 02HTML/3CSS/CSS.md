@@ -11,6 +11,7 @@
 1. [媒体查询](https://tympanus.net/codrops/css_reference/media-queries/)
 
 1. [add two crickets]()
+2. [all of james and frederick's initial dialog]()
 
 #### Block Comment
 
