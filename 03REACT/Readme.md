@@ -1,3 +1,25 @@
+# 1. React ecosystem contain: 
+1. Routing. In the navigation click news=> calls route=> Routes(Home, Contact, News)=> Components(Home, Contact, News)=> Pages 
+1. Server-side rendering. React Dom Server. In the server code=> renderToString(element)=> renderToStaticMarkup(element) 
+1. State management. Managing different points in time or states, for your application. Redux 
+1. Mobile, React Native: Apple, Android, Windows. 
+1. Reviewing an animation library, React-motion powerful animation, support: spring, transitions, motion. 
+1. Testing and debugging. Chrome, for Firefox, or standalone developer tool: React structure, Props, State. JEST: UI tests, Coverage requests, Matchers, Use with Andy frameworks. 
+1. Type checking in React. Eliminate a lot of the bugs. Types with: propTypes, Flow.
+
+# 2. React ecosystem demo:
+1. [React docs](facebook.github.io/react)  
+1. [Redux](redux.js.org) 
+1. [Mobile](facebook.github.io/react-native) 
+1. [Animation](github.com/chenglou/react-motion)
+1. Testing and debugging
+    * [Jest](facebook.github.io/jest)
+    * [Devtools](github.com/facebook/react-devtools)
+1. Types
+    * [propTypes](github.com/reactjs/prop-types)
+    * [Flow](flow.org)
+
+
 # create react app and install
 npx create-react-app my-app
 cd my-app

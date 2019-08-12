@@ -18,3 +18,21 @@
 
 #### breakpoints
 #### backgound linear-gradient
+
+1. CSS Selectors:
+    1. attribute: [type], [type=“search”];
+    1. combinators: section a(child, descendant), section > a (child), h1 + p (adjacent, sibling 1), h1 ~ p (general sibling multiple)
+    1. pseudo-class: a:hover, p:first-child, p:last-child, p:first-of-type, p:last-of-type, p:nth-child(odd,3,3n+2)(based on the order within the parent container, keyword, number, algebraic expression), p:nth-of-type(3n+2), a::first-letter, a:before, p:after, content:”/2764”(unicode), text-transform: uppercase, 
+2. Layouts: 
+    1. Box model, float, display
+    1. positioning(fixed, left:0, right:0 = 100%),
+    1. Float, display, position can’t be used together on the same element.
+If using position, then float is ignored.
+If using float, then display is ignored.
+    1. index: relative, fixed, absolute can set.
+    1. resetting stylesheets: reset, Normalize.css
+    1. Icon fonts: Fontawesome.io
+    1. Background: alpha transparency and gradients: linear-gradient(rgba(141,153,174,0.8),rgba(141,153,174.0.5)), url(../image/toronto.jpg) no-repeat fixed;
+Background-size:cover;
+3. Responsive and Mobile
+<link media=“screen and (max-width: 400px)” rel=“stylesheet” href=“mobile.css”>
