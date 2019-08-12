@@ -8,16 +8,55 @@
 1. [免费图片](https://unsplash.com)
 1. [流式布局](http://www.liquidapsive.com/)
 1. [响应式布局break points](https://gs.statcounter.com/screen-resolution-stats)
-1. [媒体查询](https://tympanus.net/codrops/css_reference/media-queries/)
-1. [test](https://test various staff )
+1. [媒体查询](https://tympanus.net/codrops/css_reference/media-queries/) 
+1. [在线图片编辑器](https://pixlr.com/editor/)
 
 1. [add two crickets]()
 2. [all of james and frederick's initial dialog]()
 
 #### Block Comment
 
-#### breakpoints
-#### backgound linear-gradient
+#### CSS Essential Training 1
+1. Floats.
+    1. clear floats
+    ```javascript
+    img{
+        float:left;
+    }
+    h1{
+        clear:both;
+    }
+    <div>
+        <img/>
+        <p></p>
+    </div> 
+    ```
+    // self clear
+    `overflow:hidden, both`
+
+    ```javascript
+    .clearfix:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+    <div class="parent clearfix">
+        <p></p>
+    </div>
+    ```
+    1. box sizing
+        ```javascript
+        html{
+            box-sizing: border-box;
+        }
+        *, *:before, *:after{
+            box-sizing: inherit;
+        }
+        ```
+
+
+
+#### CSS Essential Training 2
 
 1. CSS Selectors:
     1. attribute: [type], [type=“search”];
@@ -35,4 +74,5 @@ If using float, then display is ignored.
     1. Background: alpha transparency and gradients: linear-gradient(rgba(141,153,174,0.8),rgba(141,153,174.0.5)), url(../image/toronto.jpg) no-repeat fixed;
 Background-size:cover;
 3. Responsive and Mobile
-<link media=“screen and (max-width: 400px)” rel=“stylesheet” href=“mobile.css”>
+    1. breakpoints
+    1. <link media=“screen and (max-width: 400px)” rel=“stylesheet” href=“mobile.css”>
