@@ -30,7 +30,7 @@ function runTimer() {
 // Match the text entered with the provided text on the page:
 function spellCheck() {
     let textEntered = testArea.value;
-    let originTextMatch = originText.substring(0, textEntered.length);
+    let originTextMatch = originText.substring(0, textEntered.length); // get the string from 0 to entered length.
     console.log(originTextMatch);
 
     if (textEntered == originText) {
