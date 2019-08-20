@@ -77,11 +77,11 @@
         document.getElementById('help').innerHTML = help;
     }
 
-    function makeHelpCallback(help){
-        return function(){
-            showHelp(help);
-        }
-    }
+    // function makeHelpCallback(help){
+    //     return function(){
+    //         showHelp(help);
+    //     }
+    // }
 
     function setupHelp(){
         var helpText = [
@@ -90,10 +90,36 @@
             { 'id': 'age', 'help': 'Your age (you must be over 16)' }
         ];
 
-        for (var i = 0; i < helpText.length; i++){
-            var item = helpText[i];
-            document.getElementById(item.id).onfocus = makeHelpCallback(item.help);  // Closures function
-        }
+        // 1. Closures
+        // for (var i = 0; i < helpText.length; i++){
+        //     var item = helpText[i];
+        //     document.getElementById(item.id).onfocus = makeHelpCallback(item.help);  // Closures function
+        // }
+
+        // 2. Immediate event listener attachment with the current value of item
+        // for( var i = 0; i< helpText.length; i++){
+        //     (function(){
+        //         var item = helpText[i];
+        //         document.getElementById(item.id).onfocus = function(){
+        //             showHelp(item.help);
+        //         }
+        //     })();
+        // }
+
+        // 3. let keyword
+        // for(var i = 0; i <helpText.length; i++){
+        //     let item = helpText[i];
+        //     document.getElementById(item.id).onfocus = function(){
+        //        showHelp(item.help);
+        //     }
+        // }
+
+        // 4. use forEach() to iterate over the helpText array
+        helpText.forEach(function(text){
+            document.getElementById(text.id).onfocus = function(){
+                showHelp(text.help);
+            }
+        })
     }
     setupHelp();
     </script>
