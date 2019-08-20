@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <p id="help">Helpful notes will appear here</p>
+        <p>E-mail: <input type="text" id="email" name="email"></p>
+        <p>Name: <input type="text" id="name" name="name"></p>
+        <p>Age: <input type="text" id="age" name="age"></p>
+    </div>
     <script>
     // 1. Emulating private methods with closures
     // var makeCounter = function(){
@@ -37,33 +43,59 @@
     // console.log(counter2.value());
 
     // 2. Closure Scope Chain have thress scopes: local, outer functions, global
-    var e = 10;
-    function sum(a){
-        return function(b){
-            return function(c){
-                return function(d){
-                    return a + b + c + d + e;
-                }
-            }
-        }
-    } 
-    console.log(sum(1)(2)(3)(4));    // log 20
+    // var e = 10;
+    // function sum(a){
+    //     return function(b){
+    //         return function(c){
+    //             return function(d){
+    //                 return a + b + c + d + e;
+    //             }
+    //         }
+    //     }
+    // } 
+    // console.log(sum(1)(2)(3)(4));    // log 20
 
-    var e = 10;
-    function sum(a){
-        return function sum2(b){
-            return function sum3(c){
-                return function sum4(d){
-                    return a + b + c + d + e;
-                }
-            }
+    // var e = 10;
+    // function sum(a){
+    //     return function sum2(b){
+    //         return function sum3(c){
+    //             return function sum4(d){
+    //                 return a + b + c + d + e;
+    //             }
+    //         }
+    //     }
+    // }
+    // var s = sum(1);
+    // var s1 = s(2);
+    // var s2 = s1(3);
+    // var s3 = s2(4);
+    // console.log(s3);    // log 20
+
+
+    // 3. Creating closures in loops: A common mistake
+    function showHelp(help){
+        document.getElementById('help').innerHTML = help;
+    }
+
+    function makeHelpCallback(help){
+        return function(){
+            showHelp(help);
         }
     }
-    var s = sum(1);
-    var s1 = s(2);
-    var s2 = s1(3);
-    var s3 = s2(4);
-    console.log(s3);    // log 20
+
+    function setupHelp(){
+        var helpText = [
+            { 'id': 'email', 'help': 'Your e-mail address' },
+            { 'id': 'name', 'help': 'Your full name' },
+            { 'id': 'age', 'help': 'Your age (you must be over 16)' }
+        ];
+
+        for (var i = 0; i < helpText.length; i++){
+            var item = helpText[i];
+            document.getElementById(item.id).onfocus = makeHelpCallback(item.help);  // Closures function
+        }
+    }
+    setupHelp();
     </script>
 </body>
 </html>
