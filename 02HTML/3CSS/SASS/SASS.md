@@ -33,18 +33,27 @@ $main_color: #9E2932;
             width: 96px;
             height: 96px;
             padding: 0 5px 5px 0;
+            a{
+                color: $yellow;
+                &:hover{
+                    background: $red; 
+                }
+                &:last-of-type{
+                    border-bottom: 1px dotted $color-item-border;
+                }
+            }
         }
     }
 }
 ```
 
->  Partials
+>  Partials -> modules
 ```javascript
 @import "variables";
 @import "mixins";
 ```
 
-> Extend
+> Extend -> inherit
 ```javascript
 .btn{
     padding: 6px 12px;
@@ -60,6 +69,7 @@ $main_color: #9E2932;
 
 > Operators
 ```javascript
+// if
 $border_thickness: 1px;
 $thicker: $border_thickness * 5;
 .sidebar{
@@ -69,9 +79,21 @@ $thicker: $border_thickness * 5;
         background-color: yellow;
     }
 }
+
+// each
+$color-btn-names: 'default', 'hot', 'cool';
+$color-btn-values: $color-main, $red, $blue;
+@each $name in $color-btn-names{
+    $i: index($color-btn-names, $name);
+
+    .btn-#($name){
+        @extend %btn;
+        background-color: nth($color-btn-values, $i);
+    }
+}
 ```
 
-> Mixins
+> Mixins -> function
 ```javascript
 @mixin rounded ($radius: 10px){
     -webkit-border-radius: $radius;
