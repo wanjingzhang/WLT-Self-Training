@@ -12,6 +12,25 @@ Sass was originally written in Ruby. LibSass is a C/C++ port of the SASS engine.
 [Node Sass](https://github.com/sass/node-sass)
 Most popular Sass.
 
+# Learning repostory
+```javascript
+// creat bare repository which the .git folder in it.
+git clone --bare https://github.com/planetoftheweb/sassEssentials.git .git
+// modify the variable, the folder shows up properly
+git config --bool core.bare false
+// make this into a regular repository
+git reset --hard
+// get git branch command
+git branch
+// press q for exit
+// install all dependencies
+npm install
+// checkout the branch
+git checkout 02_03a
+// to the proper branch
+git stash
+```
+
 # Sass Features: Variables, Nesting, Partials, Extend, Operators, Mixnis, .sass
 > Variables
 ```javascript
