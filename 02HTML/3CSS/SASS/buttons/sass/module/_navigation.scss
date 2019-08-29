@@ -6,6 +6,7 @@ nav {
 	.branding {
 		float: left;
 		display: none;
+		@include clearfix;
 		@include break(1000px) {
 			display: block;
 		}
@@ -13,6 +14,7 @@ nav {
 
 	.branding h1 {
 		font-size: 2.75rem;
+		line-height: 70px;
 		overflow: hidden;
 		margin: 0;
 		color: $yellow;
@@ -22,12 +24,13 @@ nav {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		min-height: 70px;
 		@include clearfix;
 	}
 
 	ul li {
 		@include break(760px) {
-			float: left;
+			float: right;
 		}
 		padding: 10px 5px;
 	}

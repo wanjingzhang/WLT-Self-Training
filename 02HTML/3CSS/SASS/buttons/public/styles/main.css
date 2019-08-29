@@ -465,6 +465,15 @@ nav .branding {
   display: none;
 }
 
+nav .branding:before, nav .branding:after {
+  content: '';
+  display: table;
+}
+
+nav .branding:after {
+  clear: both;
+}
+
 @media (min-width: 1000px) {
   nav .branding {
     display: block;
@@ -473,6 +482,7 @@ nav .branding {
 
 nav .branding h1 {
   font-size: 2.75rem;
+  line-height: 70px;
   overflow: hidden;
   margin: 0;
   color: #FFBA00;
@@ -482,6 +492,7 @@ nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  min-height: 70px;
 }
 
 nav ul:before, nav ul:after {
@@ -499,7 +510,7 @@ nav ul li {
 
 @media (min-width: 760px) {
   nav ul li {
-    float: left;
+    float: right;
   }
 }
 
