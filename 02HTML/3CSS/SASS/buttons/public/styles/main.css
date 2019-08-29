@@ -1096,22 +1096,22 @@ button {
   border: 0;
   border-radius: 30px;
   text-shadow: 0px 5px #0f388a, 0px 2px 4px #003;
-  box-shadow: 0px 0px 0px 15px #e61a80, 0px 10px 0px 15px #b81466, 0px 20px 20px 15px #003;
+  box-shadow: 0px 0px 0px 15px #edf034, 0px 10px 0px 15px #acad0a, 0px 20px 20px 15px #596708;
   cursor: pointer;
   border-radius: 100px 30px 100px 30px;
 }
 
 .button-morph button span {
-  margin-top: 20px;
   transform: rotate(-3deg);
+  display: block;
+}
+
+.button-morph button span:hover {
+  animation: .8s rot ease infinite;
 }
 
 .button-morph button:hover {
   animation: .8s morph ease infinite;
-}
-
-.button-morph button:hover p {
-  animation: .8s rot ease infinite;
 }
 
 @keyframes morph {
