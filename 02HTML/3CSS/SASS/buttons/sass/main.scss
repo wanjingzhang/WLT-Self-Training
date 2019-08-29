@@ -1,6 +1,9 @@
-@import "variables";
-@import "base";
-@import "normalize";
+@import "module/variables";
+@import "module/base";
+@import "module/normalize";
+@import "module/mixins";
+@import "module/navigation";
+@import "module/button";
 
 
 @import "buttons/button1"; 

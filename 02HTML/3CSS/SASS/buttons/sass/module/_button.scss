@@ -1,0 +1,28 @@
+*:before, *:after{
+    content: "";
+    position: absolute;
+}
+
+button {
+	background: transparent;
+	color: #fff;
+	border: 3px solid #fff;
+	border-radius: 50px;
+	padding: 0.8rem 2rem;
+	font: 24px "Margarine", sans-serif;
+	outline: none;
+	cursor: pointer;
+	position: relative;
+	transition: 0.2s ease-in-out;
+	letter-spacing: 2px;
+}
+ 
+.button__wrapper {
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
