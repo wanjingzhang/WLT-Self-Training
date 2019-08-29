@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 92%;
   margin: 0 auto;
 }
 
@@ -20,10 +20,10 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-family: $font-highlight;
   color: $color-headlines;
-}
+} 
 
 .main-content{
-  display: gird;
+  display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
   color: #ffffff;
@@ -32,7 +32,8 @@ h1,h2,h3,h4,h5,h6 {
 		grid-template-rows: 1fr min-content;
 		align-items: center;
 		justify-content: center;
-		height: 50vh;
+		min-height: 200px;
+    height: 20vh;
 		flex-wrap: wrap;
 		background: var(--bg-color);
 		&:not(.footer) {
