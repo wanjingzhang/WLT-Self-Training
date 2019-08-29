@@ -1,4 +1,7 @@
 $color-btn-text: $color-backgrounds;
+$color-btn-default: $color-main;
+$color-btn-hot: $red;
+$color-btn-cool: $blue;
 $roundness: 20px 0 20px 0;
 
 %btn {
@@ -15,18 +18,19 @@ $roundness: 20px 0 20px 0;
 	color: $color-btn-text;
 }
 
-$color-btns: (
-	default: $color-main,
-	hot: $red,
-	cool: $blue,
-	awesome: $purple
-);
+.btn-default {
+	@extend %btn;
+	background: $color-btn-default;
+}
 
-@each $key, $value in $color-btns {
-	.btn-#{$key} {
-		@extend %btn;
-		background-color: $value;
-	}
+.btn-hot {
+	@extend %btn;
+	background: $color-btn-hot;
+}
+
+.btn-cool {
+	@extend %btn;
+	background: $color-btn-cool;
 }
 
 .grid {

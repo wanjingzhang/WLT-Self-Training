@@ -35,5 +35,5 @@
 .bridge {
 	@include backImage(
 		'../images/bridge.jpg',
-		300px, center center);
+		600px, top center);
 }

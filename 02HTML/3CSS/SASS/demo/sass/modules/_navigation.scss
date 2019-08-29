@@ -6,7 +6,6 @@ nav {
 	.branding {
 		float: left;
 		display: none;
-		
 		@include break(1000px) {
 			display: block;
 		}
@@ -16,7 +15,7 @@ nav {
 		font-size: 2.75rem;
 		overflow: hidden;
 		margin: 0;
-		color: $yellow; 
+		color: $yellow;
 	}
 
 	ul {
@@ -54,9 +53,5 @@ nav {
 		margin-top:20px;
 		min-height: 200px;
 		background-color: darken($blue, 15%);
-
-		@include break(0, 500px) {
-			display: none;
-		}
 	}
 }

@@ -31,6 +31,10 @@ git checkout 02_03a
 git stash
 ```
 
+> css继承 interface: @extends %btn;
+> css方法 mixins：@include clearfix;
+> comments注释:  //压缩模式不显示  /*可以计算插值 */ /*! 文字原样输出 */
+
 # Sass Features: Variables, Nesting, Partials, Extend, Operators, Mixnis, .sass
 > Variables
 ```javascript
