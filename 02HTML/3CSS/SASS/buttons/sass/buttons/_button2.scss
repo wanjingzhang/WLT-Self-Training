@@ -231,7 +231,293 @@
     }
 }
 /* ----------13---------- */
+
+/* ----------14---------- */ 
+.button-run{
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        cursor: pointer;
+
+        svg {
+            height: 55px;
+            width: 150px;
+            fill: none;
+            stroke-width: 5;
+
+            .o1 {
+                stroke: rgba(#FFB341, 0.7);
+                fill: #FFA114;
+                transition: all 1s ease-in-out;
+            }
+
+            .o2 {
+                stroke: white;
+                stroke-dasharray: 20 420;
+                stroke-dashoffset: 20;
+                transition: all 1s ease-in-out;
+            }
+        }
+
+        span {
+            position: absolute;
+            margin: auto 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        &:hover {
+            .o1{
+                fill: rgba(#CC8110, 0.3);
+            }
+            
+            .o2 {
+                stroke-dashoffset: -420;
+            }
+        }
+    }
+}
+
 /* ----------14---------- */
+/* ----------15---------- */
+.button-expand{ 
+    text-align: center;
+    button{
+        padding: 0;
+    }
+    .add-btn{
+        &:hover {
+            .btn-txt {
+                opacity: 1;
+            }
+            width: 120px;
+            &:before,
+            &:after {
+                width: 4px;
+                border-radius: 2px;
+            }
 
+            .add-icon{
+                &:before {
+                    left: 15px;
+                    height: 4px;
+                    top: calc(50% - 2px);
+                }
+                &:after {
+                    right: 15px;
+                    height: 4px;
+                    top: calc(50% - 2px);
+                } 
+            } 
+        }
+        &:before, &:after{
+            transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 10px;
+            top: calc(50% - 2px);
+            background: red;
+        }
+        &:after{
+            right: 14px;
+            overflow: hidden;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+        &:before{
+            left: 14px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        }
 
+        
+    }   
+ 
+    .icon-btn{
+        width: 50px;
+        height: 50px;
+        border: 1px solid #cdcdcd;
+        background: white;
+        border-radius: 25px;
+        overflow: hidden;
+        position: relative;
+        transition: width 0.2s ease-in-out;
+        &:focus{
+            outline: none;
+        }
+    } 
+    .btn-txt {
+        opacity: 0;
+        transition: opacity 0.2s;
+        color: #000;
+        font-size: 14px;
+        line-height: 32px;
+    } 
+    
+    .add-icon{
+        &:after,&:before {
+            transition: all 0.2s ease-in-out;
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 2px;
+            top: calc(50% - 10px);
+            background: red;
+            overflow: hidden;
+        }
+        &:before{
+            left: 22px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+        &:after{
+            right: 22px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+    }   
+}
+/* ----------15---------- */
+/* ----------16---------- */
 
+.button-laser{
+    .brk-btn {
+        position: relative;
+        background: none;
+        color: aqua;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 0.2em solid aqua;
+        padding: 0.5em 1em;
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 10%;
+            background: #222;
+            height: 0.3em;
+            right: 20%;
+            top: -0.21em;
+            transform: skewX(-45deg);
+            -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+            transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 10%;
+            background: #222;
+            height: 0.3em;
+            left: 20%;
+            bottom: -0.25em;
+            transform: skewX(45deg);
+            -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+            transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        &:hover {
+            &::before {
+                right: 80%;
+            }
+            &::after {
+                left: 80%;
+            }
+        }
+    }
+} 
+/* ----------16---------- */ 
+/* ----------17---------- */
+.button-emoji{
+    $debug: false;
+    $black: #000000; 
+    $perfume: #e0acf7;
+    $red: #ff0000;
+    $white: #ffffff;
+
+    .c-smileyButton {  
+        color: $white; 
+        border: 0;
+        outline: 0; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        position: relative;
+        height: 2.5em; 
+        border-radius: 0.25em;
+        box-sizing: border-box;
+        background-color: $perfume;
+        box-shadow: 0 0.15em 1em rgba($black, 0.2);
+        padding: 0.2em 1.4em;
+        z-index: 1;
+
+        &:hover .c-smileyButton__face::before {
+            content: '\1F618';
+            animation: animate 1.05s infinite;
+        }
+        
+        // cursor fix
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 1;
+        }
+    }
+
+    .c-smileyButton__face::before {
+        content: '\1F614';
+        position: relative;
+    }
+
+    .c-smileyButton__hoverListener {
+        position: absolute;
+        cursor: default;
+        z-index: -1;
+
+        @if $debug {
+            background-color: rgba($red, 0.2);
+        }
+
+        &:hover ~ .c-smileyButton__face::before {
+            animation: none;
+        }
+
+        &:nth-child(1) {
+            width: 290%;
+            height: 550%;
+
+            &:hover ~ .c-smileyButton__face::before {
+            content: '\1F60C';
+            }
+        }
+
+        &:nth-child(2) {
+            width: 190%;
+            height: 330%;
+
+            &:hover ~ .c-smileyButton__face::before {
+            content: '\1F61A';
+            }
+        }
+    }
+} 
+
+@keyframes animate {
+    100% { content: '\1F60A'; }
+} 
+/* ----------17---------- */
+
+/* ----------18---------- */
+/* ----------18---------- */
+
+/* ----------19---------- */
+/* ----------19---------- */
+
+/* ----------20---------- */
+/* ----------20---------- */
