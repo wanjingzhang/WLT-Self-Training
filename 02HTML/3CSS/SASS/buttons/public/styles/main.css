@@ -1148,3 +1148,108 @@ button {
 }
 
 /* ----------10---------- */
+/* ----------11---------- */
+@keyframes bubbles {
+  from {
+    transform: translate();
+  }
+  to {
+    transform: translate(0, -66.666%);
+  }
+}
+
+.button-flush {
+  --text-color: #c6d9ec;
+  --shadow-color: rgba(84, 133, 182, 0.4);
+  --btn-color: #156bc1;
+  --bg-color: #141218;
+}
+
+.button-flush button {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: "Source Code Pro";
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: var(--text-color);
+  background-color: var(--btn-color);
+  box-shadow: var(--shadow-color) 2px 2px 22px;
+  border-radius: 4px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.button-flush button .left, .button-flush button .right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.button-flush button .left {
+  right: 66%;
+}
+
+.button-flush button .right {
+  left: 66%;
+}
+
+.button-flush button .right:after {
+  top: -30px;
+  left: calc(-66% - 20px);
+  background-color: var(--bg-color);
+  color: transparent;
+  transition: transform .4s ease-out;
+  transform: translate(0, -90%) rotate(0deg);
+}
+
+.button-flush button:focus {
+  outline-color: transparent;
+  box-shadow: var(--btn-color) 2px 2px 22px;
+}
+
+.button-flush button:after {
+  font-weight: 200;
+  top: -30px;
+  left: -20px;
+}
+
+.button-flush button:before {
+  content: '';
+  pointer-events: none;
+  opacity: .6;
+  background: radial-gradient(circle at 20% 35%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px), radial-gradient(circle at 75% 44%, transparent 0, transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px), radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);
+  width: 100%;
+  height: 300%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: bubbles 5s linear infinite both;
+}
+
+.button-flush .right::after, .button-flush button::after {
+  content: var(--content);
+  display: block;
+  position: absolute;
+  white-space: nowrap;
+  padding: 40px 40px;
+  pointer-events: none;
+}
+
+.button-flush button:hover .right::after {
+  transform: translate(0, -47%) rotate(0deg);
+}
+
+.button-flush button .right:hover::after {
+  transform: translate(0, -50%) rotate(-7deg);
+}
+
+.button-flush button .left:hover ~ .right::after {
+  transform: translate(0, -50%) rotate(7deg);
+}
+
+/* ----------11---------- */
