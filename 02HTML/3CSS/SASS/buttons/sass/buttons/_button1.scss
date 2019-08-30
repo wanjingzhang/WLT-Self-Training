@@ -62,15 +62,7 @@
 		top: 0;
 		left: 0;
 		z-index: 2;
-    }
-    .button__wrapper:hover .pulsing {
-		&:before {
-			animation: pulsing 0.2s linear infinite;
-		}
-		&:after {
-			animation: pulsing1 0.2s linear infinite;
-		}
-	}
+    } 
 }
 
 .pulsing {
@@ -91,10 +83,14 @@
 		background: #fff;
 		border-radius: inherit;
 		animation: pulsing 2.5s linear infinite;
+		&:hover{
+			animation: pulsing 0.2s linear infinite;
+		}
 	}
 	&:after {
 		animation: pulsing1 2.5s linear infinite;
 	}
+ 
 }
 
 @keyframes pulsing {
@@ -481,23 +477,26 @@
         width: 8em;
         height: 2em;
         color: orange;
-        border-left: 0.08em solid;
+        border-left: 0.08em solid orange;
         position: relative;
         margin-top: 0.8em;
         cursor: pointer; 
         span{
-            position: relative;
+            position: absolute;
             height: 120%;
-            top: -10%;
+			top: -10%;
+			left: 0;
+			right: 0;
             box-sizing: border-box;
-            border: 0.08em solid;
-            background-color: #333;
+            border: 0.08em solid; 
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: sans-serif;
-            text-transform: capitalize;
-            transform: translateX(calc(-0.15em * 3 - 0.08em * 2)); 
+			text-transform: capitalize;
+			background-color: #9b59b6;
+			transform: translateX(calc(-0.15em * 3 - 0.08em * 2)); 
+			// transform: translateX(0.15em); 
             transition: 0.3s;
             z-index: 2;
         } 
@@ -512,14 +511,14 @@
                 height: 80%;
                 top: 10%;
                 left: calc(-0.15em - 0.08em * 2);
-                filter: brightness(0.8);
+                filter: opacity(0.8);
                 z-index: 1;
         } 
         &:after{
                 height: 60%;
                 top: 20%;
-                left: calc(-0.15em * 2 - 0.08em * 3);
-                filter: brightness(0.6);
+				left: calc(-0.15em * 2 - 0.08em * 3); 
+                filter: opacity(0.6);
                 z-index: 1;
         } 
         &:hover{ 
