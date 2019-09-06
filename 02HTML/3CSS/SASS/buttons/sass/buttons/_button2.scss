@@ -594,6 +594,59 @@
 /* ----------18---------- */
 
 /* ----------19---------- */
+$primary:#33cc33;
+.button-play{
+    position: relative;
+    .circle {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        background-color: $primary;
+        margin: auto;
+        transform: scale(1, 1);
+
+        &.pulse {
+            animation-timing-function: ease;
+            animation: pulse 2s infinite;
+            background-color: lighten($primary, 25%);
+        }
+  }
+
+  svg {
+    fill: darken($primary, 12%);
+    stroke: darken($primary, 12%);
+    stroke-linejoin: round;
+    stroke-width: 5;
+    transition: all 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      fill: darken($primary, 17%);
+      stroke: darken($primary, 17%);
+      transform: scale(1.2, 1.2);
+    }
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 /* ----------19---------- */
 
 /* ----------20---------- */

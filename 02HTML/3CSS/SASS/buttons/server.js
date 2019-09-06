@@ -13,7 +13,7 @@ app.use('/styles', sassMiddleware({
   plugins: [
     /* Plugins */
     autoprefixer({
-      grid: "autoplace", 
+      grid: true, 
     })
   ],
   src: srcPath,

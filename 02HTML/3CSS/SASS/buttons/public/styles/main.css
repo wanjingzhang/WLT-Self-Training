@@ -1729,6 +1729,60 @@ button {
 
 /* ----------18---------- */
 /* ----------19---------- */
+.button-play {
+  position: relative;
+}
+
+.button-play .circle {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background-color: #33cc33;
+  margin: auto;
+  transform: scale(1, 1);
+}
+
+.button-play .circle.pulse {
+  animation-timing-function: ease;
+  animation: pulse 2s infinite;
+  background-color: #99e699;
+}
+
+.button-play svg {
+  fill: #279b27;
+  stroke: #279b27;
+  stroke-linejoin: round;
+  stroke-width: 5;
+  transition: all 0.3s;
+}
+
+.button-play svg:hover {
+  cursor: pointer;
+  fill: #228722;
+  stroke: #228722;
+  transform: scale(1.2, 1.2);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 /* ----------19---------- */
 /* ----------20---------- */
 /* ----------20---------- */
