@@ -63,3 +63,6 @@ return React.createElement('div', {className: 'shopping-list'},
 > You can put any JavaScript expression within braces inside JSX. Each React element is a real JavaScript object that you can store in a variable or pass around you program.
 
 #### Passing Data Through Props
+
+#### Problem solved
+> Build relative url. package.json `"homepage": "./",`
