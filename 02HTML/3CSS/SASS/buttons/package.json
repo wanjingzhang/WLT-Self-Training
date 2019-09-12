@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "example node-sass usage",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "repository": "https://github.com/andrew/node-sass-example",
   "keywords": [
     "sass",
