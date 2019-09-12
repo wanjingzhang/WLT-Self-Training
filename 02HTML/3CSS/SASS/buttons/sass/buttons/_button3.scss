@@ -45,97 +45,8 @@
    } 
 }
 /* ----------21---------- */
-/* ----------22---------- */
-@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
-  transition: $property $duration $ease;
-}
-.button-strech{ 
-    
-    button { 
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        outline: none;
-        border: 0;
-        vertical-align: middle;
-        text-decoration: none;
-        background: transparent;
-        padding: 0;
-        font-size: inherit;
-        font-family: inherit;
 
-        width: 14rem;
-        height: auto;
-
-        .circle {
-            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
-            position: relative;
-            margin: 0;
-            width: 3rem;
-            height: 3rem;
-            background: #282936;
-            border-radius: 1.625rem;
-            .icon {
-                @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                background: #ffffff;
-                &.arrow {
-                @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
-                left: 0.625rem;
-                width: 1.125rem;
-                height: 0.125rem;
-                background: none;
-                &:before {
-                    position: absolute;
-                    content: '';
-                    top: -0.25rem;
-                    right: 0.0625rem;
-                    width: 0.625rem;
-                    height: 0.625rem;
-                    border-top: 0.125rem solid #fff;
-                    border-right: 0.125rem solid #fff;
-                    transform: rotate(45deg);
-                }
-            }
-        }
-    }
-    .button-text {
-            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 0.75rem 0;
-            margin: 0 0 0 3rem;
-            color: #282936;
-            font-weight: 700;
-            line-height: 1.6;
-            text-align: center;
-            text-transform: uppercase;
-        }
-    }
-    &:hover {
-        .circle {
-            width: 100%;
-            .icon {
-                &.arrow {
-                    background: #ffffff;
-                    transform: translate(1rem, 0);
-                }
-            }
-        }
-        .button-text {
-            color: #ffffff;
-        }
-    } 
-}
- 
-/* ----------22---------- */
-
+/* ----------22-25---------- */
 .button-flourish{ 
     .add{
         width: 84px;
@@ -278,3 +189,241 @@
     pointer-events: auto;
   }
 }
+
+/* ----------22-25---------- */
+/* ----------26---------- */
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+.button-strech{ 
+    
+    button { 
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        vertical-align: middle;
+        text-decoration: none;
+        background: transparent;
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
+
+        width: 14rem;
+        height: auto;
+
+        .circle {
+            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            position: relative;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: #282936;
+            border-radius: 1.625rem;
+            .icon {
+                @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background: #ffffff;
+                &.arrow {
+                @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                left: 0.625rem;
+                width: 1.125rem;
+                height: 0.125rem;
+                background: none;
+                &:before {
+                    position: absolute;
+                    content: '';
+                    top: -0.25rem;
+                    right: 0.0625rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
+                    border-top: 0.125rem solid #fff;
+                    border-right: 0.125rem solid #fff;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    .button-text {
+            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 3rem;
+            color: #282936;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    &:hover {
+        .circle {
+            width: 100%;
+            .icon {
+                &.arrow {
+                    background: #ffffff;
+                    transform: translate(1rem, 0);
+                }
+            }
+        }
+        .button-text {
+            color: #ffffff;
+        }
+    } 
+}
+ 
+/* ----------26---------- */
+
+/* ----------27---------- */
+.button-broaden{
+    button{ 
+        border-radius: 0; 
+        transition: all 0.5s cubic-bezier(0.65, -0.25, 0.25, 1.95);
+        font-weight: 900;
+        color: #202121;
+        padding: 1.25rem 2rem;
+        background: #fff;
+        text-transform: uppercase;
+
+        &:hover, &:focus, &:active{
+            letter-spacing: 0.3rem;
+        }
+    }
+    
+}
+/* ----------27---------- */
+/* ----------28---------- */
+.button-shake{
+    button{
+        position: relative;
+        outline: none;
+        text-decoration: none;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        height: 60px;
+        width: 210px;
+        opacity: 1;
+        background-color: #ffffff;
+        border: 1px solid rgba(22, 76, 167, 0.6);
+        span {
+            color: #164ca7;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.7px;
+        }
+        &:hover{
+            animation: rotate 0.7s ease-in-out both;
+            span{
+                animation: storm 0.7s ease-in-out both;
+                animation-delay: 0.06s;
+            }
+        }
+    } 
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+/* ----------28---------- */
+/* ----------29---------- */
+.button-ripple{
+    a{
+        display: inline-flex;
+        align-items: center;
+        background: #C06C84;
+        box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        height: 45px;
+        padding: 0 30px;
+        color: #fff;
+        font-family: Lato, Arial, sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background .3s, transform .3s, box-shadow .3s;
+        will-change: transform;
+        position: relative;
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            margin: auto;
+        }
+        &:before{
+            animation: ripple 1.5s infinite linear;
+        }
+        &:after{
+            animation: ripple 2s .4s infinite linear;
+        }
+        &:hover{
+            &:before, &:after{
+                display: none;
+            }
+        }
+    }
+}
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+/* ----------29---------- */
