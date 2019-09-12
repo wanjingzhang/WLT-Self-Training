@@ -135,3 +135,144 @@
 }
  
 /* ----------22---------- */
+
+.button-flourish{ 
+    .add{
+        width: 84px;
+        height: 84px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        transition: -webkit-transform .4s ease;
+        transition: transform .4s ease; 
+
+        a{
+            display: block;
+            position: relative;
+            width: 50%;
+            padding-bottom: 50%;
+            background: #5628EE;
+            -webkit-backface-visibility: hidden;
+            transition: border-radius .3s ease, -webkit-transform .2s ease;
+            transition: border-radius .3s ease, transform .2s ease;
+            transition: border-radius .3s ease, transform .2s ease, -webkit-transform .2s ease;
+            svg{
+                display: block;
+                width: 14px;
+                height: 14px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin: -7px 0 0 -7px;
+                opacity: 0;
+                fill: #fff;
+                -webkit-transform: scale(0.6) rotate(-45deg);
+                transform: scale(0.6) rotate(-45deg);
+                transition: all .15s ease;
+                -webkit-backface-visibility: hidden;
+            }
+            &:nth-child(1){
+                border-radius: 8px 0 0 0;
+            }
+            &:nth-child(2) {
+                border-radius: 0 0 0 8px;
+            }
+            &:nth-child(3) {
+                border-radius: 0 8px 0 0;
+            }
+            &:nth-child(4) {
+                border-radius: 0 0 8px 0;
+            }
+        }
+        &:before, &:after{
+            content: '';
+            width: 28px;
+            height: 6px;
+            border-radius: 3px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: block;
+            z-index: 1;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            transition: -webkit-transform .25s ease;
+            transition: transform .25s ease;
+            transition: transform .25s ease, -webkit-transform .25s ease;
+
+        }
+        &:before{
+             -webkit-transform: translate(-50%, -50%) scaleY(0.76);
+          transform: translate(-50%, -50%) scaleY(0.76); 
+        }
+        &:after{
+            -webkit-transform: translate(-50%, -50%) rotate(90deg) scaleY(0.76);
+          transform: translate(-50%, -50%) rotate(90deg) scaleY(0.76);
+        }
+        &:hover{
+            -webkit-transform: scale(1) rotate(45deg);
+            transform: scale(1) rotate(45deg);
+            transition: -webkit-transform .4s ease .1s;
+            transition: transform .4s ease .1s;
+            transition: transform .4s ease .1s, -webkit-transform .4s ease .1s;
+            &:before{
+                -webkit-transform: translate(-50%, -50%) scaleY(0.76) scaleX(3);
+                transform: translate(-50%, -50%) scaleY(0.76) scaleX(3);
+            }
+            &:after{
+                 -webkit-transform: translate(-50%, -50%) rotate(90deg) scaleY(0.76) scaleX(3);
+                transform: translate(-50%, -50%) rotate(90deg) scaleY(0.76) scaleX(3);
+            }
+            a{
+                --scale: 1;
+                pointer-events: none;
+                border-radius: 50%;
+                -webkit-animation: pointerEvent 0s linear forwards .4s;
+                        animation: pointerEvent 0s linear forwards .4s;
+                transition: border-radius .15s ease .1s, -webkit-transform .25s ease .15s;
+                transition: border-radius .15s ease .1s, transform .25s ease .15s;
+                transition: border-radius .15s ease .1s, transform .25s ease .15s, -webkit-transform .2;
+                &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4){
+                    -webkit-transform: translate(-6px, -6px) scale(var(--scale));
+                    transform: translate(-6px, -6px) scale(var(--scale));
+                }
+                svg {
+                    opacity: .7;
+                    transition: all .3s ease .2s;
+                    -webkit-transform: scale(1) rotate(-45deg);
+                            transform: scale(1) rotate(-45deg);
+                }
+                &:hover{
+                    --scale: .92;
+                    transition: border-radius .2s ease .1s, -webkit-transform .25s ease 0s;
+                    transition: border-radius .2s ease .1s, transform .25s ease 0s;
+                    transition: border-radius .2s ease .1s, transform .25s ease 0s, -webkit-transform .25s ease 0s;
+                    svg{
+                        opacity: 1;
+                        transition: all .3s ease 0s;
+                    }
+                }
+            }
+        }  
+    }
+   
+
+}
+
+@-webkit-keyframes pointerEvent {
+  100% {
+    pointer-events: auto;
+  }
+}
+
+@keyframes pointerEvent {
+  100% {
+    pointer-events: auto;
+  }
+}
