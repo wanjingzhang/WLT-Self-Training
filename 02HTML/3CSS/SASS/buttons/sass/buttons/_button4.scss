@@ -85,3 +85,64 @@
     }
 }
 /* ----------32---------- */
+/* ----------33---------- */
+.button-overlap{
+    button{
+        color: #000;
+        font-size: 25px;
+        width: 8em;
+        height: 2em;
+        text-align: center;
+        line-height: 2em;
+        font-family: sans-serif;
+        text-transform: capitalize;
+        position: relative;
+        transition: 0.5s;
+        margin: 0.8em;
+        border: none; 
+        span{
+            z-index: 3;
+            position: absolute;
+            top: 46%;
+            left: 36%;
+        }
+        &:after, &:before{
+            content: '';
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            top: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+        &:before{
+            background-color: white;
+            z-index: 1;
+            box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+        }
+        &:after{
+            background-color: goldenrod;
+            transform: translate(1.5rem, 1.5rem);
+            z-index: 2;
+        }
+        &:hover{
+            transform: translate(1.5rem, 1.5rem);
+            color: white;
+            &:before{
+                background-color: goldenrod;
+                z-index: 2;
+            }
+            &:after{
+                background-color: white;
+                transform: translate(-1.5rem, -1.5rem);
+                z-index: 1;
+            }
+            span{
+                top: 0%;
+                left: 24%;
+            }
+        }
+    }
+    
+}
+/* ----------33---------- */
