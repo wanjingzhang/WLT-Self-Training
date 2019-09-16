@@ -2953,6 +2953,70 @@ button {
 
 /* ----------36---------- */
 /* ----------37---------- */
+.button-wireframe .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: #000;
+}
+
+.button-wireframe .btn:before, .button-wireframe .btn:after, .button-wireframe .btn .left, .button-wireframe .btn .right {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  background: #ef233c;
+  transition: 0.5s;
+}
+
+.button-wireframe .btn:before, .button-wireframe .btn:after {
+  content: "";
+}
+
+.button-wireframe .btn .text {
+  transition: 0.5s;
+}
+
+.button-wireframe .btn:hover .text {
+  color: #ef233c;
+}
+
+.button-wireframe .btn:hover .right, .button-wireframe .btn:hover .left {
+  top: 0;
+  width: 2px;
+  height: 100%;
+}
+
+.button-wireframe .btn:hover:before, .button-wireframe .btn:hover:after {
+  height: 2px;
+  width: 100%;
+  left: 0;
+}
+
+.button-wireframe .btn:hover:before {
+  top: 0;
+}
+
+.button-wireframe .btn:hover:after {
+  top: calc(100% - 2px);
+}
+
+.button-wireframe .btn:hover .left {
+  left: 0;
+}
+
+.button-wireframe .btn:hover .right {
+  left: calc(100% - 2px);
+}
+
 /* ----------37---------- */
 /* ----------38---------- */
 /* ----------38---------- */
