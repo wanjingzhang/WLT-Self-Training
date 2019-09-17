@@ -432,8 +432,85 @@
 }
 /* ----------43---------- */
 /* ----------44---------- */
+.button-rainbow{
+    .rainbow-button {
+        color: #ffffff;
+        width:calc(12vw + 6px);
+        height:calc(4.5vw + 6px);
+        background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+        border-radius:5px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-transform:uppercase;
+        font-size:2vw;
+        font-weight:bold;
+        &:after {
+            content:attr(alt);
+            width:12vw;
+            height:4.5vw;
+            background-color:#191919;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        &:hover {
+            animation:slidebg 2s linear infinite;
+        } 
+    }  
+    @keyframes slidebg {
+        to {
+            background-position:20vw;
+        }
+    }
+}
 /* ----------44---------- */
 /* ----------45---------- */
+.button-unregular{
+    div{
+        width: 355px;
+        display: inline-block;
+        margin: 20px;
+        a{
+            -webkit-filter: hue-rotate(36deg);
+            filter: hue-rotate(36deg);
+            background-image: url(../images/yellow-shadow.png);
+            position: relative;
+            width: 100%;
+            padding-top: 25.92%;
+            display: block;
+            background-size: 100% 100%;
+            font-family: 'luckiest guy';
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #333; 
+            &:after{
+                content: attr(title);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                background-image: url(../images/yellow-top.png);
+                transition: all 0.3s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &:hover{
+                &:after{
+                    -webkit-transform: translate(2.5%, 10%);
+                    transform: translate(2.5%, 10%);
+                    text-shadow: 2px 2px 1px white;
+                    color: black;
+                }
+                
+            }
+        }
+    }
+}
 /* ----------45---------- */
 /* ----------46---------- */
 /* ----------46---------- */
