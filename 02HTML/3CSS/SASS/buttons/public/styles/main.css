@@ -3922,3 +3922,521 @@ button {
 /* ----------49---------- */
 /* ----------50---------- */
 /* ----------50---------- */
+.button-swipe {
+  /* ----------51---------- */
+  /* ----------51---------- */
+  /* ----------52---------- */
+  /* ----------52---------- */
+  /* ----------53---------- */
+  /* ----------53---------- */
+  /* ----------54---------- */
+  /* ----------54---------- */
+  /* ----------55---------- */
+  /* ----------55---------- */
+  /* ----------56---------- */
+  /* ----------56---------- */
+  /* ----------57---------- */
+  /* ----------57---------- */
+  /* ----------58---------- */
+  /* ----------58---------- */
+  /* ----------59---------- */
+  /* ----------59---------- */
+  /* ----------60---------- */
+  /* ----------60---------- */
+}
+
+.button-swipe [class^="btn-"] {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 50px;
+  width: 200px;
+  margin: 1rem auto;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  text-align: center;
+  text-decoration: none;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.button-swipe a {
+  outline-width: 0;
+}
+
+.button-swipe a:before, .button-swipe a:after, .button-swipe a span::after, .button-swipe a span::before {
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.button-swipe .btn-0 {
+  color: #888e3c;
+}
+
+.button-swipe .btn-0:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #454910;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.button-swipe .btn-0:hover {
+  color: #dcdec6;
+}
+
+.button-swipe .btn-0:hover:before {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.button-swipe .btn-1 {
+  color: #aa5a50;
+}
+
+.button-swipe .btn-1:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50px;
+  bottom: 0;
+  left: 0;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid #5d251d;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.button-swipe .btn-1:hover {
+  color: #e6cfcc;
+}
+
+.button-swipe .btn-1:hover:before {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.button-swipe .btn-1-2 {
+  color: #4d4e8f;
+}
+
+.button-swipe .btn-1-2:before, .button-swipe .btn-1-2:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom: 80px solid #1b1c4a;
+}
+
+.button-swipe .btn-1-2:before {
+  right: -50px;
+  border-right: 50px solid transparent;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.button-swipe .btn-1-2:after {
+  left: -50px;
+  border-left: 50px solid transparent;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.button-swipe .btn-1-2:hover {
+  color: #cbcbde;
+}
+
+.button-swipe .btn-1-2:hover:before {
+  -webkit-transform: translateX(-40%);
+  transform: translateX(-40%);
+}
+
+.button-swipe .btn-1-2:hover:after {
+  -webkit-transform: translateX(40%);
+  transform: translateX(40%);
+}
+
+.button-swipe .btn-2 {
+  color: #858441;
+}
+
+.button-swipe .btn-2:before, .button-swipe .btn-2:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button-swipe .btn-2:before {
+  right: -50px;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid #434213;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.button-swipe .btn-2:after {
+  left: -50px;
+  border-left: 50px solid transparent;
+  border-top: 80px solid #434213;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.button-swipe .btn-2:hover {
+  color: #dbdbc7;
+}
+
+.button-swipe .btn-2:hover:hover:before {
+  -webkit-transform: translateX(-49%);
+  transform: translateX(-49%);
+}
+
+.button-swipe .btn-2:hover:hover:after {
+  -webkit-transform: translateX(49%);
+  transform: translateX(49%);
+}
+
+.button-swipe .btn-3:before, .button-swipe .btn-3:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top: 25px solid #2d3b59;
+  border-bottom: 25px solid #2d3b59;
+}
+
+.button-swipe .btn-3:before {
+  border-right: 25px solid transparent;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.button-swipe .btn-3:after {
+  border-left: 25px solid transparent;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.button-swipe .btn-3:hover {
+  color: #d2d8e5;
+}
+
+.button-swipe .btn-3:hover:before {
+  -webkit-transform: translateX(-30%);
+  transform: translateX(-30%);
+}
+
+.button-swipe .btn-3:hover:after {
+  -webkit-transform: translateX(30%);
+  transform: translateX(30%);
+}
+
+.button-swipe .btn-4 {
+  color: #6344ce;
+}
+
+.button-swipe .btn-4:before, .button-swipe .btn-4:after, .button-swipe .btn-4 span::before, .button-swipe .btn-4 span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #2b1576;
+}
+
+.button-swipe .btn-4:before {
+  -webkit-transform: translate(-100%, -100%);
+  transform: translate(-100%, -100%);
+}
+
+.button-swipe .btn-4:after {
+  -webkit-transform: translate(-100%, 100%);
+  transform: translate(-100%, 100%);
+}
+
+.button-swipe .btn-4 span:before {
+  -webkit-transform: translate(100%, -100%);
+  transform: translate(100%, -100%);
+}
+
+.button-swipe .btn-4 span:after {
+  -webkit-transform: translate(100%, 100%);
+  transform: translate(100%, 100%);
+}
+
+.button-swipe .btn-4:hover {
+  color: #d1c8f1;
+}
+
+.button-swipe .btn-4:hover:before {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.button-swipe .btn-4:hover:after {
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+}
+
+.button-swipe .btn-4:hover span:before {
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
+
+.button-swipe .btn-4:hover span:after {
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+}
+
+.button-swipe .btn-5 {
+  color: #a95ab8;
+}
+
+.button-swipe .btn-5:after {
+  content: '';
+  width: 0;
+  height: 0;
+  -webkit-transform: rotate(360deg);
+  border-style: solid;
+  border-width: 0 0 0 0;
+  border-color: transparent #5c2567 transparent transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.button-swipe .btn-5:before {
+  content: '';
+  width: 0;
+  height: 0;
+  -webkit-transform: rotate(360deg);
+  border-style: solid;
+  border-width: 0 0 0 0;
+  border-color: transparent transparent transparent #5c2567;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.button-swipe .btn-5:before, .button-swipe .btn-5:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.button-swipe .btn-5:before {
+  bottom: 0;
+  left: 0;
+  border-color: transparent transparent transparent #5c2567;
+}
+
+.button-swipe .btn-5:after {
+  top: 0;
+  right: 0;
+  border-color: transparent #5c2567 transparent transparent;
+}
+
+.button-swipe .btn-5:hover {
+  color: #e6cfea;
+}
+
+.button-swipe .btn-5:hover:before, .button-swipe .btn-5:hover:after {
+  border-width: 60px 262.5px;
+}
+
+.button-swipe .btn-7 {
+  color: #2b3574;
+}
+
+.button-swipe .btn-7:after, .button-swipe .btn-7:before, .button-swipe .btn-7 span::after, .button-swipe .btn-7 span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 25.25%;
+  height: 0;
+  background-color: #030a37;
+}
+
+.button-swipe .btn-7:before {
+  left: 0;
+}
+
+.button-swipe .btn-7:after {
+  left: 50%;
+}
+
+.button-swipe .btn-7 span:before, .button-swipe .btn-7 span:after {
+  top: auto;
+  bottom: 0;
+}
+
+.button-swipe .btn-7 span:before {
+  left: 25%;
+}
+
+.button-swipe .btn-7 span:after {
+  left: 75%;
+}
+
+.button-swipe .btn-7:hover {
+  color: #c1c4d6;
+}
+
+.button-swipe .btn-7:hover:after, .button-swipe .btn-7:hover:before, .button-swipe .btn-7:hover span::after, .button-swipe .btn-7:hover span::before {
+  height: 60px;
+}
+
+.button-swipe .btn-8 {
+  color: #456f86;
+}
+
+.button-swipe .btn-8:before, .button-swipe .btn-8:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #163444;
+}
+
+.button-swipe .btn-8:before {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.button-swipe .btn-8:after {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+.button-swipe .btn-8:hover {
+  color: #c8d5dc;
+}
+
+.button-swipe .btn-8:hover:before {
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.button-swipe .btn-8:hover:after {
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+}
+
+.button-swipe .btn-10 {
+  color: #cd3b96;
+}
+
+.button-swipe .btn-10:before, .button-swipe .btn-10:after, .button-swipe .btn-10 span::before, .button-swipe .btn-10 span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 80px;
+  background-color: rgba(118, 14, 79, 0.25);
+  transition: 0.4s;
+}
+
+.button-swipe .btn-10:after, .button-swipe .btn-10 span::before {
+  left: auto;
+  right: 0;
+}
+
+.button-swipe .btn-10:span:before, .button-swipe .btn-10:span:after {
+  transition-delay: 0.4s;
+}
+
+.button-swipe .btn-10:hover {
+  color: #f0c5e0;
+}
+
+.button-swipe .btn-10:hover:before, .button-swipe .btn-10:hover:after, .button-swipe .btn-10:hover span::before, .button-swipe .btn-10:hover span::after {
+  width: 250px;
+}
+
+.button-swipe .btn-10:active {
+  background-color: #c41884;
+}
+
+@-webkit-keyframes criss-cross-left {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    left: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
+
+@keyframes criss-cross-left {
+  0% {
+    left: -20px;
+  }
+  50% {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    left: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
+
+@-webkit-keyframes criss-cross-right {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    right: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
+
+@keyframes criss-cross-right {
+  0% {
+    right: -20px;
+  }
+  50% {
+    right: 50%;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    right: 50%;
+    width: 375px;
+    height: 375px;
+  }
+}
