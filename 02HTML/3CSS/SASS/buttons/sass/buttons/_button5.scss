@@ -571,6 +571,54 @@
 }
 /* ----------46---------- */
 /* ----------47---------- */
+.button-spread{
+    position: relative;
+    .button {
+        a,.bg{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;  
+            position: absolute;
+        } 
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            z-index: 99;
+            border: none;
+            background: #ff3466;
+            background-size: 18px;
+            cursor: pointer;
+            outline: none;  
+            
+            i{
+                position: absolute;
+                color: #FFF;
+                font-size: 17px;
+                &:before{
+                    position: relative;
+                }
+            }
+        }
+        .bg{
+            animation: pulse 1.2s ease infinite;
+            background: #ff3466;
+        }
+    }
+
+} 
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
 /* ----------47---------- */
 /* ----------48---------- */
 /* ----------48---------- */
