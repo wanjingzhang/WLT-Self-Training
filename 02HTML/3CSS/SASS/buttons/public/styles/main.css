@@ -4866,6 +4866,227 @@ button {
 
 /* ----------67---------- */
 /* ----------68---------- */
+.button-mosaic .btn {
+  position: relative;
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 17px 22px;
+  width: 120px;
+  z-index: 1;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  color: #fff;
+  text-align: center;
+  line-height: normal;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button-mosaic .btn .hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.button-mosaic .btn .hover span {
+  background: #cb4539;
+  position: relative;
+  display: block;
+  left: -15px;
+  height: 10px;
+  content: '';
+  width: 0;
+}
+
+.button-mosaic .btn .hover span:after {
+  position: absolute;
+  display: block;
+  right: -10px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  content: '';
+}
+
+.button-mosaic .btn .hover span:nth-child(odd):after {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.button-mosaic .btn .hover span:first-child {
+  left: -75px;
+  transition: all 0.3s steps(8);
+}
+
+.button-mosaic .btn .hover span:nth-child(2) {
+  left: -45px;
+  transition: all 0.325s steps(8);
+}
+
+.button-mosaic .btn .hover span:nth-child(3) {
+  left: -55px;
+  transition: all 0.35s steps(8);
+}
+
+.button-mosaic .btn .hover span:nth-child(4) {
+  transition: all 0.4s steps(8);
+}
+
+.button-mosaic .btn .hover span:nth-child(5) {
+  left: -25px;
+  transition: all 0.375s steps(8);
+}
+
+.button-mosaic .btn.red {
+  background: #ff5747;
+}
+
+.button-mosaic .btn.red:after {
+  background: #cb4539;
+}
+
+.button-mosaic .btn:after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  z-index: -2;
+  content: '';
+}
+
+.button-mosaic .btn:hover, .button-mosaic .btn:focus {
+  color: #fff;
+}
+
+.button-mosaic .btn:hover .hover span:first-child, .button-mosaic .btn:focus .hover span:first-child {
+  width: calc(100% + 76px);
+}
+
+.button-mosaic .btn:hover .hover span:first-child:after, .button-mosaic .btn:focus .hover span:first-child:after {
+  animation: whiteBlack 0.3s 0s 1;
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(2), .button-mosaic .btn:focus .hover span:nth-child(2) {
+  width: calc(100% + 46px);
+  transition: all 0.375s steps(8);
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(2):after, .button-mosaic .btn:focus .hover span:nth-child(2):after {
+  animation: whiteBlack 0.3s 0.06s 1 reverse backwards;
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(3), .button-mosaic .btn:focus .hover span:nth-child(3) {
+  width: calc(100% + 56px);
+  transition: all 0.35s steps(8);
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(3):after, .button-mosaic .btn:focus .hover span:nth-child(3):after {
+  animation: whiteBlack 0.3s 0.05s 1 forwards;
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(4), .button-mosaic .btn:focus .hover span:nth-child(4) {
+  width: calc(100% + 16px);
+  transition: all 0.3s steps(8);
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(4):after, .button-mosaic .btn:focus .hover span:nth-child(4):after {
+  animation: whiteBlack 0.3s 0s 1 reverse backwards;
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(5), .button-mosaic .btn:focus .hover span:nth-child(5) {
+  width: calc(100% + 26px);
+  transition: all 0.325s steps(8);
+}
+
+.button-mosaic .btn:hover .hover span:nth-child(5):after, .button-mosaic .btn:focus .hover span:nth-child(5):after {
+  animation: whiteBlack 0.3s 0.07s 1 forwards;
+}
+
+@-webkit-keyframes whiteBlack {
+  0%,
+  24% {
+    background: #fff;
+  }
+  25%,
+  49% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  50%,
+  74% {
+    background: #fff;
+  }
+  75%,
+  100% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+@-moz-keyframes whiteBlack {
+  0%,
+  24% {
+    background: #fff;
+  }
+  25%,
+  49% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  50%,
+  74% {
+    background: #fff;
+  }
+  75%,
+  100% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+@-ms-keyframes whiteBlack {
+  0%,
+  24% {
+    background: #fff;
+  }
+  25%,
+  49% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  50%,
+  74% {
+    background: #fff;
+  }
+  75%,
+  100% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes whiteBlack {
+  0%,
+  24% {
+    background: #fff;
+  }
+  25%,
+  49% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  50%,
+  74% {
+    background: #fff;
+  }
+  75%,
+  100% {
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
 /* ----------68---------- */
 /* ----------69---------- */
 /* ----------69---------- */
