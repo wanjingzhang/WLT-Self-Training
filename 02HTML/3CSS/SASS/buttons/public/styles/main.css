@@ -4648,6 +4648,7 @@ button {
   transition: all 200ms ease-out;
   width: 40px;
   box-sizing: content-box;
+  margin: auto;
 }
 
 .button-close .menu-icon:after, .button-close .menu-icon:before {

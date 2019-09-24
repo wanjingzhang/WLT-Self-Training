@@ -260,6 +260,7 @@
         transition: all 200ms ease-out;
         width: 40px;
         box-sizing: content-box;
+        margin: auto;
 
         &:after,&:before{
             background-color: #333;
