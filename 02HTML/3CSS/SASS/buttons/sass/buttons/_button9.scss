@@ -1,4 +1,49 @@
 /* ----------81---------- */
+.button-swiggle{
+    .swiggleBox{
+        width: 130px;
+        height: 65px;
+        margin: 15px auto;
+        color: #4274D3;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.15rem;
+        line-height: 65px;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        svg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            path{
+                fill: none;
+                stroke: #4274D3;
+                stroke-width: 1;
+
+                stroke-dasharray: 265, 0;
+                -webkit-transition: all 1s ease-in-out;
+                -moz-transition: all 1s ease-in-out;
+                -ms-transition: all 1s ease-in-out;
+                -o-transition: all 1s ease-in-out;
+            }
+        }
+        &:hover{
+            svg{
+                path{
+                    stroke: #4274D3;
+                    stroke-width: 3;
+                    stroke-dasharray: 0, 350;
+                    stroke-dashoffset: 20;
+                    -webkit-transition: all 1s ease-in-out;
+                    -moz-transition: all 1s ease-in-out;
+                    -ms-transition: all 1s ease-in-out;
+                    -o-transition: all 1s ease-in-out;
+                }
+            }
+        }
+    }
+}
 /* ----------81---------- */
 /* ----------82---------- */
 /* ----------82---------- */
