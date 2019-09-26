@@ -6617,7 +6617,7 @@ button {
 /* ----------92---------- */
 .button-dissolve .button-container-1 {
   position: relative;
-  width: 140px;
+  width: 160px;
   height: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -6629,6 +6629,7 @@ button {
   font-size: 20px;
   transition: 0.5s;
   letter-spacing: 1px;
+  border: 1px solid #000;
 }
 
 .button-dissolve .button-container-1 .mas {
@@ -6715,8 +6716,114 @@ button {
 
 /* ----------92---------- */
 /* ----------93---------- */
+.button-scrape .button-container-2 {
+  position: relative;
+  width: 140px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7vh;
+  overflow: hidden;
+  border: 1px solid #000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  transition: 0.5s;
+  letter-spacing: 1px;
+}
+
+.button-scrape .button-container-2 .mas {
+  position: absolute;
+  color: #000;
+  text-align: center;
+  width: 101%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  position: absolute;
+  font-size: 20px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.button-scrape .button-container-2 button {
+  width: 101%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: #000;
+  -webkit-mask: url("../images/urban-sprite.png");
+  mask: url("../images/urban-sprite.png");
+  -webkit-mask-size: 3000% 100%;
+  mask-size: 3000% 100%;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(29) forwards;
+  animation: ani2 0.7s steps(29) forwards;
+}
+
+.button-scrape .button-container-2 button:hover {
+  -webkit-animation: ani 0.7s steps(29) forwards;
+  animation: ani 0.7s steps(29) forwards;
+}
+
 /* ----------93---------- */
 /* ----------94---------- */
+.button-melt .button-container-3 {
+  position: relative;
+  width: 160px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8vh;
+  overflow: hidden;
+  border: 1px solid #000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  transition: 0.5s;
+  letter-spacing: 1px;
+}
+
+.button-melt .button-container-3 button {
+  width: 101%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: #000;
+  -webkit-mask: url("../images/nature-sprite-2.png");
+  mask: url("../images/nature-sprite-2.png");
+  -webkit-mask-size: 7100% 100%;
+  mask-size: 7100% 100%;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(70) forwards;
+  animation: ani2 0.7s steps(70) forwards;
+}
+
+.button-melt .button-container-3 button:hover {
+  -webkit-animation: ani 0.7s steps(70) forwards;
+  animation: ani 0.7s steps(70) forwards;
+}
+
+.button-melt .button-container-3 .mas {
+  position: absolute;
+  color: #000;
+  text-align: center;
+  width: 101%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  position: absolute;
+  font-size: 20px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
 /* ----------94---------- */
 /* ----------95---------- */
 /* ----------95---------- */
