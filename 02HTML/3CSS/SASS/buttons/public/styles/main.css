@@ -6354,6 +6354,71 @@ button {
 
 /* ----------82---------- */
 /* ----------83---------- */
+.button-flip #flip, .button-flip #flip-circle, .button-flip #flip-reversed, .button-flip #flip-circle-reversed {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transition: all 0.275s ease-out;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.button-flip #flip i, .button-flip #flip-circle i, .button-flip #flip-reversed i, .button-flip #flip-circle-reversed i {
+  position: absolute;
+  border: 2px solid black;
+  line-height: 40px;
+  font-size: 1.8em;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.button-flip #flip i:before, .button-flip #flip i:after, .button-flip #flip-circle i:before, .button-flip #flip-circle i:after, .button-flip #flip-reversed i:before, .button-flip #flip-reversed i:after, .button-flip #flip-circle-reversed i:before, .button-flip #flip-circle-reversed i:after {
+  position: relative;
+}
+
+.button-flip #flip i:first-of-type, .button-flip #flip-circle i:first-of-type, .button-flip #flip-reversed i:first-of-type, .button-flip #flip-circle-reversed i:first-of-type {
+  z-index: 100;
+  color: #000;
+}
+
+.button-flip #flip i:last-of-type, .button-flip #flip-circle i:last-of-type, .button-flip #flip-reversed i:last-of-type, .button-flip #flip-circle-reversed i:last-of-type {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  color: white;
+  background: #55acee;
+  border-color: #55acee;
+}
+
+.button-flip #flip-circle i, .button-flip #flip-circle-reversed i {
+  border-radius: 100%;
+}
+
+.button-flip #flip-reversed i:last-of-type, .button-flip #flip-circle-reversed i:last-of-type {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.button-flip .flip-container {
+  width: 40px;
+  height: 40px;
+  margin: 5px 10px;
+  display: inline-block;
+}
+
+.button-flip .flip-container:hover #flip, .button-flip .flip-container:hover #flip-circle {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+.button-flip .flip-container:hover #flip-reversed, .button-flip .flip-container:hover #flip-circle-reversed {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
 /* ----------83---------- */
 /* ----------84---------- */
 /* ----------84---------- */
