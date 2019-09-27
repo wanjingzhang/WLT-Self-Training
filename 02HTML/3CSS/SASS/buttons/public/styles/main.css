@@ -538,6 +538,28 @@ footer nav {
   background-color: #003f57;
 }
 
+.foot {
+  height: 50px;
+  background: #003f57;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+}
+
+.top {
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  line-height: 40px;
+  text-align: center;
+}
+
 *:before, *:after {
   content: "";
   position: absolute;
@@ -6872,6 +6894,7 @@ button {
 .button-ercode .button:before {
   content: "";
   opacity: 0;
+  position: relative;
 }
 
 .button-ercode .button:hover {
@@ -7755,10 +7778,14 @@ button {
 
 /* ----------98---------- */
 /* ----------99---------- */
+.button-hello {
+  position: relative;
+}
+
 .button-hello button {
   color: rgba(0, 0, 0, 0.2);
   font-weight: bold;
-  font-size: 72px;
+  font-size: 62px;
   background: none;
   border: none;
   padding: 0;
@@ -7784,4 +7811,66 @@ button {
 
 /* ----------99---------- */
 /* ----------100---------- */
+.button-dribble {
+  position: relative;
+}
+
+.button-dribble a {
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #EE3769;
+  border-radius: 8px;
+  height: 48px;
+  width: 160px;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+  color: #EE3769;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  line-height: 250%;
+  position: relative;
+}
+
+.button-dribble a:before {
+  position: relative;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin-left: -10px;
+  margin-top: -68px;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+.button-dribble a:hover {
+  color: #fff;
+}
+
+.button-dribble a:hover::before {
+  box-shadow: inset 0 0 0 160px #ee3769;
+}
+
+.button-dribble a i {
+  position: absolute;
+  left: 34px;
+  top: 12px;
+}
+
+.button-dribble a i:before {
+  position: relative;
+}
+
+.button-dribble a span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
 /* ----------100---------- */

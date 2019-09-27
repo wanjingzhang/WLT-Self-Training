@@ -294,7 +294,7 @@
         outline: none;
         overflow: hidden;
         cursor: pointer;
-        z-index: 99;
+        z-index: 99; 
         &:after {
             -moz-box-shadow: rgba(212, 207, 201, 0.75) 0 0 15px 2px;
             -webkit-box-shadow: rgba(212, 207, 201, 0.75) 0 0 15px 2px;
@@ -307,6 +307,7 @@
         &:before {
             content: "";
             opacity: 0;
+            position: relative;
         }
         &:hover {
             -webkit-animation: glitch 750ms infinite;
@@ -1039,10 +1040,11 @@
 /* ----------98---------- */
 /* ----------99---------- */
 .button-hello{
+    position: relative;
     button {
         color: rgba(0,0,0,0.2);
         font-weight: bold;
-        font-size: 72px;
+        font-size: 62px;
         background: none;
         border: none;
         padding: 0;
@@ -1066,4 +1068,70 @@
 }
 /* ----------99---------- */
 /* ----------100---------- */
+.button-dribble{
+    position: relative;
+    $height: 48px;
+    $width: 160px;
+    $button-color: #EE3769;
+
+    @mixin center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    a { 
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid $button-color;
+        border-radius: 8px;
+        height:$height;
+        width:$width;
+        padding: 0;
+        outline: none;
+        overflow: hidden;
+        color: $button-color;
+        transition: color 0.3s 0.1s ease-out;
+        text-align: center;
+        line-height: 250%; 
+        position: relative;
+        &:before{ 
+            position: relative;
+            content:'';
+            border-radius: 50%;
+            display: block;
+            width: 180px;
+            height: 180px;
+            margin-left: -10px;
+            margin-top: -68px;
+            text-align: center;
+            transition: box-shadow 0.5s ease-out;
+            z-index: -1; 
+        } 
+        &:hover{
+            color: #fff;
+            &::before{
+                box-shadow:inset 0 0 0 $width rgba($button-color,1);
+            }
+        }
+        i{
+            position: absolute;
+            left: 34px;
+            top: 12px;
+            &:before{
+                position: relative;
+            }
+        }
+        span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+}
 /* ----------100---------- */
