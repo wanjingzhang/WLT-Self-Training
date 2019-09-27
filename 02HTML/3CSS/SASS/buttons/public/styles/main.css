@@ -7070,6 +7070,549 @@ button {
 
 /* ----------96---------- */
 /* ----------97---------- */
+.button-folding .cont {
+  position: relative;
+  height: 40px;
+  width: 120px;
+}
+
+.button-folding .cont a {
+  z-index: 2;
+  display: block;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: #eff1c5;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 120px;
+}
+
+.button-folding .cont a:hover {
+  transform: scale(1.1);
+  color: #035e7b;
+}
+
+.button-folding .cont a:hover line:nth-child(odd) {
+  transform: scaleY(1.2);
+}
+
+.button-folding .cont a:hover line:nth-child(even) {
+  transform: scaleY(-0.2);
+}
+
+.button-folding .cont svg {
+  position: absolute;
+  height: 40px;
+  width: 120px;
+  overflow: visible;
+}
+
+.button-folding .cont svg line {
+  stroke: #035e7b;
+  stroke-width: 1px;
+  transition: all 0.3s;
+  transform-origin: 50% 0%;
+}
+
+.button-folding .cont svg line:nth-child(1) {
+  transition-delay: 0.0024793388s;
+}
+
+.button-folding .cont svg line:nth-child(2) {
+  transition-delay: 0.0049586777s;
+}
+
+.button-folding .cont svg line:nth-child(3) {
+  transition-delay: 0.0074380165s;
+}
+
+.button-folding .cont svg line:nth-child(4) {
+  transition-delay: 0.0099173554s;
+}
+
+.button-folding .cont svg line:nth-child(5) {
+  transition-delay: 0.0123966942s;
+}
+
+.button-folding .cont svg line:nth-child(6) {
+  transition-delay: 0.0148760331s;
+}
+
+.button-folding .cont svg line:nth-child(7) {
+  transition-delay: 0.0173553719s;
+}
+
+.button-folding .cont svg line:nth-child(8) {
+  transition-delay: 0.0198347107s;
+}
+
+.button-folding .cont svg line:nth-child(9) {
+  transition-delay: 0.0223140496s;
+}
+
+.button-folding .cont svg line:nth-child(10) {
+  transition-delay: 0.0247933884s;
+}
+
+.button-folding .cont svg line:nth-child(11) {
+  transition-delay: 0.0272727273s;
+}
+
+.button-folding .cont svg line:nth-child(12) {
+  transition-delay: 0.0297520661s;
+}
+
+.button-folding .cont svg line:nth-child(13) {
+  transition-delay: 0.032231405s;
+}
+
+.button-folding .cont svg line:nth-child(14) {
+  transition-delay: 0.0347107438s;
+}
+
+.button-folding .cont svg line:nth-child(15) {
+  transition-delay: 0.0371900826s;
+}
+
+.button-folding .cont svg line:nth-child(16) {
+  transition-delay: 0.0396694215s;
+}
+
+.button-folding .cont svg line:nth-child(17) {
+  transition-delay: 0.0421487603s;
+}
+
+.button-folding .cont svg line:nth-child(18) {
+  transition-delay: 0.0446280992s;
+}
+
+.button-folding .cont svg line:nth-child(19) {
+  transition-delay: 0.047107438s;
+}
+
+.button-folding .cont svg line:nth-child(20) {
+  transition-delay: 0.0495867769s;
+}
+
+.button-folding .cont svg line:nth-child(21) {
+  transition-delay: 0.0520661157s;
+}
+
+.button-folding .cont svg line:nth-child(22) {
+  transition-delay: 0.0545454545s;
+}
+
+.button-folding .cont svg line:nth-child(23) {
+  transition-delay: 0.0570247934s;
+}
+
+.button-folding .cont svg line:nth-child(24) {
+  transition-delay: 0.0595041322s;
+}
+
+.button-folding .cont svg line:nth-child(25) {
+  transition-delay: 0.0619834711s;
+}
+
+.button-folding .cont svg line:nth-child(26) {
+  transition-delay: 0.0644628099s;
+}
+
+.button-folding .cont svg line:nth-child(27) {
+  transition-delay: 0.0669421488s;
+}
+
+.button-folding .cont svg line:nth-child(28) {
+  transition-delay: 0.0694214876s;
+}
+
+.button-folding .cont svg line:nth-child(29) {
+  transition-delay: 0.0719008264s;
+}
+
+.button-folding .cont svg line:nth-child(30) {
+  transition-delay: 0.0743801653s;
+}
+
+.button-folding .cont svg line:nth-child(31) {
+  transition-delay: 0.0768595041s;
+}
+
+.button-folding .cont svg line:nth-child(32) {
+  transition-delay: 0.079338843s;
+}
+
+.button-folding .cont svg line:nth-child(33) {
+  transition-delay: 0.0818181818s;
+}
+
+.button-folding .cont svg line:nth-child(34) {
+  transition-delay: 0.0842975207s;
+}
+
+.button-folding .cont svg line:nth-child(35) {
+  transition-delay: 0.0867768595s;
+}
+
+.button-folding .cont svg line:nth-child(36) {
+  transition-delay: 0.0892561983s;
+}
+
+.button-folding .cont svg line:nth-child(37) {
+  transition-delay: 0.0917355372s;
+}
+
+.button-folding .cont svg line:nth-child(38) {
+  transition-delay: 0.094214876s;
+}
+
+.button-folding .cont svg line:nth-child(39) {
+  transition-delay: 0.0966942149s;
+}
+
+.button-folding .cont svg line:nth-child(40) {
+  transition-delay: 0.0991735537s;
+}
+
+.button-folding .cont svg line:nth-child(41) {
+  transition-delay: 0.1016528926s;
+}
+
+.button-folding .cont svg line:nth-child(42) {
+  transition-delay: 0.1041322314s;
+}
+
+.button-folding .cont svg line:nth-child(43) {
+  transition-delay: 0.1066115702s;
+}
+
+.button-folding .cont svg line:nth-child(44) {
+  transition-delay: 0.1090909091s;
+}
+
+.button-folding .cont svg line:nth-child(45) {
+  transition-delay: 0.1115702479s;
+}
+
+.button-folding .cont svg line:nth-child(46) {
+  transition-delay: 0.1140495868s;
+}
+
+.button-folding .cont svg line:nth-child(47) {
+  transition-delay: 0.1165289256s;
+}
+
+.button-folding .cont svg line:nth-child(48) {
+  transition-delay: 0.1190082645s;
+}
+
+.button-folding .cont svg line:nth-child(49) {
+  transition-delay: 0.1214876033s;
+}
+
+.button-folding .cont svg line:nth-child(50) {
+  transition-delay: 0.1239669421s;
+}
+
+.button-folding .cont svg line:nth-child(51) {
+  transition-delay: 0.126446281s;
+}
+
+.button-folding .cont svg line:nth-child(52) {
+  transition-delay: 0.1289256198s;
+}
+
+.button-folding .cont svg line:nth-child(53) {
+  transition-delay: 0.1314049587s;
+}
+
+.button-folding .cont svg line:nth-child(54) {
+  transition-delay: 0.1338842975s;
+}
+
+.button-folding .cont svg line:nth-child(55) {
+  transition-delay: 0.1363636364s;
+}
+
+.button-folding .cont svg line:nth-child(56) {
+  transition-delay: 0.1388429752s;
+}
+
+.button-folding .cont svg line:nth-child(57) {
+  transition-delay: 0.141322314s;
+}
+
+.button-folding .cont svg line:nth-child(58) {
+  transition-delay: 0.1438016529s;
+}
+
+.button-folding .cont svg line:nth-child(59) {
+  transition-delay: 0.1462809917s;
+}
+
+.button-folding .cont svg line:nth-child(60) {
+  transition-delay: 0.1487603306s;
+}
+
+.button-folding .cont svg line:nth-child(61) {
+  transition-delay: 0.1512396694s;
+}
+
+.button-folding .cont svg line:nth-child(62) {
+  transition-delay: 0.1537190083s;
+}
+
+.button-folding .cont svg line:nth-child(63) {
+  transition-delay: 0.1561983471s;
+}
+
+.button-folding .cont svg line:nth-child(64) {
+  transition-delay: 0.158677686s;
+}
+
+.button-folding .cont svg line:nth-child(65) {
+  transition-delay: 0.1611570248s;
+}
+
+.button-folding .cont svg line:nth-child(66) {
+  transition-delay: 0.1636363636s;
+}
+
+.button-folding .cont svg line:nth-child(67) {
+  transition-delay: 0.1661157025s;
+}
+
+.button-folding .cont svg line:nth-child(68) {
+  transition-delay: 0.1685950413s;
+}
+
+.button-folding .cont svg line:nth-child(69) {
+  transition-delay: 0.1710743802s;
+}
+
+.button-folding .cont svg line:nth-child(70) {
+  transition-delay: 0.173553719s;
+}
+
+.button-folding .cont svg line:nth-child(71) {
+  transition-delay: 0.1760330579s;
+}
+
+.button-folding .cont svg line:nth-child(72) {
+  transition-delay: 0.1785123967s;
+}
+
+.button-folding .cont svg line:nth-child(73) {
+  transition-delay: 0.1809917355s;
+}
+
+.button-folding .cont svg line:nth-child(74) {
+  transition-delay: 0.1834710744s;
+}
+
+.button-folding .cont svg line:nth-child(75) {
+  transition-delay: 0.1859504132s;
+}
+
+.button-folding .cont svg line:nth-child(76) {
+  transition-delay: 0.1884297521s;
+}
+
+.button-folding .cont svg line:nth-child(77) {
+  transition-delay: 0.1909090909s;
+}
+
+.button-folding .cont svg line:nth-child(78) {
+  transition-delay: 0.1933884298s;
+}
+
+.button-folding .cont svg line:nth-child(79) {
+  transition-delay: 0.1958677686s;
+}
+
+.button-folding .cont svg line:nth-child(80) {
+  transition-delay: 0.1983471074s;
+}
+
+.button-folding .cont svg line:nth-child(81) {
+  transition-delay: 0.2008264463s;
+}
+
+.button-folding .cont svg line:nth-child(82) {
+  transition-delay: 0.2033057851s;
+}
+
+.button-folding .cont svg line:nth-child(83) {
+  transition-delay: 0.205785124s;
+}
+
+.button-folding .cont svg line:nth-child(84) {
+  transition-delay: 0.2082644628s;
+}
+
+.button-folding .cont svg line:nth-child(85) {
+  transition-delay: 0.2107438017s;
+}
+
+.button-folding .cont svg line:nth-child(86) {
+  transition-delay: 0.2132231405s;
+}
+
+.button-folding .cont svg line:nth-child(87) {
+  transition-delay: 0.2157024793s;
+}
+
+.button-folding .cont svg line:nth-child(88) {
+  transition-delay: 0.2181818182s;
+}
+
+.button-folding .cont svg line:nth-child(89) {
+  transition-delay: 0.220661157s;
+}
+
+.button-folding .cont svg line:nth-child(90) {
+  transition-delay: 0.2231404959s;
+}
+
+.button-folding .cont svg line:nth-child(91) {
+  transition-delay: 0.2256198347s;
+}
+
+.button-folding .cont svg line:nth-child(92) {
+  transition-delay: 0.2280991736s;
+}
+
+.button-folding .cont svg line:nth-child(93) {
+  transition-delay: 0.2305785124s;
+}
+
+.button-folding .cont svg line:nth-child(94) {
+  transition-delay: 0.2330578512s;
+}
+
+.button-folding .cont svg line:nth-child(95) {
+  transition-delay: 0.2355371901s;
+}
+
+.button-folding .cont svg line:nth-child(96) {
+  transition-delay: 0.2380165289s;
+}
+
+.button-folding .cont svg line:nth-child(97) {
+  transition-delay: 0.2404958678s;
+}
+
+.button-folding .cont svg line:nth-child(98) {
+  transition-delay: 0.2429752066s;
+}
+
+.button-folding .cont svg line:nth-child(99) {
+  transition-delay: 0.2454545455s;
+}
+
+.button-folding .cont svg line:nth-child(100) {
+  transition-delay: 0.2479338843s;
+}
+
+.button-folding .cont svg line:nth-child(101) {
+  transition-delay: 0.2504132231s;
+}
+
+.button-folding .cont svg line:nth-child(102) {
+  transition-delay: 0.252892562s;
+}
+
+.button-folding .cont svg line:nth-child(103) {
+  transition-delay: 0.2553719008s;
+}
+
+.button-folding .cont svg line:nth-child(104) {
+  transition-delay: 0.2578512397s;
+}
+
+.button-folding .cont svg line:nth-child(105) {
+  transition-delay: 0.2603305785s;
+}
+
+.button-folding .cont svg line:nth-child(106) {
+  transition-delay: 0.2628099174s;
+}
+
+.button-folding .cont svg line:nth-child(107) {
+  transition-delay: 0.2652892562s;
+}
+
+.button-folding .cont svg line:nth-child(108) {
+  transition-delay: 0.267768595s;
+}
+
+.button-folding .cont svg line:nth-child(109) {
+  transition-delay: 0.2702479339s;
+}
+
+.button-folding .cont svg line:nth-child(110) {
+  transition-delay: 0.2727272727s;
+}
+
+.button-folding .cont svg line:nth-child(111) {
+  transition-delay: 0.2752066116s;
+}
+
+.button-folding .cont svg line:nth-child(112) {
+  transition-delay: 0.2776859504s;
+}
+
+.button-folding .cont svg line:nth-child(113) {
+  transition-delay: 0.2801652893s;
+}
+
+.button-folding .cont svg line:nth-child(114) {
+  transition-delay: 0.2826446281s;
+}
+
+.button-folding .cont svg line:nth-child(115) {
+  transition-delay: 0.2851239669s;
+}
+
+.button-folding .cont svg line:nth-child(116) {
+  transition-delay: 0.2876033058s;
+}
+
+.button-folding .cont svg line:nth-child(117) {
+  transition-delay: 0.2900826446s;
+}
+
+.button-folding .cont svg line:nth-child(118) {
+  transition-delay: 0.2925619835s;
+}
+
+.button-folding .cont svg line:nth-child(119) {
+  transition-delay: 0.2950413223s;
+}
+
+.button-folding .cont svg line:nth-child(120) {
+  transition-delay: 0.2975206612s;
+}
+
+.button-folding .cont svg line:nth-child(121) {
+  transition-delay: 0.3s;
+}
+
+.button-folding .cont a:hover ~ svg > line:nth-child(odd) {
+  transform: scaleY(1.2);
+  opacity: 0.2;
+}
+
+.button-folding .cont a:hover ~ svg > line:nth-child(even) {
+  transform: scaleY(-0.2) translateX(-1px);
+  opacity: 0.2;
+}
+
 /* ----------97---------- */
 /* ----------98---------- */
 /* ----------98---------- */
