@@ -6998,6 +6998,76 @@ button {
 
 /* ----------95---------- */
 /* ----------96---------- */
+.button-weee {
+  -webkit-perspective: 288px;
+  perspective: 288px;
+}
+
+.button-weee .tag {
+  position: relative;
+  display: block;
+  background-color: #FFF;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  min-width: 150px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 25px 20px;
+  border-radius: 0;
+  text-decoration: none;
+  color: #000;
+  letter-spacing: 2px;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+}
+
+.button-weee .tag:before {
+  content: attr(data-content-default);
+}
+
+.button-weee .tag:active {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  -webkit-animation: spinner 200ms infinite linear;
+  animation: spinner 200ms infinite linear;
+}
+
+.button-weee .tag:active:before {
+  content: attr(data-content-spinning);
+}
+
+.button-weee .tag:after, .button-weee .tag:before {
+  position: relative;
+}
+
+@-webkit-keyframes spinner {
+  from {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: rotateX(0) rotateY(-360deg);
+    transform: rotateX(0) rotateY(-360deg);
+  }
+  to {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: rotateX(360deg) rotateY(-360deg);
+    transform: rotateX(360deg) rotateY(-360deg);
+  }
+}
+
+@keyframes spinner {
+  from {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: rotateX(0) rotateY(-360deg);
+    transform: rotateX(0) rotateY(-360deg);
+  }
+  to {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    -webkit-transform: rotateX(360deg) rotateY(-360deg);
+    transform: rotateX(360deg) rotateY(-360deg);
+  }
+}
+
 /* ----------96---------- */
 /* ----------97---------- */
 /* ----------97---------- */
