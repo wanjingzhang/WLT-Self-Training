@@ -7755,6 +7755,33 @@ button {
 
 /* ----------98---------- */
 /* ----------99---------- */
+.button-hello button {
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 72px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.button-hello button:after {
+  content: attr(title);
+  overflow: hidden;
+  position: absolute;
+  width: 0%;
+  top: 0px;
+  left: 0px;
+  padding: 0;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.button-hello button:hover::after {
+  width: 100%;
+}
+
 /* ----------99---------- */
 /* ----------100---------- */
 /* ----------100---------- */

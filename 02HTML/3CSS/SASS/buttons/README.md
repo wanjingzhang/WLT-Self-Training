@@ -1,8 +1,7 @@
 # 100 buttons use sass animation
 https://codemyui.com/tag/button/
 (source from)[https://freefrontend.com/css-buttons/]
-   
-https://codemyui.com/toggle-switch-with-onoff-state/
+    
 https://codepen.io/n3ptun3/pen/XmwXJv
 https://codepen.io/alexandrevale/pen/ZMxQJp
 https://codepen.io/chrisota/pen/bNdRaM
