@@ -4,7 +4,8 @@
   "description": "example node-sass usage",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "node-sass sass/main.scss public/styles/main.css"
   },
   "repository": "https://github.com/andrew/node-sass-example",
   "keywords": [
@@ -27,5 +28,7 @@
   "engines": {
     "node": ">= 0.10.21"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
 }
