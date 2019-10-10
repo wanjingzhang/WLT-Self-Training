@@ -43,10 +43,10 @@
             left: 66%;
             &:after{
                 top: -30px;
-                left: calc(-66% - 20px);
-                
+                left: calc(-66% - 20px); 
                 background-color: var(--bg-color);
                 color:transparent;
+                // transition animation effect
                 transition: transform .4s ease-out;
                 transform: translate(0, -90%) rotate(0deg)
             }
@@ -60,7 +60,7 @@
             top: -30px;
             left: -20px; 
         }
-        // bubbles
+        // button before draw all of the bubbles
         &:before{
             content: '';
             pointer-events: none;
@@ -87,6 +87,7 @@
         pointer-events:none;
     }
 
+    // hover to different block, trigger different animation
     button:hover .right::after {
         transform: translate(0, -47%) rotate(0deg);
     }
@@ -255,8 +256,8 @@
 
             .o2 {
                 stroke: white;
-                stroke-dasharray: 20 420;
-                stroke-dashoffset: 20;
+                stroke-dasharray: 20 420; // creating dashes in the stroke of SVG shapes 在SVG线条上新建短线，数字越大 在线条和短线上的距离越多
+                stroke-dashoffset: 20; //  the location along an SVG path where the dash of a stroke will begin 设置短线的初始化位置
                 transition: all 1s ease-in-out;
             }
         }
@@ -274,7 +275,7 @@
             }
             
             .o2 {
-                stroke-dashoffset: -420;
+                stroke-dashoffset: -420; // move to position
             }
         }
     }
@@ -392,7 +393,7 @@
         text-decoration: none;
         border: 0.2em solid aqua;
         padding: 0.5em 1em;
-        &::before {
+        &:before {
             content: "";
             display: block;
             position: absolute;
@@ -405,7 +406,7 @@
             -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
             transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
         }
-        &::after {
+        &:after {
             content: "";
             display: block;
             position: absolute;
@@ -414,15 +415,15 @@
             height: 0.3em;
             left: 20%;
             bottom: -0.25em;
-            transform: skewX(45deg);
+            transform: skewX(45deg); // 斜切45度角
             -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
             transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
         }
         &:hover {
-            &::before {
+            &:before {
                 right: 80%;
             }
-            &::after {
+            &:after {
                 left: 80%;
             }
         }

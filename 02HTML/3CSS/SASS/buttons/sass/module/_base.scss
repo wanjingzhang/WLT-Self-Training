@@ -39,5 +39,14 @@ h1,h2,h3,h4,h5,h6 {
 		&:not(.footer) {
 			padding-top: 1rem;
 		}
-	}
+  }
+  .name {
+    width: 100%;
+    text-align: center;
+    padding: 0 0 3rem;
+    font: 500 14px 'Rubik', sans-serif;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  }
 }
