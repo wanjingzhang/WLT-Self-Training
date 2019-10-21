@@ -433,6 +433,7 @@
 .button-weee{
     -webkit-perspective: 288px;
     perspective: 288px;
+    //指定了观察者与z=0 平面的距离，使具有三维位置变换的元素产生透视效果。
     .tag {
         position: relative;
         display: block;
@@ -471,25 +472,25 @@
 @-webkit-keyframes spinner {
   from {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: rotateX(0) rotateY(-360deg);
-            transform: rotateX(0) rotateY(-360deg);
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
   }
   to {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: rotateX(360deg) rotateY(-360deg);
-            transform: rotateX(360deg) rotateY(-360deg);
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
   }
 }
 @keyframes spinner {
   from {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: rotateX(0) rotateY(-360deg);
-            transform: rotateX(0) rotateY(-360deg);
+    -webkit-transform: rotateX(0);
+            transform: rotateX(0);
   }
   to {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: rotateX(360deg) rotateY(-360deg);
-            transform: rotateX(360deg) rotateY(-360deg);
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
   }
 }
 /* ----------96---------- */

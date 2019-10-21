@@ -16,3 +16,10 @@ f // change the different screen modes
 # shortcut panel
 tab // hide panel & bar
 tab+shift // hide/reveal panel
+
+
+
+figure
+http://www.photoshoptutorials.tv/chilling-decay-effect-in-photoshop/
+
+https://www.youtube.com/watch?v=Vfz0hDdYl0A
