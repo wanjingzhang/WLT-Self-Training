@@ -48,6 +48,7 @@ Revert // 还原
 自动选择单击图层 // cmd + click
 移动图片 // space
 亮度对比度图层 // Layer -> New Adjustment Layer -> Brightness/Contrast
+色相和饱和 // Layer -> New Ajustment Layer -> Hue/Saturation
 
 窗口平铺 // Window -> Tile
 合并图层 // Layer -> Merge Layers
@@ -76,6 +77,11 @@ opacity // 5,3
 黑色部分是被隐藏的
 梯度工具 混合两张图片
 渐变工具 // g 
+快速选择工具 // w
+
+# 修复刷工具和修补工具
+修复刷工具 // j
+放大 // cmd + 1
 
 
 figure
