@@ -1,4 +1,4 @@
-/**index.wxss**/
+/**index.wxss 样式文件**/
 .userinfo {
   display: flex;
   flex-direction: column;
