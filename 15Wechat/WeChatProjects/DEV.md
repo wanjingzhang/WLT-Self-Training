@@ -26,9 +26,27 @@
 1. wx.redirectTo // 原窗口打开页面
 
 ### 视图层
-1. <view> // 显示页面内容
-1. <text> // 页面数据绑定
+1. <view> // 显示页面内容，替代html大部分标签
+1. <text> // 页面数据绑定，长按选中，不可嵌套
 1. <!--index.wxml--> // 注释
+1. <navigator> // 只支持小程序内跳转，不支持外部链接
+
+### wxss 样式表
+1. 两种屏幕尺寸：rpx,rem. 1rpx=0.5px=1, 1rem=(750/20)rpx 
+1. 样式导入 @import
+/**common.wxss**/
+.small-p{
+    padding:5px;
+}
+/**app.wxss**/
+@import "common.wxss"
+.middle-p{
+    padding:15px;
+}
+1. 内联样式
+<view style="{{color}};"/>
+<view class="normal_view"/>
+1. wxss支持的选择器 .class, #id, element, element,element, ::after, ::before
 
 ### 数据绑定
 1. 显示数据
@@ -98,6 +116,9 @@ Page({
     }
 })
 
+1. 数据类型
+Boolean, Number, String, Array, Object, EventHandler, Any
+
 1. 循环绑定 数值
 <view wx:for="{{array}}">{{item}}</view>
 Page({
@@ -119,3 +140,84 @@ Page({
         ]
     }
 })
+
+1. 模版
+<!--template.wxml-->
+<template>
+    <view>FirstName:{{firstName}},LastName:{{lastName}}</view>
+</template>
+<!--实用模版-->
+<template is="StudentName" data="{{...StudentA}}"></template>
+Page({
+    data:{
+        StudentA:{fistName:'San',lastName:'Zhang'}
+    }
+})
+
+### 事件
+touchstart // 手指触摸
+touchmove // 手指触摸后移动
+touchcancel // 手指触摸被打断
+touchend // 手指触摸结束
+tap // 点击事件
+longtap // 长按事件
+TouchEvent // 触摸事件
+
+1. 事件的属性
+type // 类型
+timeStamp // 事件生成的时间戳，从页面打开到触发
+target // 触发事件的目标
+id // 事件组件的id
+dataset // 事件组件上有data-开头自定义属性组成的集合
+offsetLeft, offsetTop // 事件组件坐标系统中的偏移量
+currentTarget // 当前触发事件的目标
+touches // 触摸事件，当前停留在屏幕中触摸点的信息数组(identifier,pageX,pageY,clientX,clientY)
+changedTouches // 触摸事件，当前变化的触摸点信息的数组
+detail // 额外的信息,自定义事件
+
+### 文件的引用
+1. import // 使用目标文件的template, 有作用域的概念。不可以越级引用，c不可引用a
+<!--pages/a/a.wxml-->
+<template name="A">
+    <text>{{text}}</text>
+</template>
+<!--pages/b/b.wxml-->
+<import src="../../pages/a/a.wxml">
+<template is="A" data="{{text:'b import a'}}">
+
+1. include // 代码整个引入，相当于复制代码到include的位置，可跨级引用
+<!--pages/c/c.wxml-->
+<include src="../../pages/a/a.wxml">
+
+### 组件
+1. 公有属性
+id, class, style,hidden , data-*, bind*/catch*
+
+1. 视图容器
+view // 视图容器
+scroll-view // 可滚动的视图容器
+swiper // 可滑动的视图容器
+movable-area // 可移动的视图容器，在页面中可以拖拽滑动
+cover-view // 覆盖在原生组件之上的文本视图
+
+1. 基础容器
+icon // 图标
+text // 文字
+rich-text // 富文本
+progress // 进度条
+
+1. 视图容器
+view, scroll-view, swiper, swiper-item, movable-area, movable-view, cover-view, cover-image
+
+1. 表单
+button // 按钮
+form // 表单
+input // 输入框
+checkbox // 单项选择器
+radio // 多项选择器
+picker // 列表选择器
+picker-view // 嵌入页面的滚动选择
+slider // 滑动选择器
+switch // 开关选择器
+label // 标签
+textarea // 多行输入框
