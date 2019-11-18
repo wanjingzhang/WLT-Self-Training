@@ -1,0 +1,96 @@
+{
+    "message": "success",
+    "data": {
+        "version": "None|None|1492956107",
+        "data": [
+            {
+                "category": "all",
+                "web_url": "",
+                "flags": 0,
+                "name": "热点",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_society",
+                "web_url": "",
+                "flags": 0,
+                "name": "社会",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497899397089794",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_entertainment",
+                "web_url": "",
+                "flags": 0,
+                "name": "娱乐",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497896830175745",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_tech",
+                "web_url": "",
+                "flags": 0,
+                "name": "科技",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497899594222081",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_car",
+                "web_url": "",
+                "flags": 0,
+                "name": "汽车",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497898671475202",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_finance",
+                "web_url": "",
+                "flags": 0,
+                "name": "财经",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497900357585410",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_military",
+                "web_url": "",
+                "flags": 0,
+                "name": "军事",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497895454444033",
+                "type": 4,
+                "icon_url": ""
+            },
+            {
+                "category": "news_sports",
+                "web_url": "",
+                "flags": 0,
+                "name": "体育",
+                "tip_new": 0,
+                "default_add": 1,
+                "concern_id": "6215497726554016258",
+                "type": 4,
+                "icon_url": ""
+            }
+        ]
+    }
+}

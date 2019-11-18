@@ -59,3 +59,9 @@ WXS的速度在IOS上比JS快2～20倍，但在Android相差无几。
 工具会提示代码超出大小限制的提示。
 
 3. 版本审核需要1-3天，正常就半天到一天就可以。
+
+
+网络
+小程序可以与指定的域名迚行网络通信。（开发-开发设置-服务器域名）包括 HTTPS 请求
+（wx.request）、WebSocket 通信（wx.connectSocket）、上传文件
+（wx.uploadFile）和下载文件（wx.downloadFile）。     
