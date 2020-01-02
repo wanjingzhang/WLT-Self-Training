@@ -11,6 +11,10 @@
     <div class="container">
         <div class="card mt-5">
             <h2 class="card-header">Near-Earth Objects</h2>
+            <div class="m-3" v-cloak v-if="numAsteroids > 0">
+                <p>showing {{numAsteroids}} items</p>
+                <p>{{closestObject}} has the shortest miss distance.</p>
+            </div>
             <table class="table">
                 <thead class="thead-light">
                     <th>#</th>
@@ -20,7 +24,8 @@
                     <th>Remove</th>
                 </thead>
                 <tbody v-cloak>
-                    <tr v-for="(a,index) in asteroids" :key="a.neo_reference_id.id">
+                    <tr v-for="(a,index) in asteroids" :key="a.neo_reference_id.id"
+                        :style="[getRowStyle(a),{color:'blue'}]" style="color:green">
                         <td>{{index + 1}}</td>
                         <td>{{a.name}}</td>
                         <td>{{getCloseApproachDate(a)}}</td>
@@ -45,7 +50,24 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            asteroids: []
+            asteroids: [] 
+        },
+        computed:{
+            numAsteroids :function(){
+                return this.asteroids.length;
+            },
+            closestObject:function(){
+                var neosHavingData = this.asteroids.filter(function(neo){
+                    return neo.close_approach_data.length > 0;
+                });
+                var simpleNeos = neosHavingData.map(function(neo){
+                    return {name:neo.name,miles:neo.close_approach_data[0].miss_distance.miles};
+                });
+                var sortedNeos = simpleNeos.sort(function(a,b){
+                    return a.miles - b.miles;
+                });
+                return sortedNeos[0].name;
+            }
         },
         created: function () {
             this.fetchAsteroids();
@@ -56,7 +78,7 @@
                 var url = 'https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=' + apiKey;
                 axios.get(url)
                     .then(function (res) {
-                        vm.asteroids = res.data.near_earth_objects.slice(0, 10);
+                        vm.asteroids = res.data.near_earth_objects.slice(0, 100); 
                     });
             },
             getCloseApproachDate: function (a) {
@@ -67,6 +89,14 @@
             },
             remove:function(index){
                 this.asteroids.splice(index,1);
+            },
+            getRowStyle:function(a){
+                if(a.close_approach_data.length == 0){
+                    return {
+                        border:'solid 3px red',
+                        color:'red'
+                    }
+                }
             }
         }     
     });        
