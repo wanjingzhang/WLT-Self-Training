@@ -5,27 +5,51 @@
     [v-cloak] {
         display: none;
     }
+    .highlight{
+        border:solid 3px red;
+        color:red;
+    }
+    .shooting-star-leave-to, .shooting-star-enter{
+        transform: translateX(150px) rotate(30deg);
+        opacity: 0;
+    }
+    .shooting-star-enter-active, .shooting-star-leave-active{
+        transition: all .5s ease;
+    }
+    .neo-list-leave-to , .neo-list-enter{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    .neo-list-enter-active, .neo-list-leave-active{
+        transition: all 1s linear;
+    }
 </style>
 
 <div id="app">
     <div class="container">
         <div class="card mt-5">
             <h2 class="card-header">Near-Earth Objects</h2>
-            <div class="m-3" v-cloak v-if="numAsteroids > 0">
-                <p>showing {{numAsteroids}} items</p>
-                <p>{{closestObject}} has the shortest miss distance.</p>
+            <transition name="shooting-star">
+                <div class="m-3" v-cloak v-if="numAsteroids > 0 && showSummary">
+                    <p>showing {{numAsteroids}} items</p>
+                    <p>{{closestObject}} has the shortest miss distance.</p>
+                </div>
+            </transition>
+            
+            <div class="m-3">
+                <a href="#" @click="showSummary =! showSummary">Show/hide summary</a>
             </div>
-            <table class="table">
+            <table class="table table-striped" :class="[{'table-dark':false},'table-bordered']">
                 <thead class="thead-light">
                     <th>#</th>
                     <th>Name</th>
                     <th>Close Approach Date</th>
                     <th>Miss Distance</th>
                     <th>Remove</th>
-                </thead>
-                <tbody v-cloak>
-                    <tr v-for="(a,index) in asteroids" :key="a.neo_reference_id.id"
-                        :style="[getRowStyle(a),{color:'blue'}]" style="color:green">
+                </thead> 
+                <tbody is="transition-group" name="neo-list" v-cloak> 
+                    <tr v-for="(a,index) in asteroids" v-bind:key="a.neo_reference_id"
+                        :class="{highlight:isMissingData(a), 'shadow-sm':true}">
                         <td>{{index + 1}}</td>
                         <td>{{a.name}}</td>
                         <td>{{getCloseApproachDate(a)}}</td>
@@ -50,7 +74,8 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            asteroids: [] 
+            asteroids: [] ,
+            showSummary: true
         },
         computed:{
             numAsteroids :function(){
@@ -97,6 +122,9 @@
                         color:'red'
                     }
                 }
+            },
+            isMissingData:function(a){
+                return a.close_approach_data.length == 0;
             }
         }     
     });        
