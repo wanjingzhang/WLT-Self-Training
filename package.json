@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@wepy/cli": "^2.0.0-alpha.17",
     "classnames": "^2.2.6",
     "create-react-app": "^3.0.1",
     "highlight.js": "^9.15.6"
