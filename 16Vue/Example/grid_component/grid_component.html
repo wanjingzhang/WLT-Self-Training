@@ -5,7 +5,7 @@
 
 <div id="app">
     <div class="container">
-        <asteroid-grid :asteroids="asteroids" header="Near-Earth Objects"></asteroid-grid>        
+        <asteroid-grid @remove="remove" :asteroids="asteroids" header="Near-Earth Objects"></asteroid-grid>        
     </div> 
 </div>
 
@@ -29,6 +29,9 @@
                     .then(function (res) {                                       
                         vm.asteroids = res.data.near_earth_objects.slice(0, 10);
                     });
+            },
+            remove:function(index){
+                this.asteroids.splice(index, 1);
             }
         }
     });    
