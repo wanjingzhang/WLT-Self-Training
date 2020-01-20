@@ -13,7 +13,7 @@ var main = Bone.extend({}, Bone.Events, {
         this.$main.append(this.stage.el);
 
         this.root = new C3D.Sprite();
-        this.root.position(0, 0, -600).update();
+        this.root.position(0, 0, -600).update(); // go back to 600 
         this.stage.addChild(this.root);
 
         pano.init(this.root);
@@ -23,12 +23,12 @@ var main = Bone.extend({}, Bone.Events, {
         });
         this.resize();
 
-        this.initControl();
+        this.initControl(); 
     },
-    drag: {lon: 0, lat: 0},
+    drag: {lat: 0, lon: 0},
     aim: {lat: 0, lon: 0},
-    fix: {lon: 0, lat: 0},
-    lock: true,
+    fix: { lat: 0, lon: 0 }, 
+    lock: false,
     initControl: function () {
         var _self = this;
         gesture.on('move', function (obj) {
@@ -39,17 +39,22 @@ var main = Bone.extend({}, Bone.Events, {
         });
 
         var orienter = new Orienter();
-        orienter.handler = function (obj) {
+        orienter.handler = function (obj) { 
             _self.aim.lat = obj.lat;
             _self.aim.lon = -obj.lon;
-
+            document.getElementById("status").innerHTML = "mobile .lat:" + obj.lat + " .lon:" + obj.lon + " _self.fix.lat:" + _self.fix.lat + " _self.fix.lon:" + _self.fix.lon;
+            // console.info("obj.lat:" + obj.lat + "obj.lon:" + obj.lon)
+            
             if (_self.lock) {
                 _self.fix.lat = -_self.aim.lat;
                 _self.fix.lon = -_self.aim.lon;
             }
         };
-        orienter.init();
-
+        // _self.fix.lon = 360 - _self.aim.lon; 
+        orienter.init(); 
+        this.root.rotationY = 0;
+        // init android init position at center.
+        
         this.animate = this.animate.bind(this);
 
         _self.animateOn();
@@ -71,6 +76,8 @@ var main = Bone.extend({}, Bone.Events, {
 
         var _lon = (this.aim.lon + this.fix.lon + this.drag.lon) % 360;
         var _lat = (this.aim.lat + this.fix.lat + this.drag.lat) * 0.35;
+
+        console.info("_lon=" + _lon + " lat=" + _lat);
 
         if (_lon - this.root.rotationY > 180) this.root.rotationY += 360;
         if (_lon - this.root.rotationY < -180) this.root.rotationY -= 360;
@@ -117,6 +124,52 @@ var main = Bone.extend({}, Bone.Events, {
         }, 100);
     },
 
-});
+});  
 
-main.init();
+
+var IEVersion = function(){
+    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+    var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+    var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+    var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+    var ieVersion = -1;
+    if (isIE) {
+        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+        reIE.test(userAgent);
+        var fIEVersion = parseFloat(RegExp["$1"]);
+        if (fIEVersion == 7) {
+            ieVersion = 7;
+        } else if (fIEVersion == 8) {
+            ieVersion = 8;
+        } else if (fIEVersion == 9) {
+            ieVersion = 9;
+        } else if (fIEVersion == 10) {
+            ieVersion = 10;
+        } else {
+            ieVersion = 6;//IE版本<=7
+        }
+    } else if (isEdge) {
+        ieVersion = 'edge';//edge
+    } else if (isIE11) {
+        ieVersion = 11; //IE11  
+    } else {
+        ieVersion = -1;//不是ie浏览器
+    }
+
+    if (ieVersion === -1 && ieVersion === 'edge') {
+        return true;
+    } else {
+        return false;
+    }
+} 
+
+var ua = navigator.userAgent.toLowerCase();
+var isWeixin = ua.indexOf('micromessenger') != -1;
+var isIe = IEVersion(); 
+       
+if (!isIe) {
+  main.init();  
+} else {
+  document.getElementById("staticImg").style.display = "block";
+    // alert("is IE :" + isIe);
+}   

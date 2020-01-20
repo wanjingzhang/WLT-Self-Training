@@ -107,9 +107,9 @@ var OT = {
 
 function orientationHandler(event) {
     text = ""; 
-    text += "左右旋转：rotate alpha{" + Math.round(event.alpha) + "deg)<br>";
-    text += "前后旋转：rotate beta{" + Math.round(event.beta) + "deg 上下)<br>";
-    text += "扭转设备：rotate gamma{" + Math.round(event.gamma) + "deg 左右)<br>";
+    text += "水平旋转 Z轴：rotate alpha{" + Math.round(event.alpha) + "deg)<br>";
+    text += "前后旋转 X轴：rotate beta{" + Math.round(event.beta) + "deg 上下)<br>";
+    text += "左右旋转 Y轴：rotate gamma{" + Math.round(event.gamma) + "deg 左右)<br>";
     OT.alpha = event.alpha;
     OT.beta = event.beta;
     OT.gamma = event.gamma;

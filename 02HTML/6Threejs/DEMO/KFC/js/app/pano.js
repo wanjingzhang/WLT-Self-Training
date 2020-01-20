@@ -184,21 +184,21 @@ var pano = Bone.extend({}, Bone.Events, {
 
         var home = C3D.create({
             type: 'plane',
-            size: [360, 1060],
+            size: [360, 545],
             position: [0, 0, -800],
             scale: [2],
-            material: [{image: './images/home.png', bothsides: false}]
+            material: [{ image: './images/home.png', bothsides: false }]
         });
         this.stage.addChild(home);
 
-        var curve = C3D.create({
-            type: 'plane',
-            size: [2551, 304],
-            position: [0, -600, -800],
-            scale: [2],
-            material: [{image: './images/curve.png', bothsides: false}]
-        });
-        this.stage.addChild(curve);
+        // var curve = C3D.create({
+        //     type: 'plane',
+        //     size: [2551, 304],
+        //     position: [0, -600, -800],
+        //     scale: [2],
+        //     material: [{image: './images/curve.png', bothsides: false}]
+        // });
+        // this.stage.addChild(curve);
 
     },
 });
