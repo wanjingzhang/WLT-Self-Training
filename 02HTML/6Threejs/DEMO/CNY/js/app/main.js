@@ -77,7 +77,7 @@ var main = Bone.extend({}, Bone.Events, {
         var _lon = (this.aim.lon + this.fix.lon + this.drag.lon) % 360;
         var _lat = (this.aim.lat + this.fix.lat + this.drag.lat) * 0.35;
 
-        console.info("_lon=" + _lon + " lat=" + _lat);
+        // console.info("_lon=" + _lon + " lat=" + _lat);
 
         if (_lon - this.root.rotationY > 180) this.root.rotationY += 360;
         if (_lon - this.root.rotationY < -180) this.root.rotationY -= 360;
@@ -94,14 +94,14 @@ var main = Bone.extend({}, Bone.Events, {
         for (var i = 0, l = this.root.actors.children.length; i < l; i++) {
             var _actor = this.root.actors.children[i];
             if (_actor.r0 > _ry - 30 && _actor.r0 < _ry + 30) {
-                if (_actor.info.alpha == 0) {
-                    JT.kill(_actor.info);
-                    JT.to(_actor.info, 0.3, {
-                        x:_actor.data.info.x, y:_actor.data.info.y, scaleX: 1, scaleY: 1, alpha:1, ease: JT.Quad.Out, onUpdate: function () {
-                            this.target.updateT().updateV();
-                        }
-                    });
-                }
+                // if (_actor.info.alpha == 0) {
+                //     JT.kill(_actor.info);
+                //     JT.to(_actor.info, 0.3, {
+                //         x:_actor.data.info.x, y:_actor.data.info.y, scaleX: 1, scaleY: 1, alpha:1, ease: JT.Quad.Out, onUpdate: function () {
+                //             this.target.updateT().updateV();
+                //         }
+                //     });
+                // }
             } else {
                 if (_actor.info.alpha == 1) {
                     JT.kill(_actor.info);

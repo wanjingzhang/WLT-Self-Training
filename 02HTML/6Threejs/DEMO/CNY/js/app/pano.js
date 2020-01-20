@@ -257,9 +257,29 @@ var pano = Bone.extend({}, Bone.Events, {
                 }
             });
 
+            _item.on('touchstart', function () {
+                console.log("zodiac touchstart:" + i);
+                if (_item.info.alpha == 0) {
+                    JT.kill(_item.info);
+                    JT.to(_item.info, 0.3, {
+                        x: _item.data.info.x, y: _item.data.info.y, scaleX: 1.3, scaleY: 1.3, alpha: 1, ease: JT.Quad.Out, onUpdate: function () {
+                            this.target.updateT().updateV();
+                        }
+                    });
+                }
+                if (_item.info.alpha == 1) {
+                    JT.kill(_item.info);
+                    JT.to(_item.info, 0.3, {
+                        x: 0, y: 0, scaleX: 0, scaleY: 0, alpha: 0, ease: JT.Quad.Out, onUpdate: function () {
+                            this.target.updateT().updateV();
+                        }
+                    });
+                }
+            })
+
             _item.on('touchend', function () {
-                if (Math.abs(gesture.dx) > 10 || Math.abs(gesture.dy) > 10) return;
-                _self.trigger('item', i);
+                // if (Math.abs(gesture.dx) > 10 || Math.abs(gesture.dy) > 10) return;
+                // _self.trigger('item', i); 
             });
             _item.r0 = _lon;
             _item.data = _data;
@@ -271,27 +291,52 @@ var pano = Bone.extend({}, Bone.Events, {
         var home = C3D.create({
             type: 'plane',
             size: [792 , 1632],
-            position: [0, 0, -1000],
-            scale: [1.3],
-            material: [{ image: './images/home2.png', bothsides: false }]
+            position: [0, 200, -1000],
+            scale: [1.5],
+            material: [{ image: './images/home.png', bothsides: false }]
         });
         this.stage.addChild(home);
-        home.on("mouseover", function () {
-            this.le.scale(1.1).update();
-        });
-        home.on("mouseout", function () {
-            this.le.scale(1).update();
-        });
-        home.on("touchstart", function () {
-            this.le.scale(1.8).update();
-        });
-        home.on("touchend", function () {
-            this.le.scale(1).update();
-        });
-       
+        // home.on("mouseover", function () {
+        //     this.le.scale(1.6).update();
+        // });
+        // home.on("mouseout", function () {
+        //     this.le.scale(1.5).update();
+        // });
+        // home.on("touchstart", function () {
+        //     this.le.scale(1.6).update();
+        // });
+        // home.on("touchend", function () {
+        //     this.le.scale(1.5).update();
+        // }); 
 
         // add cta event
-
+        var cta = C3D.create({
+            type: 'plane',
+            size: [112 , 29],
+            position: [0, 800, -600],
+            scale: [2],
+            material: [{ image: './images/cta.jpg', bothsides: false }]
+        });
+        this.stage.addChild(cta);
+        cta.on("click", function () { 
+            window.open("http://www.baidu.com");
+        });  
+        cta.on("touchstart", function () {
+            JT.kill(this.le);
+            JT.to(this.le, 0.3, {  scaleX: 2.2, scaleY: 2.2, ease: JT.Cubic.Out, onUpdate: function () {
+                    this.target.updateT().updateV();
+                }
+            }); 
+        });
+        cta.on("touchend", function () {
+            JT.kill(this.le);
+            JT.to(this.le, 0.3, {
+                scaleX: 2, scaleY: 2, ease: JT.Cubic.Out, onUpdate: function () {
+                    this.target.updateT().updateV();
+                }
+            }); 
+            window.open("http://www.baidu.com");
+        });
 
         // var otherData = [
         //     { w: 301, h: 301, url: 'other1.png'},
