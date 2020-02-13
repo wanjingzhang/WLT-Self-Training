@@ -1,19 +1,24 @@
 <!DOCTYPE html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
     <div id="app">
         <div class="container">
-            <form action="" class="mt-5">
+            <form v-show="!submitted" action="" class="mt-5">
                 <div class="form-group">
                    <h1 >{{greeting}}</h1>  
                    <label for="email">Email</label>
                    <input type="email" v-model="email" class="form-control form-control-lg">  
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" v-on:click="process" class="btn btn-primary">
                     Submit
                 </button>
             </form>
+            <h2 v-show="submitted" v-cloak class="mt-5">Thanks for signing up!</h2>
         </div>
     </div>
     
@@ -24,6 +29,14 @@
         data:{
             greeting:"Hello from Vue!",
             email: 'mike@example.com',
+            submitted: false,
+        },
+        methods: {
+            process: function(event){
+                event.preventDefault();
+                alert('Sumitted:' + this.email);
+                this.submitted = true;
+            }
         }
     })
     </script>
