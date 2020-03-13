@@ -29,11 +29,13 @@
         }
 
         new Person();
+        var Janice = new Person();
+        Janice.name = "Janice";
         var VIP_emp = {
             bonus: function(){
                 console.log(this);
             },
-            title: myfunction
+            title: myfunction.bind(Janice)
         }
         VIP_emp.bonus();
         VIP_emp.title();
