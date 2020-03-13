@@ -43,15 +43,23 @@
         // this.shuffle();
     }
     // Cards 
-    //     ----
-    //     shuffle
+    // ----
+    // shuffle 洗牌代码把数组里面的数据打乱
     Deck.prototype.shuffle = function () {
-        console.log(this);
+        // console.log(this);
+        var cardsToShuffle = this.gameDeck.deckData;
+        var m = cardsToShuffle.length, t, i;
+        while (m) {
+            i = Math.floor(Math.random() * m--);
+            t = cardsToShuffle[m];
+            cardsToShuffle[m] = cardsToShuffle[i];
+            cardsToShuffle[i] = t;
+        }
+        this.gameDeck.deckData = cardsToShuffle;
+        this.gameDeck.buildDeck(this.deck_div);
     }
-    //     stack
-    
-   
-
+    // stack
+     
     // Cards
     var Card = function () {
         this.id = "";

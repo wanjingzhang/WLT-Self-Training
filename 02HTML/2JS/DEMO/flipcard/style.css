@@ -29,7 +29,9 @@ body{
   	width: 540px;
   	float:left;
   	margin: 0px 1em;
-  	position:relative;
+	position:relative;
+	display:flex;
+	flex-wrap: wrap;
 }
 #discard_div{
 	width:auto;
@@ -182,4 +184,12 @@ button {
 img{
 	width: 40px;
 
+}
+
+.card_containter{
+	height: 222px;
+    width: 342px;
+    flex-grow: 1;
+    width: 33%;
+    margin: 20px;
 }
