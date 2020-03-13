@@ -11,8 +11,8 @@
 	
 		this.deck_div = document.createElement("div");
 		this.deck_div.id = "deck_div";
-		this.gameDeck = new Deck(this.deck_div, option);
-		this.gameDeck.buildDeck();
+		this.gameDeck = new Deck(option);
+		this.gameDeck.buildDeck.call(this);
 
 		var shuffleBtn =document.createElement("button");
 		shuffleBtn.innerHTML = "Shuffle";
@@ -29,19 +29,19 @@
 	
 
 	// Deck
-	var Deck = function(deck_div, option){
+	var Deck = function(option){
 		this.deckData = option.data;
 		this.buildDeck = function(){
 			var parentFrag = document.createDocumentFragment();
-			deck_div.innerHTML = "";
-			for (var i = this.deckData.length - 1; i >= 0; i--) {
+			this.deck_div.innerHTML = "";
+			for (var i = this.option.data.length - 1; i >= 0; i--) {
 				var card = new Card();
 				card.id = "card-" + i;
-				card.data = this.deckData[i];
+				card.data = this.option.data[i];
 				card.buildCard(parentFrag);
 			}
-			deck_div.appendChild(parentFrag);
-			this.stack(deck_div);
+			this.deck_div.appendChild(parentFrag);
+			this.gameDeck.stack.call(this);
 		}
 		
 		
@@ -59,11 +59,11 @@
 			cardsToShuffle[i] = t;
 		}
 		this.gameDeck.deckData = cardsToShuffle;
-		this.gameDeck.buildDeck(this.deck_div);
+		this.gameDeck.buildDeck.call(this);
 	}
 	// 	stack 堆栈保护变量 
-	Deck.prototype.stack = function(deck_div){
-		var cards = deck_div.children;
+	Deck.prototype.stack = function(){
+		var cards = this.deck_div.children;
 		for (var i = cards.length - 1; i >= 0; i--) {
 			cards[i].style.top = i + "px";
 			cards[i].style.left = i + "px";
