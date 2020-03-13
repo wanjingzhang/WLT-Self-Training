@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="flashcard_QA.json"></script>
+    <script type="text/javascript" src="main.js" ></script>
     <title>Document</title>
 </head>
 <body>
+    <div id="game_div"></div>
     <!-- Chapter 1: javascript Prototype, resuable components, explore binding in the context of this more deeply. -->
+    <script> 
+    (function(){
+        var myGame = new Game("game_div", {game: "flash", data: flashcard_QA});
+        console.log(myGame);
+    })();
+    </script>
 </body>
 </html>
