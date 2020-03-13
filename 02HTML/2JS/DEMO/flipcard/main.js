@@ -13,14 +13,17 @@
         this.gameDeck = new Deck(this.deck_div, option);
         this.gameDeck.buildDeck();
 
+        var shuffleBtn = document.createElement("button");
+        shuffleBtn.innerHTML = "Shuffle";
+        shuffleBtn.onclick = this.gameDeck.shuffle.bind(this); // 绑定高级别的 game object 对象
+         
+        this.info_div.appendChild(shuffleBtn);
         //     Discard Pile
         //     Rules
 
         this.el.appendChild(this.info_div);
         this.el.appendChild(this.deck_div);
-    }
-
-
+    } 
 
     // Deck
     var Deck = function (deck_div, option) {
@@ -37,11 +40,14 @@
             }
             deck_div.appendChild(parentFrag);
         }
-        
+        // this.shuffle();
     }
     // Cards 
     //     ----
     //     shuffle
+    Deck.prototype.shuffle = function () {
+        console.log(this);
+    }
     //     stack
     
    

@@ -19,13 +19,13 @@
         var myGame = new Game("game_div", {game: "flash", data: flashcard_QA});
         // console.log(myGame);
         function myfunction(){
-            console.log(this);
+            // console.log(this);
         }
         myfunction();
         var Person = function(){
             this.name = "John";
             this.salary = 10;
-            console.log(this); 
+            // console.log(this); 
         }
 
         new Person();
@@ -33,7 +33,7 @@
         Janice.name = "Janice";
         var VIP_emp = {
             bonus: function(){
-                console.log(this);
+                // console.log(this);
             },
             title: myfunction.bind(Janice)
         }
