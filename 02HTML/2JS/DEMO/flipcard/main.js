@@ -79,6 +79,15 @@
 
             this.cardCont.id = this.id;
             this.cardCont.appendChild(flipDiv);
+            this.cardCont.onclick = function (e) {
+                // console.log(e.target, e.currentTarget); // 当前目标，当前父容器
+                // console.log(e.currentTarget.className, e.currentTarget.classList); // 样式、样式表
+                // console.log(this); // 当前父容器
+
+                e.currentTarget.classList.toggle("flip_card");
+                e.currentTarget.classList.toggle("slide_over");
+
+            }
             parentFrag.appendChild(this.cardCont);
         }
     }

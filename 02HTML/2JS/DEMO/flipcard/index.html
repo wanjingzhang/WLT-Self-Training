@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript" src="flashcard_QA.json"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="animation.css">
     <script type="text/javascript" src="main.js" ></script>
     <title>Document</title>
 </head>
@@ -14,8 +15,28 @@
     <!-- Chapter 1: javascript Prototype, resuable components, explore binding in the context of this more deeply. -->
     <script> 
     (function(){
+        "use strict";
         var myGame = new Game("game_div", {game: "flash", data: flashcard_QA});
-        console.log(myGame);
+        // console.log(myGame);
+        function myfunction(){
+            console.log(this);
+        }
+        myfunction();
+        var Person = function(){
+            this.name = "John";
+            this.salary = 10;
+            console.log(this); 
+        }
+
+        new Person();
+        var VIP_emp = {
+            bonus: function(){
+                console.log(this);
+            },
+            title: myfunction
+        }
+        VIP_emp.bonus();
+        VIP_emp.title();
     })();
     </script>
 </body>
