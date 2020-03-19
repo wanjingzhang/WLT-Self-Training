@@ -66,7 +66,7 @@
 		var cards = this.deck_div.children;
 		for (var i = cards.length - 1; i >= 0; i--) {
 			cards[i].style.top = i + "px";
-			cards[i].style.left = i + "px";
+			cards[i].style.left = i + "px";  
 			cards[i].classList.add("stacked_card");
 		}
 	}
